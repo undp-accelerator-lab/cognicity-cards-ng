@@ -9,6 +9,17 @@
 # dependencies
 /node_modules
 
+# deployment specific assets
+/src/assets/icons
+/src/assets/images
+/src/assets/locales
+/src/assets/logos
+/src/resources
+/src/index.html
+
+# docs
+/docs
+
 # IDEs and editors
 /.idea
 .project
@@ -42,3 +53,4 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+*.swp
