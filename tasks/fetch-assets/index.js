@@ -60,9 +60,10 @@ gulp.task('fetchHTML', () => {
   .pipe(gulp.dest('../src/'));
 });
 
-gulp.task('default', [
+gulp.task('default', gulp.parallel(
   'clearPreviousAssets',
+  'fetchDevEnvironment',
   'fetchAssets',
   'fetchResources',
   'fetchHTML'
-]);
+));

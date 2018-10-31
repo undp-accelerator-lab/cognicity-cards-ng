@@ -16,6 +16,7 @@
 /src/assets/logos
 /src/resources
 /src/index.html
+/src/environments/environment.ts
 
 # docs
 /docs
