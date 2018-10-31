@@ -40,7 +40,9 @@
     "docs": "rm -rf ./docs && gulp --gulpfile ./tasks/generate-docs",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "add-deck": "ng g m routes/decks/$deck -m routes/landing --routing && ng g c routes/decks/$deck -m $deck",
+    "add-card": "ng g c routes/cards/$card -m routes/landing"
   },
   "private": true,
   "dependencies": {
