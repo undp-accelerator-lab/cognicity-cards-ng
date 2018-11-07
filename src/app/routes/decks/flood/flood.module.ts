@@ -9,6 +9,10 @@ import { FloodComponent } from './flood.component';
 
 // Child card components
 import { LocationComponent } from '../../cards/location/location.component';
+import { PhotoComponent } from '../../cards/photo/photo.component';
+import { DescriptionComponent } from '../../cards/description/description.component';
+import { DepthComponent } from '../../cards/depth/depth.component';
+import { ReviewComponent } from '../../cards/review/review.component';
 
 // Components used in deck
 import { DropdownNotificationComponent } from '../../../components/dropdown-notification/dropdown-notification.component';
@@ -22,6 +26,7 @@ import { OptionsGridComponent } from '../../../components/options-grid/options-g
 import { OptionsListComponent } from '../../../components/options-list/options-list.component';
 import { ImageUploaderComponent } from '../../../components/image-uploader/image-uploader.component';
 import { SubmitSwipeComponent } from '../../../components/submit-swipe/submit-swipe.component';
+import { DepthSliderComponent } from '../../../components/depth-slider/depth-slider.component';
 
 @NgModule({
   imports: [
@@ -33,6 +38,10 @@ import { SubmitSwipeComponent } from '../../../components/submit-swipe/submit-sw
     FloodComponent,
     // Cards
     LocationComponent,
+    PhotoComponent,
+    DescriptionComponent,
+    DepthComponent,
+    ReviewComponent,
     // Deck components
     NavButtonComponent,
     DropdownNotificationComponent,
@@ -43,7 +52,8 @@ import { SubmitSwipeComponent } from '../../../components/submit-swipe/submit-sw
     OptionsGridComponent,
     OptionsListComponent,
     ImageUploaderComponent,
-    SubmitSwipeComponent
+    SubmitSwipeComponent,
+    DepthSliderComponent
   ]
 })
 export class FloodModule { }
