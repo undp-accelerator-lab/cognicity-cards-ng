@@ -39,6 +39,8 @@ gulp.task('fetchDevEnvironment', () => {
   .pipe(gulp.dest('../src/environments/'));
 });
 
+// RUN COPY
+
 gulp.task('fetchAssets', () => {
   return gulp
   .src([`../deployments/${dep}/assets/**/*`])

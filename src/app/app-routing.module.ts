@@ -4,10 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './routes/error/error.component';
 import { ThanksComponent } from './routes/thanks/thanks.component';
 
+import { environment as env } from '../environments/environment';
+
 const routes: Routes = [
-  { path: '', loadChildren: './routes/landing/landing.module#LandingModule' },
   { path: 'error', component: ErrorComponent },
   { path: 'thanks', component: ThanksComponent },
+  {
+    path: ':otl',
+    loadChildren: './routes/decks/deck.module#DeckModule',
+    data: {decks: env.supportedDecks}
+  },
   { path: '**', component: ErrorComponent, data: {error: 'pageNotFound'} }
 ];
 

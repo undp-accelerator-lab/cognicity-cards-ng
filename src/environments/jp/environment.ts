@@ -1,6 +1,9 @@
 export const environment = {
   production: false,
+  stage: 'dev',
+  deployment: 'jp',
+
   supportedDecks: [
-    'flood',
+    { path: 'flood', loadChildren: './flood/flood.module#FloodModule'}
   ],
 };
