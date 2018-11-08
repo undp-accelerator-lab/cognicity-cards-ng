@@ -1,0 +1,18 @@
+{
+  "production": true,
+  "stage": "prod",
+  "deployment": "jp",
+
+  "decks": [
+    {
+      "name": "flood",
+      "cards": [
+        "location",
+        "depth",
+        "photo",
+        "description",
+        "review"
+      ]
+    }
+  ]
+}
