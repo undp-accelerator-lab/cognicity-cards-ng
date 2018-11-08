@@ -42,8 +42,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "add-deck": "ng g m routes/decks/$deck --routing && ng g c routes/decks/$deck -m $deck",
-    "add-card": "ng g c routes/cards/$card -m routes/decks/$deck",
-    "add-component": "ng g c components/$comp -m routes/decks/$deck"
+    "add-card": "ng g m routes/cards/$card --routing && ng g c routes/cards/$card -m $card",
+    "add-component": "ng g c components/$comp -m routes/decks/$card"
   },
   "private": true,
   "dependencies": {

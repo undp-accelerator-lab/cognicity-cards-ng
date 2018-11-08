@@ -5,6 +5,7 @@ import { ErrorComponent } from './routes/error/error.component';
 import { ThanksComponent } from './routes/thanks/thanks.component';
 
 import { environment as env } from '../environments/environment';
+import { PreloadCardsService } from './services/preload-cards.service';
 
 const routes: Routes = [
   { path: 'error', component: ErrorComponent },
@@ -21,10 +22,12 @@ const routes: Routes = [
   imports: [ RouterModule.forRoot(routes, {
     onSameUrlNavigation: 'reload',
     enableTracing: false,
+    preloadingStrategy: PreloadCardsService
     // TODO: try preloading
     // Use custom preload strategy, check with environment - supported card decks?
     // https://angular.io/guide/router#custom-preloading-strategy
   }) ],
-  exports: [ RouterModule ]
+  exports: [ RouterModule ],
+  providers: [ PreloadCardsService ]
 })
 export class AppRoutingModule { }
