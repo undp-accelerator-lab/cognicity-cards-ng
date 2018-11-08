@@ -7,6 +7,7 @@ interface NodeModule {
 declare module 'gulp';
 declare module 'minimist';
 declare module 'del';
+declare module 'gulp-if';
 declare module 'gulp-change';
 declare module 'gulp-changed-in-place';
 declare module 'gulp-rename';

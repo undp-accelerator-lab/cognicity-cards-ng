@@ -2,15 +2,13 @@ import gulp from 'gulp';
 import changedInPlace from 'gulp-changed-in-place';
 import change from 'gulp-change';
 import rename from 'gulp-rename';
+import gulpif from 'gulp-if';
 import parseArgs from 'minimist';
 
 const args = parseArgs(process.argv.slice(2));
 const dep = args.dep;
-const stage = args.environment;
 
 const compileCardRoutes = (content) => {
-  console.log(stage);
-
   const env = JSON.parse(content.toString());
   const decks = env.decks;
 
@@ -51,7 +49,12 @@ const compileCardRoutes = (content) => {
   return 'export const environment = ' + JSON.stringify(env);
 };
 
-// Required for local development only using ng serve
+const isDev = (file) => {
+  if (file.basename === 'environment.ts') return true;
+
+  return false;
+};
+
 export default gulp.task('fetchEnvironment', () => {
   return gulp
   .src([`src/environments/${dep}/*.json`])
@@ -60,5 +63,7 @@ export default gulp.task('fetchEnvironment', () => {
     path.extname = '.ts'
   }))
   .pipe(changedInPlace({firstPass: true}))
-  .pipe(gulp.dest(`src/environments/${dep}`));
+  .pipe(gulp.dest(`src/environments/${dep}`))
+  // Required for local development when using ng serve
+  .pipe(gulpif(isDev, gulp.dest('src/environments')));
 });

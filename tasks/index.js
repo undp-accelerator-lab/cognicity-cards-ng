@@ -15,7 +15,7 @@ var _del2 = _interopRequireDefault(_del);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _gulp2.default.task('clearPreviousAssets', function (done) {
-  (0, _del2.default)(['src/assets/icons', 'src/assets/images', 'src/assets/locales', 'src/assets/logos', 'src/resources/*', 'src/index.html', 'src/environments/environment.ts'], { force: true }); // Force deleting outside Current Working Directory
+  (0, _del2.default)(['src/assets/icons', 'src/assets/images', 'src/assets/locales', 'src/assets/logos', 'src/resources/*', 'src/index.html'], { force: true }); // Force deleting outside Current Working Directory
 
   done();
 });
@@ -67,6 +67,10 @@ var _gulpRename = require('gulp-rename');
 
 var _gulpRename2 = _interopRequireDefault(_gulpRename);
 
+var _gulpIf = require('gulp-if');
+
+var _gulpIf2 = _interopRequireDefault(_gulpIf);
+
 var _minimist = require('minimist');
 
 var _minimist2 = _interopRequireDefault(_minimist);
@@ -75,11 +79,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var args = (0, _minimist2.default)(process.argv.slice(2));
 var dep = args.dep;
-var stage = args.environment;
 
 var compileCardRoutes = function compileCardRoutes(content) {
-  console.log(stage);
-
   var env = JSON.parse(content.toString());
   var decks = env.decks;
 
@@ -177,11 +178,17 @@ var compileCardRoutes = function compileCardRoutes(content) {
   return 'export const environment = ' + JSON.stringify(env);
 };
 
+var isDev = function isDev(file) {
+  if (file.basename === 'environment.ts') return true;
+
+  return false;
+};
+
 // Required for local development only using ng serve
 exports.default = _gulp2.default.task('fetchEnvironment', function () {
   return _gulp2.default.src(['src/environments/' + dep + '/*.json']).pipe((0, _gulpChange2.default)(compileCardRoutes)).pipe((0, _gulpRename2.default)(function (path) {
     path.extname = '.ts';
-  })).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('src/environments/' + dep));
+  })).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('src/environments/' + dep)).pipe((0, _gulpIf2.default)(isDev, _gulp2.default.dest('src/environments')));
 });
 'use strict';
 

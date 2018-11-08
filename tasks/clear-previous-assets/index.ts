@@ -8,8 +8,7 @@ export default gulp.task('clearPreviousAssets', (done) => {
     'src/assets/locales',
     'src/assets/logos',
     'src/resources/*',
-    'src/index.html',
-    'src/environments/environment.ts'
+    'src/index.html'
   ], {force: true}); // Force deleting outside Current Working Directory
 
   done();
