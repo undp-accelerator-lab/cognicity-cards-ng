@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-nav-button',
@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NavButtonComponent implements OnInit {
   @Input() text: string;
+  @Output() navigate = new EventEmitter<any>();
 
   constructor() { }
 

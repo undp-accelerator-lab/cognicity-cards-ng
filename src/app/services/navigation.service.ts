@@ -44,4 +44,20 @@ export class NavigationService {
       this.cardCounter = 0;
     }
   }
+
+  back(route) {
+    if (this.cardCounter > 0) {
+      const prevCardRoute = this.cardRoutes[this.cardCounter - 1];
+      this.router.navigate([prevCardRoute], {relativeTo: route});
+      this.cardCounter -= 1;
+    }
+  }
+
+  next(route) {
+    if (this.cardCounter < (this.cardRoutes.length - 1)) {
+      const nextCardRoute = this.cardRoutes[this.cardCounter + 1];
+      this.router.navigate([nextCardRoute], {relativeTo: route});
+      this.cardCounter += 1;
+    }
+  }
 }

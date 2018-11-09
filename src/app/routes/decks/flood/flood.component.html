@@ -8,9 +8,13 @@
 </router-outlet>
 
 <div>
-  <app-nav-button [text]="'deck.prev' | translate">
+  <app-nav-button
+    [text]="'deck.prev' | translate"
+    (navigate)="navController.back(route)">
   </app-nav-button>
 
-  <app-nav-button [text]="'deck.next' | translate">
+  <app-nav-button
+    [text]="'deck.next' | translate"
+    (navigate)="navController.next(route)">
   </app-nav-button>
 </div>
