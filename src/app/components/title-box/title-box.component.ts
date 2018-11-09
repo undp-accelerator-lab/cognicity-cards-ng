@@ -7,10 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TitleBoxComponent implements OnInit {
   @Input() title: string;
+  @Input() tabs: number[];
+  totalTabs: number[];
 
   constructor() { }
 
   ngOnInit() {
+    this.totalTabs = Array(this.tabs[0])
+    .fill(0).map((x, i) => x + i);
   }
 
 }

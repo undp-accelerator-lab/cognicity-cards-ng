@@ -1,0 +1,21 @@
+#titleText {
+  width: 100%;
+  text-align: center;
+}
+
+#tabsRow {
+  position: absolute;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  .tabs {
+    display: table-cell;
+    background-color: #ccc;
+    height: 5px;
+
+    &.filled {
+      background-color: #31aade;
+    }
+  }
+}
