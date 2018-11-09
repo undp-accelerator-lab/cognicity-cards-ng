@@ -23,9 +23,6 @@ const routes: Routes = [
     onSameUrlNavigation: 'reload',
     enableTracing: false,
     preloadingStrategy: PreloadCardsService
-    // TODO: try preloading
-    // Use custom preload strategy, check with environment - supported card decks?
-    // https://angular.io/guide/router#custom-preloading-strategy
   }) ],
   exports: [ RouterModule ],
   providers: [ PreloadCardsService ]

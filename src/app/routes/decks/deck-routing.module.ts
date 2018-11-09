@@ -5,7 +5,7 @@ import {
   Routes,
   Router,
   RouterModule,
-  RouterStateSnapshot
+  // RouterStateSnapshot
 } from '@angular/router';
 
 import { environment as env } from '../../../environments/environment';
@@ -21,10 +21,8 @@ export class AuthGuard implements CanActivate {
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    // state: RouterStateSnapshot
   ): boolean {
-    console.log(next);
-    console.log(state);
     const otl = next.params.otl;
 
     if (this.authService.checkOTL(env['stage'], otl)) {

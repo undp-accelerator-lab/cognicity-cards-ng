@@ -9,6 +9,11 @@ const routes: Routes = [
     path: '',
     component: FloodComponent,
     children: env['supportedCards']['flood']
+  },
+  {
+    path: '**',
+    redirectTo: 'location', // enter first card in deck name
+    pathMatch: 'full'
   }
 ];
 

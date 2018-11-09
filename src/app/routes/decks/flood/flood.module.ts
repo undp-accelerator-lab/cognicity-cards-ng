@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 // Routing module for deck
 import { FloodRoutingModule } from './flood-routing.module';
@@ -15,7 +16,8 @@ import { TitleBoxComponent } from '../../../components/title-box/title-box.compo
 @NgModule({
   imports: [
     CommonModule,
-    FloodRoutingModule
+    FloodRoutingModule,
+    TranslateModule
   ],
   declarations: [
     // Deck
@@ -24,6 +26,12 @@ import { TitleBoxComponent } from '../../../components/title-box/title-box.compo
     NavButtonComponent,
     DropdownNotificationComponent,
     TitleBoxComponent
+  ],
+  exports: [
+    TranslateModule
+  ],
+  providers: [
+    TranslatePipe
   ]
 })
 export class FloodModule { }
