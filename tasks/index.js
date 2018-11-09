@@ -75,6 +75,10 @@ var _minimist = require('minimist');
 
 var _minimist2 = _interopRequireDefault(_minimist);
 
+var _gulpReplace = require('gulp-replace');
+
+var _gulpReplace2 = _interopRequireDefault(_gulpReplace);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var args = (0, _minimist2.default)(process.argv.slice(2));
@@ -175,7 +179,7 @@ var compileCardRoutes = function compileCardRoutes(content) {
   env.supportedDecks = deckRoutes;
   env.supportedCards = cardRoutes;
 
-  return 'export const environment = ' + JSON.stringify(env);
+  return 'export const environment = ' + JSON.stringify(env, null, 2) + ';' + '\n';
 };
 
 var isDev = function isDev(file) {
@@ -187,7 +191,7 @@ var isDev = function isDev(file) {
 exports.default = _gulp2.default.task('fetchEnvironment', function () {
   return _gulp2.default.src(['src/environments/' + dep + '/*.json']).pipe((0, _gulpChange2.default)(compileCardRoutes)).pipe((0, _gulpRename2.default)(function (path) {
     path.extname = '.ts';
-  })).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('src/environments/' + dep))
+  })).pipe((0, _gulpReplace2.default)('"', '\'')).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('src/environments/' + dep))
   // Required for local development when using ng serve
   .pipe((0, _gulpIf2.default)(isDev, _gulp2.default.dest('src/environments')));
 });

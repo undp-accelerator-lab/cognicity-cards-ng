@@ -1,7 +1,7 @@
 <div>
-  <p>
-    Current deck is FLOOD
-  </p>
+  <app-title-box
+    [title]="'card.titles.' + navController.getCardPath() | translate">
+  </app-title-box>
 </div>
 
 <router-outlet>

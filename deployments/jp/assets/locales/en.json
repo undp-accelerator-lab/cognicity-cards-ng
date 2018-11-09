@@ -2,5 +2,14 @@
   "deck": {
     "prev": "PREV",
     "next": "NEXT"
+  },
+  "card": {
+    "titles": {
+      "location": "Select location",
+      "depth": "Select flood depth",
+      "photo": "Upload a photo",
+      "description": "Tell us more",
+      "review": "Review & submit"
+    }
   }
 }

@@ -4,6 +4,7 @@ import change from 'gulp-change';
 import rename from 'gulp-rename';
 import gulpif from 'gulp-if';
 import parseArgs from 'minimist';
+import replace from 'gulp-replace';
 
 const args = parseArgs(process.argv.slice(2));
 const dep = args.dep;
@@ -46,7 +47,7 @@ const compileCardRoutes = (content) => {
   env.supportedDecks = deckRoutes;
   env.supportedCards = cardRoutes;
 
-  return 'export const environment = ' + JSON.stringify(env);
+  return 'export const environment = ' + JSON.stringify(env, null, 2) + ';' + '\n';
 };
 
 const isDev = (file) => {
@@ -62,6 +63,7 @@ export default gulp.task('fetchEnvironment', () => {
   .pipe(rename((path) => {
     path.extname = '.ts'
   }))
+  .pipe(replace(`"`, `'`))
   .pipe(changedInPlace({firstPass: true}))
   .pipe(gulp.dest(`src/environments/${dep}`))
   // Required for local development when using ng serve

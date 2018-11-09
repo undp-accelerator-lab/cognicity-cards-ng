@@ -29,6 +29,10 @@ export class NavigationService {
     return this.cardRoutes.indexOf(card);
   }
 
+  getCardPath() {
+    return this.cardRoutes[this.cardCounter];
+  }
+
   checkForFirstCard(route) {
     if (route.children.length && route.children[0].hasOwnProperty('url')) {
       const currentRoute = route.children[0].url['value'][0].path;
