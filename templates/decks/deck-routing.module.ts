@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { environment as env } from '../../../../environments/environment';
-import { FloodComponent } from './flood.component';
+import { DeckComponent } from './deck.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: FloodComponent,
-    children: env['supportedCards']['flood']
+    component: DeckComponent,
+    children: env['supportedCards']['deck']
   },
-  // Optional, redirectTo first card in prep
+  // Optional, redirectTo first card in deck
   {
     path: '**',
     redirectTo: 'location',
@@ -22,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FloodRoutingModule { }
+export class DeckRoutingModule { }

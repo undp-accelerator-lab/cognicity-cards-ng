@@ -58,14 +58,14 @@ const isDev = (file) => {
 
 export default gulp.task('fetchEnvironment', () => {
   return gulp
-  .src([`src/environments/${dep}/*.json`])
+  .src([`../src/environments/${dep}/*.json`])
   .pipe(change(compileCardRoutes))
   .pipe(rename((path) => {
     path.extname = '.ts'
   }))
   .pipe(replace(`"`, `'`))
   .pipe(changedInPlace({firstPass: true}))
-  .pipe(gulp.dest(`src/environments/${dep}`))
+  .pipe(gulp.dest(`../src/environments/${dep}`))
   // Required for local development when using ng serve
-  .pipe(gulpif(isDev, gulp.dest('src/environments')));
+  .pipe(gulpif(isDev, gulp.dest('../src/environments')));
 });

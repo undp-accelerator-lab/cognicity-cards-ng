@@ -15,7 +15,7 @@ var _del2 = _interopRequireDefault(_del);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _gulp2.default.task('clearPreviousAssets', function (done) {
-  (0, _del2.default)(['src/assets/icons', 'src/assets/images', 'src/assets/locales', 'src/assets/logos', 'src/resources/*', 'src/index.html'], { force: true }); // Force deleting outside Current Working Directory
+  (0, _del2.default)(['../src/assets/icons', '../src/assets/images', '../src/assets/locales', '../src/assets/logos', '../src/resources/*', 'src/index.html'], { force: true }); // Force deleting outside Current Working Directory
 
   done();
 });
@@ -43,7 +43,7 @@ var args = (0, _minimist2.default)(process.argv.slice(2));
 var dep = args.dep;
 
 exports.default = _gulp2.default.task('fetchAssets', function () {
-  return _gulp2.default.src(['deployments/' + dep + '/assets/**/*']).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('src/assets/'));
+  return _gulp2.default.src(['../deployments/' + dep + '/assets/**/*']).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('../src/assets/'));
 });
 'use strict';
 
@@ -189,11 +189,11 @@ var isDev = function isDev(file) {
 };
 
 exports.default = _gulp2.default.task('fetchEnvironment', function () {
-  return _gulp2.default.src(['src/environments/' + dep + '/*.json']).pipe((0, _gulpChange2.default)(compileCardRoutes)).pipe((0, _gulpRename2.default)(function (path) {
+  return _gulp2.default.src(['../src/environments/' + dep + '/*.json']).pipe((0, _gulpChange2.default)(compileCardRoutes)).pipe((0, _gulpRename2.default)(function (path) {
     path.extname = '.ts';
-  })).pipe((0, _gulpReplace2.default)('"', '\'')).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('src/environments/' + dep))
+  })).pipe((0, _gulpReplace2.default)('"', '\'')).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('../src/environments/' + dep))
   // Required for local development when using ng serve
-  .pipe((0, _gulpIf2.default)(isDev, _gulp2.default.dest('src/environments')));
+  .pipe((0, _gulpIf2.default)(isDev, _gulp2.default.dest('../src/environments')));
 });
 'use strict';
 
@@ -219,7 +219,7 @@ var args = (0, _minimist2.default)(process.argv.slice(2));
 var dep = args.dep;
 
 exports.default = _gulp2.default.task('fetchIndexFile', function () {
-  return _gulp2.default.src(['deployments/' + dep + '/index.html']).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('src/'));
+  return _gulp2.default.src(['../deployments/' + dep + '/index.html']).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('../src/'));
 });
 'use strict';
 

@@ -7,7 +7,7 @@ const dep = args.dep;
 
 export default gulp.task('fetchAssets', () => {
   return gulp
-  .src([`deployments/${dep}/assets/**/*`])
+  .src([`../deployments/${dep}/assets/**/*`])
   .pipe(changedInPlace({firstPass: true}))
-  .pipe(gulp.dest('src/assets/'));
+  .pipe(gulp.dest('../src/assets/'));
 });

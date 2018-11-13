@@ -11,14 +11,19 @@ export class NavigationService {
 
   constructor(
     private router: Router
-  ) {
-    const deckRoutesConfig = this.router.config[2]['_loadedConfig']
-    .routes[0].children[0];
+  ) { }
 
-    this.deck = deckRoutesConfig.path;
+  registerCardRoutes(deck) {
+    this.deck = deck;
 
-    const cardRoutesConfig = deckRoutesConfig['_loadedConfig']
-    .routes[0].children;
+    let cardRoutesConfig;
+    const deckRoutes = this.router.config[2]['_loadedConfig'].routes[0].children;
+
+    for (const deckRoute of deckRoutes) {
+      if (deckRoute.path === this.deck) {
+        cardRoutesConfig = deckRoute['_loadedConfig'].routes[0].children;
+      }
+    }
 
     for (const route of cardRoutesConfig) {
       this.cardRoutes.push(route.path);

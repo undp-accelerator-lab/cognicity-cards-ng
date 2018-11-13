@@ -5,11 +5,11 @@ import { ActivatedRoute } from '@angular/router';
 import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
-  selector: 'app-flood',
-  templateUrl: './flood.component.html',
-  styleUrls: ['./flood.component.scss']
+  selector: 'app-deck',
+  templateUrl: './deck.component.html',
+  styleUrls: ['./deck.component.scss']
 })
-export class FloodComponent implements OnInit {
+export class DeckComponent implements OnInit {
 
   constructor(
     public translate: TranslateService,
@@ -23,7 +23,7 @@ export class FloodComponent implements OnInit {
     translate.use('en');
 
     // Store card routes for navigation
-    this.navController.registerCardRoutes('flood');
+    this.navController.registerCardRoutes('deck');
 
     // Check for first card, else redirect
     this.navController.checkForFirstCard(this.route);
