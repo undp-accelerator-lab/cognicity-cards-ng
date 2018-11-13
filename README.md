@@ -49,7 +49,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 4. To test the deck locally, change the deployment variable in `package.json` > `scripts.start` to $dep for which the environment file was modified in Step 3, run `npm start`, and open `http://localhost:4200/test123/sample`.
 
 ### Adding new cards
-1. Run `export card='card_name'` & `npm run add-card` to create a route to a new card.
+1. Run `export card=card_name` & `npm run add-card` to create a route to a new card.
 2. Add `card_name` to the list of 'cards' in `src/environments/$dep/environment.json` for the desired deck object, eg.
 ```json
 {
