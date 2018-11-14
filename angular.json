@@ -31,15 +31,7 @@
             "scripts": []
           },
           "configurations": {
-            "dev-us": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/us/environment.ts"
-                }
-              ]
-            },
-            "prod-us": {
+            "production": {
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -48,38 +40,7 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/us/environment.prod.ts"
-                }
-              ]
-            },
-            "dev-in": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/in/environment.ts"
-                }
-              ]
-            },
-            "prod-in": {
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/in/environment.prod.ts"
-                }
-              ]
+              "buildOptimizer": true
             },
             "dev-jp": {
               "fileReplacements": [
@@ -105,17 +66,6 @@
                   "with": "src/environments/jp/environment.prod.ts"
                 }
               ]
-            },
-            "production": {
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
             }
           }
         },
@@ -125,26 +75,14 @@
             "browserTarget": "Cards:build"
           },
           "configurations": {
-            "dev-us": {
-              "browserTarget": "Cards:build:dev-us"
-            },
-            "prod-us": {
-              "browserTarget": "Cards:build:prod-us"
-            },
-            "dev-in": {
-              "browserTarget": "Cards:build:dev-in"
-            },
-            "prod-in": {
-              "browserTarget": "Cards:build:prod-in"
+            "production": {
+              "browserTarget": "Cards:build:production"
             },
             "dev-jp": {
               "browserTarget": "Cards:build:dev-jp"
             },
             "prod-jp": {
               "browserTarget": "Cards:build:prod-jp"
-            },
-            "production": {
-              "browserTarget": "Cards:build:production"
             }
           }
         },

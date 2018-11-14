@@ -60,9 +60,7 @@ export default gulp.task('fetchEnvironment', () => {
   return gulp
   .src([`../src/environments/${dep}/*.json`])
   .pipe(change(compileCardRoutes))
-  .pipe(rename((path) => {
-    path.extname = '.ts'
-  }))
+  .pipe(rename((path) => path.extname = '.ts'))
   .pipe(replace(`"`, `'`))
   .pipe(changedInPlace({firstPass: true}))
   .pipe(gulp.dest(`../src/environments/${dep}`))

@@ -1,7 +1,7 @@
 {
-  "production": true,
-  "stage": "prod",
-  "deployment": "in",
+  "production": false,
+  "stage": "dev",
+  "deployment": "$dep",
 
   "decks": [
     {
