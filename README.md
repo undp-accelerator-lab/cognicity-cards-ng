@@ -3,7 +3,7 @@ Urban Risk Map reporting cards web-app.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run start` (for default deployment jp) or `dep=cc npm run pre-build-tasks && ng serve` (for deployment with code cc) for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 ### Adding a new deployment
