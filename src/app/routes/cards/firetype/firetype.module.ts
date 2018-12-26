@@ -11,4 +11,4 @@ import { FiretypeComponent } from './firetype.component';
   ],
   declarations: [FiretypeComponent]
 })
-export class FiretypeModule { }
+export class FiretypeModule {}

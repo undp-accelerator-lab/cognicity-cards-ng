@@ -22,7 +22,13 @@
     padding: 10px 50px;
     border: 1.5px solid white;
     background-color: #6D6E6D;
-    cursor: pointer;    
+    cursor: pointer;
+    transition: background-color .5s;
+
+    &:hover {
+      color: #6D6E6D;
+      background-color: white;
+    }
   }
 
   &__hint {
@@ -53,5 +59,11 @@
     border: 1.5px solid white;
     background-color: #6D6E6D;
     cursor: pointer;
+    transition: background-color .5s;
+
+    &:hover {
+      color: #6D6E6D;
+      background-color: white;
+    }
   }
 }
