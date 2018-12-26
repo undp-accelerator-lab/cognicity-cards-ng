@@ -13,6 +13,12 @@
         "description",
         "review"
       ]
+    },
+    {
+      "name": "fire",
+      "cards": [
+        "firetype"
+      ]
     }
   ]
 }

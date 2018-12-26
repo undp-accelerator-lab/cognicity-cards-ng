@@ -190,7 +190,7 @@ var isDev = function isDev(file) {
 
 exports.default = _gulp2.default.task('fetchEnvironment', function () {
   return _gulp2.default.src(['../src/environments/' + dep + '/*.json']).pipe((0, _gulpChange2.default)(compileCardRoutes)).pipe((0, _gulpRename2.default)(function (path) {
-    path.extname = '.ts';
+    return path.extname = '.ts';
   })).pipe((0, _gulpReplace2.default)('"', '\'')).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('../src/environments/' + dep))
   // Required for local development when using ng serve
   .pipe((0, _gulpIf2.default)(isDev, _gulp2.default.dest('../src/environments')));
