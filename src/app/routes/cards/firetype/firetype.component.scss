@@ -1,0 +1,57 @@
+.firetype {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
+}
+
+.fire {
+  &__img {
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+  }
+
+  &__btn {
+    display: block;
+    color: white;
+    margin: 20px auto 10px;
+    border-radius: 7.5px;
+    padding: 10px 50px;
+    border: 1.5px solid white;
+    background-color: #6D6E6D;
+    cursor: pointer;    
+  }
+
+  &__hint {
+    color: white;
+    font-size: 10px;
+    text-align: center;
+
+    &::before {
+      content: "*";
+    }
+  }
+}
+
+.haze {
+  &__img {
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+  }
+
+  &__btn {
+    display: block;
+    color: white;
+    margin: 20px auto;
+    border-radius: 7.5px;
+    padding: 10px 50px;
+    border: 1.5px solid white;
+    background-color: #6D6E6D;
+    cursor: pointer;
+  }
+}
