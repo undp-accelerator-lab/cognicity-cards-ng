@@ -1,3 +1,5 @@
+$img_width: 200px;
+
 .firetype {
   display: flex;
   flex-direction: row;
@@ -8,7 +10,7 @@
 
 .fire {
   &__img {
-    width: 200px;
+    width: $img_width;
     margin: 0 auto;
     display: block;
     cursor: pointer;
@@ -44,7 +46,7 @@
 
 .haze {
   &__img {
-    width: 200px;
+    width: $img_width;
     margin: 0 auto;
     display: block;
     cursor: pointer;
@@ -64,6 +66,38 @@
     &:hover {
       color: #6D6E6D;
       background-color: white;
+    }
+  }
+}
+
+@media (max-width: 721px) {
+  .firetype {
+    flex-direction: column;
+  }
+}
+
+@media (max-height: 761px) {
+  .fire {
+    &__img {
+      width: $img_width - 50px;
+    }
+  
+    &__btn {
+      margin: 20px auto 10px;
+      padding: 7.5px 37.5px;
+      transition: background-color .5s;
+    }
+  }
+
+  .haze {
+    &__img {
+      width: $img_width - 50px;
+    }
+  
+    &__btn {
+      margin: 20px auto 10px;
+      padding: 7.5px 37.5px;
+      transition: background-color .5s;
     }
   }
 }
