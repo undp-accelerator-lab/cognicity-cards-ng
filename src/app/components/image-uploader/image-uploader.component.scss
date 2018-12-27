@@ -1,3 +1,39 @@
 #image-uploader {
-  
+  &-label {
+    cursor: pointer;
+  }
+
+  &-button {
+    display: none;
+  }
+
+  &-picture {
+    display: block;
+    color: #B2B2B2;
+    font-size: 300px;
+    padding: 50px;
+    border: 2.5px solid #B2B2B2;
+  }
+
+  &-divider {
+    margin: 15px 0;
+    padding-top: 10px;
+    border-top: 1.5px solid #EE1D23;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .material-icons {
+      color: #6D6E6D;
+      cursor: pointer;
+    }
+
+    &__left {
+      .material-icons {
+        display: inline-block;
+        margin: 0 5px;
+      }
+    }
+  }
 }

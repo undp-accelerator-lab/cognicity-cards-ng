@@ -1,2 +1,13 @@
-<input type="file" accept="image/*" id="image-uploader">
-<i class="material-icons">face</i>
+<label id="image-uploader-label" for="image-uploader-button">
+  <i class="material-icons" id="image-uploader-picture">photo_camera</i>
+</label>
+<div id="image-uploader-divider">
+  <div id="image-uploader-divider__left">
+    <i class="material-icons" id="image-uploader-divider__take">photo_camera</i>
+    <i class="material-icons" id="image-uploader-divider__reload">refresh</i>
+  </div>
+  <div id="image-uploader-divider__right">
+    <i class="material-icons" id="image-uploader-divider__delete">delete</i>
+  </div>
+</div>
+<input type="file" accept="image/*" id="image-uploader-button">
