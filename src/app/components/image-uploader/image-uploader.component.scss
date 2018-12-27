@@ -37,3 +37,11 @@
     }
   }
 }
+
+@media (max-width: 521px) {
+  #image-uploader {  
+    &-picture {
+      font-size: 150px;
+    }
+  } 
+}
