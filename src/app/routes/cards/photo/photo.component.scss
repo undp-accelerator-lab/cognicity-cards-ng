@@ -1,0 +1,33 @@
+.photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
+  text-align: center;
+
+  &__btn-group {
+    display: flex;
+    flex-direction: row;
+    max-width: 80%;
+  }
+
+  &__btn {
+    display: block;
+    text-align: center;
+    width: 175px;
+    height: 40px;
+    color: white;
+    margin: 20px 10px;
+    border-radius: 7.5px;
+    border: 1.5px solid white;
+    background-color: #6D6E6D;
+    cursor: pointer;
+    transition: background-color .5s;
+
+    &:hover {
+      color: #6D6E6D;
+      background-color: white;
+    }
+  }
+}
