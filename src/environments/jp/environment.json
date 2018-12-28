@@ -17,8 +17,8 @@
     {
       "name": "fire",
       "cards": [
-        "photo",
         "description",
+        "photo",
         "firetype"
       ]
     }

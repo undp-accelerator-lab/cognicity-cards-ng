@@ -1,15 +1,37 @@
-#textbox {
+:host {
+  max-width: 60%;
+  overflow-x: hidden;
+}
+
+.textbox {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #EE1D23;
   margin: 0;
   color: white;
 
   width: 300px;
   padding-bottom: 5px;
-  max-width: 80%;
 
   &:focus {
     outline: none;
+  }
+
+  &__icons {
+    width: 300px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .material-icons {
+      cursor: pointer;
+      margin: 0 5px;
+      color: #6D6E6D;
+    }
+
+    .active-icon {
+      color: white;
+    }
   }
 }
