@@ -1,0 +1,50 @@
+.visibility {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
+  height: 100vh;
+
+  &__img {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &__range {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px 0;
+    // width: 100%;
+  }
+
+  &__txt {
+    color: white;
+  }
+
+  &__btn-group {
+    display: flex;
+    flex-direction: row;
+    max-width: 95%;
+  }
+
+  &__btn {
+    display: block;
+    text-align: center;
+    width: 175px;
+    height: 40px;
+    color: white;
+    margin: 20px 7.5px;
+    border-radius: 7.5px;
+    border: 1.5px solid white;
+    background-color: #6D6E6D;
+    cursor: pointer;
+    transition: background-color .5s;
+
+    &:hover {
+      color: #6D6E6D;
+      background-color: white;
+    }
+  }
+}
