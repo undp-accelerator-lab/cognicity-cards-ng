@@ -38,6 +38,12 @@
       box-shadow: 0 0 15px 5px white;
     }
 
+    &::-webkit-slider-thumb::before {
+      content: "<";
+      color: white;
+      font-size: 40px;
+    }
+
     &::-moz-range-thumb {
       border: 1px solid white;
       height: 25px;

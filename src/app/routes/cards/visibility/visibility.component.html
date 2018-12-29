@@ -1,9 +1,13 @@
 <div class="visibility">
   <img 
-    src="../../../../assets/decks/fire/visibility/Visibility_High.jpg" 
+    [src]="image" 
     alt="Visibility high" class="visibility__img" >
-  <input type="range" name="visibility__range" min="1" max="3" value="2" class="visibility__range">
-  <p class="visibility__txt">Bisa melihat jelas tapi butuh masker hidung</p>
+  <input 
+    type="range" name="visibility__range" 
+    min="0" max="2" value="1" class="visibility__range"
+    (change)="onRangeChange($event)"
+  >
+  <p class="visibility__txt">{{ description }} </p>
   <div class="visibility__btn-group">
     <button class="visibility__btn">< KEMBALI</button>
     <button class="visibility__btn">LANJUTKAN ></button>
