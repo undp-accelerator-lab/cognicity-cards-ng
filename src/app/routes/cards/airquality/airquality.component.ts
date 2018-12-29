@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TagContentType } from '@angular/compiler';
+import { TargetLocator } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-airquality',
@@ -16,6 +18,12 @@ export class AirqualityComponent {
   ]
 
   fact: string = this.facts[2]
+  rangeValue: string = 0
+
+  public onRangeChanged(event) {
+    console.log(event.target.value)
+    this.rangeValue = event.target.value
+  }
 
   constructor() { }
 

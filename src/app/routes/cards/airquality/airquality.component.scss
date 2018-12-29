@@ -5,7 +5,16 @@
   height: 100vh;
 
   &__range {
+    width: 500px;
     transform: rotate(90deg);
+  }
+
+  &__types {
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   &__type {
@@ -14,13 +23,33 @@
     justify-content: space-between;
     align-items: center;
 
+    cursor: pointer;
+    background-color: #6D6E6D;
+    // margin: 25px 0;
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: 2px solid white;
+
     &-text {
+      color: #d6d6d6;
       max-width: 60%;
     }
 
     &-icon {
       display: block;
       width: 50px;
+    }
+
+    &.highlight {
+      background-color: #57585A;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
