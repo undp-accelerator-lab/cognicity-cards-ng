@@ -17,8 +17,8 @@
     {
       "name": "fire",
       "cards": [
-        "airquality",
         "location",
+        "airquality",
         "visibility",
         "review",
         "description",
