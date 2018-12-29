@@ -1,9 +1,11 @@
 <div class="airquality">
   <input type="range" class="airquality__range">
   <div class="airquality__types">
-    <div class="airquality__type">
-      <p class="airquality__type-text">None</p>
-      <img class="airquality__type-icon" src="" alt="">
+    <div *ngFor="let fact of facts; let i = index" class="airquality__type">
+      <p class="airquality__type-text">{{ fact }}</p>
+      <img 
+        [ngClass]="{ 'airquality__type-icon': true, 'none': i == 0 }" alt="air quality icon"
+        src="../../../../assets/decks/fire/airquality/type/AirQuality_Icon_{{i}}.png" >
     </div>
   </div>
 </div>

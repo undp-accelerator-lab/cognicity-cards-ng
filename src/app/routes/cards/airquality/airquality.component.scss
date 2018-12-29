@@ -1,0 +1,30 @@
+.airquality {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  &__range {
+    transform: rotate(90deg);
+  }
+
+  &__type {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &-text {
+      max-width: 60%;
+    }
+
+    &-icon {
+      display: block;
+      width: 50px;
+    }
+  }
+}
+
+.none {
+  display: none;
+}
