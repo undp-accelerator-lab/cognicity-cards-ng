@@ -16,7 +16,7 @@ export class AirqualityComponent {
   ]
 
   fact: string = this.facts[2]
-  rangeValue: string = 0
+  rangeValue: string = "0"
 
   public onRangeChanged(event): void {
     this.rangeValue = event.target.value

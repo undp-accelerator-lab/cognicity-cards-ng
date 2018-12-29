@@ -18,6 +18,7 @@
       "name": "fire",
       "cards": [
         "airquality",
+        "location",
         "visibility",
         "review",
         "description",
