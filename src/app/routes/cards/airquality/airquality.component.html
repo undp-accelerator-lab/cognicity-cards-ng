@@ -1,7 +1,11 @@
 <div class="airquality">
-  <input type="range" min="0" max="4" value="0" class="airquality__range" (change)="onRangeChanged($event)">
+  <input type="range" min="0" max="4" value="0" class="airquality__range" (change)="onRangeChanged($event)" #range>
   <div class="airquality__types">
-    <div *ngFor="let fact of facts; let i = index" [ngClass]="{ 'airquality__type': true, 'highlight': rangeValue == i }">
+    <div 
+      *ngFor="let fact of facts; let i = index" 
+      [ngClass]="{ 'airquality__type': true, 'highlight': rangeValue == i }"
+      (click)="onFactClicked(i, range)"
+    >
       <p class="airquality__type-text">{{ fact }}</p>
       <img 
         [ngClass]="{ 'airquality__type-icon': true, 'none': i == 0 }" alt="air quality icon"

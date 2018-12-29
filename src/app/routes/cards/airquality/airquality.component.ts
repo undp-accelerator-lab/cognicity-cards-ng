@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+import { range } from 'rxjs';
 import { TagContentType } from '@angular/compiler';
 import { TargetLocator } from 'selenium-webdriver';
 
@@ -21,10 +23,13 @@ export class AirqualityComponent {
   rangeValue: string = 0
 
   public onRangeChanged(event) {
-    console.log(event.target.value)
     this.rangeValue = event.target.value
   }
 
-  constructor() { }
+  public onFactClicked(value: string, range) {
+    range.value = value;
+    this.rangeValue = value;
+  }
 
+  constructor() { }
 }
