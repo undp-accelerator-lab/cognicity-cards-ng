@@ -1,12 +1,21 @@
 .airquality {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 0 25px;
+
+  &__input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+  }
 
   &__range {
-    width: 500px;
-    transform: rotate(90deg);
+    width: 100%;
+    transform: rotateZ(90deg);
 
     -webkit-appearance: none;
     background: transparent;
@@ -26,12 +35,6 @@
       margin-top: -22.5px; 
       box-shadow: 0 0 15px 2.5px white;
       transform: rotate(-90deg);
-    }
-
-    &::-webkit-slider-thumb::before {
-      content: "<";
-      color: white;
-      font-size: 40px;
     }
 
     &::-moz-range-thumb {
@@ -66,7 +69,7 @@
     // TRACK LINE
 
     &::-webkit-slider-runnable-track {
-      width: 100%;
+      width: 250px;
       height: 5px;
       cursor: pointer;
       box-shadow: 0 0 5px .5px white;
@@ -94,21 +97,25 @@
       border-width: 16px 0;
       color: transparent;
     }
+
     &::-ms-fill-lower {
       background-image: linear-gradient(to right, black, white);
       border: 0.1px solid #010101;
       border-radius: 2.5px;
       box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     }
+
     &:focus::-ms-fill-lower {
       background-image: linear-gradient(to right, black, white);
     }
+
     &::-ms-fill-upper {
       background-image: linear-gradient(to right, black, white);
       border: 0.1px solid #010101;
       border-radius: 2.5px;
       box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
     }
+
     &:focus::-ms-fill-upper {
       background-image: linear-gradient(to right, black, white);
     }
@@ -116,6 +123,7 @@
 
   &__types {
     height: 500px;
+    width: 50%;
 
     display: flex;
     flex-direction: column;
@@ -156,6 +164,31 @@
       margin-bottom: 0;
     }
   }
+
+  &__btn-group {
+    display: flex;
+    flex-direction: row;
+    max-width: 95%;
+  }
+
+  &__btn {
+    display: block;
+    text-align: center;
+    width: 175px;
+    height: 40px;
+    color: white;
+    margin: 20px 7.5px;
+    border-radius: 7.5px;
+    border: 1.5px solid white;
+    background-color: #6D6E6D;
+    cursor: pointer;
+    transition: background-color .5s;
+
+    &:hover {
+      color: #6D6E6D;
+      background-color: white;
+    }
+  }
 }
 
 .none {
@@ -190,4 +223,8 @@
   &::-webkit-slider-thumb {
     background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_4.png") center / contain no-repeat;
   } 
+}
+
+@media (max-width: 481px) {
+  
 }

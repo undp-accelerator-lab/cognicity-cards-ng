@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
-import { range } from 'rxjs';
-import { TagContentType } from '@angular/compiler';
-import { TargetLocator } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-airquality',
@@ -22,11 +18,11 @@ export class AirqualityComponent {
   fact: string = this.facts[2]
   rangeValue: string = 0
 
-  public onRangeChanged(event) {
+  public onRangeChanged(event): void {
     this.rangeValue = event.target.value
   }
 
-  public onFactClicked(value: string, range) {
+  public onFactClicked(value: string, range): void {
     range.value = value;
     this.rangeValue = value;
   }

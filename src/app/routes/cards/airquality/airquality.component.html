@@ -1,8 +1,10 @@
 <div class="airquality">
-  <input 
+  <div class="airquality__input">
+    <input 
     type="range" min="0" max="4" value="0" 
     [ngClass]="['airquality__range', 'stage-' + rangeValue ]" 
     (change)="onRangeChanged($event)" #range
+    orient="vertical"
   >
   <div class="airquality__types">
     <div 
@@ -16,5 +18,10 @@
         src="../../../../assets/decks/fire/airquality/type/AirQuality_Icon_{{i}}.png" 
       >
     </div>
+  </div>
+  </div>
+  <div class="airquality__btn-group">
+    <button class="airquality__btn">< KEMBALI</button>
+    <button class="airquality__btn">LANJUTKAN ></button>
   </div>
 </div>
