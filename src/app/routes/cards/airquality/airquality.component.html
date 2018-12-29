@@ -1,5 +1,9 @@
 <div class="airquality">
-  <input type="range" min="0" max="4" value="0" class="airquality__range" (change)="onRangeChanged($event)" #range>
+  <input 
+    type="range" min="0" max="4" value="0" 
+    [ngClass]="['airquality__range', 'stage-' + rangeValue ]" 
+    (change)="onRangeChanged($event)" #range
+  >
   <div class="airquality__types">
     <div 
       *ngFor="let fact of facts; let i = index" 
@@ -9,7 +13,8 @@
       <p class="airquality__type-text">{{ fact }}</p>
       <img 
         [ngClass]="{ 'airquality__type-icon': true, 'none': i == 0 }" alt="air quality icon"
-        src="../../../../assets/decks/fire/airquality/type/AirQuality_Icon_{{i}}.png" >
+        src="../../../../assets/decks/fire/airquality/type/AirQuality_Icon_{{i}}.png" 
+      >
     </div>
   </div>
 </div>
