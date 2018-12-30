@@ -28,6 +28,7 @@ html, body {
 .leaflet-compass.leaflet-control {
   background-color: transparent !important;
   box-shadow: none !important;
+  cursor: pointer;
 }
 
 .leaflet-compass .compass-icon {
