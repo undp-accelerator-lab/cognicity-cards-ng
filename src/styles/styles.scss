@@ -12,6 +12,8 @@ html, body {
   height: 100%;
 }
 
+// MODIFY TOP LEFT GET CURRENT LOCATION APPEARANCE
+
 .locate {
   height: 100%;
   background-image: url('../assets/decks/fire/location/locate.svg');
@@ -19,4 +21,16 @@ html, body {
   background-position: center;
   background-size: 75%;
   background-repeat: no-repeat;
+}
+
+// MODIFY TOP RIGHT COMPASS APPEARANCE
+
+.leaflet-compass.leaflet-control {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.leaflet-compass .compass-icon {
+  background: url("../assets/decks/fire/location/NorthArrow.png") center center no-repeat !important;
+  background-size: 32px !important;
 }

@@ -9,25 +9,28 @@ declare let L
 })
 export class LocationPickerComponent implements OnInit {
   private currentMarker: any
+  public latlng: { lat: string, lng: string }
 
   constructor() { }
 
   ngOnInit() {
     const map = L.map('mapid').setView([-7.7, 110.2], 7);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+    L.tileLayer(
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+      }
+    ).addTo(map);
+
     L.control.locate({
       icon: 'locate'
     }).addTo(map);
 
+    map.addControl( new L.Control.Compass() );
+
     map.on('click', (event) => { 
-      if (!this.currentMarker) {
-        this.addMarker(event, map)
-      } else {
-        this.currentMarker.remove(map)
-        this.addMarker(event, map)
-      }
+      if (this.currentMarker) this.currentMarker.remove(map) 
+      this.addMarker(event, map)
     })
   }
 
@@ -44,8 +47,10 @@ export class LocationPickerComponent implements OnInit {
       draggable: true, 
     })
 
-    marker.on('click', () => {
-      console.log('marker clicked')
+    this.latlng = e.latlng
+
+    marker.on('move', (event) => {
+      this.latlng = event.latlng
     })
 
     marker.addTo(map)
