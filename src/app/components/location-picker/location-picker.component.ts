@@ -22,6 +22,10 @@ export class LocationPickerComponent implements OnInit {
       }
     ).addTo(map);
 
+    L.control.zoom({
+      position: 'bottomleft'
+    })
+
     L.control.locate({
       icon: 'locate'
     }).addTo(map);
