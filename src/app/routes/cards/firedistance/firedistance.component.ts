@@ -55,15 +55,20 @@ export class FiredistanceComponent implements OnInit {
       }
       
       const latlngs = [
-        initialInformerMarkerLatlng,
         initialFireMarkerLatlng,
+        initialInformerMarkerLatlng,
       ];
       
-      L
+      const line = L
         .polyline(latlngs, {
           color: 'red',
         })
         .addTo(map);
+
+      line.setText('5 km', {
+        repeat: false, 
+        offset: 12,
+      })
     })
   }
 
