@@ -1,6 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { latLng } from 'leaflet';
 
 declare let L
+
+interface latlng { 
+  lat: string
+  lng: string 
+}
+
 
 @Component({
   selector: 'app-firedistance',
@@ -8,42 +15,63 @@ declare let L
   styleUrls: ['./firedistance.component.scss']
 })
 export class FiredistanceComponent implements OnInit {
-  private currentInformerMarker: any
-  private currentFireMarker: any
-  public latlng: { lat: string, lng: string }
+  private informerMarkerLatlng: latlng
+  private fireMarkerLatlng: latlng
 
   constructor() { }
 
   ngOnInit() {
-    const initialLatLng = [-7.5, 110.2]
-    const map = L.map('mapid').setView(initialLatLng, 8);
+    const initialMapLatlng = [-7.5, 110.2]
 
-    L.tileLayer(
-      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }
-    ).addTo(map);
+    const map = L
+      .map('mapid')
+      .setView(initialMapLatlng, 8);
 
-    L.control.locate({
-      icon: 'locate'
-    }).addTo(map);
+    L
+      .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+      .addTo(map);
 
+
+    // Add compass
     map.addControl( new L.Control.Compass() );
 
-    map.on('zoomend', (event) => {
-      console.log(event)
-    })
+    // Add locate
+    const locate = L
+      .control
+      .locate({
+        icon: 'locate'
+      })
+      .addTo(map);
 
-    this.addMarker({ lat: initialLatLng[0], lng: initialLatLng[1] + initialLatLng[1] / 500 }, map, 'informer')
-    this.addMarker({ lat: initialLatLng[0], lng: initialLatLng[1] - initialLatLng[1] / 500 }, map, 'fire')
+    locate.start()
+
+    map.on('locationfound ', (e) => {
+      const initialInformerMarkerLatlng = { lat: map.getCenter().lat, lng: map.getCenter().lng }
+      const initialFireMarkerLatlng = { lat: map.getCenter().lat, lng: map.getCenter().lng - map.getCenter().lng / 500000 }
+
+      if (!this.fireMarkerLatlng && !this.informerMarkerLatlng) {
+        this.addMarker(initialInformerMarkerLatlng, map, 'informer')
+        this.addMarker(initialFireMarkerLatlng, map, 'fire')  
+      }
+      
+      const latlngs = [
+        initialInformerMarkerLatlng,
+        initialFireMarkerLatlng,
+      ];
+      
+      L
+        .polyline(latlngs, {
+          color: 'red',
+        })
+        .addTo(map);
+    })
   }
 
   private addMarker(latlng, map, type: 'informer' | 'fire'): void {
     const icon = L.icon({
       iconUrl: `../../../assets/decks/fire/location/Select${type === 'fire' ? 'Fire' : ''}Location_Grey.png`,
       iconSize: [57.2 / 2, 103.5 / 2],
-      iconAnchor: [15, 50],
-      popupAnchor: [-3, -76],
+      iconAnchor: [15, 50]
     });
 
     const marker = L.marker([latlng.lat, latlng.lng], { 
@@ -51,23 +79,35 @@ export class FiredistanceComponent implements OnInit {
       draggable: true, 
     })
 
-    this.latlng = latlng
+    switch (type) {
+      case 'informer':
+        this.informerMarkerLatlng = latlng
+        break;
+      case 'fire':
+        this.fireMarkerLatlng = latlng
+        break;
+    }
 
     marker.on('move', (event) => {
-      this.latlng = event.latlng
+      switch (type) {
+        case 'informer':
+          this.informerMarkerLatlng = latlng
+          break;
+        case 'fire':
+          this.fireMarkerLatlng = latlng
+          break;
+      }
     })
 
     marker.addTo(map)
 
     marker.on('mouseover', (e) => {
-      console.log('mouseover', e)
-
       marker.setIcon(L.icon({
         iconUrl: `../../../assets/decks/fire/location/Select${type === 'fire' ? 'Fire' : ''}Location_Highlight.png`,
       }))
     })
 
-    marker.on('dragend', (e) => {
+    marker.on('moveend', (e) => {
       marker.setIcon(L.icon({
         iconUrl: `../../../assets/decks/fire/location/Select${type === 'fire' ? 'Fire' : ''}Location_Grey.png`,
       }))
@@ -78,14 +118,5 @@ export class FiredistanceComponent implements OnInit {
         iconUrl: `../../../assets/decks/fire/location/Select${type === 'fire' ? 'Fire' : ''}Location_Grey.png`,
       }))
     })
-
-    switch (type) {
-      case 'informer':
-        this.currentInformerMarker = marker
-        break;
-      case 'fire':
-        this.currentFireMarker = marker
-        break;
-    }
   }
 }
