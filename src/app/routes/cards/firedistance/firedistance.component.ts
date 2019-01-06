@@ -85,7 +85,7 @@ export class FiredistanceComponent implements OnInit {
         latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng }
         break;
       case 'fire':
-        latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 50 }
+        latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000 }
         break;
     }
 

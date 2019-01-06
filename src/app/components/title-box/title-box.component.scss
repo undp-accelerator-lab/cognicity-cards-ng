@@ -13,6 +13,8 @@
   table-layout: fixed;
   width: 100%;
 
+  z-index: 999;
+
   .tabs {
     display: table-cell;
     background-color: #ccc;

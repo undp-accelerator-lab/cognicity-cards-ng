@@ -9,46 +9,13 @@
   &__search {
     z-index: 999;
     position: fixed;
-    top: 25px;
+    top: 60px;
     display: block;
     width: 75%;
     height: 35px;
     border-radius: 10px;
     border: none;
     text-align: center;
-  }
-  
-  &__btn-group {
-    z-index: 999;
-    position: fixed;
-    bottom: 25px;
-
-    display: flex;
-    flex-direction: row;
-    max-width: 80%;
-  }
-
-  &__btn {
-    display: block;
-    text-align: center;
-    width: 175px;
-    height: 40px;
-    color: white;
-    margin: 20px 10px;
-    border-radius: 7.5px;
-    border: 1.5px solid white;
-    background-color: #6D6E6D;
-    cursor: pointer;
-    transition: background-color .5s;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:hover {
-      color: #6D6E6D;
-      background-color: white;
-    }
   }
 }
 

@@ -14,21 +14,28 @@ export class LocationPickerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const map = L.map('mapid').setView([-7.7, 110.2], 7);
+    const map = L
+      .map('mapid')
+      .setView([-7.7, 110.2], 7);
 
-    L.tileLayer(
-      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }
-    ).addTo(map);
+    L
+      .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+      .addTo(map);
 
-    L.control.zoom({
-      position: 'bottomleft'
-    })
+    L
+      .control
+      .zoom({
+        position: 'bottomleft'
+      })
 
-    L.control.locate({
-      icon: 'locate'
-    }).addTo(map);
+    const locate = L
+      .control
+      .locate({
+        icon: 'locate'
+      })
+      .addTo(map);
+
+    locate.start()
 
     map.addControl( new L.Control.Compass() );
 
