@@ -57,17 +57,8 @@ export class FiredistanceComponent implements OnInit {
 
       this.addMarker('informer')
       this.addMarker('fire')  
-      
-      this.distanceLine = L
-        .polyline([this.fireMarkerLatlng, this.informerMarkerLatlng], {
-          color: 'red',
-        })
-        .addTo(this.map);
-  
-      this.distanceLine.setText(this.countDistance(), {
-        repeat: false, 
-        offset: 12,
-      })
+
+      this.addDistanceLine()
     }
   }
 
@@ -77,6 +68,24 @@ export class FiredistanceComponent implements OnInit {
     const distanceInString = `${ceiledDistance.toString()} m`
 
     return distanceInString
+  }
+
+  private addDistanceLine(): void {
+    if (this.distanceLine) {
+      this.distanceLine.remove(this.map)
+    }
+
+    this.distanceLine = L
+      .polyline([this.fireMarkerLatlng, this.informerMarkerLatlng], {
+        color: 'red',
+      })
+      .addTo(this.map);
+
+    this.distanceLine.setText(this.countDistance(), {
+      repeat: false, 
+      offset: 12,
+      center: true
+    })
   }
 
   private addMarker(type: 'informer' | 'fire'): void {
@@ -101,11 +110,11 @@ export class FiredistanceComponent implements OnInit {
 
     this.onMarkerMove(type, latlng)
 
+    marker.addTo(this.map)
+
     marker.on('move', (event) => {
       this.onMarkerMove(type, event.latlng)
     })
-
-    marker.addTo(this.map)
 
     marker.on('mouseover', (e) => {
       marker.setIcon(L.icon({
@@ -135,5 +144,7 @@ export class FiredistanceComponent implements OnInit {
         this.fireMarkerLatlng = newLatlng
         break;
     }
+
+    this.addDistanceLine()
   }
 }
