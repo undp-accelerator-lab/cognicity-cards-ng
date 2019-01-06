@@ -35,3 +35,26 @@ html, body {
   background: url("../assets/decks/fire/location/NorthArrow.png") center center no-repeat !important;
   background-size: 32px !important;
 }
+
+// Fire Estimate Marker
+
+.radius {
+  &-icon {
+    background-color: #EE1D23;
+    width: 25px;
+    width: 25px;
+    border-radius: 50%;
+  
+    border: 1.5px solid white;
+    box-shadow: 0 0 10px 1px #EE1D23;
+  }
+
+  &-circle {
+    stroke: white;
+    stroke-dasharray: 4;
+    stroke-width: 1.5px;
+
+    fill: #EE1D23;
+    fill-opacity: 0.25;
+  }
+}

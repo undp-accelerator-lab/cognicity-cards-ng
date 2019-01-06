@@ -10,6 +10,7 @@ declare let L
 export class FireestimateComponent implements OnInit {
   private informerMarker
   private radiusMarker
+  private circleRadius
   public latlng: { lat: string, lng: string }
 
   private map
@@ -17,6 +18,10 @@ export class FireestimateComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.initMap()
+  }
+
+  private initMap(): void {
     this.map = L
       .map('mapid')
       .setView([-7.7, 110.2], 7);
@@ -33,7 +38,7 @@ export class FireestimateComponent implements OnInit {
 
     this.map.addControl( new L.Control.Compass() );
 
-    const locate =L
+    const locate = L
       .control
       .locate({
         icon: 'locate'
@@ -48,6 +53,7 @@ export class FireestimateComponent implements OnInit {
   private onLocateFound(): void {
     this.addMarker('informer')
     this.addMarker('radius')
+    this.addCircleRadius()
   }
 
   private addMarker(type: 'informer' | 'radius'): void {
@@ -71,7 +77,12 @@ export class FireestimateComponent implements OnInit {
       draggable: true, 
     }
 
-    const radiusMarkerConfig = undefined
+    const radiusMarkerConfig = {
+      icon: L.divIcon({
+        className: 'radius-icon'
+      }),
+      draggable: true,
+    }
 
     const marker = L.marker(
       [latlng.lat, latlng.lng], 
@@ -90,5 +101,25 @@ export class FireestimateComponent implements OnInit {
     }
 
     marker.addTo(this.map)
+
+    marker.on('move', () => { this.addCircleRadius() })
+  }
+
+  private addCircleRadius(): void {
+    const circle = L.circle(
+      [
+        this.informerMarker.getLatLng().lat, 
+        this.informerMarker.getLatLng().lng,
+      ], 
+      {
+        radius: this.map.distance(this.informerMarker.getLatLng(), this.radiusMarker.getLatLng()),
+        className: 'radius-circle'
+      }
+    )
+
+    if (this.circleRadius) this.circleRadius.remove(this.map)
+    this.circleRadius = circle
+
+    this.circleRadius.addTo(this.map);
   }
 }
