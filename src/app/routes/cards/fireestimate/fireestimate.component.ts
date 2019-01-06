@@ -63,7 +63,7 @@ export class FireestimateComponent implements OnInit {
         latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng }
         break;
       case 'radius':
-        latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 50 }
+        latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000 }
         break;
     }
 
