@@ -17,15 +17,15 @@
     {
       "name": "fire",
       "cards": [
+        "firetype",
         "fireestimate",
         "firedistance",
         "location",
         "airquality",
         "visibility",
-        "review",
-        "description",
         "photo",
-        "firetype"
+        "description",
+        "review"
       ]
     }
   ]

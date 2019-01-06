@@ -1,0 +1,28 @@
+@mixin type-img {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+
+  background: {
+    size: contain;
+    repeat: no-repeat;
+  }
+}
+
+@mixin type-btn {
+  display: block;
+  color: white;
+  margin: 20px auto 10px;
+  border-radius: 7.5px;
+  padding: 10px 50px;
+  border: 1.5px solid white;
+  background-color: #6D6E6D;
+  cursor: pointer;
+}
+
+@mixin hovered-type-btn {
+  color: #6D6E6D;
+  background-color: white;
+}
