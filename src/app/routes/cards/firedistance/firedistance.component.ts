@@ -101,12 +101,10 @@ export class FiredistanceComponent implements OnInit {
     switch (type) {
       case 'informer':
         if (this.informerMarker) this.informerMarker.remove(this.map)
-        // console.log(this.informerMarker)        
         this.informerMarker = marker
         break;
       case 'fire':
         if (this.fireMarker) this.fireMarker.remove(this.map) 
-        // console.log(this.fireMarker)
         this.fireMarker = marker
         break;
     }

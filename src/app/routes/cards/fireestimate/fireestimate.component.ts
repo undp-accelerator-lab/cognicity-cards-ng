@@ -1,0 +1,94 @@
+import { Component, OnInit } from '@angular/core';
+
+declare let L
+
+@Component({
+  selector: 'app-fireestimate',
+  templateUrl: './fireestimate.component.html',
+  styleUrls: ['./fireestimate.component.scss']
+})
+export class FireestimateComponent implements OnInit {
+  private informerMarker
+  private radiusMarker
+  public latlng: { lat: string, lng: string }
+
+  private map
+
+  constructor() { }
+
+  ngOnInit() {
+    this.map = L
+      .map('mapid')
+      .setView([-7.7, 110.2], 7);
+
+    L
+      .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+      .addTo(this.map);
+
+    L
+      .control
+      .zoom({
+        position: 'bottomleft'
+      })
+
+    this.map.addControl( new L.Control.Compass() );
+
+    const locate =L
+      .control
+      .locate({
+        icon: 'locate'
+      })
+      .addTo(this.map);
+
+    locate.start()
+
+    this.map.on('locationfound ', () => { this.onLocateFound() })
+  }
+
+  private onLocateFound(): void {
+    this.addMarker('informer')
+    this.addMarker('radius')
+  }
+
+  private addMarker(type: 'informer' | 'radius'): void {
+    let latlng;
+    switch (type) {
+      case 'informer':
+        latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng }
+        break;
+      case 'radius':
+        latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 50 }
+        break;
+    }
+
+    const informerMarkerConfig = { 
+      icon: L.icon({
+        iconUrl: '../../../assets/decks/fire/location/SelectFireLocation_Highlight.png',
+        iconSize: [57.2 / 2, 103.5 / 2],
+        iconAnchor: [15, 50],
+        popupAnchor: [-3, -76],
+      }),
+      draggable: true, 
+    }
+
+    const radiusMarkerConfig = undefined
+
+    const marker = L.marker(
+      [latlng.lat, latlng.lng], 
+      type === 'informer' ? informerMarkerConfig : radiusMarkerConfig
+    )
+
+    switch(type) {
+      case 'informer':
+        if (this.informerMarker) this.informerMarker.remove(this.map)
+        this.informerMarker = marker
+        break
+      case 'radius':
+        if (this.radiusMarker) this.radiusMarker.remove(this.map)
+        this.radiusMarker = marker
+        break
+    }
+
+    marker.addTo(this.map)
+  }
+}
