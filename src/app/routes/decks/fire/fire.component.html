@@ -1,10 +1,10 @@
 <div class="fire">
-  <!-- <div>
+  <div>
     <app-title-box
-      [title]="'card.titles.' + navController.getCardPath() | translate"
+      [title]="navController.getCardPath() | translate"
       [tabs]="[navController.cardRoutes.length, navController.cardCounter]">
     </app-title-box>
-  </div> -->
+  </div>
   
   <router-outlet>
   </router-outlet>
