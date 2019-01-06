@@ -1,8 +1,15 @@
 import { Component } from '@angular/core';
+import { NavigationService } from '../../../services/navigation.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-firetype',
   templateUrl: './firetype.component.html',
   styleUrls: ['./firetype.component.scss']
 })
-export class FiretypeComponent {}
+export class FiretypeComponent {
+  constructor(
+    public navController: NavigationService,
+    public route: ActivatedRoute
+  ){}
+}

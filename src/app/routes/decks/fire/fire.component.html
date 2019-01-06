@@ -9,7 +9,7 @@
   <router-outlet>
   </router-outlet>
   
-  <div id="navWrapper">
+  <div id="navWrapper" *ngIf="navController.cardCounter > 0">
     <app-nav-button
       [text]="'KEMBALI'"
       (navigate)="navController.back(route)">
