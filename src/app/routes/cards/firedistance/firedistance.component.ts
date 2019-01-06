@@ -3,26 +3,26 @@ import { latLng } from 'leaflet';
 
 declare let L
 
-interface latlng { 
-  lat: string | number
-  lng: string | number
-}
-
-
 @Component({
   selector: 'app-firedistance',
   templateUrl: './firedistance.component.html',
   styleUrls: ['./firedistance.component.scss']
 })
 export class FiredistanceComponent implements OnInit {
-  private informerMarkerLatlng: latlng
-  private fireMarkerLatlng: latlng
+  private rootIconDir = "../../../assets/decks/fire/location"
+
+  private informerMarker
+  private fireMarker
   private map
   private distanceLine
 
   constructor() { }
 
   ngOnInit() {
+    this.initMap()
+  }
+
+  private initMap() {
     this.map = L
       .map('mapid')
       .setView([-7.5, 110.2], 8);
@@ -45,38 +45,28 @@ export class FiredistanceComponent implements OnInit {
     // Locate user current location
     locate.start()
 
-    this.map.on('locationfound ', (e) => {
-      this.onLocateFound()
-    })
+    this.map.on('locationfound ', () => { this.onLocateFound() })
   }
 
   private onLocateFound(): void {
-    if (!this.fireMarkerLatlng && !this.informerMarkerLatlng) {
-      this.informerMarkerLatlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng }
-      this.fireMarkerLatlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 50 }
-
-      this.addMarker('informer')
-      this.addMarker('fire')  
-
-      this.addDistanceLine()
-    }
+    this.addMarker('informer')
+    this.addMarker('fire')
+    this.addDistanceLine()
   }
 
   private countDistance(): string {
-    const distanceInM = this.map.distance(this.fireMarkerLatlng, this.informerMarkerLatlng)
-    const ceiledDistance = Math.ceil(distanceInM)
+    const distanceInMeter = this.map.distance(this.fireMarker.getLatLng(), this.informerMarker.getLatLng())
+    const ceiledDistance = Math.ceil(distanceInMeter)
     const distanceInString = `${ceiledDistance.toString()} m`
 
     return distanceInString
   }
 
   private addDistanceLine(): void {
-    if (this.distanceLine) {
-      this.distanceLine.remove(this.map)
-    }
+    if (this.distanceLine) this.distanceLine.remove(this.map)
 
     this.distanceLine = L
-      .polyline([this.fireMarkerLatlng, this.informerMarkerLatlng], {
+      .polyline([this.fireMarker.getLatLng(), this.informerMarker.getLatLng()], {
         color: 'red',
       })
       .addTo(this.map);
@@ -92,59 +82,48 @@ export class FiredistanceComponent implements OnInit {
     let latlng;
     switch (type) {
       case 'informer':
-        latlng = this.informerMarkerLatlng
+        latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng }
         break;
       case 'fire':
-        latlng = this.fireMarkerLatlng
+        latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 50 }
         break;
     }
 
     const marker = L.marker([latlng.lat, latlng.lng], { 
       icon: L.icon({
-        iconUrl: `../../../assets/decks/fire/location/Select${type === 'fire' ? 'Fire' : ''}Location_Grey.png`,
+        iconUrl: `${this.rootIconDir}/Select${type === 'fire' ? 'Fire' : ''}Location_Grey.png`,
         iconSize: [57.2 / 2, 103.5 / 2],
         iconAnchor: [15, 50]
       }),
       draggable: true, 
     })
 
-    this.onMarkerMove(type, latlng)
-
-    marker.addTo(this.map)
-
-    marker.on('move', (event) => {
-      this.onMarkerMove(type, event.latlng)
-    })
-
-    marker.on('mouseover', (e) => {
-      marker.setIcon(L.icon({
-        iconUrl: `../../../assets/decks/fire/location/Select${type === 'fire' ? 'Fire' : ''}Location_Highlight.png`,
-      }))
-    })
-
-    marker.on('moveend', (e) => {
-      marker.setIcon(L.icon({
-        iconUrl: `../../../assets/decks/fire/location/Select${type === 'fire' ? 'Fire' : ''}Location_Grey.png`,
-      }))
-    })
-
-    marker.on('mouseout', (e) => {
-      marker.setIcon(L.icon({
-        iconUrl: `../../../assets/decks/fire/location/Select${type === 'fire' ? 'Fire' : ''}Location_Grey.png`,
-      }))
-    })
-  }
-
-  private onMarkerMove(markerType, newLatlng) {
-    switch (markerType) {
+    switch (type) {
       case 'informer':
-        this.informerMarkerLatlng = newLatlng
+        if (this.informerMarker) this.informerMarker.remove(this.map)
+        // console.log(this.informerMarker)        
+        this.informerMarker = marker
         break;
       case 'fire':
-        this.fireMarkerLatlng = newLatlng
+        if (this.fireMarker) this.fireMarker.remove(this.map) 
+        // console.log(this.fireMarker)
+        this.fireMarker = marker
         break;
     }
+    marker.addTo(this.map)
 
-    this.addDistanceLine()
+    marker.on('move', () => { this.addDistanceLine() })
+    marker.on('mouseover', () => { this.setMarkerIcon(marker, type, true) })
+    marker.on('moveend', () => { this.setMarkerIcon(marker, type) })
+    marker.on('mouseout', () => { this.setMarkerIcon(marker, type) })
+  }
+
+  private setMarkerIcon(marker, type, highlight = false): void {
+    marker.setIcon(L.icon({
+      iconUrl: 
+        `${this.rootIconDir}` +
+        `/Select${type === 'fire' ? 'Fire' : ''}` +
+        `Location_${highlight ? 'Highlight' : 'Grey'}.png`
+    }))
   }
 }
