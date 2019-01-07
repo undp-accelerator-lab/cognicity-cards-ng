@@ -20,3 +20,21 @@ button {
     background-color: white;
   }
 }
+
+@media (max-width: 381px) {
+  button {
+    width: 150px;
+  }
+} 
+
+@media (max-width: 361px) {
+  button {
+    height: 30px;
+  }
+}
+
+@media (max-width: 321px) {
+  button {
+    width: 125px;
+  }
+}

@@ -18,9 +18,9 @@
       "name": "fire",
       "cards": [
         "firetype",
+        "location",
         "fireestimate",
         "firedistance",
-        "location",
         "airquality",
         "visibility",
         "photo",
