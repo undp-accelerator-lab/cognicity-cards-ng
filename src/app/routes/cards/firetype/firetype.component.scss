@@ -5,12 +5,11 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  min-height: 100vh;
+  min-height: 90vh;
 
   .fire {
     &__img {
-      @include type-img;
-      background-image: url("../../../../assets/decks/fire/firetype/AddFireReport.png");
+      @include type-img(200px, "../../../../assets/decks/fire/firetype/AddFireReport.png");
     }
   
     &__btn {
@@ -40,8 +39,7 @@
   
   .haze {
     &__img {
-      @include type-img;
-      background-image: url("../../../../assets/decks/fire/firetype/AddHazeReport.png");
+      @include type-img(200px, "../../../../assets/decks/fire/firetype/AddHazeReport.png");
     }
   
     &__btn {
@@ -67,25 +65,27 @@
 }
 
 @media (max-width: 721px) and (max-height: 761px) {
-  .fire {
-    &__img {
-      width: 150px;
+  .firetype {
+    .fire {
+      &__img {
+        width: 150px;
+        height: 150px;;
+      }
+    
+      &__btn {
+        padding: 7.5px 37.5px;
+      }
     }
   
-    &__btn {
-      margin: 20px auto 10px;
-      padding: 7.5px 37.5px;
-    }
-  }
-
-  .haze {
-    &__img {
-      width: 150px;
-    }
-  
-    &__btn {
-      margin: 20px auto 10px;
-      padding: 7.5px 37.5px;
+    .haze {
+      &__img {
+        width: 150px;
+        height: 150px;;
+      }
+    
+      &__btn {
+        padding: 7.5px 37.5px;
+      }
     }
   }
 }
