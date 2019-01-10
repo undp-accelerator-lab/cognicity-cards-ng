@@ -1,7 +1,7 @@
 <div class="fire">
   <div>
     <app-title-box
-      [title]="navController.getCardPath() | translate"
+      [title]="'card.titles.' + navController.getCardPath() | translate"
       [tabs]="[navController.cardRoutes.length, navController.cardCounter]">
     </app-title-box>
   </div>
@@ -11,12 +11,12 @@
   
   <div id="navWrapper" *ngIf="navController.cardCounter > 0">
     <app-nav-button
-      [text]="'KEMBALI'"
+      [text]="'deck.prev' | translate"
       (navigate)="navController.back(route)">
     </app-nav-button>
   
     <app-nav-button
-      [text]="'LANJUTKAN'"
+      [text]="'deck.next' | translate"
       (navigate)="navController.next(route)">
     </app-nav-button>
   </div>  
