@@ -4,9 +4,11 @@
 </div>
 
 <div
-  id="tabsRow">
+  id="tabsRow"
+  *ngIf="tabs[1] !== 0"
+  >
   <div
     *ngFor="let tab of totalTabs; index as i"
-    [class]="i <= tabs[1] ? 'tabs filled' : 'tabs'">
+    [class]="i < tabs[1] ? 'tabs filled' : 'tabs'">
   </div>
 </div>
