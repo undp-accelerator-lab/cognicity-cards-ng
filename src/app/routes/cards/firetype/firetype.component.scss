@@ -8,6 +8,8 @@
   min-height: 90vh;
 
   .fire {
+    cursor: pointer;
+
     &__img {
       @include type-img(200px, "../../../../assets/decks/fire/firetype/AddFireReport.png");
     }
@@ -38,6 +40,8 @@
   }
   
   .haze {
+    cursor: pointer;
+    
     &__img {
       @include type-img(200px, "../../../../assets/decks/fire/firetype/AddHazeReport.png");
     }
