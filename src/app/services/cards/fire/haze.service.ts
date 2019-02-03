@@ -33,4 +33,25 @@ export class HazeService {
   gethazeDescription(): string {
     return this.hazeDescription;
   }
+
+  // Setter
+  setHazeLocation(newHazeLocation: LatLng) {
+    this.hazeLocation = newHazeLocation;
+  }
+
+  setHazeVisibility(newHazeVisibility: number) {
+    this.hazeVisibility = newHazeVisibility;
+  }
+
+  setAirQuality(newAirQuality: number) {
+    this.airQuality = newAirQuality;
+  }
+
+  setHazePreview(newHazePreview: File) {
+    this.hazePreview = newHazePreview;
+  }
+
+  sethazeDescription(newHazeDescription: string) {
+    this.hazeDescription = newHazeDescription;
+  }
 }
