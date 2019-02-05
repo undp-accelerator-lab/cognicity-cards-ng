@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeckService } from '../../services/cards/deck.service'
 
 @Component({
   selector: 'app-report-review',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportReviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private deckService: DeckService) { }
 
   ngOnInit() {
+    if (this.deckService.getPreview()) {
+      this.setImagePreview(this.deckService.getPreview())
+    } else {
+      document.getElementById('preview-img').setAttribute('src', 'https://i.ibb.co/DVsGjRL/Pqvwzkf.jpg')
+    }
+  }
+
+  setImagePreview(file: File) {
+    const reader = new FileReader()
+    reader.onload = function (e: any) {
+      document.getElementById('preview-img').setAttribute('src', e.target.result)
+    }
+    reader.readAsDataURL(file)
   }
 
 }
