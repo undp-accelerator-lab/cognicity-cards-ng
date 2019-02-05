@@ -10,7 +10,7 @@ interface LatLng {
 })
 export class HazeService {
   hazeLocation: LatLng;
-  hazeVisibility: number;
+  hazeVisibility: string = "1";
   airQuality: string = "0";
   hazePreview: File;
   hazeDescription: string;
@@ -20,7 +20,7 @@ export class HazeService {
     return this.hazeLocation;
   }
 
-  getHazeVisibility(): number {
+  getHazeVisibility(): string {
     return this.hazeVisibility;
   }
 
@@ -41,7 +41,8 @@ export class HazeService {
     this.hazeLocation = newHazeLocation;
   }
 
-  setHazeVisibility(newHazeVisibility: number) {
+  setHazeVisibility(newHazeVisibility: string) {
+    console.log({ newHazeVisibility })
     this.hazeVisibility = newHazeVisibility;
   }
 

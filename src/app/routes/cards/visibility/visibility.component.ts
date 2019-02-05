@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HazeService } from '../../../services/cards/fire/haze.service'
 
 @Component({
   selector: 'app-visibility',
@@ -6,7 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./visibility.component.scss']
 })
 export class VisibilityComponent {
-
   descriptions = [
     "Bisa melihat jelas tapi butuh masker hidung",
     "Bisa melihat tapi kurang jelas untuk berkendara",
@@ -16,16 +16,20 @@ export class VisibilityComponent {
   images = [
     "../../../../assets/decks/fire/visibility/Visibility_High.jpg",
     "../../../../assets/decks/fire/visibility/Visibility_Medium.jpg",
-    "../../../../assets/decks/fire/visibility/Visibility_Low.jpg",    
+    "../../../../assets/decks/fire/visibility/Visibility_Low.jpg",
   ]
 
-  description: string = this.descriptions[1]
-  image: string = this.images[1]
+  description: string
+  image: string
 
-  constructor() { }
+  constructor(private hazeService: HazeService) {
+    this.description = this.descriptions[hazeService.getHazeVisibility()]
+    this.image = this.images[hazeService.getHazeVisibility()]
+  }
 
   public onRangeChange(event): void {
-    switch(event.target.value) {
+    this.hazeService.setHazeVisibility(event.target.value)
+    switch (event.target.value) {
       case "0":
         this.description = this.descriptions[0]
         this.image = this.images[0]
