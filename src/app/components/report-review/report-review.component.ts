@@ -26,4 +26,8 @@ export class ReportReviewComponent implements OnInit {
     reader.readAsDataURL(file)
   }
 
+  get description() {
+    return this.deckService.getDescription()
+  }
+
 }
