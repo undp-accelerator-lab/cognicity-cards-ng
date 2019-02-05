@@ -4,11 +4,13 @@
 </label>
 <div id="image-uploader-divider">
   <div id="image-uploader-divider__left">
-    <i class="material-icons active-icon" id="image-uploader-divider__take">photo_camera</i>
-    <i class="material-icons" id="image-uploader-divider__reload">refresh</i>
+    <i [ngClass]="{'material-icons': true, 'active-icon': !isImageSelected }" id="image-uploader-divider__take">photo_camera</i>
+    <label for="image-uploader-button">
+      <i [ngClass]="{'material-icons': true, 'active-icon': isImageSelected }" id="image-uploader-divider__reload">refresh</i>
+    </label>
   </div>
   <div id="image-uploader-divider__right" (click)="deletePreview()">
-    <i class="material-icons" id="image-uploader-divider__delete">delete</i>
+    <i [ngClass]="{'material-icons': true, 'active-icon': isImageSelected }" id="image-uploader-divider__delete">delete</i>
   </div>
 </div>
 <input (change)="onFileChanged($event)" type="file" accept="image/*" id="image-uploader-button" #file>
