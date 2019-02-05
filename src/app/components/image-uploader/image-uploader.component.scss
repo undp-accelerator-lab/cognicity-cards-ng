@@ -7,12 +7,18 @@
     display: none;
   }
 
-  &-picture {
+  &-icon {
     display: block;
     color: #B2B2B2;
     font-size: 300px;
     padding: 50px;
     border: 2.5px solid #B2B2B2;
+  }
+
+  &-picture {
+    width: 400px;
+    border: 2.5px solid #B2B2B2;
+    // height: 100%;
   }
 
   &-divider {
@@ -43,9 +49,13 @@
 }
 
 @media (max-width: 521px) {
-  #image-uploader {  
-    &-picture {
+  #image-uploader {
+    &-icon {
       font-size: 150px;
     }
-  } 
+
+    &-picture {
+      width: 250px;
+    }
+  }
 }

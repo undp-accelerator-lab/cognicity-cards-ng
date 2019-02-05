@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeckService } from '../../services/cards/deck.service'
 
 @Component({
   selector: 'app-image-uploader',
@@ -6,10 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./image-uploader.component.scss']
 })
 export class ImageUploaderComponent implements OnInit {
-
-  constructor() { }
+  constructor(private deckService: DeckService) { }
 
   ngOnInit() {
+    if (this.isImageSelected)
+      this.setImagePreview(this.deckService.getPreview())
   }
 
+  get isImageSelected(): boolean {
+    return this.deckService.getPreview() ? true : false
+  }
+
+  onFileChanged(event) {
+    // console.log(event)
+    this.setImagePreview(event.target.files[0])
+    this.deckService.setPreview(event.target.files[0] as File)
+  }
+
+  setImagePreview(file) {
+    const reader = new FileReader()
+    reader.onload = function (e: any) {
+      // console.log(e.target.result)
+      document.getElementById('image-uploader-picture').setAttribute('src', e.target.result)
+    }
+    reader.readAsDataURL(file)
+  }
 }
