@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeckService } from '../../../services/cards/deck.service'
 
 @Component({
   selector: 'app-thank',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThankComponent implements OnInit {
 
-  constructor() { }
+  constructor(private deckService: DeckService) { }
 
   ngOnInit() {
+  }
+
+  get typeImage(): string {
+    switch (this.deckService.getDeckType()) {
+      case 'fire': return '../../../assets/decks/fire/thanks/SuccessFireReport.png'; break;
+      case 'haze': return '../../../assets/decks/fire/thanks/SuccessHazeReport.png'; break;
+    }
   }
 
 }
