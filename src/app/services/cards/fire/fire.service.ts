@@ -5,7 +5,9 @@ interface LatLng {
   lng: number;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class FireService {
   informerLocation: LatLng;
   fireLocation: LatLng;

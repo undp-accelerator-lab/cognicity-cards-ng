@@ -8,7 +8,7 @@
       orient="vertical"
     >
     <div class="airquality__types">
-      <div 
+      <div
         *ngFor="let fact of facts; let i = index" 
         [ngClass]="{ 'airquality__type': true, 'highlight': rangeValue == i }"
         (click)="onFactClicked(i, range)"

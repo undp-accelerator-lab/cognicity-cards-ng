@@ -5,11 +5,13 @@ interface LatLng {
   lng: number;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class HazeService {
   hazeLocation: LatLng;
   hazeVisibility: number;
-  airQuality: number;
+  airQuality: string = "0";
   hazePreview: File;
   hazeDescription: string;
 
@@ -22,7 +24,7 @@ export class HazeService {
     return this.hazeVisibility;
   }
 
-  getAirQuality(): number {
+  getAirQuality(): string {
     return this.airQuality;
   }
 
@@ -43,7 +45,8 @@ export class HazeService {
     this.hazeVisibility = newHazeVisibility;
   }
 
-  setAirQuality(newAirQuality: number) {
+  setAirQuality(newAirQuality: string) {
+    console.log({ newAirQuality })
     this.airQuality = newAirQuality;
   }
 
