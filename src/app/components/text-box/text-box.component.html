@@ -1,5 +1,8 @@
-<textarea rows="20" name="textbox" class="textbox" placeholder="Add your description here..."></textarea>
-<div class="textbox__icons">
+<textarea rows="20" [value]="description" name="textbox" class="textbox" placeholder="Add your description here..."
+  #desc (input)="onChangeDescription(desc.value)">
+</textarea>
+<div class="
+  textbox__icons">
   <i class="material-icons" id="disable_icon">block</i>
   <i class="material-icons active-icon" id="keyboard_icon">keyboard</i>
 </div>

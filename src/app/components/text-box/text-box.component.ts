@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { DeckService } from '../../services/cards/deck.service'
 
 @Component({
   selector: 'app-text-box',
   templateUrl: './text-box.component.html',
   styleUrls: ['./text-box.component.scss']
 })
-export class TextBoxComponent implements OnInit {
+export class TextBoxComponent {
+  constructor(
+    private deckService: DeckService
+  ) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  onChangeDescription(desc: string) {
+    this.deckService.setDescription(desc)
   }
 
+  get description(): string {
+    return this.deckService.getDescription()
+  }
 }

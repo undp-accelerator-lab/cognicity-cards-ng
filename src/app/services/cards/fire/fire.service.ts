@@ -14,7 +14,6 @@ export class FireService {
   fireRadius: number;
 
   // Setter
-
   setInformerLocation(newInformerLocation: LatLng) {
     this.informerLocation = newInformerLocation;
   }
@@ -28,7 +27,6 @@ export class FireService {
   }
 
   // Getter
-
   getInformerLocation(): LatLng {
     return this.informerLocation;
   }
