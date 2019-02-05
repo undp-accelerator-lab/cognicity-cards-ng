@@ -19,7 +19,6 @@ export class ImageUploaderComponent implements OnInit {
   }
 
   onFileChanged(event) {
-    // console.log(event)
     this.setImagePreview(event.target.files[0])
     this.deckService.setPreview(event.target.files[0] as File)
   }
@@ -27,9 +26,12 @@ export class ImageUploaderComponent implements OnInit {
   setImagePreview(file) {
     const reader = new FileReader()
     reader.onload = function (e: any) {
-      // console.log(e.target.result)
       document.getElementById('image-uploader-picture').setAttribute('src', e.target.result)
     }
     reader.readAsDataURL(file)
+  }
+
+  deletePreview() {
+    this.deckService.setPreview(undefined)
   }
 }
