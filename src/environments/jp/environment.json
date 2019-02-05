@@ -3,8 +3,7 @@
   "stage": "dev",
   "deployment": "jp",
 
-  "decks": [
-    {
+  "decks": [{
       "name": "flood",
       "cards": [
         "location",
@@ -25,7 +24,8 @@
         "visibility",
         "photo",
         "description",
-        "review"
+        "review",
+        "thank"
       ]
     }
   ]

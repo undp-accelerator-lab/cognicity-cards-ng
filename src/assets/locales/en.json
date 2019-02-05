@@ -14,7 +14,8 @@
       "fireestimate": "Report Fire Extent",
       "firedistance": "Your Location and Fire Location",
       "airquality": "Report Air Quality",
-      "visibility": "Report Visibility"
+      "visibility": "Report Visibility",
+      "thank": "Thank you!"
     }
   }
 }
