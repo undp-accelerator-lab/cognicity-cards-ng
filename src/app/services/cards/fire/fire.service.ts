@@ -12,8 +12,6 @@ export class FireService {
   informerLocation: LatLng;
   fireLocation: LatLng;
   fireRadius: number;
-  fireDescription: string;
-  firePreview: File;
 
   // Setter
 
@@ -29,14 +27,6 @@ export class FireService {
     this.fireRadius = newFireRadius;
   }
 
-  setFireDescription(newFireDescription: string) {
-    this.fireDescription = newFireDescription;
-  }
-
-  setFirePreview(newFirePreview: File) {
-    this.firePreview = newFirePreview;
-  }
-
   // Getter
 
   getInformerLocation(): LatLng {
@@ -49,13 +39,5 @@ export class FireService {
 
   getFireRadius(): number {
     return this.fireRadius;
-  }
-
-  getFireDescription(): string {
-    return this.fireDescription;
-  }
-
-  getFirePreview(): File {
-    return this.firePreview;
   }
 }

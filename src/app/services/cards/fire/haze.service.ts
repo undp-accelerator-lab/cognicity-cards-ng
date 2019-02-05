@@ -12,8 +12,6 @@ export class HazeService {
   hazeLocation: LatLng;
   hazeVisibility: string = "1";
   airQuality: string = "0";
-  hazePreview: File;
-  hazeDescription: string;
 
   // Getter
   getHazeLocation(): LatLng {
@@ -26,14 +24,6 @@ export class HazeService {
 
   getAirQuality(): string {
     return this.airQuality;
-  }
-
-  getHazePreview(): File {
-    return this.hazePreview;
-  }
-
-  gethazeDescription(): string {
-    return this.hazeDescription;
   }
 
   // Setter
@@ -49,13 +39,5 @@ export class HazeService {
   setAirQuality(newAirQuality: string) {
     console.log({ newAirQuality })
     this.airQuality = newAirQuality;
-  }
-
-  setHazePreview(newHazePreview: File) {
-    this.hazePreview = newHazePreview;
-  }
-
-  sethazeDescription(newHazeDescription: string) {
-    this.hazeDescription = newHazeDescription;
   }
 }
