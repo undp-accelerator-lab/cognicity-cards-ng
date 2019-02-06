@@ -23,7 +23,14 @@ export class FiredistanceComponent implements OnInit {
   }
 
   private initMap() {
-    this.map = L.map("mapid").setView([-7.5, 110.2], 15);
+    let lat = -7.7;
+    let lng = 110.2
+    if (this.fireService.getFireLocation()) {
+      lat = this.fireService.getInformerLocation().lat
+      lng = this.fireService.getInformerLocation().lng
+    }
+
+    this.map = L.map("mapid").setView([lat, lng], 15);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
       this.map
@@ -39,8 +46,12 @@ export class FiredistanceComponent implements OnInit {
       })
       .addTo(this.map);
 
-    // Locate user current location
-    locate.start();
+    if (this.fireService.getInformerLocation()) {
+      this.onLocateFound()
+    } else {
+      // Locate user current location
+      locate.start();
+    }
 
     this.map.on("locationfound ", () => {
       this.onLocateFound();
@@ -92,11 +103,15 @@ export class FiredistanceComponent implements OnInit {
         this.fireService.setInformerLocation(latlng);
         break;
       case "fire":
-        latlng = {
-          lat: this.map.getCenter().lat,
-          lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000
-        };
-        this.fireService.setFireLocation(latlng);
+        if (!this.fireService.getFireLocation()) {
+          latlng = {
+            lat: this.map.getCenter().lat,
+            lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000
+          };
+          this.fireService.setFireLocation(latlng);
+        } else {
+          latlng = this.fireService.getFireLocation()
+        }
         break;
     }
 
