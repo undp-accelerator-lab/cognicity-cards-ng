@@ -13,11 +13,11 @@
 
 # deployment specific assets
 # /src/assets/icons
-/src/assets/images
+# /src/assets/images
 # /src/assets/locales
-/src/assets/logos
-/src/resources
-/src/index.html
+# /src/assets/logos
+# /src/resources
+# /src/index.html
 /src/environments/environment.ts
 
 # docs

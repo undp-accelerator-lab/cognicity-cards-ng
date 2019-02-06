@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HazeService } from '../../services/cards/fire/haze.service'
 
 declare let L
 
@@ -11,12 +12,12 @@ export class LocationPickerComponent implements OnInit {
   private currentMarker: any
   public latlng: { lat: string, lng: string }
 
-  constructor() { }
+  constructor(private hazeService: HazeService) { }
 
   ngOnInit() {
     const map = L
       .map('mapid')
-      .setView([-7.7, 110.2], 7);
+      .setView([-7.7, 110.2], 15);
 
     L
       .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
@@ -37,10 +38,10 @@ export class LocationPickerComponent implements OnInit {
 
     locate.start()
 
-    map.addControl( new L.Control.Compass() );
+    map.addControl(new L.Control.Compass());
 
-    map.on('click', (event) => { 
-      if (this.currentMarker) this.currentMarker.remove(map) 
+    map.on('click', (event) => {
+      if (this.currentMarker) this.currentMarker.remove(map)
       this.addMarker(event, map)
     })
   }
@@ -53,15 +54,17 @@ export class LocationPickerComponent implements OnInit {
       popupAnchor: [-3, -76],
     });
 
-    const marker = L.marker([e.latlng.lat, e.latlng.lng], { 
+    const marker = L.marker([e.latlng.lat, e.latlng.lng], {
       icon,
-      draggable: true, 
+      draggable: true,
     })
 
     this.latlng = e.latlng
+    this.hazeService.setHazeLocation(e.latlng)
 
     marker.on('move', (event) => {
       this.latlng = event.latlng
+      this.hazeService.setHazeLocation(e.latlng)
     })
 
     marker.addTo(map)

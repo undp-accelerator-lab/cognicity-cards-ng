@@ -28,6 +28,7 @@ export class HazeService {
 
   // Setter
   setHazeLocation(newHazeLocation: LatLng) {
+    console.log({ newHazeLocation })
     this.hazeLocation = newHazeLocation;
   }
 
