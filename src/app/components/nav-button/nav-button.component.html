@@ -1,4 +1,4 @@
-<button type="button" (click)="navigate.emit()">
+<button type="button" (click)="navigate.emit()" [disabled]="isDisabled">
   <i *ngIf="type === 'left'" class="fa fa-chevron-left arrow-left"></i>
   {{ text }}
   <i *ngIf="type === 'right'" class="fa fa-chevron-right arrow-right"></i>

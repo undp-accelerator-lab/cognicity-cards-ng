@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class NavButtonComponent implements OnInit {
   @Input() text: string;
   @Input() type: string;
+  @Input() isDisabled: boolean
   @Output() navigate = new EventEmitter<any>();
 
   constructor() { }
