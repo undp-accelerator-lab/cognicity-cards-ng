@@ -27,6 +27,10 @@ export class VisibilityComponent {
     this.image = this.images[hazeService.getHazeVisibility()]
   }
 
+  get visibility(): string {
+    return this.hazeService.getHazeVisibility()
+  }
+
   public onRangeChange(event): void {
     this.hazeService.setHazeVisibility(event.target.value)
     switch (event.target.value) {
