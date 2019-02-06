@@ -18,8 +18,8 @@
       "cards": [
         "firetype",
         "location",
-        "fireestimate",
         "firedistance",
+        "fireestimate",
         "airquality",
         "visibility",
         "photo",

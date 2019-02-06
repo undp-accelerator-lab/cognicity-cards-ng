@@ -16,14 +16,14 @@ export class FiredistanceComponent implements OnInit {
   private map;
   private distanceLine;
 
-  constructor(private fireService: FireService) {}
+  constructor(private fireService: FireService) { }
 
   ngOnInit() {
     this.initMap();
   }
 
   private initMap() {
-    this.map = L.map("mapid").setView([-7.5, 110.2], 8);
+    this.map = L.map("mapid").setView([-7.5, 110.2], 15);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
       this.map
@@ -104,7 +104,7 @@ export class FiredistanceComponent implements OnInit {
       icon: L.icon({
         iconUrl: `${this.rootIconDir}/Select${
           type === "fire" ? "Fire" : ""
-        }Location_Grey.png`,
+          }Location_Grey.png`,
         iconSize: [57.2 / 2, 103.5 / 2],
         iconAnchor: [15, 50]
       }),
@@ -124,7 +124,15 @@ export class FiredistanceComponent implements OnInit {
     marker.addTo(this.map);
 
     // Adjust distance line between informer and fire
-    marker.on("move", () => {
+    marker.on("move", (e) => {
+      switch (type) {
+        case "informer":
+          this.fireService.setInformerLocation(e.latlng)
+          break;
+        case "fire":
+          this.fireService.setFireLocation(e.latlng)
+          break;
+      }
       this.addDistanceLine();
     });
 
