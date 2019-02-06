@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FireService } from '../../../services/cards/fire/fire.service'
 
 declare let L
 
@@ -15,16 +16,23 @@ export class FireestimateComponent implements OnInit {
 
   private map
 
-  constructor() { }
+  constructor(private fireService: FireService) { }
 
   ngOnInit() {
     this.initMap()
   }
 
   private initMap(): void {
+    let lat = -7.7;
+    let lng = 110.2
+    if (this.fireService.getFireLocation()) {
+      lat = this.fireService.getFireLocation().lat
+      lng = this.fireService.getFireLocation().lng
+    }
+
     this.map = L
       .map('mapid')
-      .setView([-7.7, 110.2], 7);
+      .setView([lat, lng], 15);
 
     L
       .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
@@ -36,18 +44,20 @@ export class FireestimateComponent implements OnInit {
         position: 'bottomleft'
       })
 
-    this.map.addControl( new L.Control.Compass() );
+    this.map.addControl(new L.Control.Compass());
 
-    const locate = L
+    L
       .control
       .locate({
         icon: 'locate'
       })
       .addTo(this.map);
 
-    locate.start()
+    // locate.start()
 
-    this.map.on('locationfound ', () => { this.onLocateFound() })
+    this.onLocateFound()
+
+    // this.map.on('locationfound ', () => { this.onLocateFound() })
   }
 
   private onLocateFound(): void {
@@ -67,14 +77,14 @@ export class FireestimateComponent implements OnInit {
         break;
     }
 
-    const informerMarkerConfig = { 
+    const informerMarkerConfig = {
       icon: L.icon({
         iconUrl: '../../../assets/decks/fire/location/SelectFireLocation_Highlight.png',
         iconSize: [57.2 / 2, 103.5 / 2],
         iconAnchor: [15, 50],
         popupAnchor: [-3, -76],
       }),
-      draggable: true, 
+      draggable: true,
     }
 
     const radiusMarkerConfig = {
@@ -85,11 +95,11 @@ export class FireestimateComponent implements OnInit {
     }
 
     const marker = L.marker(
-      [latlng.lat, latlng.lng], 
+      [latlng.lat, latlng.lng],
       type === 'informer' ? informerMarkerConfig : radiusMarkerConfig
     )
 
-    switch(type) {
+    switch (type) {
       case 'informer':
         if (this.informerMarker) this.informerMarker.remove(this.map)
         this.informerMarker = marker
@@ -108,9 +118,9 @@ export class FireestimateComponent implements OnInit {
   private addCircleRadius(): void {
     const circle = L.circle(
       [
-        this.informerMarker.getLatLng().lat, 
+        this.informerMarker.getLatLng().lat,
         this.informerMarker.getLatLng().lng,
-      ], 
+      ],
       {
         radius: this.map.distance(this.informerMarker.getLatLng(), this.radiusMarker.getLatLng()),
         className: 'radius-circle'
