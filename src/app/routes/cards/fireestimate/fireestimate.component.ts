@@ -73,7 +73,11 @@ export class FireestimateComponent implements OnInit {
         latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng }
         break;
       case 'radius':
-        latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000 }
+        if (!this.fireService.getFireRadius()) {
+          latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000 }
+        } else {
+          latlng = this.fireService.getFireRadius()
+        }
         break;
     }
 
@@ -112,7 +116,17 @@ export class FireestimateComponent implements OnInit {
 
     marker.addTo(this.map)
 
-    marker.on('move', () => { this.addCircleRadius() })
+    marker.on('move', (e) => {
+      switch (type) {
+        case 'informer':
+          this.fireService.setFireLocation(e.latlng)
+          break
+        case 'radius':
+          this.fireService.setFireRadius(e.latlng)
+          break
+      }
+      this.addCircleRadius()
+    })
   }
 
   private addCircleRadius(): void {

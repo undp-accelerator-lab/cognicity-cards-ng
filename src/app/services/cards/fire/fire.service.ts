@@ -11,7 +11,7 @@ interface LatLng {
 export class FireService {
   informerLocation: LatLng;
   fireLocation: LatLng;
-  fireRadius: number;
+  fireRadius: LatLng;
 
   // Setter
   setInformerLocation(newInformerLocation: LatLng) {
@@ -24,7 +24,8 @@ export class FireService {
     this.fireLocation = newFireLocation;
   }
 
-  setFireRadius(newFireRadius: number) {
+  setFireRadius(newFireRadius: LatLng) {
+    console.log({ newFireRadius })
     this.fireRadius = newFireRadius;
   }
 
@@ -37,7 +38,7 @@ export class FireService {
     return this.fireLocation;
   }
 
-  getFireRadius(): number {
+  getFireRadius(): LatLng {
     return this.fireRadius;
   }
 }
