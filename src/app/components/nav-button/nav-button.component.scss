@@ -1,13 +1,13 @@
 button {
   display: block;
   text-align: center;
-  width: 175px;
+  width: 150px;
   height: 40px;
   color: white;
   margin: 20px 10px;
-  border-radius: 7.5px;
-  border: 1.5px solid white;
-  background-color: #6D6E6D;
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: rgba(66, 66, 66, 0.3);
   cursor: pointer;
   transition: background-color .5s;
 
@@ -16,8 +16,18 @@ button {
   }
 
   &:hover {
-    color: #6D6E6D;
+    color: rgba(66, 66, 66, 0.3);
     background-color: white;
+  }
+
+  .arrow {
+    &-left {
+      margin-right: 2.5px;
+    }
+
+    &-right {
+      margin-left: 2.5px;
+    }
   }
 }
 
@@ -25,7 +35,7 @@ button {
   button {
     width: 150px;
   }
-} 
+}
 
 @media (max-width: 361px) {
   button {
