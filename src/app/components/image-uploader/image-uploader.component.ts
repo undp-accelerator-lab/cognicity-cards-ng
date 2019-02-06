@@ -7,6 +7,8 @@ import { DeckService } from '../../services/cards/deck.service'
   styleUrls: ['./image-uploader.component.scss']
 })
 export class ImageUploaderComponent implements OnInit {
+  rotateDeg: number = 0
+
   constructor(private deckService: DeckService) { }
 
   ngOnInit() {
@@ -29,6 +31,11 @@ export class ImageUploaderComponent implements OnInit {
       document.getElementById('image-uploader-picture').setAttribute('src', e.target.result)
     }
     reader.readAsDataURL(file)
+  }
+
+  rotateImage() {
+    console.log('image rotated')
+    this.rotateDeg += 90
   }
 
   deletePreview() {
