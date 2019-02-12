@@ -27,6 +27,16 @@
         "review",
         "thank"
       ]
+    },
+    {
+      "name": "earthquake",
+      "cards": [
+        "eqtype",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
     }
   ]
 }

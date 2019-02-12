@@ -15,7 +15,8 @@
       "firedistance": "Your Location and Fire Location",
       "airquality": "Report Air Quality",
       "visibility": "Report Visibility",
-      "thank": "Thank you!"
+      "thank": "Thank you!",
+      "eqtype": "Select Report Type"
     }
   }
 }
