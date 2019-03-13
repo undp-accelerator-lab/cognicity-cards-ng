@@ -1,0 +1,42 @@
+{
+  "production": false,
+  "stage": "dev",
+  "deployment": "jp",
+
+  "decks": [{
+      "name": "flood",
+      "cards": [
+        "location",
+        "depth",
+        "photo",
+        "description",
+        "review"
+      ]
+    },
+    {
+      "name": "fire",
+      "cards": [
+        "firetype",
+        "location",
+        "firedistance",
+        "fireestimate",
+        "airquality",
+        "visibility",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
+    },
+    {
+      "name": "earthquake",
+      "cards": [
+        "eqtype",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
+    }
+  ]
+}

@@ -75,6 +75,31 @@
                   "with": "src/environments/jp/environment.prod.ts"
                 }
               ]
+            },
+            "dev-id": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/id/environment.ts"
+                }
+              ]
+            },
+            "prod-id": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/id/environment.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -92,6 +117,12 @@
             },
             "prod-jp": {
               "browserTarget": "Cards:build:prod-jp"
+            },
+            "dev-id": {
+              "browserTarget": "Cards:build:dev-id"
+            },
+            "prod-id": {
+              "browserTarget": "Cards:build:prod-id"
             }
           }
         },
