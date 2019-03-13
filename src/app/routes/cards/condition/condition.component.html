@@ -8,7 +8,7 @@
     type="range" name="condition__range" 
     min="0" max="2" 
     [ngClass]="['condition__range', 'range-' + condition]" 
-    (change)="onRangeChange($event)"
+    (change)="setRoadCondition($event.target.value)"
     [value]="condition"
   >
   <p class="condition__txt">{{ title }}</p>

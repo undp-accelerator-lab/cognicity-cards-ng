@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RoadService } from '../../../services/cards/earthquake/road.service';
 
 @Component({
   selector: 'app-condition',
@@ -29,17 +30,18 @@ export class ConditionComponent {
   image: string
   condition: number
 
-  constructor() {
-    this.condition = 1
-    this.title = this.titles[this.condition]
-    this.subtitle = this.subtitles[this.condition]
-    this.image = this.images[this.condition]
+  constructor(
+    private roadService: RoadService
+  ) {
+    this.setRoadCondition(roadService.getRoadCondition())
   }
 
-  public onRangeChange(event): void {
-    this.condition = event.target.value
-    this.title = this.titles[event.target.value]
-    this.image = this.images[event.target.value]
-    this.subtitle = this.subtitles[event.target.value]
+  public setRoadCondition(condition): void {
+    this.condition = condition
+    this.title = this.titles[condition]
+    this.image = this.images[condition]
+    this.subtitle = this.subtitles[condition]
+
+    this.roadService.setRoadCondition(this.condition)
   }
 }
