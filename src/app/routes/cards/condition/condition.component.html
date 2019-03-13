@@ -1,0 +1,16 @@
+<div class="condition">
+  <img 
+    [src]="image" 
+    alt="Condition" 
+    class="condition__img"
+  >
+  <input 
+    type="range" name="condition__range" 
+    min="0" max="2" 
+    [ngClass]="['condition__range', 'range-' + condition]" 
+    (change)="onRangeChange($event)"
+    [value]="condition"
+  >
+  <p class="condition__txt">{{ title }}</p>
+  <p class="condition__sub">({{ subtitle }})</p>
+</div>
