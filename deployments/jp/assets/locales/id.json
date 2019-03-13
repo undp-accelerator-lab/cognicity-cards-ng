@@ -7,14 +7,21 @@
     "titles": {
       "location": "Lokasi Kabut",
       "depth": "Kedalaman Banjir",
-      "photo": "Unggah Foto",
-      "description": "Tambahkan Deskripsi",
-      "review": "Tinaju & Laporkan",
       "firetype": "Jenis Laporan",
       "fireestimate": "Perkiraan Kebakaran",
       "firedistance": "Lokasi Anda dan Kebakaran",
       "airquality": "Kualitas Udara",
       "visibility": "Jarak Pandang",
+
+      "eqtype": "Jenis Laporan",
+      "eqlocation": "Pilih Titik Lokasi Pelaporan",
+      "accessibility": "Laporkan Akses Jalan",
+      "condition": "Jelaskan Kondisi Jalan",
+      "structure": "Laporkan Dampak Pada Bangunan",
+
+      "photo": "Unggah Foto",
+      "description": "Tambahkan Deskripsi",
+      "review": "Tinaju & Laporkan",
       "thank": "Terima Kasih!"
     }
   }
