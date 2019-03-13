@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewChecked, AfterContentChecked, ChangeDetectorRef } from '@angular/core';
+import { RoadService } from '../../../services/cards/earthquake/road.service';
 
 @Component({
   selector: 'app-accessibility',
   templateUrl: './accessibility.component.html',
   styleUrls: ['./accessibility.component.scss']
 })
-export class AccessibilityComponent {
+export class AccessibilityComponent implements AfterViewChecked {
   images = [
     "../../../../assets/decks/earthquake/accessibility/Access_1.png",
     "../../../../assets/decks/earthquake/accessibility/Access_2.png",
@@ -14,14 +15,25 @@ export class AccessibilityComponent {
     "../../../../assets/decks/earthquake/accessibility/Access_5.png",
   ]
 
-  stage: number = 1
-  image: string = this.images[0]
-  accessibility: number = 0
+  stage: number
+  image: string
+  accessibility: number
 
-  constructor() {}
+  constructor(
+    public roadService: RoadService,
+    public cdref: ChangeDetectorRef
+  ) { 
+    this.stage = 1;
+    this.image = this.images[this.stage - 1]
+    this.accessibility = 0
+  }
 
-  public onRangeChange(event): void {
-    const inputValue = event.target.value
+  ngAfterViewChecked() {
+    this.onRangeChange(this.roadService.getRoadAccessibility())
+    this.cdref.detectChanges()
+  }
+
+  public onRangeChange(inputValue): void {
     const output = document.querySelector('.accessibility__slider-output') as HTMLDivElement
     const input = document.querySelector('.accessibility__slider-range') as HTMLInputElement
     let stage;
@@ -41,6 +53,8 @@ export class AccessibilityComponent {
     this.image = this.images[stage - 1]
     this.stage = stage
     this.accessibility = inputValue
+
+    this.roadService.setRoadAccessibility(inputValue)
 
     output.style.left = (inputValue / 2.4) * input.offsetWidth + 'px'
   }

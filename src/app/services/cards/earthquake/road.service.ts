@@ -10,7 +10,7 @@ interface LatLng {
 })
 export class RoadService {
   informerLocation: LatLng
-  roadAccessibility: number
+  roadAccessibility: number = 0
   roadCondition: number
 
   setInformerLocation(newInformerLocation: LatLng) {
