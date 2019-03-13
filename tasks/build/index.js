@@ -1,21 +1,21 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _gulp = require('gulp');
+var _gulp = require("gulp");
 
 var _gulp2 = _interopRequireDefault(_gulp);
 
-var _del = require('del');
+var _del = require("del");
 
 var _del2 = _interopRequireDefault(_del);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = _gulp2.default.task('clearPreviousAssets', function (done) {
-  (0, _del2.default)(['../src/assets/icons', '../src/assets/images', '../src/assets/locales', '../src/assets/logos', '../src/resources/*', 'src/index.html'], { force: true }); // Force deleting outside Current Working Directory
+exports.default = _gulp2.default.task("clearPreviousAssets", function (done) {
+  (0, _del2.default)(["../src/assets/icons", "../src/assets/images", "../src/assets/locales", "../src/assets/logos", "../src/resources/*", "src/index.html"], { force: true }); // Force deleting outside Current Working Directory
 
   done();
 });
@@ -247,13 +247,13 @@ var dep = args.dep;
 exports.default = _gulp2.default.task('fetchResources', function () {
   return _gulp2.default.src(['../deployments/' + dep + '/resources/**/*']).pipe((0, _gulpChangedInPlace2.default)({ firstPass: true })).pipe(_gulp2.default.dest('../src/resources/'));
 });
-'use strict';
+"use strict";
 
-var _gulp = require('gulp');
+var _gulp = require("gulp");
 
 var _gulp2 = _interopRequireDefault(_gulp);
 
-var _minimist = require('minimist');
+var _minimist = require("minimist");
 
 var _minimist2 = _interopRequireDefault(_minimist);
 
@@ -263,15 +263,15 @@ var args = (0, _minimist2.default)(process.argv.slice(2));
 var dep = args.dep;
 
 var deploymentMap = {
-  jp: 'Japan, riskmap.jp',
-  in: 'India, riskmap.in',
-  us: 'USA, riskmap.us'
+  jp: "Japan, riskmap.jp",
+  in: "India, riskmap.in",
+  us: "USA, riskmap.us"
 };
 
-if (dep === 'jp' || dep === 'in' || dep === 'us') {
-  console.log('Specified deployment is ' + deploymentMap[dep]);
+if (dep === "jp" || dep === "in" || dep === "us") {
+  console.log("Specified deployment is " + deploymentMap[dep]);
 } else {
-  throw 'No deployment specified, prefix `export dep=jp|in|us` to command';
+  throw "No deployment specified, prefix `export dep=jp|in|us` to command";
 }
 
-_gulp2.default.task('default', _gulp2.default.series('clearPreviousAssets', _gulp2.default.parallel('fetchEnvironment', 'fetchAssets', 'fetchResources', 'fetchIndexFile')));
+_gulp2.default.task("default", _gulp2.default.series("clearPreviousAssets", _gulp2.default.parallel("fetchEnvironment", "fetchAssets", "fetchResources", "fetchIndexFile")));
