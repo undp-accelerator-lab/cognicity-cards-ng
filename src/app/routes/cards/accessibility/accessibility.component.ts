@@ -22,6 +22,8 @@ export class AccessibilityComponent {
 
   public onRangeChange(event): void {
     const inputValue = event.target.value
+    const output = document.querySelector('.accessibility__slider-output') as HTMLDivElement
+    const input = document.querySelector('.accessibility__slider-range') as HTMLInputElement
     let stage;
 
     if (inputValue <= 0.5) {
@@ -39,5 +41,7 @@ export class AccessibilityComponent {
     this.image = this.images[stage - 1]
     this.stage = stage
     this.accessibility = inputValue
+
+    output.style.left = (inputValue / 2.4) * input.offsetWidth + 'px'
   }
 }
