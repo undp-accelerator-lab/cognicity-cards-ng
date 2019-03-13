@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TitleBoxComponent implements OnInit {
   @Input() title: string;
   @Input() tabs: number[];
+  @Input() color: string;
   totalTabs: number[];
 
   constructor() { }

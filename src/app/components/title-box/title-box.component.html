@@ -1,14 +1,16 @@
 <div
-  id="titleText">
+  id="titleText"
+>
   {{ title }}
 </div>
 
 <div
   id="tabsRow"
   *ngIf="tabs[1] !== 0"
-  >
+>
   <div
     *ngFor="let tab of totalTabs; index as i"
-    [class]="i < tabs[1] ? 'tabs filled' : 'tabs'">
+    [ngClass]="[i < tabs[1] ? 'tabs filled' : 'tabs', color]"
+  >
   </div>
 </div>
