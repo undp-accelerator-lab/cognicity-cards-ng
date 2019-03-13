@@ -15,13 +15,10 @@ export class AccessibilityComponent {
   ]
 
   stage: number = 1
-  image: string
-  accessibility: number
+  image: string = this.images[0]
+  accessibility: number = 0
 
-  constructor() {
-    this.accessibility = 0
-    this.image = this.images[0]
-  }
+  constructor() {}
 
   public onRangeChange(event): void {
     const inputValue = event.target.value
@@ -41,5 +38,6 @@ export class AccessibilityComponent {
 
     this.image = this.images[stage - 1]
     this.stage = stage
+    this.accessibility = inputValue
   }
 }
