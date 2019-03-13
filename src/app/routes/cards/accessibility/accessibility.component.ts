@@ -14,6 +14,7 @@ export class AccessibilityComponent {
     "../../../../assets/decks/earthquake/accessibility/Access_5.png",
   ]
 
+  stage: number = 1
   image: string
   accessibility: number
 
@@ -24,17 +25,21 @@ export class AccessibilityComponent {
 
   public onRangeChange(event): void {
     const inputValue = event.target.value
+    let stage;
 
     if (inputValue <= 0.5) {
-      this.image = this.images[0]
+      stage = 1;
     } else if (inputValue <= 1.0) {
-      this.image = this.images[1]
+      stage = 2;
     } else if(inputValue <= 1.4) {
-      this.image = this.images[2]
+      stage = 3;
     } else if (inputValue <= 1.8) {
-      this.image = this.images[3]
+      stage = 4;
     } else {
-      this.image = this.images[4]
+      stage = 5;
     }
+
+    this.image = this.images[stage - 1]
+    this.stage = stage
   }
 }

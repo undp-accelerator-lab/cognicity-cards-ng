@@ -15,7 +15,7 @@
 
       "eqtype": "Select Report Type",
       "eqlocation": "Select Report Location",
-      "accessibility": "Report Road Accessbility",
+      "accessibility": "Report Road Accessibility",
       "condition": "Describe Road Condition",
       "structure": "Report Structure Failure",
 

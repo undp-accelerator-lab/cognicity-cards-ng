@@ -38,12 +38,6 @@
       box-shadow: 0 0 15px 5px white;
     }
 
-    &::-webkit-slider-thumb::before {
-      content: "<";
-      color: white;
-      font-size: 40px;
-    }
-
     &::-moz-range-thumb {
       border: 1px solid white;
       height: 25px;
@@ -121,6 +115,40 @@
     }
     &:focus::-ms-fill-upper {
       background-image: linear-gradient(to right, black, white);
+    }
+  }
+}
+
+.accessibility {
+  &__range {
+    &.stage-1 {
+      &::-webkit-slider-thumb {
+        background-color: #be1e2d;
+      }
+    }
+
+    &.stage-2 {
+      &::-webkit-slider-thumb {
+        background-color: #f7941d;
+      }
+    }
+
+    &.stage-3 {
+      &::-webkit-slider-thumb {
+        background-color: #ffde17;
+      }
+    }
+
+    &.stage-4 {
+      &::-webkit-slider-thumb {
+        background-color: #ffde17;
+      }
+    }
+
+    &.stage-5 {
+      &::-webkit-slider-thumb {
+        background-color: #00a651;
+      }
     }
   }
 }
