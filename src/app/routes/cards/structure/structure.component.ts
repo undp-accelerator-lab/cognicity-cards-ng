@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StructureService } from '../../../services/cards/earthquake/structure.service';
 
 @Component({
   selector: 'app-structure',
@@ -22,15 +23,17 @@ export class StructureComponent {
   image: string
   structure: number
 
-  constructor() {
-    this.structure = 1
-    this.title = this.titles[this.structure]
-    this.image = this.images[this.structure]
+  constructor(
+    public structureService: StructureService
+  ) {
+    this.setStructureFailure(structureService.getStructureFailure())
   }
 
-  public onRangeChange(event): void {
-    this.structure = event.target.value
-    this.title = this.titles[event.target.value]
-    this.image = this.images[event.target.value]
+  public setStructureFailure(value: number): void {
+    this.structure = value
+    this.title = this.titles[value]
+    this.image = this.images[value]
+
+    this.structureService.setStructureFailure(value)
   }
 }

@@ -10,7 +10,7 @@ interface LatLng {
 })
 export class StructureService {
   informerLocation: LatLng
-  structureFailure: number
+  structureFailure: number = 1
 
   setInformerLocation(newInformerLocation: LatLng) {
     this.informerLocation = newInformerLocation;
