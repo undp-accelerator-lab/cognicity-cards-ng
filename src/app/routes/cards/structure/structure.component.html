@@ -1,0 +1,15 @@
+<div class="structure">
+  <img 
+    [src]="image" 
+    alt="Structure" 
+    class="structure__img"
+  >
+  <input 
+    type="range" name="structure__range" 
+    min="0" max="2" 
+    [ngClass]="['structure__range', 'range-' + structure]" 
+    (change)="onRangeChange($event)"
+    [value]="structure"
+  >
+  <p class="structure__txt">{{ title }}</p>
+</div>
