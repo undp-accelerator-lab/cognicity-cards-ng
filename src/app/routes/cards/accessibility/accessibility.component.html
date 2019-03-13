@@ -1,0 +1,9 @@
+<div class="accessibility">
+  <img [src]="image" alt="Accessibility" class="accessibility__img">
+  <input 
+    type="range" name="accessibility__range" 
+    min="0" max="2.2"step="0.1" class="accessibility__range" 
+    (change)="onRangeChange($event)"
+    [value]="accessibility"
+  >
+</div>

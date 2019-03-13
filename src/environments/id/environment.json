@@ -33,6 +33,7 @@
       "cards": [
         "eqtype",
         "eqlocation",
+        "accessibility",
         "photo",
         "description",
         "review",
