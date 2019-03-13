@@ -1,7 +1,7 @@
 {
   "production": false,
   "stage": "dev",
-  "deployment": "jp",
+  "deployment": "id",
 
   "decks": [{
       "name": "flood",
@@ -32,6 +32,7 @@
       "name": "earthquake",
       "cards": [
         "eqtype",
+        "eqlocation",
         "photo",
         "description",
         "review",

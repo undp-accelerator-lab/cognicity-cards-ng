@@ -32,6 +32,7 @@
       "name": "earthquake",
       "cards": [
         "eqtype",
+        "eqlocation",
         "photo",
         "description",
         "review",
