@@ -28,17 +28,14 @@ export class HazeService {
 
   // Setter
   setHazeLocation(newHazeLocation: LatLng) {
-    console.log({ newHazeLocation })
     this.hazeLocation = newHazeLocation;
   }
 
   setHazeVisibility(newHazeVisibility: string) {
-    console.log({ newHazeVisibility })
     this.hazeVisibility = newHazeVisibility;
   }
 
   setAirQuality(newAirQuality: string) {
-    console.log({ newAirQuality })
     this.airQuality = newAirQuality;
   }
 }

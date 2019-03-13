@@ -15,17 +15,14 @@ export class FireService {
 
   // Setter
   setInformerLocation(newInformerLocation: LatLng) {
-    console.log({ newInformerLocation })
     this.informerLocation = newInformerLocation;
   }
 
   setFireLocation(newFireLocation: LatLng) {
-    console.log({ newFireLocation })
     this.fireLocation = newFireLocation;
   }
 
   setFireRadius(newFireRadius: LatLng) {
-    console.log({ newFireRadius })
     this.fireRadius = newFireRadius;
   }
 
