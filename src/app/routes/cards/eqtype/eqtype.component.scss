@@ -63,14 +63,14 @@
 }
 
 @media (max-width: 721px) {
-  .firetype {
+  .eqtype {
     flex-direction: column;
   }
 }
 
 @media (max-width: 721px) and (max-height: 761px) {
-  .firetype {
-    .fire {
+  .eqtype {
+    .road {
       &__img {
         width: 150px;
         height: 150px;
@@ -82,7 +82,7 @@
       }
     }
 
-    .haze {
+    .structural {
       &__img {
         width: 150px;
         height: 150px;

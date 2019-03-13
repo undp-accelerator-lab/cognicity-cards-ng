@@ -1,6 +1,15 @@
 <div class="visibility">
-  <img [src]="image" alt="Visibility high" class="visibility__img">
-  <input type="range" name="visibility__range" min="0" max="2" class="visibility__range" (change)="onRangeChange($event)"
-    [value]="visibility">
+  <img 
+    [src]="image" 
+    alt="Visibility high" 
+    class="visibility__img"
+  >
+  <input 
+    type="range" name="visibility__range" 
+    min="0" max="2" 
+    class="visibility__range" 
+    (change)="onRangeChange($event)"
+    [value]="visibility"
+  >
   <p class="visibility__txt">{{ description }} </p>
 </div>
