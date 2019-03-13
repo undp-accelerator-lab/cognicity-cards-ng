@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HazeService } from '../../services/cards/fire/haze.service'
 
 declare let L
@@ -9,6 +9,8 @@ declare let L
   styleUrls: ['./location-picker.component.scss']
 })
 export class LocationPickerComponent implements OnInit {
+  @Input() type: string
+
   private currentMarker: any
   public latlng: { lat: string, lng: string }
 
@@ -48,7 +50,7 @@ export class LocationPickerComponent implements OnInit {
 
   private addMarker(e, map): void {
     const icon = L.icon({
-      iconUrl: '../../../assets/decks/fire/location/SelectHazeLocation.png',
+      iconUrl: this.getIcon(),
       iconSize: [57.2 / 2, 103.5 / 2],
       iconAnchor: [15, 50],
       popupAnchor: [-3, -76],
@@ -70,5 +72,14 @@ export class LocationPickerComponent implements OnInit {
     marker.addTo(map)
 
     this.currentMarker = marker
+  }
+
+  getIcon() {
+    switch (this.type) {
+      case 'structure':
+        return '../../../assets/decks/earthquake/eqlocation/AddStructureFailureIcon_Location.png'
+      default:
+        return '../../../assets/decks/fire/location/SelectHazeLocation.png';
+    }
   }
 }
