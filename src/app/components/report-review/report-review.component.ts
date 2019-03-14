@@ -63,4 +63,14 @@ export class ReportReviewComponent implements OnInit {
       case 4: return 'Hazardous'
     }
   }
+
+  get visibility() {
+    const visibleValue = this.hazeService.getHazeVisibility()
+
+    switch (visibleValue) {
+      case 0: return 'High'
+      case 1: return 'Moderate'
+      case 2: return 'Low'
+    }
+  }
 }

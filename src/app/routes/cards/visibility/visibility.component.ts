@@ -27,25 +27,15 @@ export class VisibilityComponent {
     this.image = this.images[hazeService.getHazeVisibility()]
   }
 
-  get visibility(): string {
+  get visibility(): number {
     return this.hazeService.getHazeVisibility()
   }
 
-  public onRangeChange(event): void {
-    this.hazeService.setHazeVisibility(event.target.value)
-    switch (event.target.value) {
-      case "0":
-        this.description = this.descriptions[0]
-        this.image = this.images[0]
-        break;
-      case "1":
-        this.description = this.descriptions[1]
-        this.image = this.images[1]
-        break;
-      case "2":
-        this.description = this.descriptions[2]
-        this.image = this.images[2]
-        break;
-    }
+  public onRangeChange(value: string): void {
+    const intValue = parseInt(value)
+    
+    this.hazeService.setHazeVisibility(intValue)
+    this.description = this.descriptions[intValue]
+    this.image = this.images[intValue]
   }
 }

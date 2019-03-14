@@ -8,7 +8,7 @@
     type="range" name="visibility__range" 
     min="0" max="2" 
     class="visibility__range" 
-    (change)="onRangeChange($event)"
+    (change)="onRangeChange($event.target.value)"
     [value]="visibility"
   >
   <p class="visibility__txt">{{ description }} </p>
