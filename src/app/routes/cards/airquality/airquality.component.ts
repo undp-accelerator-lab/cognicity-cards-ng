@@ -19,16 +19,11 @@ export class AirqualityComponent {
 
   fact: string = this.facts[2];
 
-  get rangeValue(): string {
+  get rangeValue(): number {
     return this.hazeService.getAirQuality();
   }
 
-  public onRangeChanged(event): void {
-    this.hazeService.setAirQuality(event.target.value);
-  }
-
-  public onFactClicked(value: string, range): void {
-    range.value = value;
-    this.hazeService.setAirQuality(value);
+  public changeAirQuality(value): void {
+    this.hazeService.setAirQuality(parseInt(value));
   }
 }

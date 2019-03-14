@@ -51,4 +51,16 @@ export class ReportReviewComponent implements OnInit {
     if (range < 1) return '<1'
     return range.toFixed(2)
   }
+
+  get airQuality() {
+    const quality = this.hazeService.getAirQuality()
+
+    switch(quality) {
+      case 0: return ''
+      case 1: return 'Moderate'
+      case 2: return 'Poor'
+      case 3: return 'Severe'
+      case 4: return 'Hazardous'
+    }
+  }
 }
