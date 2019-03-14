@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service'
+import { FireService } from '../../services/cards/fire/fire.service';
 
 @Component({
   selector: 'app-report-review',
@@ -8,7 +9,10 @@ import { DeckService } from '../../services/cards/deck.service'
 })
 export class ReportReviewComponent implements OnInit {
 
-  constructor(private deckService: DeckService) { }
+  constructor(
+    private deckService: DeckService,
+    private fireService: FireService
+  ) { }
 
   ngOnInit() {
     if (this.deckService.getPreview()) {
@@ -34,4 +38,15 @@ export class ReportReviewComponent implements OnInit {
     return this.deckService.getDescription()
   }
 
+  get deckType() {
+    return this.deckService.getDeckType()
+  }
+
+  get fireRange() {
+    const radius = this.fireService.countDistance() / 2
+    const range = Math.PI * Math.pow((radius), 2) / 10000
+    
+    if (range < 1) return '<1'
+    return range.toFixed(2)
+  }
 }

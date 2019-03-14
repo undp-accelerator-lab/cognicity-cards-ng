@@ -4,14 +4,20 @@
     alt="fire image" class="report-review__img"
   >
   <div class="report-review__txt">
-    <p>
-      Perkiraan kebakaran:
-      <span class="report-review__txt-dist">
-        2 hektar
-      </span>
-    </p>
-    <p class="report-review__txt-desc">
-      {{ description }}
-    </p>
+    <ng-template [ngIf]="deckType === 'fire'">
+      <p>
+        Perkiraan kebakaran:
+        <span class="report-review__txt-dist">
+          {{ fireRange }} hectare
+        </span>
+      </p>
+      <p class="report-review__txt-desc">
+        {{ description }}
+      </p>
+    </ng-template>
+
+    <ng-template [ngIf]="deckType === 'haze'">
+      Haze
+    </ng-template>
   </div>
 </div>

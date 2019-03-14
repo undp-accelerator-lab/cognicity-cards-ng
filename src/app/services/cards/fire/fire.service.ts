@@ -38,4 +38,14 @@ export class FireService {
   getFireRadius(): LatLng {
     return this.fireRadius;
   }
+
+  // Utility
+
+  countDistance(): number {
+    // in meter
+    return Math.sqrt(
+      Math.pow((this.fireLocation.lat - this.informerLocation.lat), 2) +
+      Math.pow((this.fireLocation.lng - this.informerLocation.lng), 2)
+    )
+  }
 }
