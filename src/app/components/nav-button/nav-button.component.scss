@@ -15,20 +15,17 @@ button {
   border: 1px solid white;
   cursor: pointer;
   transition: background-color .5s;
-
-  &.button-left {
-    background-color: #6D6E6D;
-    color: #626362;
-  }
+  background-color: rgba(66, 66, 66, 0.3);
+  color: white;
 
   &.button-right {
-    background-color: rgba(66, 66, 66, 0.3);
-    color: white;
     flex-direction: row-reverse;
   }
 
   &:disabled {
-    color: #888888;
+    // color: #888888;
+    background-color: #6D6E6D;
+    color: #626362;
   }
 
   &:focus {
