@@ -11,10 +11,10 @@ export class AirqualityComponent {
 
   facts: string[] = [
     "None",
-    "Tercium Bau Asap",
-    "Mata Pedih / Radang Tenggorokan",
-    "Pusing / Mual",
-    "Sesak Nafas / Dada Nyeri"
+    "Smell Smoke",
+    "Watery Eyes / Throat Irritation",
+    "Headache / Nauseous",
+    "Shortness of Breath / Chest Tightness"
   ];
 
   fact: string = this.facts[2];

@@ -10,7 +10,7 @@
 >
   <div
     *ngFor="let tab of totalTabs; index as i"
-    [ngClass]="[i < tabs[1] ? 'tabs filled' : 'tabs', color]"
+    [ngClass]="[getCssClass(i), '' + color]"
   >
   </div>
 </div>

@@ -8,9 +8,9 @@ import { HazeService } from '../../../services/cards/fire/haze.service'
 })
 export class VisibilityComponent {
   descriptions = [
-    "Bisa melihat jelas tapi butuh masker hidung",
-    "Bisa melihat tapi kurang jelas untuk berkendara",
-    "Sulit melihat. Terlalu bahaya untuk keluar",
+    "I can still see but I need to wear a mask.",
+    "I can still see but not clean enough to drive.",
+    "I can barely see. Too dangerous to go out."
   ]
 
   images = [

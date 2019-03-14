@@ -13,6 +13,10 @@ export class TitleBoxComponent implements OnInit {
 
   constructor() { }
 
+  getCssClass(i) {
+    return i < this.tabs[1] ? 'tabs filled ' : 'tabs'
+  }
+
   ngOnInit() {
     this.totalTabs = Array(this.tabs[0] - 1)
     .fill(1).map((x, i) => x + i);

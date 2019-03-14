@@ -24,6 +24,25 @@
       "review": "Tinjau & Laporkan",
       "thank": "Terima Kasih!"
     },
+    "firetype": {
+      "fireTypeButton": { 
+        "text": "Kebakaran di dekat saya",
+        "hint": "Lokasi anda akan disembunyikan"
+      },
+      "hazeTypeButton": "Tandai kabut asap di lokasi saya"
+    },
+    "visibility": [
+      "Bisa melihat jelas tapi butuh masker hidung",
+      "Bisa melihat tapi kurang jelas untuk berkendara",
+      "Sulit melihat. Terlalu bahaya untuk keluar"
+    ],
+    "airquality": [
+      "None",
+      "Tercium Bau Asap",
+      "Mata Pedih / Radang Tenggorokan",
+      "Pusing / Mual",
+      "Sesak Nafas / Dada Nyeri"
+    ],
     "eqtype": {
       "roadTypeButton": "Laporkan Akses Jalan",
       "structureTypeButton": "Laporkan Dampak Pada Bangunan"
