@@ -26,4 +26,10 @@ export class TextBoxComponent {
   get description(): string {
     return this.deckService.getDescription()
   }
+
+  get isAllowed(): boolean {
+    if (this.deckService.getDeckType() === 'structure')
+      return !!this.deckService.getPreview()
+    return true 
+  }
 }

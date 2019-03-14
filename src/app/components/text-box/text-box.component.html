@@ -1,11 +1,15 @@
-<!-- <textarea 
+<textarea 
+  *ngIf="isAllowed"
   rows="15" [value]="description" 
   name="textbox" class="textbox" 
   placeholder="Add your description here..."
   #desc (input)="onChangeDescription(desc.value)"
 >
-</textarea> -->
-<div class="textbox__warning">
+</textarea>
+<div
+  class="textbox__warning"
+  *ngIf="!isAllowed"
+>
   Please add a description OR a photo to continue!
 </div>
 <div [ngClass]="['textbox__icons', color]">
