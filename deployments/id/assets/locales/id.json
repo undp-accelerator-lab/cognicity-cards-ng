@@ -65,6 +65,18 @@
       "Retak",
       "Roboh Sebagian",
       "Roboh Total"
-    ]
+    ],
+    "description": "Masukkan deskripsi di sini ...",
+    "review": { 
+      "text": "Dengan mengirimkan laporan ini Anda setuju dengan",
+      "link": "Kesepakatan Kontribusi PetaBencana.id"
+    },
+    "thank": { 
+      "result": "SUKSES!",
+      "title": "Terima kasih atas laporan Anda. Kami akan kirim notifikasi saat sudah dipetakan.",
+      "subtitle": "Mau submit laporan lainnya?",
+      "acceptButton": "Ya",
+      "rejectButton": "Tidak"
+    }
   }
 }
