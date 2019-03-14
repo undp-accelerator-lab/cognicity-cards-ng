@@ -18,10 +18,23 @@
   }
 
   width: 100%;
-  padding-bottom: 5px;
 
   &:focus {
     outline: none;
+  }
+
+  &__warning {
+    display: flex;
+    font-family: sans-serif;
+    color: white;
+    padding: 20%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #6C6D70;
+    height: 100px;
+    border: 2.5px solid white;
   }
 
   &__icons {
@@ -30,6 +43,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding-top: 5px;
 
     .material-icons {
       cursor: pointer;
@@ -40,13 +54,13 @@
     .active-icon {
       color: white;
     }
-  }
 
-  &.red {
-    border-bottom: 2.5px solid #EE1D23;
-  }
-
-  &.orange {
-    border-bottom: 2.5px solid #F15A2B;
+    &.red {
+      border-top: 2.5px solid #EE1D23;
+    }
+  
+    &.orange {
+      border-top: 2.5px solid #F15A2B;
+    }
   }
 }
