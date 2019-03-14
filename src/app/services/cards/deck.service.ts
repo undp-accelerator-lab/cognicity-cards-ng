@@ -4,9 +4,14 @@ import { Injectable } from "@angular/core";
   providedIn: 'root'
 })
 export class DeckService {
+  class: string
   type: string
   description: string = ''
   preview: File
+
+  getDeckClass() {
+    return this.class;
+  }
 
   getDeckType() {
     return this.type
@@ -20,12 +25,15 @@ export class DeckService {
     return this.preview
   }
 
+  setDeckClass(newClass: string) {
+    this.class = newClass
+  }
+
   setDeckType(newType: string) {
     this.type = newType
   }
 
   setDescription(newDescription: string) {
-    console.log({ newDescription })
     this.description = newDescription;
   }
 

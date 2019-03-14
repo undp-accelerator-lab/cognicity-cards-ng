@@ -6,7 +6,6 @@
 .textbox {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #EE1D23;
   margin: 0;
   color: white;
 
@@ -41,5 +40,13 @@
     .active-icon {
       color: white;
     }
+  }
+
+  &.red {
+    border-bottom: 2.5px solid #EE1D23;
+  }
+
+  &.orange {
+    border-bottom: 2.5px solid #F15A2B;
   }
 }

@@ -24,7 +24,14 @@
   &-divider {
     margin: 15px 0;
     padding-top: 10px;
-    border-top: 1.5px solid #EE1D23;
+
+    &.red {
+      border-top: 1.5px solid #EE1D23;
+    }
+
+    &.orange {
+      border-top: 2.5px solid #F15A2B;
+    }
 
     display: flex;
     align-items: center;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeckService } from '../../services/cards/deck.service';
 
 @Component({
   selector: 'app-submit-swipe',
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./submit-swipe.component.scss']
 })
 export class SubmitSwipeComponent implements OnInit {
+  color: string
 
-  constructor() { }
+  constructor(
+    public deckService: DeckService
+  ) {
+    switch(deckService.getDeckClass()) {
+      case 'fire': this.color = 'white'; break;
+      case 'earthquake': this.color = 'orange'; break;
+      default: this.color = 'blue'
+    }
+  }
 
   ngOnInit() {
   }

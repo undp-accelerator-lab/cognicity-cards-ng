@@ -13,7 +13,9 @@ export class EqtypeComponent {
     public navController: NavigationService,
     public route: ActivatedRoute,
     public deckService: DeckService,
-  ) { }
+  ) {
+    this.deckService.setDeckClass('earthquake')
+  }
 
   onTypeSelected(type: string) {
     this.deckService.setDeckType(type)

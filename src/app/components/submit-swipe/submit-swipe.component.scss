@@ -61,9 +61,16 @@
 		border-radius: 5px;
 		&:after {
 			transition: all .2s ease;
-			background: #f2f2f2;
 			content: "";
 			border-radius: 5px;
+		}
+
+		&.white:after {
+			background: #f2f2f2;
+		}
+
+		&.orange:after {
+			background: #F15929;
 		}
 	}
   
@@ -72,7 +79,15 @@
     &:after {
       left: 77.5%;
       background: #f2f2f2;
-    }
+		}
+		
+		&.white:after {
+			background: #f2f2f2;
+		}
+
+		&.orange:after {
+			background: #F15929;
+		}
   }
 
   &:checked + .swipe-btn > .swipe-text {
