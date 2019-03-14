@@ -37,10 +37,12 @@ export class ConditionComponent {
   }
 
   public setRoadCondition(condition): void {
-    this.condition = condition
-    this.title = this.titles[condition]
-    this.image = this.images[condition]
-    this.subtitle = this.subtitles[condition]
+    const intCondition = parseInt(condition)
+
+    this.condition = intCondition
+    this.title = this.titles[intCondition]
+    this.image = this.images[intCondition]
+    this.subtitle = this.subtitles[intCondition]
 
     this.roadService.setRoadCondition(this.condition)
   }

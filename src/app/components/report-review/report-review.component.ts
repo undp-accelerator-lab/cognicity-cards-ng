@@ -100,4 +100,14 @@ export class ReportReviewComponent implements OnInit {
       return "Large Vehicle (Truck)"
     }
   }
+
+  get roadCondition() {
+    const condition = this.roadService.getRoadCondition()
+
+    switch (condition) {
+      case 0: return 'Light'
+      case 1: return 'Moderate'
+      case 2: return 'Heavy'
+    }
+  }
 }
