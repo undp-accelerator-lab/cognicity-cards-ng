@@ -5,6 +5,7 @@
 #submitSlider {
 	position: relative;
 	width: 75%;
+	max-width: 200px;
 	height: 36px;
 	margin: 0px auto;
 	padding: 3px;
@@ -15,6 +16,7 @@
 	z-index: 3;
 	& #submitKnob {
 		position: relative;
+		cursor: pointer;
 		width: 36px;
 		height: 36px;
 		border: none;
