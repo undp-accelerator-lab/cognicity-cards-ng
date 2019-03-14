@@ -3,6 +3,7 @@ import { DeckService } from '../../services/cards/deck.service'
 import { FireService } from '../../services/cards/fire/fire.service';
 import { HazeService } from '../../services/cards/fire/haze.service';
 import { RoadService } from '../../services/cards/earthquake/road.service';
+import { StructureService } from '../../services/cards/earthquake/structure.service';
 
 @Component({
   selector: 'app-report-review',
@@ -15,7 +16,8 @@ export class ReportReviewComponent implements OnInit {
     public deckService: DeckService,
     public fireService: FireService,
     public hazeService: HazeService,
-    public roadService: RoadService
+    public roadService: RoadService,
+    public strutureService: StructureService
   ) { }
 
   ngOnInit() {
@@ -108,6 +110,17 @@ export class ReportReviewComponent implements OnInit {
       case 0: return 'Light'
       case 1: return 'Moderate'
       case 2: return 'Heavy'
+    }
+  }
+
+  // Structure
+  get structuralFailure() {
+    const failure = this.strutureService.getStructureFailure()
+
+    switch(failure) {
+      case 0: return 'Cracking'
+      case 1: return 'Partially Collapsed'
+      case 2: return 'Fully Collapsed'
     }
   }
 }

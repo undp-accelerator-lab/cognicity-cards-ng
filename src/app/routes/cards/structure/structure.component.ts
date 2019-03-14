@@ -29,11 +29,13 @@ export class StructureComponent {
     this.setStructureFailure(structureService.getStructureFailure())
   }
 
-  public setStructureFailure(value: number): void {
-    this.structure = value
-    this.title = this.titles[value]
-    this.image = this.images[value]
+  public setStructureFailure(value): void {
+    const intValue = parseInt(value)
 
-    this.structureService.setStructureFailure(value)
+    this.structure = intValue
+    this.title = this.titles[intValue]
+    this.image = this.images[intValue]
+
+    this.structureService.setStructureFailure(intValue)
   }
 }

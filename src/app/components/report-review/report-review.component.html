@@ -41,6 +41,12 @@
       </div>
     </ng-template>
 
+    <ng-template [ngIf]="deckType === 'structure'">
+      <div>
+        <p>{{ structuralFailure }}</p>
+      </div>
+    </ng-template>
+
     <p class="report-review__txt-desc">
       {{ description }}
     </p>

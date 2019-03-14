@@ -17,6 +17,7 @@ export class EqtypeComponent {
     this.deckService.setDeckClass('earthquake')
     // while still error
     this.deckService.setDeckType('road')
+    // this.deckService.setDeckType('structure')
   }
 
   onTypeSelected(type: string) {
