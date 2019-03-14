@@ -1,5 +1,8 @@
-<button type="button" (click)="navigate.emit()" [disabled]="isDisabled">
-  <i *ngIf="type === 'left'" class="fa fa-chevron-left arrow-left"></i>
+<button 
+  type="button" (click)="navigate.emit()" 
+  [disabled]="isDisabled"
+  [ngClass]="['button-' + type]"
+>
+  <i [ngClass]="['fa', 'fa-chevron-' + type, 'arrow-' + type]"></i>
   {{ text }}
-  <i *ngIf="type === 'right'" class="fa fa-chevron-right arrow-right"></i>
 </button>

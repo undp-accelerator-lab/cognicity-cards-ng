@@ -3,18 +3,29 @@
 }
 
 button {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   width: 90%;
   height: 40px;
-  color: white;
   font-size: 14px;
   margin: 20px 10px;
   border-radius: 5px;
   border: 1px solid white;
-  background-color: rgba(66, 66, 66, 0.3);
   cursor: pointer;
   transition: background-color .5s;
+
+  &.button-left {
+    background-color: #6D6E6D;
+    color: #626362;
+  }
+
+  &.button-right {
+    background-color: rgba(66, 66, 66, 0.3);
+    color: white;
+    flex-direction: row-reverse;
+  }
 
   &:disabled {
     color: #888888;
@@ -31,11 +42,11 @@ button {
 
   .arrow {
     &-left {
-      margin-right: 2.5px;
+      margin-right: 5px;
     }
 
     &-right {
-      margin-left: 2.5px;
+      margin-left: 5px;
     }
   }
 }
