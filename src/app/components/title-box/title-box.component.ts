@@ -18,7 +18,7 @@ export class TitleBoxComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.totalTabs = Array(this.tabs[0] - 1)
+    this.totalTabs = Array(this.tabs[0] - 2)
     .fill(1).map((x, i) => x + i);
   }
 
