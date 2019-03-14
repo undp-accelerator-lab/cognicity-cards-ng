@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { DeckService } from '../../services/cards/deck.service';
   templateUrl: './submit-swipe.component.html',
   styleUrls: ['./submit-swipe.component.scss']
 })
-export class SubmitSwipeComponent implements OnInit {
+export class SubmitSwipeComponent {
   color: string
 
   constructor(
@@ -18,8 +18,4 @@ export class SubmitSwipeComponent implements OnInit {
       default: this.color = 'blue'
     }
   }
-
-  ngOnInit() {
-  }
-
 }

@@ -1,6 +1,7 @@
-<input class="swipe swipe-flat" id="submit-swipe" type="checkbox"/>
-<label [ngClass]="['swipe-btn', color]" for="submit-swipe">
-  <p class="swipe-text">
-    >> Geser
-  </p> 
-</label>
+<div id="submitSlider">
+  <button id="submitKnob" [ngClass]="color"></button>
+  <p id="ref1" class="refText">
+    <i class="fa fa-angle-double-right"></i>
+  </p>
+  <p id="ref2" class="refText">Swipe to submit</p>
+</div>

@@ -11,3 +11,9 @@
     max-width: 80%;
   }
 }
+
+@media (max-width: 481px) {
+  .review__text {
+    font-size: 12px;
+  }
+}

@@ -1,96 +1,68 @@
-.swipe {
-	display: none;
-  
-	&,
-  &:after,
-  &:before,
-	& *,
-  & *:after,
-  & *:before,
-	& + .swipe-btn {
-		box-sizing: border-box;
-		&::selection {
-			background: none;
-		}
-	}
-  
-	+ .swipe-btn {
-    margin-bottom: 100px;
-    box-shadow: inset 0 10px 15px #5F5F5F;
-		outline: 0;
-		display: block;
-		width: 225px;
-		height: 50px;
-		position: relative;
-		cursor: pointer;
-    user-select: none;
-		&:after,
-    &:before {
-			position: relative;
-			display: block;
-			content: "";
-			width: 22.5%;
-			height: 100%;
-		}
-    
-		&:after {
-      left: 0;
-		}
-    
-		&:before {
-			display: none;
-		}
-  }
-  
-  &-text {
-    position: absolute;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 12.5px;
-    color: #b6b6b6;
-  }
+:host {
+	width: 80%;
 }
 
-.swipe-flat {
-	+ .swipe-btn {
-		padding: 2px;
-		transition: all .2s ease;
-    background-color: #808281;    
-		border: 1px solid #d4d3d3;
-		border-radius: 5px;
-		&:after {
-			transition: all .2s ease;
-			content: "";
-			border-radius: 5px;
+#submitSlider {
+	position: relative;
+	width: 75%;
+	height: 36px;
+	margin: 0px auto;
+	padding: 3px;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	border-radius: 6px;
+	box-shadow: inset 2px 5px 8px 0px rgba(0, 0, 0, 0.4);;
+	overflow: hidden;
+	z-index: 3;
+	& #submitKnob {
+		position: relative;
+		width: 36px;
+		height: 36px;
+		border: none;
+		border-radius: 6px;
+		background-color: #31aade;
+		outline: none;
+		box-shadow: 2px 5px 8px 0px rgba(0, 0, 0, 0.4);
+		float: left;
+		z-index: 2;
+		&:active {
+			background-color: #31aade;
+			box-shadow: 2px 5px 8px 0px rgba(0, 0, 0, 0.4);
 		}
 
-		&.white:after {
-			background: #f2f2f2;
+		&.white {
+			background-color: #fff;
+
+			&:active {
+				background-color: #fff;
+			}
 		}
 
-		&.orange:after {
-			background: #F15929;
+		&.orange {
+			background-color: #F15929;
+
+			&:active {
+				background-color: #F15929;
+			}
 		}
 	}
-  
-	&:checked + .swipe-btn {
-    border: 1px solid #5F5F5F;
-    &:after {
-      left: 77.5%;
-      background: #f2f2f2;
-		}
-		
-		&.white:after {
-			background: #f2f2f2;
-		}
+	& .refText {
+		margin: 0px;
+		padding: 0px;
+		color: #ffffff;
+		opacity: 0.4;
+		z-index: 1;
+		float: left;
+		&#ref1 {
+			font-size: 30px;
 
-		&.orange:after {
-			background: #F15929;
+			.fa-angle-double-right {
+				margin: 0 10px;
+			}
 		}
-  }
-
-  &:checked + .swipe-btn > .swipe-text {
-    opacity: 0;
-  }
+		&#ref2 {
+			font-size: 12px;
+			line-height: 36px;
+			font-family: 'Roboto-Light', 'Roboto', Open-sans;
+		}
+	}
 }
