@@ -23,6 +23,29 @@
       "description": "Tell us more",
       "review": "Review & Submit",
       "thank": "Thank you!"
-    }
+    },
+    "eqtype": {
+      "roadTypeButton": "Road Accessibility",
+      "structureTypeButton": "Structural Failure"
+    },
+    "condition": [
+      { 
+        "title": "Light Disturbance",
+        "subtitle": "Small Road Cracks, Few Obstacles, Partial Access" 
+      },
+      {
+        "title": "Moderate Disturbance",
+        "subtitle": "Large Road Cracks, Partially Blocked, Limited Access"
+      },
+      {
+        "title": "Heavy Disturbance",
+        "subtitle": "Destroyed Road, Completely Blocked, No access"
+      }
+    ],
+    "structure": [
+      "Cracking",
+      "Partially Collapsed",
+      "Fully Collapsed"
+    ]
   }
 }

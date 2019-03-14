@@ -23,6 +23,29 @@
       "description": "Tambahkan Deskripsi",
       "review": "Tinjau & Laporkan",
       "thank": "Terima Kasih!"
-    }
+    },
+    "eqtype": {
+      "roadTypeButton": "Laporkan Akses Jalan",
+      "structureTypeButton": "Laporkan Dampak Pada Bangunan"
+    },
+    "condition": [
+      { 
+        "title": "Rusak ringan",
+        "subtitle": "jalan retak halus, sedikit hambatan, dapat dilintasi sebagian" 
+      },
+      {
+        "title": "Rusak sedang",
+        "subtitle": "jalan retak lebar, sebagian tertutup, akses untuk melintas terbatas"
+      },
+      {
+        "title": "Rusak berat",
+        "subtitle": "jalan putus/tidak bisa dilintasi"
+      }
+    ],
+    "structure": [
+      "Retak",
+      "Roboh Sebagian",
+      "Roboh Total"
+    ]
   }
 }
