@@ -3,12 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
 
   &__text, &__text a {
     color: white;
     text-align: center;
     max-width: 80%;
+  }
+
+  &__text {
+    margin: 15px 0;
   }
 }
 
