@@ -11,9 +11,6 @@
           {{ fireRange }} hectare
         </span>
       </p>
-      <p class="report-review__txt-desc">
-        {{ description }}
-      </p>
     </ng-template>
 
     <ng-template [ngIf]="deckType === 'haze'">
@@ -33,5 +30,16 @@
         </div>
       </div>
     </ng-template>
+
+    <ng-template [ngIf]="deckType === 'road'">
+      <div>
+        <p>Access: {{ roadAccessibility }}</p>
+        <p>{{ roadAccessibilityHint }}</p>
+      </div>
+    </ng-template>
+
+    <p class="report-review__txt-desc">
+      {{ description }}
+    </p>
   </div>
 </div>

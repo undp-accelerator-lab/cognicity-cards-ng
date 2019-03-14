@@ -9,13 +9,8 @@ interface LatLng {
   providedIn: 'root'
 })
 export class RoadService {
-  informerLocation: LatLng
   roadAccessibility: number = 0
   roadCondition: number = 1
-
-  setInformerLocation(newInformerLocation: LatLng) {
-    this.informerLocation = newInformerLocation;
-  }
 
   setRoadAccessibility(newRoadAccessibility: number) {
     this.roadAccessibility = newRoadAccessibility
@@ -23,10 +18,6 @@ export class RoadService {
 
   setRoadCondition(newRoadCondition: number) {
     this.roadCondition = newRoadCondition
-  }
-
-  getInformerLocation(): LatLng {
-    return this.informerLocation;
   }
 
   getRoadAccessibility() {

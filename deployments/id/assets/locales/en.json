@@ -63,6 +63,12 @@
       "roadTypeButton": "Road Accessibility",
       "structureTypeButton": "Structural Failure"
     },
+    "accessibility": [
+      "No Vehicle",
+      "Wheel Vehicle",
+      "Wheel Vehicle",
+      "Large Vehicle (Truck)"
+    ],
     "condition": [
       { 
         "title": "Light Disturbance",

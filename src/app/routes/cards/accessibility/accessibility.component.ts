@@ -29,22 +29,23 @@ export class AccessibilityComponent implements AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    this.onRangeChange(this.roadService.getRoadAccessibility())
+    this.onRangeChange(this.roadService.getRoadAccessibility().toString())
     this.cdref.detectChanges()
   }
 
-  public onRangeChange(inputValue): void {
+  public onRangeChange(inputValue: string): void {
+    const intValue = parseFloat(inputValue)
     const output = document.querySelector('.accessibility__slider-output') as HTMLDivElement
     const input = document.querySelector('.accessibility__slider-range') as HTMLInputElement
     let stage;
 
-    if (inputValue <= 0.5) {
+    if (intValue <= 0.5) {
       stage = 1;
-    } else if (inputValue <= 1.0) {
+    } else if (intValue <= 1.0) {
       stage = 2;
-    } else if(inputValue <= 1.4) {
+    } else if(intValue <= 1.4) {
       stage = 3;
-    } else if (inputValue <= 1.8) {
+    } else if (intValue <= 1.8) {
       stage = 4;
     } else {
       stage = 5;
@@ -52,10 +53,10 @@ export class AccessibilityComponent implements AfterViewChecked {
 
     this.image = this.images[stage - 1]
     this.stage = stage
-    this.accessibility = inputValue
+    this.accessibility = intValue
 
-    this.roadService.setRoadAccessibility(inputValue)
+    this.roadService.setRoadAccessibility(intValue)
 
-    output.style.left = (inputValue / 2.4) * input.offsetWidth + 'px'
+    output.style.left = (intValue / 2.4) * input.offsetWidth + 'px'
   }
 }

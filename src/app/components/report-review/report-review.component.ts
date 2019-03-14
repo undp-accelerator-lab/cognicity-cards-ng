@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service'
 import { FireService } from '../../services/cards/fire/fire.service';
 import { HazeService } from '../../services/cards/fire/haze.service';
+import { RoadService } from '../../services/cards/earthquake/road.service';
 
 @Component({
   selector: 'app-report-review',
@@ -11,9 +12,10 @@ import { HazeService } from '../../services/cards/fire/haze.service';
 export class ReportReviewComponent implements OnInit {
 
   constructor(
-    private deckService: DeckService,
-    private fireService: FireService,
-    private hazeService: HazeService
+    public deckService: DeckService,
+    public fireService: FireService,
+    public hazeService: HazeService,
+    public roadService: RoadService
   ) { }
 
   ngOnInit() {
@@ -44,6 +46,8 @@ export class ReportReviewComponent implements OnInit {
     return this.deckService.getDeckType()
   }
 
+  // Fire
+
   get fireRange() {
     const radius = this.fireService.getCircleRadius()
     const range = Math.PI * Math.pow(radius, 2) / 10000
@@ -51,6 +55,8 @@ export class ReportReviewComponent implements OnInit {
     if (range < 1) return '<1'
     return range.toFixed(2)
   }
+
+  // Haze
 
   get airQuality() {
     const quality = this.hazeService.getAirQuality()
@@ -71,6 +77,27 @@ export class ReportReviewComponent implements OnInit {
       case 0: return 'High'
       case 1: return 'Moderate'
       case 2: return 'Low'
+    }
+  }
+
+  // Road
+  get roadAccessibility() {
+    return this.roadService.getRoadAccessibility()
+  }
+
+  get roadAccessibilityHint() {
+    const accessibility = this.roadService.getRoadAccessibility()
+
+    if (accessibility <= 0.5) {
+      return "No Vehicle"
+    } else if (accessibility <= 1.0) {
+      return "2-Wheel Vehicle"
+    } else if(accessibility <= 1.4) {
+      return "4-Wheel Vehicle"
+    } else if (accessibility <= 1.8) {
+      return "Large Vehicle"
+    } else {
+      return "Large Vehicle (Truck)"
     }
   }
 }

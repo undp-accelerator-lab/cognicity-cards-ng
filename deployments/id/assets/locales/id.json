@@ -63,6 +63,12 @@
       "roadTypeButton": "Laporkan Akses Jalan",
       "structureTypeButton": "Laporkan Dampak Pada Bangunan"
     },
+    "accessibility": [
+      "Tidak bisa dilewati kendaraan",
+      "Kendaraan Roda 2",
+      "Kendaraan Roda 4",
+      "Kendaraan Muatan Berat (Truk)"
+    ],
     "condition": [
       { 
         "title": "Rusak ringan",
