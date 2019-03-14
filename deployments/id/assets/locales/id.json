@@ -76,7 +76,8 @@
       "title": "Terima kasih atas laporan Anda. Kami akan kirim notifikasi saat sudah dipetakan.",
       "subtitle": "Mau submit laporan lainnya?",
       "acceptButton": "Ya",
-      "rejectButton": "Tidak"
+      "rejectButton": "Tidak",
+      "tips": "Klik di sini untuk tips dari BNPB"
     }
   }
 }

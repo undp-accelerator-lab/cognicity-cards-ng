@@ -8,7 +8,7 @@ import { DeckService } from '../../../services/cards/deck.service'
 })
 export class ThankComponent implements OnInit {
 
-  constructor(private deckService: DeckService) { }
+  constructor(public deckService: DeckService) { }
 
   ngOnInit() {
   }

@@ -76,7 +76,8 @@
       "title": "Thank you for your report. We will notify you when it's on the map",
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
-      "rejectButton": "No"
+      "rejectButton": "No",
+      "tips": "Click here for safety tips from BNPB"
     }
   }
 }
