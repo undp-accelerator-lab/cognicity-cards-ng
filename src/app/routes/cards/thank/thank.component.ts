@@ -15,8 +15,10 @@ export class ThankComponent implements OnInit {
 
   get typeImage(): string {
     switch (this.deckService.getDeckType()) {
-      case 'fire': return '../../../assets/decks/fire/thanks/SuccessFireReport.png'; break;
-      case 'haze': return '../../../assets/decks/fire/thanks/SuccessHazeReport.png'; break;
+      case 'fire': return '../../../assets/decks/fire/thanks/SuccessFireReport.png';
+      case 'haze': return '../../../assets/decks/fire/thanks/SuccessHazeReport.png';
+      case 'road': return '../../../../assets/decks/earthquake/thanks/AddAccessReportIcon_Success.png'
+      case 'structure': return '../../../../assets/decks/earthquake/thanks/AddStructureFailureIcon_Success.png'
     }
   }
 

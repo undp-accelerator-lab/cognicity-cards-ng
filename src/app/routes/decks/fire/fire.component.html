@@ -7,7 +7,10 @@
   <router-outlet>
   </router-outlet>
 
-  <div id="navWrapper" *ngIf="navController.cardCounter > 0 && navController.cardCounter < navController.cardRoutes.length - 1">
+  <div 
+    id="navWrapper" 
+    *ngIf="navController.cardCounter > 0 && navController.cardCounter < navController.cardRoutes.length - 1"
+  >
     <app-nav-button 
       [type]="'left'" 
       [text]="'deck.prev' | translate" 
