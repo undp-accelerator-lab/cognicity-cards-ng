@@ -14,14 +14,18 @@ export class ReportReviewComponent implements OnInit {
     if (this.deckService.getPreview()) {
       this.setImagePreview(this.deckService.getPreview())
     } else {
-      document.getElementById('preview-img').setAttribute('src', 'https://i.ibb.co/DVsGjRL/Pqvwzkf.jpg')
+      document
+        .getElementById('preview-img')
+        .setAttribute('src', 'https://via.placeholder.com/150')
     }
   }
 
   setImagePreview(file: File) {
     const reader = new FileReader()
     reader.onload = function (e: any) {
-      document.getElementById('preview-img').setAttribute('src', e.target.result)
+      document
+        .getElementById('preview-img')
+        .setAttribute('src', e.target.result)
     }
     reader.readAsDataURL(file)
   }
