@@ -13,6 +13,8 @@ export class FireService {
   fireLocation: LatLng;
   fireRadius: LatLng;
 
+  circleRadius: number
+
   // Setter
   setInformerLocation(newInformerLocation: LatLng) {
     this.informerLocation = newInformerLocation;
@@ -24,6 +26,10 @@ export class FireService {
 
   setFireRadius(newFireRadius: LatLng) {
     this.fireRadius = newFireRadius;
+  }
+
+  setCircleRadius(newCircleRadius: number) {
+    this.circleRadius = newCircleRadius
   }
 
   // Getter
@@ -39,13 +45,7 @@ export class FireService {
     return this.fireRadius;
   }
 
-  // Utility
-
-  countDistance(): number {
-    // in meter
-    return Math.sqrt(
-      Math.pow((this.fireLocation.lat - this.informerLocation.lat), 2) +
-      Math.pow((this.fireLocation.lng - this.informerLocation.lng), 2)
-    )
+  getCircleRadius(): number {
+    return this.circleRadius
   }
 }

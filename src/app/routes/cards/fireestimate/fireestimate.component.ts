@@ -67,7 +67,7 @@ export class FireestimateComponent implements OnInit {
   }
 
   private addMarker(type: 'informer' | 'radius'): void {
-    let latlng;
+    let latlng: { lat, lng };
     switch (type) {
       case 'informer':
         latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng }
@@ -130,16 +130,23 @@ export class FireestimateComponent implements OnInit {
   }
 
   private addCircleRadius(): void {
+    const radius = this.map.distance(
+      this.informerMarker.getLatLng(), 
+      this.radiusMarker.getLatLng()
+    )
+    
     const circle = L.circle(
       [
         this.informerMarker.getLatLng().lat,
         this.informerMarker.getLatLng().lng,
       ],
       {
-        radius: this.map.distance(this.informerMarker.getLatLng(), this.radiusMarker.getLatLng()),
+        radius,
         className: 'radius-circle'
       }
     )
+
+    this.fireService.setCircleRadius(radius)
 
     if (this.circleRadius) this.circleRadius.remove(this.map)
     this.circleRadius = circle

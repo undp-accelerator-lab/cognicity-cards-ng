@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service'
 import { FireService } from '../../services/cards/fire/fire.service';
+import { HazeService } from '../../services/cards/fire/haze.service';
 
 @Component({
   selector: 'app-report-review',
@@ -11,7 +12,8 @@ export class ReportReviewComponent implements OnInit {
 
   constructor(
     private deckService: DeckService,
-    private fireService: FireService
+    private fireService: FireService,
+    private hazeService: HazeService
   ) { }
 
   ngOnInit() {
@@ -43,8 +45,8 @@ export class ReportReviewComponent implements OnInit {
   }
 
   get fireRange() {
-    const radius = this.fireService.countDistance() / 2
-    const range = Math.PI * Math.pow((radius), 2) / 10000
+    const radius = this.fireService.getCircleRadius()
+    const range = Math.PI * Math.pow(radius, 2) / 10000
     
     if (range < 1) return '<1'
     return range.toFixed(2)
