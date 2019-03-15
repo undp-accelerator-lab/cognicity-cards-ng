@@ -12,29 +12,46 @@
   }
 
   &__title {
-    font-size: 30px;
+    font-size: 24px;
+    margin-bottom: 0;
   }
 
   &__subtitle {
     max-width: 80%;
     text-align: center;
+
+    &:nth-of-type(2) {
+      margin-bottom: 0
+    }
+
+    &:nth-of-type(3) {
+      margin-top: 0;
+      margin-bottom: 25px;
+    }
   }
 
   &__again {
     font-size: 20px;
-    margin: 0;
+    max-width: 80%;
+    text-align: center;
+    margin: 25px 0;
   }
 
   &__tips a {
     color: white;
   }
 
+  &__btn-group {
+    max-width: 400px;
+    width: 80%;
+  }
+
   &__btn {
     font-size: 17.5px;
     display: block;
     color: white;
-    width: 300px;
-    max-width: 80%;
+    width: 100%;
+    max-width: 400px;
     margin: 20px auto;
     border-radius: 7.5px;
     padding: 10px 50px;
@@ -50,10 +67,10 @@
   }
 }
 
-@media (max-height: 569px) {
+@media (max-height: 841px) {
   .thanks {
     &__img {
-      width: 150px;
+      width: 125px;
     }
 
     &__btn {
@@ -64,6 +81,10 @@
 }
 
 @media (max-width: 481px) {
+  .thanks__subtitle {
+    font-size: 12px;
+  }
+
   .thanks__again {
     font-size: 16px;
   }

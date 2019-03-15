@@ -8,10 +8,11 @@
   &__text, &__text a {
     color: white;
     text-align: center;
-    max-width: 80%;
   }
 
   &__text {
+    width: 80%;
+    max-width: 400px;
     margin: 15px 0;
   }
 }
