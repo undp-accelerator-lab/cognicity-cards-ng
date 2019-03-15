@@ -28,14 +28,22 @@
     background-color: #424243;
     overflow: auto;
 
-    &-dist {
-      display: block;
-      color: red;
-      margin-top: 0;
-    }
-
     p {
       margin: 0;
+    }
+
+    &-desc {
+      margin: 10px 0;
+    }
+  }
+
+  &__fire {
+    margin: 5px 0;
+
+    &-dist {
+      margin: 2.5px 0;
+      display: block;
+      color: red;
     }
   }
 
@@ -69,8 +77,6 @@
     }
 
     &__txt {
-      // font-size: 10px;
-      // font-size: 14px;
       padding: 5px 10px;
     }
   }

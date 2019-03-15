@@ -5,12 +5,12 @@
   >
   <div class="report-review__txt">
     <ng-template [ngIf]="deckType === 'fire'">
-      <p>
+      <div class="report-review__fire">
         Perkiraan kebakaran:
-        <span class="report-review__txt-dist">
+        <span class="report-review__fire-dist">
           {{ fireRange }} hectare
         </span>
-      </p>
+      </div>
     </ng-template>
 
     <ng-template [ngIf]="deckType === 'haze'">
@@ -49,8 +49,8 @@
       </div>
     </ng-template>
 
-    <p class="report-review__txt-desc">
+    <div class="report-review__txt-desc">
       {{ description }}
-    </p>
+    </div>
   </div>
 </div>
