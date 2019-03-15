@@ -22,11 +22,7 @@ export class AccessibilityComponent implements AfterViewChecked {
   constructor(
     public roadService: RoadService,
     public cdref: ChangeDetectorRef
-  ) { 
-    this.stage = 1;
-    this.image = this.images[this.stage - 1]
-    this.accessibility = 0
-  }
+  ) {}
 
   ngAfterViewChecked() {
     this.onRangeChange(this.roadService.getRoadAccessibility().toString())

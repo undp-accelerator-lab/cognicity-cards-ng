@@ -1,15 +1,22 @@
 <div class="visibility">
   <img 
     [src]="image" 
-    alt="Visibility high" 
+    alt="Visibility" 
     class="visibility__img"
   >
-  <input 
-    type="range" name="visibility__range" 
-    min="0" max="2" 
-    class="visibility__range" 
-    (change)="onRangeChange($event.target.value)"
-    [value]="visibility"
-  >
+
+  <div class="visibility__slider">
+    <input 
+      type="range" name="visibility__range" 
+      min="0" max="2" 
+      class="visibility__range" 
+      (change)="onRangeChange($event.target.value)"
+      [value]="visibility"
+    >
+  
+    <div class="left-arrow"><i class="fa fa-angle-left"></i></div>
+    <div class="right-arrow"><i class="fa fa-angle-right"></i></div>
+  </div>
+
   <p class="visibility__txt">{{ description }} </p>
 </div>
