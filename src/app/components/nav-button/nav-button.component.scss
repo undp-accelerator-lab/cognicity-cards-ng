@@ -10,31 +10,36 @@ button {
   width: 90%;
   height: 40px;
   font-size: 14px;
-  margin: 20px 10px;
+  margin: 10px;
   border-radius: 5px;
   border: 1px solid white;
   cursor: pointer;
   transition: background-color .5s;
   background-color: rgba(66, 66, 66, 0.3);
   color: white;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 
   &.button-right {
     flex-direction: row-reverse;
   }
 
   &:disabled {
-    // color: #888888;
     background-color: #6D6E6D;
     color: #626362;
   }
 
   &:focus {
     outline: none;
+    background-color: rgba(66, 66, 66, 0.3);
+    color: white;
   }
 
-  &:hover {
-    color: rgba(66, 66, 66, 0.3);
-    background-color: white;
+  &:active {
+    outline: none;
+    background: #5e5e5e;
+    transform: translateY(1px);
+    border-bottom: 0;
   }
 
   .arrow {
@@ -50,13 +55,7 @@ button {
 
 @media (max-width: 381px) {
   button {
-    width: 150px;
-  }
-}
-
-@media (max-width: 361px) {
-  button {
-    height: 30px;
+    width: 130px;
   }
 }
 
