@@ -1,16 +1,19 @@
 .airquality {
   height: 85vh;
-  padding: 0 25px;
+  padding: 0 20px;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 
   &__title {
     color: white;
-    margin: 25px 0;
-    font-size: 20px;
+    margin: 0 0 35px 0;
+    font-size: 18px;
+
+    // width: 70%;
+    // align-self: flex-end;
   }
 
   &__input {
@@ -18,7 +21,7 @@
     justify-content: flex-end;
     align-items: center;
 
-    flex: 1;
+    // flex: 1;
   }
 
   &__range {
