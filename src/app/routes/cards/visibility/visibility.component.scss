@@ -23,14 +23,6 @@
       bottom: -2px;
       color: white;
     }
-
-    .left-arrow {
-      left: -12.5px;
-    }
-
-    .right-arrow {
-      left: 37.5px;
-    }
   }
 
   &__range {
@@ -55,12 +47,6 @@
       cursor: pointer;
       margin-top: -10px; 
       box-shadow: 0 0 15px 5px white;
-    }
-
-    &::-webkit-slider-thumb::before {
-      content: "<";
-      color: white;
-      font-size: 40px;
     }
 
     &::-moz-range-thumb {

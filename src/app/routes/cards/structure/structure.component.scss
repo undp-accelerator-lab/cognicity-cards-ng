@@ -12,10 +12,21 @@
     max-width: 400px;
   }
 
-  &__range {
+  &__slider {
     width: 100%;
     max-width: 400px;
     margin: 30px 0;
+    position: relative;
+
+    .right-arrow, .left-arrow {
+      position: absolute;
+      bottom: -2px;
+      color: white;
+    }
+  }
+
+  &__slider-range {
+    width: 100%;
 
     -webkit-appearance: none;
     background: transparent;
@@ -129,7 +140,7 @@
 }
 
 .structure {
-  &__range {
+  &__slider-range {
     &.range-0 {
       &::-webkit-slider-thumb {
         background: #ffde17;
