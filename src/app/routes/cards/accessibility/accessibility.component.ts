@@ -31,8 +31,12 @@ export class AccessibilityComponent implements AfterViewChecked {
 
   public onRangeChange(inputValue: string): void {
     const intValue = parseFloat(inputValue)
+
     const output = document.querySelector('.accessibility__slider-output') as HTMLDivElement
     const input = document.querySelector('.accessibility__slider-range') as HTMLInputElement
+    const leftArrow = document.querySelector('.left-arrow') as HTMLDivElement
+    const rightArrow = document.querySelector('.right-arrow') as HTMLDivElement
+
     let stage;
 
     if (intValue <= 0.5) {
@@ -54,5 +58,26 @@ export class AccessibilityComponent implements AfterViewChecked {
     this.roadService.setRoadAccessibility(intValue)
 
     output.style.left = (intValue / 2.4) * input.offsetWidth + 'px'
+    leftArrow.style.left = this.countArrowOffset(intValue, input.offsetWidth, 'left')
+    rightArrow.style.left = this.countArrowOffset(intValue, input.offsetWidth, 'right')
+  }
+
+  private countArrowOffset(
+    inputValue: number, 
+    sliderWidth: number, 
+    type: 'left' | 'right'
+  ): string {
+    const circleThumbDiameter = 25 //px
+
+    const circleThumbRadius = circleThumbDiameter / 2.2
+    const circleThumbPosition = inputValue * sliderWidth / 2.2
+
+    const arrowOffsetRelative = (type === 'left' ? 
+      circleThumbRadius - circleThumbDiameter : 
+      circleThumbRadius + circleThumbDiameter
+    )
+    const arrowOffsetAbsolute = circleThumbRadius * inputValue
+
+    return `${arrowOffsetRelative + circleThumbPosition - arrowOffsetAbsolute}px`
   }
 }

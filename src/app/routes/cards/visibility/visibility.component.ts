@@ -47,8 +47,8 @@ export class VisibilityComponent implements AfterViewChecked {
     const circleThumbPosition = inputValue * sliderWidth / 2
 
     const arrowOffsetRelative = (type === 'left' ? 
-      circleThumbRadius - 25 : 
-      circleThumbRadius + 25
+      circleThumbRadius - circleThumbDiameter : 
+      circleThumbRadius + circleThumbDiameter
     )
     const arrowOffsetAbsolute = circleThumbRadius * inputValue
 
