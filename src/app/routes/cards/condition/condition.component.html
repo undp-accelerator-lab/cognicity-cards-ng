@@ -4,13 +4,20 @@
     alt="Condition" 
     class="condition__img"
   >
-  <input 
-    type="range" name="condition__range" 
-    min="0" max="2" 
-    [ngClass]="['condition__range', 'range-' + condition]" 
-    (change)="setRoadCondition($event.target.value)"
-    [value]="condition"
-  >
+
+  <div class="condition__slider">
+    <input 
+      type="range" name="condition__range" 
+      min="0" max="2" 
+      [ngClass]="['condition__range', 'range-' + condition]" 
+      (change)="setRoadCondition($event.target.value)"
+      [value]="condition"
+    >
+
+    <div class="left-arrow"><i class="fa fa-angle-left"></i></div>
+    <div class="right-arrow"><i class="fa fa-angle-right"></i></div>
+  </div>
+
   <p class="condition__txt">{{ title }}</p>
   <p class="condition__sub">({{ subtitle }})</p>
 </div>

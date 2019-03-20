@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef, AfterViewChecked } from '@angular/core';
 import { RoadService } from '../../../services/cards/earthquake/road.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { RoadService } from '../../../services/cards/earthquake/road.service';
   templateUrl: './condition.component.html',
   styleUrls: ['./condition.component.scss']
 })
-export class ConditionComponent {
+export class ConditionComponent implements AfterViewChecked {
   titles = [
     "Light Disturbance",
     "Moderate Disturbance",
@@ -31,13 +31,20 @@ export class ConditionComponent {
   condition: number
 
   constructor(
-    private roadService: RoadService
-  ) {
-    this.setRoadCondition(roadService.getRoadCondition())
+    private roadService: RoadService,
+    private cdRef: ChangeDetectorRef
+  ) {}
+
+  ngAfterViewChecked() {
+    this.setRoadCondition(this.roadService.getRoadCondition())
+    this.cdRef.detectChanges()
   }
 
   public setRoadCondition(condition): void {
     const intCondition = parseInt(condition)
+    const leftArrow = document.querySelector('.left-arrow') as HTMLDivElement
+    const rightArrow = document.querySelector('.right-arrow') as HTMLDivElement
+    const slider = document.querySelector('.condition__range') as HTMLInputElement
 
     this.condition = intCondition
     this.title = this.titles[intCondition]
@@ -45,5 +52,26 @@ export class ConditionComponent {
     this.subtitle = this.subtitles[intCondition]
 
     this.roadService.setRoadCondition(this.condition)
+    leftArrow.style.left = this.countArrowOffset(intCondition, slider.offsetWidth, 'left')
+    rightArrow.style.left = this.countArrowOffset(intCondition, slider.offsetWidth, 'right')
+  }
+
+  private countArrowOffset(
+    inputValue: number, 
+    sliderWidth: number, 
+    type: 'left' | 'right'
+  ): string {
+    const circleThumbDiameter = 25 //px
+
+    const circleThumbRadius = circleThumbDiameter / 2
+    const circleThumbPosition = inputValue * sliderWidth / 2
+
+    const arrowOffsetRelative = (type === 'left' ? 
+      circleThumbRadius - circleThumbDiameter : 
+      circleThumbRadius + circleThumbDiameter
+    )
+    const arrowOffsetAbsolute = circleThumbRadius * inputValue
+
+    return `${arrowOffsetRelative + circleThumbPosition - arrowOffsetAbsolute}px`
   }
 }
