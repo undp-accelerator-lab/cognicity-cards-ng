@@ -41,6 +41,16 @@
         "review",
         "thank"
       ]
+    },
+    {
+      "name": "wind",
+      "cards": [
+        "windlocation",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
     }
   ]
 }

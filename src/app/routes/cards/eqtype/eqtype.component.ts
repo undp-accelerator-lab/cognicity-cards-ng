@@ -20,7 +20,7 @@ export class EqtypeComponent {
     // this.deckService.setDeckType('structure')
   }
 
-  onTypeSelected(type: string) {
+  onTypeSelected(type) {
     this.deckService.setDeckType(type)
     this.navController.next(this.route)
   }

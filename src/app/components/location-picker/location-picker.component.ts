@@ -78,6 +78,8 @@ export class LocationPickerComponent implements OnInit {
     switch (this.type) {
       case 'structure':
         return '../../../assets/decks/earthquake/eqlocation/AddStructureFailureIcon_Location.png'
+      case 'wind':
+        return '../../../assets/decks/wind/windlocation/Wind_Pin.png'
       default:
         return '../../../assets/decks/fire/location/SelectHazeLocation.png';
     }
