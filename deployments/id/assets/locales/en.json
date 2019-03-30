@@ -19,6 +19,9 @@
       "condition": "Describe Road Condition",
       "structure": "Report Structure Failure",
 
+      "windlocation": "Select Report Location",
+      "windstructure": "Report Structure Failure",
+
       "photo": "Upload a Photo",
       "description": "Tell us more",
       "review": "Review & Submit",
@@ -84,6 +87,11 @@
       }
     ],
     "structure": [
+      "Cracking",
+      "Partially Collapsed",
+      "Fully Collapsed"
+    ],
+    "windstructure": [
       "Cracking",
       "Partially Collapsed",
       "Fully Collapsed"

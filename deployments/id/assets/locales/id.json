@@ -19,6 +19,9 @@
       "condition": "Jelaskan Kondisi Jalan",
       "structure": "Laporkan Dampak Pada Bangunan",
 
+      "windlocation": "Pilih Titik Lokasi Pelaporan",
+      "windstructure": "Laporan Dampak Pada Bangunan",
+
       "photo": "Unggah Foto",
       "description": "Tambahkan Deskripsi",
       "review": "Tinjau & Laporkan",
@@ -84,6 +87,11 @@
       }
     ],
     "structure": [
+      "Retak",
+      "Roboh Sebagian",
+      "Roboh Total"
+    ],
+    "windstructure": [
       "Retak",
       "Roboh Sebagian",
       "Roboh Total"
