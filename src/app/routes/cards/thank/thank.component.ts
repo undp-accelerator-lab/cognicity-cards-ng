@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service'
 
 @Component({
@@ -6,19 +6,25 @@ import { DeckService } from '../../../services/cards/deck.service'
   templateUrl: './thank.component.html',
   styleUrls: ['./thank.component.scss']
 })
-export class ThankComponent implements OnInit {
+export class ThankComponent {
+  isShowTips = false
 
-  constructor(public deckService: DeckService) { }
-
-  ngOnInit() {
+  constructor(public deckService: DeckService) {
+    const deckClass = this.deckService.getDeckClass()
+    if (deckClass === 'wind' || deckClass === 'earthquake') {
+      this.isShowTips = true
+    }
   }
 
   get typeImage(): string {
     switch (this.deckService.getDeckType()) {
       case 'fire': return '../../../assets/decks/fire/thanks/SuccessFireReport.png';
       case 'haze': return '../../../assets/decks/fire/thanks/SuccessHazeReport.png';
+
       case 'road': return '../../../../assets/decks/earthquake/thanks/AddAccessReportIcon_Success.png'
       case 'structure': return '../../../../assets/decks/earthquake/thanks/AddStructureFailureIcon_Success.png'
+
+      case 'wind': return '../../../../assets/decks/wind/thank/success_wind.png'
     }
   }
 

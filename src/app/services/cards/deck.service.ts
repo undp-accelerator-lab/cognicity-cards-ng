@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 type deckClass = 'fire' | 'earthquake' | 'wind'
-type deckType = 'fire' | 'haze' | 'road' | 'structure'
+type deckType = 'fire' | 'haze' | 'road' | 'structure' | 'wind'
 
 @Injectable({
   providedIn: 'root'

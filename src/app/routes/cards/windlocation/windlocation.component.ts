@@ -10,6 +10,7 @@ export class WindlocationComponent implements OnInit {
 
   constructor(private deckService: DeckService) {
     this.deckService.setDeckClass('wind')
+    this.deckService.setDeckType('wind')
   }
 
   ngOnInit() {
