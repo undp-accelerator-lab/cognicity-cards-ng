@@ -46,6 +46,7 @@
       "name": "wind",
       "cards": [
         "windlocation",
+        "windstructure",
         "photo",
         "description",
         "review",
