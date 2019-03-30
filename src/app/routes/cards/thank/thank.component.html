@@ -10,14 +10,6 @@
     We will notify you when it's on the map
   </p>
 
-  <p *ngIf="deckService.getDeckClass() === 'fire'" class="thanks__again">
-    Would you like to submit another report?
-  </p>
-  <div *ngIf="deckService.getDeckClass() === 'fire'" class="thanks__btn-group">
-    <button class="thanks__btn">Yes</button>
-    <button class="thanks__btn">No</button>
-  </div>
-
   <p *ngIf="deckService.getDeckClass() === 'earthquake'" class="thanks__tips">
     <a target="_blank" href="https://bnpb.go.id/en/infografis/detail/siaga-bencana-gempa-bumi.html">
       Click here for safety tips from BNPB
