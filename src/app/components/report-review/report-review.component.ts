@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service'
 import { FireService } from '../../services/cards/fire/fire.service';
 import { HazeService } from '../../services/cards/fire/haze.service';
@@ -10,7 +10,7 @@ import { StructureService } from '../../services/cards/earthquake/structure.serv
   templateUrl: './report-review.component.html',
   styleUrls: ['./report-review.component.scss']
 })
-export class ReportReviewComponent implements OnInit {
+export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   previewImg: HTMLImageElement
 
@@ -19,11 +19,22 @@ export class ReportReviewComponent implements OnInit {
     public fireService: FireService,
     public hazeService: HazeService,
     public roadService: RoadService,
-    public strutureService: StructureService
+    public strutureService: StructureService,
+    private cdRef: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
+    this.initPreviewImg()
+
+  }
+  ngAfterViewChecked() {
+    if (this.deckService.getDeckType() === 'haze') this.initHazeReview()
+    this.cdRef.detectChanges()
+  }
+
+  initPreviewImg() {
     this.previewImg = document.getElementById('preview-img') as HTMLImageElement
+
     if (this.deckService.getPreview()) {
       this.setImagePreview(this.deckService.getPreview())
     } else {
@@ -35,6 +46,32 @@ export class ReportReviewComponent implements OnInit {
       }
       this.previewImg.setAttribute('src', previewImgSrc)
     }
+  }
+
+  initHazeReview() {
+    const visibilityImg = document.getElementById('visibility') as HTMLImageElement
+    const airqualityImg = document.getElementById('airquality') as HTMLImageElement
+    const airqualityText = document.getElementById('airquality-text') as HTMLParagraphElement
+
+    let visibilityImgSrc = '../../../assets/decks/fire/review/visibility/Visibility_Indicator'
+    let airqualityImgSrc = '../../../assets/decks/fire/review/airquality/Air_Quality_Indicator'
+
+    switch (this.hazeService.getHazeVisibility()) {
+      case 0: visibilityImgSrc += '_Low.png'; break;
+      case 1: visibilityImgSrc += '_Medium.png'; break;
+      case 2: visibilityImgSrc += '_High.png'; break;      
+    }
+
+    const airQuality = this.hazeService.getAirQuality()
+    switch (airQuality) {
+      case 1: airqualityImgSrc += '_Moderate.png'; break;
+      case 2: airqualityImgSrc += '_Poor.png'; break;      
+      case 3: airqualityImgSrc += '_Severe.png'; break;      
+      case 4: airqualityImgSrc += '_Hazardous.png'; break;      
+    }
+
+    visibilityImg.setAttribute('src', visibilityImgSrc)
+    if (airQuality > 0) airqualityImg.setAttribute('src', airqualityImgSrc)
   }
 
   setImagePreview(file: File) {

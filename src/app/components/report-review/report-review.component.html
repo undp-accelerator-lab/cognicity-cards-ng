@@ -14,15 +14,15 @@
     </ng-template>
 
     <ng-template [ngIf]="deckType === 'haze'">
-      <div>
-        <img src="" alt="">
+      <div class="row" *ngIf="airQuality !== ''">
+        <img id="airquality" src="" alt="Air Quality Indicator">
         <div>
           <p>Air Quality: </p>  
-          <p>{{ airQuality }}</p>
+          <p id="airquality-text">{{ airQuality }}</p>
         </div>
       </div>
-      <div>
-        <img src="" alt="">
+      <div class="row">
+        <img id="visibility" src="" alt="Air Quality Indicator">
         <div>
           <p>Visibility: </p>  
           <p>{{ visibility }}</p>

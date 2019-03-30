@@ -70,6 +70,17 @@
   }
 }
 
+.row {
+  display: flex;
+  margin-top: 5px;
+  align-items: center;
+
+  & img {
+    height: 50%;
+    width: 50%;
+  }
+}
+
 @media (max-width: 481px) {
   .report-review {
     height: 140px;
