@@ -14,6 +14,7 @@ export class ImageUploaderComponent implements OnInit {
     switch(deckService.getDeckClass()) {
       case 'fire': this.color = 'red'; break;
       case 'earthquake': this.color = 'orange'; break;
+      case 'wind': this.color = 'cyan'; break;
       default: this.color = 'blue'
     }
   }

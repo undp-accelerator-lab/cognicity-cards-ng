@@ -46,6 +46,14 @@
 				background-color: #F15929;
 			}
 		}
+
+		&.cyan {
+			background-color: #55c1ac;
+
+			&:active {
+				background-color: #55c1ac;
+			}
+		}
 	}
 	& .refText {
 		margin: 0px;

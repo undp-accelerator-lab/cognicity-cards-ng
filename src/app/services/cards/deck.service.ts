@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-type deckClass = 'fire' | 'earthquake'
+type deckClass = 'fire' | 'earthquake' | 'wind'
 type deckType = 'fire' | 'haze' | 'road' | 'structure'
 
 @Injectable({

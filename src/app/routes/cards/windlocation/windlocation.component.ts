@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeckService } from '../../../services/cards/deck.service';
 
 @Component({
   selector: 'app-windlocation',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WindlocationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private deckService: DeckService) {
+    this.deckService.setDeckClass('wind')
+  }
 
   ngOnInit() {
+
   }
 
 }
