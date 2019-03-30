@@ -12,6 +12,8 @@ import { StructureService } from '../../services/cards/earthquake/structure.serv
 })
 export class ReportReviewComponent implements OnInit {
 
+  previewImg: HTMLImageElement
+
   constructor(
     public deckService: DeckService,
     public fireService: FireService,
@@ -21,21 +23,24 @@ export class ReportReviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.previewImg = document.getElementById('preview-img') as HTMLImageElement
     if (this.deckService.getPreview()) {
       this.setImagePreview(this.deckService.getPreview())
     } else {
-      document
-        .getElementById('preview-img')
-        .setAttribute('src', 'https://via.placeholder.com/150')
+      let previewImgSrc
+      switch (this.deckService.getDeckType()) {
+        case 'fire': previewImgSrc = '../../../assets/decks/fire/review/Fire.png'; break;
+        case 'haze': previewImgSrc = '../../../assets/decks/fire/review/Haze.png'; break;
+        default: previewImgSrc = 'https://via.placeholder.com/150'; break;
+      }
+      this.previewImg.setAttribute('src', previewImgSrc)
     }
   }
 
   setImagePreview(file: File) {
     const reader = new FileReader()
-    reader.onload = function (e: any) {
-      document
-        .getElementById('preview-img')
-        .setAttribute('src', e.target.result)
+    reader.onload = (e: any) => {
+      this.previewImg.setAttribute('src', e.target.result)
     }
     reader.readAsDataURL(file)
   }

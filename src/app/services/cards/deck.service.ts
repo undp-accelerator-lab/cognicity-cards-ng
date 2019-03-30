@@ -1,11 +1,14 @@
 import { Injectable } from "@angular/core";
 
+type deckClass = 'fire' | 'earthquake'
+type deckType = 'fire' | 'haze' | 'road' | 'structure'
+
 @Injectable({
   providedIn: 'root'
 })
 export class DeckService {
-  class: string
-  type: string
+  class: deckClass
+  type: deckType
   description: string = ''
   preview: File
 
@@ -25,11 +28,11 @@ export class DeckService {
     return this.preview
   }
 
-  setDeckClass(newClass: string) {
+  setDeckClass(newClass: deckClass) {
     this.class = newClass
   }
 
-  setDeckType(newType: string) {
+  setDeckType(newType: deckType) {
     this.type = newType
   }
 
