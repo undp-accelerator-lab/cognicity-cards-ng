@@ -55,6 +55,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
     let visibilityImgSrc = '../../../assets/decks/fire/review/visibility/Visibility_Indicator'
     let airqualityImgSrc = '../../../assets/decks/fire/review/airquality/Air_Quality_Indicator'
+    let airqualityTextColor = 'white';
 
     switch (this.hazeService.getHazeVisibility()) {
       case 0: visibilityImgSrc += '_Low.png'; break;
@@ -64,14 +65,17 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
     const airQuality = this.hazeService.getAirQuality()
     switch (airQuality) {
-      case 1: airqualityImgSrc += '_Moderate.png'; break;
-      case 2: airqualityImgSrc += '_Poor.png'; break;      
-      case 3: airqualityImgSrc += '_Severe.png'; break;      
-      case 4: airqualityImgSrc += '_Hazardous.png'; break;      
+      case 1: airqualityImgSrc += '_Moderate.png'; airqualityTextColor = 'lightgreen'; break;
+      case 2: airqualityImgSrc += '_Poor.png'; airqualityTextColor = 'yellow'; break;      
+      case 3: airqualityImgSrc += '_Severe.png'; airqualityTextColor = 'orange' ;break;      
+      case 4: airqualityImgSrc += '_Hazardous.png'; airqualityTextColor = 'red'; break;      
     }
 
     visibilityImg.setAttribute('src', visibilityImgSrc)
-    if (airQuality > 0) airqualityImg.setAttribute('src', airqualityImgSrc)
+    if (airQuality > 0) { 
+      airqualityImg.setAttribute('src', airqualityImgSrc)
+      airqualityText.style.color = airqualityTextColor
+    }
   }
 
   setImagePreview(file: File) {
