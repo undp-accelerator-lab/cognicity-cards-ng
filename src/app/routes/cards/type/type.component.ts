@@ -42,7 +42,23 @@ export class TypeComponent {
           imgUrl: "../../../../assets/decks/fire/firetype/AddHazeReport.png",
           highlightImgUrl: '../../../../assets/decks/fire/firetype/AddHazeReport_Highlight.png'
         },
-      ]
+      ]; break;
+      case 'earthquake': this.items = [
+        { 
+          title: 'Road Accessibility', 
+          hint: '', 
+          subtype: 'road', 
+          imgUrl: '../../../../assets/decks/earthquake/eqtype/AddAccessReportIcon.png',
+          highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddAccessReportIcon_Click.png'
+        },
+        {
+          title: 'Structural Failure', 
+          hint: '', 
+          subtype: 'structure', 
+          imgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon.png',
+          highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon_Click.png'
+        }
+      ]; break;
     }
   }
 

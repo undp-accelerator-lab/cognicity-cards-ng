@@ -5,7 +5,7 @@
   },
   "card": {
     "titles": {
-      "firetype": "Select Report Type",
+      "type": "Select Report Type",
       "location": "Select Report Location",
       "depth": "Select flood depth",
       "fireestimate": "Report Fire Extent",
@@ -13,7 +13,6 @@
       "airquality": "Report Air Quality",
       "visibility": "Report Visibility",
 
-      "eqtype": "Select Report Type",
       "accessibility": "Report Road Accessibility",
       "condition": "Describe Road Condition",
       "structure": "Report Structure Failure",
@@ -25,12 +24,18 @@
       "review": "Review & Submit",
       "thank": "Thank you!"
     },
-    "firetype": {
-      "fireTypeButton": { 
-        "text": "Fire Nearby",
-        "hint": "we will not report your location"
+    "type": {
+      "fire": {
+        "fireTypeButton": { 
+          "text": "Fire Nearby",
+          "hint": "we will not report your location"
+        },
+        "hazeTypeButton": "Haze at My Location"
       },
-      "hazeTypeButton": "Haze at My Location"
+      "earthquake": {
+        "roadTypeButton": "Road Accessibility",
+        "structureTypeButton": "Structural Failure"
+      }
     },
     "visibility": {
       "card": [
@@ -59,10 +64,6 @@
         "Severe",
         "Hazardous"
       ]
-    },
-    "eqtype": {
-      "roadTypeButton": "Road Accessibility",
-      "structureTypeButton": "Structural Failure"
     },
     "accessibility": [
       "No Vehicle",

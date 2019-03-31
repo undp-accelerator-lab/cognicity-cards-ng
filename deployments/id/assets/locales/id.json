@@ -5,6 +5,7 @@
   },
   "card": {
     "titles": {
+      "type": "Jenis Laporan",
       "location": "Pilih Titik Lokasi Pelaporan",
       "depth": "Kedalaman Banjir",
       "firetype": "Jenis Laporan",
@@ -13,7 +14,6 @@
       "airquality": "Kualitas Udara",
       "visibility": "Jarak Pandang",
 
-      "eqtype": "Jenis Laporan",
       "accessibility": "Laporkan Akses Jalan",
       "condition": "Jelaskan Kondisi Jalan",
       "structure": "Laporkan Dampak Pada Bangunan",
@@ -25,12 +25,18 @@
       "review": "Tinjau & Laporkan",
       "thank": "Terima Kasih!"
     },
-    "firetype": {
-      "fireTypeButton": { 
-        "text": "Kebakaran di dekat saya",
-        "hint": "Lokasi anda akan disembunyikan"
+    "type": {
+      "fire": {
+        "fireTypeButton": { 
+          "text": "Kebakaran di dekat saya",
+          "hint": "Lokasi anda akan disembunyikan"
+        },
+        "hazeTypeButton": "Tandai kabut asap di lokasi saya"
       },
-      "hazeTypeButton": "Tandai kabut asap di lokasi saya"
+      "earthquake": {
+        "roadTypeButton": "Laporkan Akses Jalan",
+        "structureTypeButton": "Laporkan Dampak Pada Bangunan"
+      }
     },
     "visibility": {
       "card": [
@@ -59,10 +65,6 @@
         "Parah",
         "Berbahaya"
       ]
-    },
-    "eqtype": {
-      "roadTypeButton": "Laporkan Akses Jalan",
-      "structureTypeButton": "Laporkan Dampak Pada Bangunan"
     },
     "accessibility": [
       "Tidak bisa dilewati kendaraan",

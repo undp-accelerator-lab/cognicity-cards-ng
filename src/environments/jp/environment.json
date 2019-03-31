@@ -31,7 +31,7 @@
     {
       "name": "earthquake",
       "cards": [
-        "eqtype",
+        "type",
         "location",
         "photo",
         "description",
