@@ -16,7 +16,7 @@
     {
       "name": "fire",
       "cards": [
-        "firetype",
+        "type",
         "location",
         "firedistance",
         "fireestimate",

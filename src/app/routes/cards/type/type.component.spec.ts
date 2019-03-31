@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FiretypeComponent } from './firetype.component';
+import { TypeComponent } from './type.component';
 
-describe('FiretypeComponent', () => {
-  let component: FiretypeComponent;
-  let fixture: ComponentFixture<FiretypeComponent>;
+describe('TypeComponent', () => {
+  let component: TypeComponent;
+  let fixture: ComponentFixture<TypeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FiretypeComponent ]
+      declarations: [ TypeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FiretypeComponent);
+    fixture = TestBed.createComponent(TypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
