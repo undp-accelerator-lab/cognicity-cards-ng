@@ -115,7 +115,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   }
 
   get visibility() {
-    const visibleValue = this.hazeService.getHazeVisibility()
+    const visibleValue = this.deckService.getVisibility()
 
     switch (visibleValue) {
       case 0: return 'High'

@@ -1,5 +1,6 @@
 import { Component, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
-import { HazeService } from '../../../services/cards/fire/haze.service'
+import { DeckService } from '../../../services/cards/deck.service';
+import { countArrowOffset } from '../../../utils/slider'
 
 @Component({
   selector: 'app-visibility',
@@ -7,52 +8,43 @@ import { HazeService } from '../../../services/cards/fire/haze.service'
   styleUrls: ['./visibility.component.scss']
 })
 export class VisibilityComponent implements AfterViewChecked {
-  descriptions = [
-    "I can still see but I need to wear a mask.",
-    "I can still see but not clean enough to drive.",
-    "I can barely see. Too dangerous to go out."
-  ]
-
-  images = [
-    "../../../../assets/decks/fire/visibility/Visibility_High.jpg",
-    "../../../../assets/decks/fire/visibility/Visibility_Medium.jpg",
-    "../../../../assets/decks/fire/visibility/Visibility_Low.jpg",
-  ]
+  descriptions: string[]
+  images: string[]
 
   description: string
   image: string
 
   constructor(
-    private hazeService: HazeService,
+    private deckService: DeckService,
     private cdref: ChangeDetectorRef
-  ) {}
+  ) {
+    this.initDescriptions()
+    this.initImages()
+  }
+
+  initDescriptions() {
+    this.descriptions = [
+      "I can still see but I need to wear a mask.",
+      "I can still see but not clean enough to drive.",
+      "I can barely see. Too dangerous to go out."
+    ]
+  }
+
+  initImages() {
+    this.images = [
+      "../../../../assets/decks/fire/visibility/Visibility_High.jpg",
+      "../../../../assets/decks/fire/visibility/Visibility_Medium.jpg",
+      "../../../../assets/decks/fire/visibility/Visibility_Low.jpg",
+    ]
+  }
 
   get visibility(): number {
-    return this.hazeService.getHazeVisibility()
+    return this.deckService.getVisibility()
   }
 
   ngAfterViewChecked() {
-    this.onRangeChange(this.hazeService.getHazeVisibility().toString())
+    this.onRangeChange(this.deckService.getVisibility().toString())
     this.cdref.detectChanges()
-  }
-
-  private countArrowOffset(
-    inputValue: number, 
-    sliderWidth: number, 
-    type: 'left' | 'right'
-  ): string {
-    const circleThumbDiameter = 25 //px
-
-    const circleThumbRadius = circleThumbDiameter / 2
-    const circleThumbPosition = inputValue * sliderWidth / 2
-
-    const arrowOffsetRelative = (type === 'left' ? 
-      circleThumbRadius - circleThumbDiameter : 
-      circleThumbRadius + circleThumbDiameter
-    )
-    const arrowOffsetAbsolute = circleThumbRadius * inputValue
-
-    return `${arrowOffsetRelative + circleThumbPosition - arrowOffsetAbsolute}px`
   }
 
   public onRangeChange(value: string): void {
@@ -62,11 +54,11 @@ export class VisibilityComponent implements AfterViewChecked {
 
     const intValue = parseInt(value)
     
-    this.hazeService.setHazeVisibility(intValue)
+    this.deckService.setVisibility(intValue)
     this.description = this.descriptions[intValue]
     this.image = this.images[intValue]
 
-    leftArrow.style.left = this.countArrowOffset(intValue, slider.offsetWidth, 'left')
-    rightArrow.style.left = this.countArrowOffset(intValue, slider.offsetWidth, 'right')
+    leftArrow.style.left = countArrowOffset(intValue, 2, slider.offsetWidth, 'left')
+    rightArrow.style.left = countArrowOffset(intValue, 2,  slider.offsetWidth, 'right')
   }
 }
