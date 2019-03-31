@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewChecked, ChangeDetectorRef } from '@angular
 import { DeckService } from '../../services/cards/deck.service'
 import { FireService } from '../../services/cards/fire/fire.service';
 import { HazeService } from '../../services/cards/fire/haze.service';
-import { RoadService } from '../../services/cards/earthquake/road.service';
 
 @Component({
   selector: 'app-report-review',
@@ -17,7 +16,6 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     public deckService: DeckService,
     public fireService: FireService,
     public hazeService: HazeService,
-    public roadService: RoadService,
     private cdRef: ChangeDetectorRef
   ) { }
 
@@ -147,8 +145,8 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  get roadCondition() {
-    const condition = this.roadService.getRoadCondition()
+  get condition() {
+    const condition = this.deckService.getCondition()
 
     switch (condition) {
       case 0: return 'Light'

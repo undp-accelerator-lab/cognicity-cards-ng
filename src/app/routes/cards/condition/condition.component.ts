@@ -1,5 +1,6 @@
 import { Component, ChangeDetectorRef, AfterViewChecked } from '@angular/core';
-import { RoadService } from '../../../services/cards/earthquake/road.service';
+import { countArrowOffset } from '../../../utils/slider'
+import { DeckService } from '../../../services/cards/deck.service';
 
 @Component({
   selector: 'app-condition',
@@ -7,23 +8,9 @@ import { RoadService } from '../../../services/cards/earthquake/road.service';
   styleUrls: ['./condition.component.scss']
 })
 export class ConditionComponent implements AfterViewChecked {
-  titles = [
-    "Light Disturbance",
-    "Moderate Disturbance",
-    "Heavy Disturbance",
-  ]
-
-  subtitles = [
-    "Small Road Cracks, Few Obstacles, Partial Access",
-    "Large Road Cracks, Partially Blocked, Limited Access",
-    "Destroyed Road, Completely Blocked, No access",
-  ]
-
-  images = [
-    "../../../../assets/decks/earthquake/condition/RoadCondition_1.png",
-    "../../../../assets/decks/earthquake/condition/RoadCondition_2.png",
-    "../../../../assets/decks/earthquake/condition/RoadCondition_3.png",
-  ]
+  titles: string[]
+  subtitles: string[]
+  images: string[]
 
   title: string
   subtitle: string
@@ -31,13 +18,41 @@ export class ConditionComponent implements AfterViewChecked {
   condition: number
 
   constructor(
-    private roadService: RoadService,
+    private deckService: DeckService,
     private cdRef: ChangeDetectorRef
-  ) {}
+  ) {
+    this.initTitles()
+    this.initSubtitles()
+    this.initImages()
+  }
 
   ngAfterViewChecked() {
-    this.setRoadCondition(this.roadService.getRoadCondition())
+    this.setRoadCondition(this.deckService.getCondition())
     this.cdRef.detectChanges()
+  }
+
+  initTitles() {
+    this.titles = [
+      "Light Disturbance",
+      "Moderate Disturbance",
+      "Heavy Disturbance",
+    ]
+  }
+
+  initSubtitles() {
+    this.subtitles = [
+      "Small Road Cracks, Few Obstacles, Partial Access",
+      "Large Road Cracks, Partially Blocked, Limited Access",
+      "Destroyed Road, Completely Blocked, No access",
+    ]
+  }
+
+  initImages() {
+    this.images = [
+      "../../../../assets/decks/earthquake/condition/RoadCondition_1.png",
+      "../../../../assets/decks/earthquake/condition/RoadCondition_2.png",
+      "../../../../assets/decks/earthquake/condition/RoadCondition_3.png",
+    ]
   }
 
   public setRoadCondition(condition): void {
@@ -51,27 +66,8 @@ export class ConditionComponent implements AfterViewChecked {
     this.image = this.images[intCondition]
     this.subtitle = this.subtitles[intCondition]
 
-    this.roadService.setRoadCondition(this.condition)
-    leftArrow.style.left = this.countArrowOffset(intCondition, slider.offsetWidth, 'left')
-    rightArrow.style.left = this.countArrowOffset(intCondition, slider.offsetWidth, 'right')
-  }
-
-  private countArrowOffset(
-    inputValue: number, 
-    sliderWidth: number, 
-    type: 'left' | 'right'
-  ): string {
-    const circleThumbDiameter = 25 //px
-
-    const circleThumbRadius = circleThumbDiameter / 2
-    const circleThumbPosition = inputValue * sliderWidth / 2
-
-    const arrowOffsetRelative = (type === 'left' ? 
-      circleThumbRadius - circleThumbDiameter : 
-      circleThumbRadius + circleThumbDiameter
-    )
-    const arrowOffsetAbsolute = circleThumbRadius * inputValue
-
-    return `${arrowOffsetRelative + circleThumbPosition - arrowOffsetAbsolute}px`
+    this.deckService.setCondition(this.condition)
+    leftArrow.style.left = countArrowOffset(intCondition, 2, slider.offsetWidth, 'left')
+    rightArrow.style.left = countArrowOffset(intCondition, 2, slider.offsetWidth, 'right')
   }
 }
