@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FireService } from '../../../services/cards/fire/fire.service'
+import { DeckService } from '../../../services/cards/deck.service'
 
 declare let L
 
@@ -16,7 +16,7 @@ export class FireestimateComponent implements OnInit {
 
   private map
 
-  constructor(private fireService: FireService) { }
+  constructor(private deckService: DeckService) { }
 
   ngOnInit() {
     this.initMap()
@@ -25,9 +25,9 @@ export class FireestimateComponent implements OnInit {
   private initMap(): void {
     let lat = -7.7;
     let lng = 110.2
-    if (this.fireService.getFireLocation()) {
-      lat = this.fireService.getFireLocation().lat
-      lng = this.fireService.getFireLocation().lng
+    if (this.deckService.getFireLocation()) {
+      lat = this.deckService.getFireLocation().lat
+      lng = this.deckService.getFireLocation().lng
     }
 
     this.map = L
@@ -73,10 +73,10 @@ export class FireestimateComponent implements OnInit {
         latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng }
         break;
       case 'radius':
-        if (!this.fireService.getFireRadius()) {
+        if (!this.deckService.getFireRadius()) {
           latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000 }
         } else {
-          latlng = this.fireService.getFireRadius()
+          latlng = this.deckService.getFireRadius()
         }
         break;
     }
@@ -119,10 +119,10 @@ export class FireestimateComponent implements OnInit {
     marker.on('move', (e) => {
       switch (type) {
         case 'informer':
-          this.fireService.setFireLocation(e.latlng)
+          this.deckService.setFireLocation(e.latlng)
           break
         case 'radius':
-          this.fireService.setFireRadius(e.latlng)
+          this.deckService.setFireRadius(e.latlng)
           break
       }
       this.addCircleRadius()
@@ -146,7 +146,7 @@ export class FireestimateComponent implements OnInit {
       }
     )
 
-    this.fireService.setCircleRadius(radius)
+    this.deckService.setFireDistance(radius)
 
     if (this.circleRadius) this.circleRadius.remove(this.map)
     this.circleRadius = circle

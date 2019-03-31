@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service'
-import { FireService } from '../../services/cards/fire/fire.service';
 
 @Component({
   selector: 'app-report-review',
@@ -13,7 +12,6 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   constructor(
     public deckService: DeckService,
-    public fireService: FireService,
     private cdRef: ChangeDetectorRef
   ) { }
 
@@ -91,7 +89,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   // Fire
 
   get fireRange() {
-    const radius = this.fireService.getCircleRadius()
+    const radius = this.deckService.getFireDistance()
     const range = Math.PI * Math.pow(radius, 2) / 10000
     
     if (range < 1) return '<1'
