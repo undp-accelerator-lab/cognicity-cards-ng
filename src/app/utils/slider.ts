@@ -1,12 +1,13 @@
 const countArrowOffset = (
   inputValue: number, 
-  sliderWidth: number, 
+  maxValue: number,
+  sliderWidth: number,
   type: 'left' | 'right'
 ): string => {
   const circleThumbDiameter = 25 //px
 
-  const circleThumbRadius = circleThumbDiameter / 2
-  const circleThumbPosition = inputValue * sliderWidth / 2
+  const circleThumbRadius = circleThumbDiameter / maxValue
+  const circleThumbPosition = inputValue * sliderWidth / maxValue
 
   const arrowOffsetRelative = (type === 'left' ? 
     circleThumbRadius - circleThumbDiameter : 

@@ -64,7 +64,7 @@ export class StructureComponent implements AfterViewChecked {
     this.image = this.images[intValue]
 
     this.deckService.setStructureFailure(intValue)
-    leftArrow.style.left = countArrowOffset(intValue, slider.offsetWidth, 'left')
-    rightArrow.style.left = countArrowOffset(intValue, slider.offsetWidth, 'right')
+    leftArrow.style.left = countArrowOffset(intValue, 2, slider.offsetWidth, 'left')
+    rightArrow.style.left = countArrowOffset(intValue, 2, slider.offsetWidth, 'right')
   }
 }

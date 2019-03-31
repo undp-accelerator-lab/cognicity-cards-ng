@@ -127,12 +127,12 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   }
 
   // Road
-  get roadAccessibility() {
-    return this.roadService.getRoadAccessibility()
+  get accessibility() {
+    return this.deckService.getAccessibility()
   }
 
-  get roadAccessibilityHint() {
-    const accessibility = this.roadService.getRoadAccessibility()
+  get accessibilityHint() {
+    const accessibility = this.deckService.getAccessibility()
 
     if (accessibility <= 0.5) {
       return "No Vehicle"
