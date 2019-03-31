@@ -1,6 +1,9 @@
-<div class="fire">
+<div class="deck">
   <div>
-    <app-title-box [title]="'card.titles.' + navController.getCardPath() | translate" [tabs]="[navController.cardRoutes.length, navController.cardCounter]">
+    <app-title-box 
+      [title]="'card.titles.' + navController.getCardPath() | translate" 
+      [tabs]="[navController.cardRoutes.length, navController.cardCounter]"
+    >
     </app-title-box>
   </div>
 
