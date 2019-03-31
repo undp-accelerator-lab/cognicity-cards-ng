@@ -40,7 +40,7 @@
     "build-dev-jp": "dep=jp npm run pre-build-tasks && ng build --configuration=dev-jp --output-path='dist/dev-jp'",
     "build-prod-jp": "dep=jp npm run pre-build-tasks && ng build --prod --configuration=prod-jp --output-path='dist/prod-jp' --build-optimizer --vendor-chunk=true --stats-json",
     "build-dev-id": "dep=id npm run pre-build-tasks && ng build --configuration=dev-id --output-path='dist/dev-id'",
-    "build-prod-id": "dep=id npm run pre-build-tasks && ng build --prod --configuration=prod-id --output-path='dist/prod-id' --build-optimizer --vendor-chunk=true --stats-json",
+    "build-prod-id": "dep=id npm run pre-build-tasks && ng build --prod --configuration=prod-id --output-path='dist/prod-id' --build-optimizer --vendor-chunk=true --stats-json"
   },
   "private": true,
   "dependencies": {
