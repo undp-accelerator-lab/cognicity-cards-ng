@@ -6,7 +6,7 @@
 
 <div
   id="tabsRow"
-  *ngIf="tabs[1] > 0 && tabs[1] <= totalTabs.length"
+  *ngIf="isShowTabs"
 >
   <div
     *ngFor="let tab of totalTabs; index as i"
