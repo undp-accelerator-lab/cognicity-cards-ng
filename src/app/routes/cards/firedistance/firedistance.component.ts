@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FireService } from "../../../services/cards/fire/fire.service";
+import { DeckService } from '../../../services/cards/deck.service'
 
 declare let L;
 
@@ -16,7 +16,7 @@ export class FiredistanceComponent implements OnInit {
   private map;
   private distanceLine;
 
-  constructor(private fireService: FireService) { }
+  constructor(private deckService: DeckService) { }
 
   ngOnInit() {
     this.initMap();
@@ -25,9 +25,9 @@ export class FiredistanceComponent implements OnInit {
   private initMap() {
     let lat = -7.7;
     let lng = 110.2
-    if (this.fireService.getFireLocation()) {
-      lat = this.fireService.getInformerLocation().lat
-      lng = this.fireService.getInformerLocation().lng
+    if (this.deckService.getFireLocation()) {
+      lat = this.deckService.getLocation().lat
+      lng = this.deckService.getLocation().lng
     }
 
     this.map = L.map("mapid").setView([lat, lng], 15);
@@ -46,7 +46,7 @@ export class FiredistanceComponent implements OnInit {
       })
       .addTo(this.map);
 
-    if (this.fireService.getInformerLocation()) {
+    if (this.deckService.getLocation()) {
       this.onLocateFound()
     } else {
       // Locate user current location
@@ -100,17 +100,17 @@ export class FiredistanceComponent implements OnInit {
           lat: this.map.getCenter().lat,
           lng: this.map.getCenter().lng
         };
-        this.fireService.setInformerLocation(latlng);
+        this.deckService.setLocation(latlng);
         break;
       case "fire":
-        if (!this.fireService.getFireLocation()) {
+        if (!this.deckService.getFireLocation()) {
           latlng = {
             lat: this.map.getCenter().lat,
             lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000
           };
-          this.fireService.setFireLocation(latlng);
+          this.deckService.setFireLocation(latlng);
         } else {
-          latlng = this.fireService.getFireLocation()
+          latlng = this.deckService.getFireLocation()
         }
         break;
     }
@@ -142,10 +142,10 @@ export class FiredistanceComponent implements OnInit {
     marker.on("move", (e) => {
       switch (type) {
         case "informer":
-          this.fireService.setInformerLocation(e.latlng)
+          this.deckService.setLocation(e.latlng)
           break;
         case "fire":
-          this.fireService.setFireLocation(e.latlng)
+          this.deckService.setFireLocation(e.latlng)
           break;
       }
       this.addDistanceLine();
