@@ -7,23 +7,17 @@ import { EarthquakeRoutingModule } from './earthquake-routing.module';
 
 // Parent component
 import { EarthquakeComponent } from './earthquake.component';
-
-// Child components
-import { DropdownNotificationComponent } from '../../../components/dropdown-notification/dropdown-notification.component';
-import { NavButtonComponent } from '../../../components/nav-button/nav-button.component';
-import { TitleBoxComponent } from '../../../components/title-box/title-box.component';
+import { UtilsModule } from '../utils.module';
 
 @NgModule({
   imports: [
     CommonModule,
     EarthquakeRoutingModule,
-    TranslateModule
+    TranslateModule,
+    UtilsModule
   ],
   declarations: [
     EarthquakeComponent,
-    NavButtonComponent,
-    DropdownNotificationComponent,
-    TitleBoxComponent
   ],
   exports: [
     TranslateModule

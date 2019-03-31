@@ -8,22 +8,17 @@ import { FireRoutingModule } from './fire-routing.module';
 // Parent component
 import { FireComponent } from './fire.component';
 
-// Child components
-import { DropdownNotificationComponent } from '../../../components/dropdown-notification/dropdown-notification.component';
-import { NavButtonComponent } from '../../../components/nav-button/nav-button.component';
-import { TitleBoxComponent } from '../../../components/title-box/title-box.component';
+import { UtilsModule } from '../utils.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FireRoutingModule,
-    TranslateModule
+    TranslateModule,
+    UtilsModule
   ],
   declarations: [
     FireComponent,
-    NavButtonComponent,
-    DropdownNotificationComponent,
-    TitleBoxComponent
   ],
   exports: [
     TranslateModule

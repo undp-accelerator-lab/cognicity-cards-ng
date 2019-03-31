@@ -8,22 +8,17 @@ import { WindRoutingModule } from './wind-routing.module';
 // Parent component
 import { WindComponent } from './wind.component';
 
-// Child components
-import { DropdownNotificationComponent } from '../../../components/dropdown-notification/dropdown-notification.component';
-import { NavButtonComponent } from '../../../components/nav-button/nav-button.component';
-import { TitleBoxComponent } from '../../../components/title-box/title-box.component';
+import { UtilsModule } from '../utils.module';
 
 @NgModule({
   imports: [
     CommonModule,
     WindRoutingModule,
-    TranslateModule
+    TranslateModule,
+    UtilsModule
   ],
   declarations: [
-    WindComponent,
-    NavButtonComponent,
-    DropdownNotificationComponent,
-    TitleBoxComponent
+    WindComponent
   ],
   exports: [
     TranslateModule

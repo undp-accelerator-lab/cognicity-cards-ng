@@ -7,23 +7,17 @@ import { FloodRoutingModule } from './flood-routing.module';
 
 // Parent component
 import { FloodComponent } from './flood.component';
-
-// Child components
-import { DropdownNotificationComponent } from '../../../components/dropdown-notification/dropdown-notification.component';
-import { NavButtonComponent } from '../../../components/nav-button/nav-button.component';
-import { TitleBoxComponent } from '../../../components/title-box/title-box.component';
+import { UtilsModule } from '../utils.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FloodRoutingModule,
-    TranslateModule
+    TranslateModule,
+    UtilsModule
   ],
   declarations: [
     FloodComponent,
-    NavButtonComponent,
-    DropdownNotificationComponent,
-    TitleBoxComponent
   ],
   exports: [
     TranslateModule
