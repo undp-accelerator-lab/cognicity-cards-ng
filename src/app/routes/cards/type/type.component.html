@@ -1,11 +1,11 @@
-<div class="firetype">
-  <div class="fire" (click)="onTypeSelected('fire')">
-    <div class="fire__img"></div>
-    <button class="fire__btn btn-hovered">Fire Nearby</button>
-    <p class="fire__hint">we will not report your location</p>
-  </div>
-  <div class="haze" (click)="onTypeSelected('haze')">
-    <div class="haze__img"></div>
-    <button class="haze__btn btn-hovered">Haze at My Location</button>
-  </div>
+<div class="type">
+  <ng-template ngFor let-item [ngForOf]="items">
+    <app-type-button
+      [title]="item.title"
+      [hint]="item.hint"
+      [imgUrl]="item.imgUrl"
+      [highlightImgUrl]="item.highlightImgUrl"
+      (click)="onTypeSelected(item.subtype)"
+    ></app-type-button>
+  </ng-template>
 </div>

@@ -9,13 +9,21 @@ import { DeckService } from '../../../services/cards/deck.service'
   styleUrls: ['./type.component.scss']
 })
 export class TypeComponent {
-  items: { title, hint, subtype, imgUrl, highlightImgUrl }[]
+  items: { 
+    title: string, 
+    hint: string, 
+    subtype: string, 
+    imgUrl: string, 
+    highlightImgUrl,
+  }[]
 
   constructor(
     public navController: NavigationService,
     public route: ActivatedRoute,
     public deckService: DeckService,
-  ) {}
+  ) {
+    this.initItems()
+  }
 
   initItems() {
     switch(this.deckService.getDeckType()) {

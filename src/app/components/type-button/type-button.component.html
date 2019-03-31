@@ -1,0 +1,17 @@
+<div class="type">
+  <img 
+    class="type__img"
+    [src]="imgUrl"
+    (mouseenter)="onMouseEnter(img)"
+    (mouseleave)="onMouseLeave(img)"
+    #img
+  />
+  
+  <button class="type__btn btn-hovered">
+    {{ title }}
+  </button>
+  
+  <p class="type__hint" *ngIf="hint !== ''">
+    {{ hint }}
+  </p>
+</div>

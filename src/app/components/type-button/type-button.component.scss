@@ -1,0 +1,52 @@
+.type {
+  cursor: pointer;
+
+  &__img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+  }
+
+  &__btn {
+    display: block;
+    color: white;
+    margin: 20px auto 10px;
+    border-radius: 7.5px;
+    padding: 10px 50px;
+    border: 1.5px solid white;
+    background-color: #6D6E6D;
+    cursor: pointer;
+  }
+
+  &__hint {
+    color: white;
+    font-size: 10px;
+    text-align: center;
+
+    &::before {
+      content: "*";
+    }
+  }
+
+  &:hover {
+    .type__btn {
+      color: #6D6E6D;
+      background-color: white;
+    }
+  }
+}
+
+@media (max-width: 721px) and (max-height: 761px) {
+  .type {
+    &__img {
+      width: 150px;
+      height: 150px;;
+    }
+  
+    &__btn {
+      padding: 7.5px 37.5px;
+    }
+  }
+}
