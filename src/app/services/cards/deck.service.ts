@@ -1,23 +1,23 @@
 import { Injectable } from "@angular/core";
 
-type deckClass = 'fire' | 'earthquake' | 'wind'
-type deckType = 'fire' | 'haze' | 'road' | 'structure' | 'wind'
+type deckType = 'fire' | 'earthquake' | 'wind'
+type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind'
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeckService {
-  class: deckClass
   type: deckType
+  subtype: deckSubType
   description: string = ''
   preview: File
 
-  getDeckClass() {
-    return this.class;
+  getDeckType() {
+    return this.type;
   }
 
-  getDeckType() {
-    return this.type
+  getDeckSubType() {
+    return this.subtype
   }
 
   getDescription() {
@@ -28,19 +28,19 @@ export class DeckService {
     return this.preview
   }
 
-  setDeckClass(newClass: deckClass) {
-    this.class = newClass
+  setDeckType(type: deckType) {
+    this.type = type
   }
 
-  setDeckType(newType: deckType) {
-    this.type = newType
+  setDeckSubType(subType: deckSubType) {
+    this.subtype = subType
   }
 
-  setDescription(newDescription: string) {
-    this.description = newDescription;
+  setDescription(description: string) {
+    this.description = description;
   }
 
-  setPreview(newPreview: File) {
-    this.preview = newPreview;
+  setPreview(preview: File) {
+    this.preview = preview;
   }
 }

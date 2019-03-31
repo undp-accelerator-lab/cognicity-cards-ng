@@ -31,7 +31,7 @@ export class WindComponent implements OnInit {
     this.navController.checkForFirstCard(this.route);
 
     this.deckService.setDeckType('wind')
-    this.deckService.setDeckClass('wind')
+    this.deckService.setDeckSubType('wind')
   }
 
   ngOnInit() { }

@@ -10,14 +10,14 @@ export class ThankComponent {
   isShowTips = false
 
   constructor(public deckService: DeckService) {
-    const deckClass = this.deckService.getDeckClass()
-    if (deckClass === 'wind' || deckClass === 'earthquake') {
+    const deckType = this.deckService.getDeckType()
+    if (deckType === 'wind' || deckType === 'earthquake') {
       this.isShowTips = true
     }
   }
 
   get typeImage(): string {
-    switch (this.deckService.getDeckType()) {
+    switch (this.deckService.getDeckSubType()) {
       case 'fire': return '../../../assets/decks/fire/thanks/SuccessFireReport.png';
       case 'haze': return '../../../assets/decks/fire/thanks/SuccessHazeReport.png';
 

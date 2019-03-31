@@ -30,7 +30,7 @@ export class EarthquakeComponent implements OnInit {
     // Check for first card, else redirect
     this.navController.checkForFirstCard(this.route);
 
-    this.deckService.setDeckClass('earthquake')
+    this.deckService.setDeckType('earthquake')
   }
 
   ngOnInit() { }

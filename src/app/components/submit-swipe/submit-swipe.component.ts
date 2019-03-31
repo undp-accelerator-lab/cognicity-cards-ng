@@ -13,7 +13,7 @@ export class SubmitSwipeComponent {
   constructor(
     public deckService: DeckService
   ) {
-    switch(deckService.getDeckClass()) {
+    switch(deckService.getDeckType()) {
       case 'fire': this.color = 'white'; break;
       case 'earthquake': this.color = 'orange'; break;
       case 'wind': this.color = 'cyan'; break;

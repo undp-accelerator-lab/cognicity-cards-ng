@@ -16,7 +16,7 @@ export class FiretypeComponent {
   ) {}
 
   onTypeSelected(type) {
-    this.deckService.setDeckType(type)
+    this.deckService.setDeckSubType(type)
     this.navController.next(this.route)
   }
 }

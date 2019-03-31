@@ -30,7 +30,7 @@ export class FireComponent implements OnInit {
     // Check for first card, else redirect
     this.navController.checkForFirstCard(this.route);
 
-    this.deckService.setDeckClass('fire')
+    this.deckService.setDeckType('fire')
   }
 
   ngOnInit() { }

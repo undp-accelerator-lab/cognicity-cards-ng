@@ -28,7 +28,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   }
   ngAfterViewChecked() {
-    if (this.deckService.getDeckType() === 'haze') this.initHazeReview()
+    if (this.deckService.getDeckSubType() === 'haze') this.initHazeReview()
     this.cdRef.detectChanges()
   }
 
@@ -39,7 +39,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
       this.setImagePreview(this.deckService.getPreview())
     } else {
       let previewImgSrc
-      switch (this.deckService.getDeckType()) {
+      switch (this.deckService.getDeckSubType()) {
         case 'fire': previewImgSrc = '../../../assets/decks/fire/review/Fire.png'; break;
         case 'haze': previewImgSrc = '../../../assets/decks/fire/review/Haze.png'; break;
         default: previewImgSrc = 'https://via.placeholder.com/150'; break;
@@ -91,7 +91,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   }
 
   get deckType() {
-    return this.deckService.getDeckType()
+    return this.deckService.getDeckSubType()
   }
 
   // Fire

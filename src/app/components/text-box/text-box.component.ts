@@ -12,7 +12,7 @@ export class TextBoxComponent {
   constructor(
     private deckService: DeckService
   ) {
-    switch(deckService.getDeckClass()) {
+    switch(deckService.getDeckType()) {
       case 'fire': this.color = 'red'; break;
       case 'earthquake': this.color = 'orange'; break;
       case 'wind': this.color = 'cyan'; break;
@@ -29,7 +29,7 @@ export class TextBoxComponent {
   }
 
   get isAllowed(): boolean {
-    if (this.deckService.getDeckType() === 'structure')
+    if (this.deckService.getDeckSubType() === 'structure')
       return !!this.deckService.getPreview()
     return true 
   }

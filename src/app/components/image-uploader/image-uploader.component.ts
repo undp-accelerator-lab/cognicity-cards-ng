@@ -11,7 +11,7 @@ export class ImageUploaderComponent implements OnInit {
   color: string
 
   constructor(private deckService: DeckService) {
-    switch(deckService.getDeckClass()) {
+    switch(deckService.getDeckType()) {
       case 'fire': this.color = 'red'; break;
       case 'earthquake': this.color = 'orange'; break;
       case 'wind': this.color = 'cyan'; break;
