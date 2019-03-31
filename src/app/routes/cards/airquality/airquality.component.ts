@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { HazeService } from "../../../services/cards/fire/haze.service";
+import { DeckService } from '../../../services/cards/deck.service'
 
 @Component({
   selector: "app-airquality",
@@ -7,23 +7,28 @@ import { HazeService } from "../../../services/cards/fire/haze.service";
   styleUrls: ["./airquality.component.scss"]
 })
 export class AirqualityComponent {
-  constructor(private hazeService: HazeService) {}
 
-  facts: string[] = [
-    "None",
-    "Smell Smoke",
-    "Watery Eyes / Throat Irritation",
-    "Headache / Nauseous",
-    "Shortness of Breath / Chest Tightness"
-  ];
+  facts: string[]
 
-  fact: string = this.facts[2];
+  constructor(private deckService: DeckService) {
+    this.initFacts()
+  }
+
+  initFacts() {
+    this.facts = [
+      "None",
+      "Smell Smoke",
+      "Watery Eyes / Throat Irritation",
+      "Headache / Nauseous",
+      "Shortness of Breath / Chest Tightness"
+    ]
+  }
 
   get rangeValue(): number {
-    return this.hazeService.getAirQuality();
+    return this.deckService.getAirQuality();
   }
 
   public changeAirQuality(value): void {
-    this.hazeService.setAirQuality(parseInt(value));
+    this.deckService.setAirQuality(parseInt(value));
   }
 }

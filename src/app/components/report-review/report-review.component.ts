@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service'
 import { FireService } from '../../services/cards/fire/fire.service';
-import { HazeService } from '../../services/cards/fire/haze.service';
 
 @Component({
   selector: 'app-report-review',
@@ -15,7 +14,6 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   constructor(
     public deckService: DeckService,
     public fireService: FireService,
-    public hazeService: HazeService,
     private cdRef: ChangeDetectorRef
   ) { }
 
@@ -53,13 +51,13 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     let airqualityImgSrc = '../../../assets/decks/fire/review/airquality/Air_Quality_Indicator'
     let airqualityTextColor = 'white';
 
-    switch (this.hazeService.getHazeVisibility()) {
+    switch (this.deckService.getVisibility()) {
       case 0: visibilityImgSrc += '_Low.png'; break;
       case 1: visibilityImgSrc += '_Medium.png'; break;
       case 2: visibilityImgSrc += '_High.png'; break;      
     }
 
-    const airQuality = this.hazeService.getAirQuality()
+    const airQuality = this.deckService.getAirQuality()
     switch (airQuality) {
       case 1: airqualityImgSrc += '_Moderate.png'; airqualityTextColor = 'lightgreen'; break;
       case 2: airqualityImgSrc += '_Poor.png'; airqualityTextColor = 'yellow'; break;      
@@ -103,7 +101,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   // Haze
 
   get airQuality() {
-    const quality = this.hazeService.getAirQuality()
+    const quality = this.deckService.getAirQuality()
 
     switch(quality) {
       case 0: return ''
