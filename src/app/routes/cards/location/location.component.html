@@ -4,6 +4,6 @@
     placeholder="Klik & tarik untuk memindahkan pin atau cari disini"
   >
 
-  <app-location-picker>
+  <app-location-picker [type]="deckService.getDeckType()">
   </app-location-picker>
 </div>

@@ -34,7 +34,7 @@
         "eqtype",
         "structure",
         "condition",
-        "eqlocation",
+        "location",
         "accessibility",
         "photo",
         "description",
@@ -45,7 +45,7 @@
     {
       "name": "wind",
       "cards": [
-        "windlocation",
+        "location",
         "windstructure",
         "photo",
         "description",

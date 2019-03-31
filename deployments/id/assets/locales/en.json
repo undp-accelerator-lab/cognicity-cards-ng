@@ -6,7 +6,7 @@
   "card": {
     "titles": {
       "firetype": "Select Report Type",
-      "location": "Select Haze Location",
+      "location": "Select Report Location",
       "depth": "Select flood depth",
       "fireestimate": "Report Fire Extent",
       "firedistance": "Your Location and Fire Location",
@@ -14,12 +14,10 @@
       "visibility": "Report Visibility",
 
       "eqtype": "Select Report Type",
-      "eqlocation": "Select Report Location",
       "accessibility": "Report Road Accessibility",
       "condition": "Describe Road Condition",
       "structure": "Report Structure Failure",
 
-      "windlocation": "Select Report Location",
       "windstructure": "Report Structure Failure",
 
       "photo": "Upload a Photo",

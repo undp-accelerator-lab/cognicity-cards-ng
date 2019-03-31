@@ -5,7 +5,7 @@
   },
   "card": {
     "titles": {
-      "location": "Lokasi Kabut",
+      "location": "Pilih Titik Lokasi Pelaporan",
       "depth": "Kedalaman Banjir",
       "firetype": "Jenis Laporan",
       "fireestimate": "Perkiraan Kebakaran",
@@ -14,12 +14,10 @@
       "visibility": "Jarak Pandang",
 
       "eqtype": "Jenis Laporan",
-      "eqlocation": "Pilih Titik Lokasi Pelaporan",
       "accessibility": "Laporkan Akses Jalan",
       "condition": "Jelaskan Kondisi Jalan",
       "structure": "Laporkan Dampak Pada Bangunan",
 
-      "windlocation": "Pilih Titik Lokasi Pelaporan",
       "windstructure": "Laporan Dampak Pada Bangunan",
 
       "photo": "Unggah Foto",
