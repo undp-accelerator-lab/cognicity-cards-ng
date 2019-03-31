@@ -36,7 +36,7 @@
     "pre-build-tasks": "babel tasks/build/**/*.ts tasks/build/*.ts -o tasks/build/index.js && gulp -f ./tasks/build --dep $dep",
     "build": "npm run build-dev && npm run build-prod",
     "build-dev": "npm run build-dev-jp && npm run build-dev-id",
-    "build-prod": "npm run build-prod-ngsw-jp && npm run build-prod-ngsw-id",
+    "build-prod": "npm run build-prod-jp && npm run build-prod-id",
     "build-dev-jp": "dep=jp npm run pre-build-tasks && ng build --configuration=dev-jp --output-path='dist/dev-jp'",
     "build-prod-jp": "dep=jp npm run pre-build-tasks && ng build --prod --configuration=prod-jp --output-path='dist/prod-jp' --build-optimizer --vendor-chunk=true --stats-json",
     "build-prod-ngsw-jp": "npm run build-prod-jp && node_modules/.bin/ngsw-config dist/prod-jp ./src/ngsw-config.json && cp node_modules/@angular/service-worker/ngsw-worker.js ./dist/prod-jp/ngsw-worker.js",
