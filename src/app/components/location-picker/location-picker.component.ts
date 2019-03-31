@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HazeService } from '../../services/cards/fire/haze.service'
+import { DeckService } from '../../services/cards/deck.service';
 
 declare let L
 
@@ -14,7 +14,7 @@ export class LocationPickerComponent implements OnInit {
   private currentMarker: any
   public latlng: { lat: string, lng: string }
 
-  constructor(private hazeService: HazeService) { }
+  constructor(private deckService: DeckService) { }
 
   ngOnInit() {
     const map = L
@@ -62,11 +62,11 @@ export class LocationPickerComponent implements OnInit {
     })
 
     this.latlng = e.latlng
-    this.hazeService.setHazeLocation(e.latlng)
+    this.deckService.setLocation(e.latlng)
 
     marker.on('move', (event) => {
       this.latlng = event.latlng
-      this.hazeService.setHazeLocation(e.latlng)
+      this.deckService.setLocation(e.latlng)
     })
 
     marker.addTo(map)
