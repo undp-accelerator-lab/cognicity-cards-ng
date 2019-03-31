@@ -1,5 +1,6 @@
 import { Component, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
-import { StructureService } from '../../../services/cards/earthquake/structure.service';
+import { countArrowOffset } from '../../../utils/slider'
+import { DeckService } from '../../../services/cards/deck.service';
 
 @Component({
   selector: 'app-structure',
@@ -7,29 +8,48 @@ import { StructureService } from '../../../services/cards/earthquake/structure.s
   styleUrls: ['./structure.component.scss']
 })
 export class StructureComponent implements AfterViewChecked {
-  titles = [
-    "Cracking",
-    "Partially Collapsed",
-    "Fully Collapsed",
-  ]
-
-  images = [
-    "../../../../assets/decks/earthquake/structure/StructureFailure_1.png",
-    "../../../../assets/decks/earthquake/structure/StructureFailure_2.png",
-    "../../../../assets/decks/earthquake/structure/StructureFailure_3.png",
-  ]
-
+  titles: string[]
+  images: string[]
+  
   title: string
   image: string
   structure: number
 
   constructor(
-    public structureService: StructureService,
+    public deckService: DeckService,
     private cdRef: ChangeDetectorRef
-  ) {}
+  ) {
+    this.initTitles()
+    this.initImages()
+  }
+
+  initTitles() {
+    this.titles = [
+      "Cracking",
+      "Partially Collapsed",
+      "Fully Collapsed",
+    ]
+  }
+
+  initImages() {
+    switch (this.deckService.getDeckSubType()) {
+      case 'structure':
+        this.images = [
+          "../../../../assets/decks/earthquake/structure/StructureFailure_1.png",
+          "../../../../assets/decks/earthquake/structure/StructureFailure_2.png",
+          "../../../../assets/decks/earthquake/structure/StructureFailure_3.png",
+        ]; break;
+      case 'wind':
+        this.images = [
+          "../../../../assets/decks/wind/windstructure/Graphic_Cracking.png",
+          "../../../../assets/decks/wind/windstructure/Graphic_PartialCollapse.png",
+          "../../../../assets/decks/wind/windstructure/Graphic_TotalCollapse.png",
+        ]; break;
+    }
+  }
 
   ngAfterViewChecked() {
-    this.setStructureFailure(this.structureService.getStructureFailure())
+    this.setStructureFailure(this.deckService.getStructureFailure())
     this.cdRef.detectChanges()
   }
 
@@ -43,27 +63,8 @@ export class StructureComponent implements AfterViewChecked {
     this.title = this.titles[intValue]
     this.image = this.images[intValue]
 
-    this.structureService.setStructureFailure(intValue)
-    leftArrow.style.left = this.countArrowOffset(intValue, slider.offsetWidth, 'left')
-    rightArrow.style.left = this.countArrowOffset(intValue, slider.offsetWidth, 'right')
-  }
-
-  private countArrowOffset(
-    inputValue: number, 
-    sliderWidth: number, 
-    type: 'left' | 'right'
-  ): string {
-    const circleThumbDiameter = 25 //px
-
-    const circleThumbRadius = circleThumbDiameter / 2
-    const circleThumbPosition = inputValue * sliderWidth / 2
-
-    const arrowOffsetRelative = (type === 'left' ? 
-      circleThumbRadius - circleThumbDiameter : 
-      circleThumbRadius + circleThumbDiameter
-    )
-    const arrowOffsetAbsolute = circleThumbRadius * inputValue
-
-    return `${arrowOffsetRelative + circleThumbPosition - arrowOffsetAbsolute}px`
+    this.deckService.setStructureFailure(intValue)
+    leftArrow.style.left = countArrowOffset(intValue, slider.offsetWidth, 'left')
+    rightArrow.style.left = countArrowOffset(intValue, slider.offsetWidth, 'right')
   }
 }

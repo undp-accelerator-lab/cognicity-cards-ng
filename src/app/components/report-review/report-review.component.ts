@@ -3,7 +3,6 @@ import { DeckService } from '../../services/cards/deck.service'
 import { FireService } from '../../services/cards/fire/fire.service';
 import { HazeService } from '../../services/cards/fire/haze.service';
 import { RoadService } from '../../services/cards/earthquake/road.service';
-import { StructureService } from '../../services/cards/earthquake/structure.service';
 
 @Component({
   selector: 'app-report-review',
@@ -19,7 +18,6 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     public fireService: FireService,
     public hazeService: HazeService,
     public roadService: RoadService,
-    public strutureService: StructureService,
     private cdRef: ChangeDetectorRef
   ) { }
 
@@ -161,7 +159,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   // Structure
   get structuralFailure() {
-    const failure = this.strutureService.getStructureFailure()
+    const failure = this.deckService.getStructureFailure()
 
     switch(failure) {
       case 0: return 'Cracking'

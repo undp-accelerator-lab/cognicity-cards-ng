@@ -38,6 +38,17 @@
         "review",
         "thank"
       ]
+    },
+    {
+      "name": "wind",
+      "cards": [
+        "location",
+        "structure",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
     }
   ]
 }
