@@ -62,6 +62,13 @@ export class NavigationService {
     }
   }
 
+  reset(route) {
+    console.log(this.cardRoutes)
+    const firstCard = this.cardRoutes[0]
+    this.router.navigate([firstCard], { relativeTo: route })
+    this.cardCounter = 0
+  }
+
   next(route) {
     if (this.cardCounter < (this.cardRoutes.length - 1)) {
       const nextCardRoute = this.cardRoutes[this.cardCounter + 1];

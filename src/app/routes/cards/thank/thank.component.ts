@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service'
+import { NavigationService } from '../../../services/navigation.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-thank',
@@ -7,12 +9,14 @@ import { DeckService } from '../../../services/cards/deck.service'
   styleUrls: ['./thank.component.scss']
 })
 export class ThankComponent {
-  isShowTips = false
+  isShowReportAgain = false
 
-  constructor(public deckService: DeckService) {
+  constructor(
+    public deckService: DeckService, 
+  ) {
     const deckType = this.deckService.getDeckType()
-    if (deckType === 'wind' || deckType === 'earthquake') {
-      this.isShowTips = true
+    if (deckType === 'earthquake') {
+      this.isShowReportAgain = true
     }
   }
 
@@ -27,5 +31,4 @@ export class ThankComponent {
       case 'wind': return '../../../../assets/decks/wind/thank/success_wind.png'
     }
   }
-
 }

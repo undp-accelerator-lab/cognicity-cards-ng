@@ -10,10 +10,12 @@
     We will notify you when it's on the map
   </p>
 
-  <p *ngIf="isShowTips" class="thanks__tips">
-    <a target="_blank" href="https://bnpb.go.id/en/infografis/detail/siaga-bencana-gempa-bumi.html">
-      Click here for safety tips from BNPB
-    </a> 
-  </p>
 
+  <p *ngIf="isShowReportAgain" class="thanks__again">	
+    Would you like to submit another report?	
+  </p>	
+  <div *ngIf="isShowReportAgain" class="thanks__btn-group">	
+    <a class="thanks__btn" href="/test123/earthquake/type">Yes</a>	
+    <a class="thanks__btn">No</a>	
+  </div>
 </div>
