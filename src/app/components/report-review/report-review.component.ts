@@ -34,6 +34,11 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
       switch (this.deckService.getDeckSubType()) {
         case 'fire': previewImgSrc = '../../../assets/decks/fire/review/Fire.png'; break;
         case 'haze': previewImgSrc = '../../../assets/decks/fire/review/Haze.png'; break;
+        case 'wind': previewImgSrc = [
+          "../../../../assets/decks/wind/windstructure/Graphic_Cracking.png",
+          "../../../../assets/decks/wind/windstructure/Graphic_PartialCollapse.png",
+          "../../../../assets/decks/wind/windstructure/Graphic_TotalCollapse.png",
+        ][this.deckService.getStructureFailure()]; break;
         default: previewImgSrc = 'https://via.placeholder.com/150'; break;
       }
       this.previewImg.setAttribute('src', previewImgSrc)
