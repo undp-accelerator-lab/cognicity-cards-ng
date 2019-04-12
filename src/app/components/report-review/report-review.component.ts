@@ -39,6 +39,11 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
           "../../../../assets/decks/wind/windstructure/Graphic_PartialCollapse.png",
           "../../../../assets/decks/wind/windstructure/Graphic_TotalCollapse.png",
         ][this.deckService.getStructureFailure()]; break;
+        case 'road': previewImgSrc = [
+          "../../../../assets/decks/earthquake/structure/StructureFailure_1.png",
+          "../../../../assets/decks/earthquake/structure/StructureFailure_2.png",
+          "../../../../assets/decks/earthquake/structure/StructureFailure_3.png",
+        ][this.deckService.getStructureFailure()]; break;
         default: previewImgSrc = 'https://via.placeholder.com/150'; break;
       }
       this.previewImg.setAttribute('src', previewImgSrc)
