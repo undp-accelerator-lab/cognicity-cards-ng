@@ -2,8 +2,9 @@
   <input 
     type="text" class="location__search"
     placeholder="Click & Drag to Move Pin or Search Here"
+    [(ngModel)]="search"
   >
 
-  <app-location-picker [type]="deckService.getDeckSubType()">
+  <app-location-picker [type]="deckService.getDeckSubType()" [search]="search">
   </app-location-picker>
 </div>

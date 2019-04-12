@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service';
+// import * as L from 'leaflet'
 
 declare let L
 
@@ -10,6 +11,7 @@ declare let L
 })
 export class LocationPickerComponent implements OnInit {
   @Input() type: string
+  @Input() search: string
 
   private currentMarker: any
   public latlng: { lat: string, lng: string }
@@ -17,27 +19,13 @@ export class LocationPickerComponent implements OnInit {
   constructor(private deckService: DeckService) { }
 
   ngOnInit() {
-    const map = L
-      .map('mapid')
-      .setView([-7.7, 110.2], 15);
+    const map = L.map('mapid', { center: [-7.7, 110.2], zoom: 18});    
 
-    L
-      .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
-      .addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-    L
-      .control
-      .zoom({
-        position: 'bottomleft'
-      })
+    L.control.zoom({ position: 'bottomleft' })
 
-    const locate = L
-      .control
-      .locate({
-        icon: 'locate'
-      })
-      .addTo(map);
-
+    const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true }).addTo(map);
     locate.start()
 
     map.addControl(new L.Control.Compass());
@@ -57,15 +45,13 @@ export class LocationPickerComponent implements OnInit {
       popupAnchor: [-3, -76],
     });
 
-    const marker = L.marker([e.latlng.lat, e.latlng.lng], {
-      icon,
-      draggable: true,
-    })
+    const marker = L.marker([e.latlng.lat, e.latlng.lng], { icon, draggable: true })
 
     this.latlng = e.latlng
     this.deckService.setLocation(e.latlng)
 
     marker.on('move', (event) => {
+      console.log({ event })
       this.latlng = event.latlng
       this.deckService.setLocation(e.latlng)
     })

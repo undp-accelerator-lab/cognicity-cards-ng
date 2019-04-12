@@ -8,7 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TitleBoxComponent implements OnInit {
   @Input() title: string;
   @Input() tabs: number[];
-  @Input() color: string;
   @Input() deck: string;
   totalTabs: number[];
 
@@ -24,7 +23,6 @@ export class TitleBoxComponent implements OnInit {
       return this.tabs[1] < this.totalTabs.length
     }
     return this.tabs[1] > 0 && this.tabs[1] <= this.totalTabs.length
-    
   }
 
   ngOnInit() {
