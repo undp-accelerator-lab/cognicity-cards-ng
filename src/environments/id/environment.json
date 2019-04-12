@@ -32,9 +32,9 @@
       "name": "earthquake",
       "cards": [
         "type",
+        "location",
         "structure",
         "condition",
-        "location",
         "accessibility",
         "photo",
         "description",
