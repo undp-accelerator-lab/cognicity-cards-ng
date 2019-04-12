@@ -166,4 +166,14 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
       case 2: return 'Fully Collapsed'
     }
   }
+
+  get structuralFailureColor() {
+    const failure = this.deckService.getStructureFailure()
+
+    switch(failure) {
+      case 0: return '#ffde17'
+      case 1: return '#f7941d'
+      case 2: return '#be1e2d'
+    }
+  }
 }

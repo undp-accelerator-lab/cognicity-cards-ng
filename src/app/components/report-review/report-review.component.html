@@ -43,8 +43,8 @@
     </ng-template>
 
     <ng-template [ngIf]="deckType === 'structure' || deckType === 'wind'">
-      <div [style.margin-top]="'10px'">
-        <p>{{ structuralFailure }}</p>
+      <div [style.margin-top]="'10px'" >
+        <p [style.color]="structuralFailureColor">{{ structuralFailure }}</p>
       </div>
     </ng-template>
 
