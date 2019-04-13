@@ -138,6 +138,8 @@ export class FireestimateComponent implements OnInit {
 
     this.deckService.setFireDistance(radius)
 
+    document.getElementById('ha').innerText = `${this.fireRange} hectares` 
+
     if (this.circleRadius) this.circleRadius.remove(this.map)
     this.circleRadius = circle
 
@@ -148,7 +150,6 @@ export class FireestimateComponent implements OnInit {
     const radius = this.deckService.getFireDistance()
     const range = Math.PI * Math.pow(radius, 2) / 10000
     
-    if (range < 1) return '<1'
     return range.toFixed(2)
   }
 }
