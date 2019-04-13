@@ -58,7 +58,13 @@ export class FiredistanceComponent implements OnInit {
       this.informerMarker.getLatLng()
     );
     const ceiledDistance = Math.ceil(distanceInMeter);
-    const distanceInString = `${ceiledDistance.toString()} m`;
+
+    let distanceInString;
+    if (ceiledDistance >= 1000) {
+      distanceInString = `${(ceiledDistance / 1000).toString()} km`;
+    } else {
+      distanceInString = `${ceiledDistance.toString()} m`;
+    }
 
     return distanceInString;
   }
