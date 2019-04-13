@@ -30,32 +30,20 @@ export class FiredistanceComponent implements OnInit {
       lng = this.deckService.getLocation().lng
     }
 
-    this.map = L.map("mapid").setView([lat, lng], 15);
+    this.map = L.map('mapid', { center: [lat, lng], zoom: 18});    
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
-      this.map
-    );
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(this.map);
 
     // Add compass
     this.map.addControl(new L.Control.Compass());
 
     // Add locate
-    const locate = L.control
-      .locate({
-        icon: "locate"
-      })
-      .addTo(this.map);
+    const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true }).addTo(this.map);
 
-    if (this.deckService.getLocation()) {
-      this.onLocateFound()
-    } else {
-      // Locate user current location
-      locate.start();
-    }
+    if (this.deckService.getLocation()) this.onLocateFound()
+    else locate.start() // Locate user current location
 
-    this.map.on("locationfound ", () => {
-      this.onLocateFound();
-    });
+    this.map.on("locationfound ", () => this.onLocateFound() );
   }
 
   private onLocateFound(): void {
@@ -106,7 +94,7 @@ export class FiredistanceComponent implements OnInit {
         if (!this.deckService.getFireLocation()) {
           latlng = {
             lat: this.map.getCenter().lat,
-            lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000
+            lng: this.map.getCenter().lng - this.map.getCenter().lng / 1000000
           };
           this.deckService.setFireLocation(latlng);
         } else {

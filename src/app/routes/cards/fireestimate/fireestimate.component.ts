@@ -30,34 +30,17 @@ export class FireestimateComponent implements OnInit {
       lng = this.deckService.getFireLocation().lng
     }
 
-    this.map = L
-      .map('mapid')
-      .setView([lat, lng], 15);
+    this.map = L.map('mapid', { center: [lat, lng], zoom: 18})
 
-    L
-      .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
-      .addTo(this.map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
 
-    L
-      .control
-      .zoom({
-        position: 'bottomleft'
-      })
+    L.control.zoom({ position: 'bottomleft' })
 
     this.map.addControl(new L.Control.Compass());
 
-    L
-      .control
-      .locate({
-        icon: 'locate'
-      })
-      .addTo(this.map);
-
-    // locate.start()
+    L.control.locate({ icon: 'locate' }).addTo(this.map);
 
     this.onLocateFound()
-
-    // this.map.on('locationfound ', () => { this.onLocateFound() })
   }
 
   private onLocateFound(): void {
@@ -74,7 +57,7 @@ export class FireestimateComponent implements OnInit {
         break;
       case 'radius':
         if (!this.deckService.getFireRadius()) {
-          latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000 }
+          latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 1000000 }
         } else {
           latlng = this.deckService.getFireRadius()
         }
