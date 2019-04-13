@@ -16,10 +16,18 @@
     {
       "name": "fire",
       "cards": [
-        "type",
-        "location",
         "firedistance",
         "fireestimate",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
+    },
+    {
+      "name": "haze",
+      "cards": [
+        "location",
         "visibility",
         "airquality",
         "photo",
