@@ -25,7 +25,7 @@ export class VisibilityComponent implements AfterViewChecked {
   initDescriptions() {
     this.descriptions = [
       "I can still see but I need to wear a mask.",
-      "I can still see but not clean enough to drive.",
+      "I can still see but not clear enough to drive.",
       "I can barely see. Too dangerous to go out."
     ]
   }
