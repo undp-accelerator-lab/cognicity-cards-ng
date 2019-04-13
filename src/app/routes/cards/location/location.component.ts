@@ -7,7 +7,5 @@ import { DeckService } from '../../../services/cards/deck.service';
   styleUrls: ['./location.component.scss']
 })
 export class LocationComponent {
-  search: string = ''
-
   constructor(public deckService: DeckService) {}
 }

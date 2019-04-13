@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service';
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
 // import * as L from 'leaflet'
 
 declare let L
@@ -11,7 +12,9 @@ declare let L
 })
 export class LocationPickerComponent implements OnInit {
   @Input() type: string
-  @Input() search: string
+  search: string = ''
+  provider: any
+  map: any
 
   private currentMarker: any
   public latlng: { lat: string, lng: string }
@@ -19,25 +22,56 @@ export class LocationPickerComponent implements OnInit {
   constructor(private deckService: DeckService) { }
 
   ngOnInit() {
-    const map = L.map('mapid', { center: [-7.7, 110.2], zoom: 18});    
+    this.map = L.map('mapid', { center: [-7.7, 110.2], zoom: 18});    
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
 
     L.control.zoom({ position: 'bottomleft' })
 
-    const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true }).addTo(map);
+    const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true }).addTo(this.map);
     locate.start()
 
-    map.addControl(new L.Control.Compass());
-    map.on('locationfound ', (event) => { this.addMarker(event, map) })
+    this.map.addControl(new L.Control.Compass());
+    this.map.on('locationfound ', (event) => { this.addMarker(event) })
 
-    map.on('click', (event) => {
-      if (this.currentMarker) this.currentMarker.remove(map)
-      this.addMarker(event, map)
+    this.map.on('click', (event) => {
+      if (this.currentMarker) this.currentMarker.remove(this.map)
+      this.addMarker(event)
     })
+
+    this.provider = new OpenStreetMapProvider()
   }
 
-  private addMarker(e, map): void {
+  private async onSearch() {
+    const results = await this.provider.search({ query: this.search });
+    console.log(results)
+
+    this.map.setView({ lat: results[0].y, lng: results[0].x }, 18)
+    if (this.currentMarker) this.currentMarker.remove(this.map)
+
+    const icon = L.icon({
+      iconUrl: this.getIcon(),
+      iconSize: [57.2 / 2, 103.5 / 2],
+      iconAnchor: [15, 50],
+      popupAnchor: [-3, -76],
+    });
+
+    const marker = L.marker([results[0].y, results[0].x], { icon, draggable: true })
+
+    this.latlng = { lat: results[0].y, lng: results[0].x }
+    this.deckService.setLocation({ lat: results[0].y, lng: results[0].x })
+
+    marker.on('move', (event) => {
+      this.latlng = event.latlng
+      this.deckService.setLocation({ lat: results[0].y, lng: results[0].x })
+    })
+
+    marker.addTo(this.map)
+
+    this.currentMarker = marker
+  }
+
+  private addMarker(e): void {
     const icon = L.icon({
       iconUrl: this.getIcon(),
       iconSize: [57.2 / 2, 103.5 / 2],
@@ -51,12 +85,11 @@ export class LocationPickerComponent implements OnInit {
     this.deckService.setLocation(e.latlng)
 
     marker.on('move', (event) => {
-      console.log({ event })
       this.latlng = event.latlng
       this.deckService.setLocation(e.latlng)
     })
 
-    marker.addTo(map)
+    marker.addTo(this.map)
 
     this.currentMarker = marker
   }
