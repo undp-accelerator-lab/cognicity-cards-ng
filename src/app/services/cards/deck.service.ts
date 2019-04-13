@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-type deckType = 'fire' | 'earthquake' | 'wind'
+type deckType = 'fire' | 'earthquake' | 'wind' | 'haze'
 type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind'
 
 interface LatLng {

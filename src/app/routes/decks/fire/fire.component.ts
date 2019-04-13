@@ -31,6 +31,7 @@ export class FireComponent implements OnInit {
     this.navController.checkForFirstCard(this.route);
 
     this.deckService.setDeckType('fire')
+    this.deckService.setDeckSubType('fire')
   }
 
   ngOnInit() { }

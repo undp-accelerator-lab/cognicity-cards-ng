@@ -1,6 +1,6 @@
 <textarea 
   *ngIf="!isTryToSubmitButNotValid"
-  rows="15" [value]="description" 
+  [value]="description" 
   name="textbox" class="textbox" 
   placeholder="Add your description here..."
   #desc (input)="onChangeDescription(desc.value)"
