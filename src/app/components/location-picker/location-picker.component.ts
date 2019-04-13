@@ -42,7 +42,7 @@ export class LocationPickerComponent implements OnInit {
     this.provider = new OpenStreetMapProvider()
   }
 
-  private async onSearch() {
+  async onSearch() {
     const results = await this.provider.search({ query: this.search });
     console.log(results)
 

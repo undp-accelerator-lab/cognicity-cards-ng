@@ -13,6 +13,7 @@ export class AccessibilityComponent implements AfterViewChecked {
   stage: number
   image: string
   accessibility: number
+  displayNumber: number
 
   constructor(
     public deckService: DeckService,
@@ -45,21 +46,25 @@ export class AccessibilityComponent implements AfterViewChecked {
     const rightArrow = document.querySelector('.right-arrow') as HTMLDivElement
 
     let stage: number;
+    let displayNumber: number;
 
-    if (intValue <= 0.5) { stage = 1; } 
-    else if (intValue <= 1.0) { stage = 2; } 
-    else if (intValue <= 1.4) { stage = 3; } 
-    else if (intValue <= 1.8) { stage = 4; } 
-    else { stage = 5; }
+    switch (intValue) {
+      case 0: displayNumber = 0.5; break;
+      case 1: displayNumber = 1.0; break;
+      case 2: displayNumber = 1.4; break;
+      case 3: displayNumber = 1.8; break;
+      case 4: displayNumber = 2.2; break;
+    }
 
-    this.image = this.images[stage - 1]
-    this.stage = stage
+    this.image = this.images[intValue]
+    this.stage = intValue + 1
     this.accessibility = intValue
+    this.displayNumber = displayNumber
 
     this.deckService.setAccessibility(intValue)
 
-    output.style.left = (intValue / 2.4) * input.offsetWidth + 'px'
-    leftArrow.style.left = countArrowOffset(intValue, 2.2, input.offsetWidth, 'left')
-    rightArrow.style.left = countArrowOffset(intValue, 2.2, input.offsetWidth, 'right')
+    output.style.left = (intValue / 4.4) * input.offsetWidth + 'px'
+    leftArrow.style.left = countArrowOffset(intValue, 4, input.offsetWidth, 'left')
+    rightArrow.style.left = countArrowOffset(intValue, 4, input.offsetWidth, 'right')
   }
 }

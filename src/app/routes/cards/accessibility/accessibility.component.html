@@ -4,7 +4,7 @@
       <input
         [ngClass]="['accessibility__slider-range', 'stage-' + stage]"
         type="range" name="accessibility__range" 
-        min="0" max="2.2"step="0.1"
+        min="0" max="4" step="1"
         (change)="onRangeChange($event.target.value)"
         [value]="accessibility"
       >
@@ -13,7 +13,7 @@
       <div class="right-arrow"><i class="fa fa-angle-right"></i></div>
 
       <div class="accessibility__slider-output">
-        {{ accessibility }} m
+        {{ displayNumber }} m
       </div>
   </div>
 </div>
