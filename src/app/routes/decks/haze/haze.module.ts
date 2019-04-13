@@ -7,23 +7,19 @@ import { HazeRoutingModule } from './haze-routing.module';
 
 // Parent component
 import { HazeComponent } from './haze.component';
+import { UtilsModule } from '../utils.module';
 
-// Child components
-import { DropdownNotificationComponent } from '../../../components/dropdown-notification/dropdown-notification.component';
-import { NavButtonComponent } from '../../../components/nav-button/nav-button.component';
-import { TitleBoxComponent } from '../../../components/title-box/title-box.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     HazeRoutingModule,
-    TranslateModule
+    TranslateModule,
+    UtilsModule
   ],
   declarations: [
     HazeComponent,
-    NavButtonComponent,
-    DropdownNotificationComponent,
-    TitleBoxComponent
   ],
   exports: [
     TranslateModule

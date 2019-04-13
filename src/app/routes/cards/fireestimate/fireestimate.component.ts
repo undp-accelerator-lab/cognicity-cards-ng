@@ -65,11 +65,18 @@ export class FireestimateComponent implements OnInit {
     }
 
     const informerMarkerConfig = {
-      icon: L.icon({
-        iconUrl: '../../../assets/decks/fire/location/SelectFireLocation_Highlight.png',
-        iconSize: [57.2 / 2, 103.5 / 2],
-        iconAnchor: [15, 50],
-        popupAnchor: [-3, -76],
+      icon: L.divIcon({
+        className: 'informer-icon',
+        html: `
+          <div style="display: flex; flex-direction: column; align-items: center">
+            <img 
+              src="../../../assets/decks/fire/location/SelectFireLocation_Highlight.png"
+              style="width: 25px;"
+            />
+            <p style="width: 75px; text-align: center;" id="ha">${this.fireRange} hectares</p>
+          </div>
+        `,
+        iconAnchor: [8, 42.5],
       }),
       draggable: true,
     }
@@ -135,5 +142,13 @@ export class FireestimateComponent implements OnInit {
     this.circleRadius = circle
 
     this.circleRadius.addTo(this.map);
+  }
+
+  get fireRange() {
+    const radius = this.deckService.getFireDistance()
+    const range = Math.PI * Math.pow(radius, 2) / 10000
+    
+    if (range < 1) return '<1'
+    return range.toFixed(2)
   }
 }
