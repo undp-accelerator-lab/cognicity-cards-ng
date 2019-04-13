@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-nav-button',
@@ -11,9 +12,12 @@ export class NavButtonComponent implements OnInit {
   @Input() isDisabled: boolean
   @Output() navigate = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(public route: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
+  onClick() {
+    this.navigate.emit()
+  }
 }

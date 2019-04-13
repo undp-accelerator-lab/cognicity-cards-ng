@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { DeckService } from './cards/deck.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class NavigationService {
   cardCounter: number;
 
   constructor(
-    private router: Router
+    private router: Router,
+    public deckService: DeckService
   ) { }
 
   registerCardRoutes(deck) {
@@ -62,14 +64,18 @@ export class NavigationService {
     }
   }
 
-  reset(route) {
-    console.log(this.cardRoutes)
-    const firstCard = this.cardRoutes[0]
-    this.router.navigate([firstCard], { relativeTo: route })
-    this.cardCounter = 0
-  }
-
   next(route) {
+    if (this.getCardPath() === 'photo') {
+      this.deckService.tryToSubmit = false
+    }
+
+    if (this.getCardPath() === 'description') {
+      this.deckService.tryToSubmit = true
+      if (!this.deckService.isAllowedToSubmit) {
+        return
+      }
+    }
+
     if (this.cardCounter < (this.cardRoutes.length - 1)) {
       const nextCardRoute = this.cardRoutes[this.cardCounter + 1];
       this.router.navigate([nextCardRoute], {relativeTo: route});

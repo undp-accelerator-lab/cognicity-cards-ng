@@ -28,9 +28,7 @@ export class TextBoxComponent {
     return this.deckService.getDescription()
   }
 
-  get isAllowed(): boolean {
-    if (this.deckService.getDeckSubType() === 'structure')
-      return !!this.deckService.getPreview()
-    return true 
+  get isTryToSubmitButNotValid(): boolean {
+    return this.deckService.tryToSubmit && !this.deckService.isAllowedToSubmit
   }
 }

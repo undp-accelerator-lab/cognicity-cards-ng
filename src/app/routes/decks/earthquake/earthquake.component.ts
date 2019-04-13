@@ -34,5 +34,4 @@ export class EarthquakeComponent implements OnInit {
   }
 
   ngOnInit() { }
-
 }

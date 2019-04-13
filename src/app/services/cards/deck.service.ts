@@ -28,6 +28,11 @@ export class DeckService {
   description: string = ''
   preview: File
 
+  tryToSubmit = false
+  get isAllowedToSubmit() {
+    return !!this.getPreview() || !!this.getDescription()
+  }
+
   // Getter
   getDeckType() { return this.type; }
   getDeckSubType() { return this.subType }

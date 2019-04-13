@@ -1,5 +1,5 @@
 <textarea 
-  *ngIf="isAllowed"
+  *ngIf="!isTryToSubmitButNotValid"
   rows="15" [value]="description" 
   name="textbox" class="textbox" 
   placeholder="Add your description here..."
@@ -8,7 +8,7 @@
 </textarea>
 <div
   class="textbox__warning"
-  *ngIf="!isAllowed"
+  *ngIf="isTryToSubmitButNotValid"
 >
   Please add a description OR a photo to continue!
 </div>
