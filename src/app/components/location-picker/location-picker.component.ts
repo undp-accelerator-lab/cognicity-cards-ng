@@ -12,7 +12,6 @@ declare let L
 })
 export class LocationPickerComponent implements OnInit {
   @Input() type: string
-  search: string = ''
   provider: any
   map: any
 
@@ -45,9 +44,8 @@ export class LocationPickerComponent implements OnInit {
     this.provider = new OpenStreetMapProvider()
   }
 
-  async onSearch() {
-    const results = await this.provider.search({ query: this.search });
-    console.log(results)
+  async onSearch(query: string) {
+    const results = await this.provider.search({ query });
 
     this.map.setView({ lat: results[0].y, lng: results[0].x }, 18)
     if (this.currentMarker) this.currentMarker.remove(this.map)

@@ -156,8 +156,8 @@ export class FiredistanceComponent implements OnInit {
     // });
   }
 
-  async onSearch() {
-    const results = await this.provider.search({ query: this.search });
+  async onSearch(query: string) {
+    const results = await this.provider.search({ query });
 
     this.map.setView({ lat: results[0].y, lng: results[0].x }, 18)
 

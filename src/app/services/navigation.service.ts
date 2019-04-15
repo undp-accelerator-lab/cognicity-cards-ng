@@ -34,10 +34,6 @@ export class NavigationService {
     for (const route of cardRoutesConfig) {
       this.cardRoutes.push(route.path);
     }
-
-    console.log({ cardRoutesConfig })
-    console.log({ deckRoutes })
-    console.log('this.cardRoutes', this.cardRoutes)
   }
 
   getCardIndex(card) {
@@ -49,12 +45,14 @@ export class NavigationService {
   }
 
   filterRoutes(subtype: string) {
+    const mustHaveCard = ["photo", "description", "review", "thank"]
+
     switch (subtype) {
       case 'road':
-        this.cardRoutes = ['type', 'location', 'accessibility', 'condition', "photo", "description", "review", "thank"];
+        this.cardRoutes = ['type', 'location', 'accessibility', 'condition', ...mustHaveCard];
         break;
       case 'structure':
-        this.cardRoutes = ['type', 'location', 'structure', "photo", "description", "review", "thank"];
+        this.cardRoutes = ['type', 'location', 'structure', ...mustHaveCard];
         break;
     }
   }

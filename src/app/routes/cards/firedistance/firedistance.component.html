@@ -1,8 +1,2 @@
-<form (ngSubmit)="onSearch()">
-  <input 
-    type="text" class="search"
-    placeholder="Click & Drag to Move Pin or Search Here"
-    [(ngModel)]="search" name="search"
-  >
-</form>
+<search-location (search)="onSearch($event)"></search-location>
 <div id="mapid"></div>

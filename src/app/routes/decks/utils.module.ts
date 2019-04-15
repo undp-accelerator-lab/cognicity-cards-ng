@@ -11,12 +11,12 @@ import { CommonModule } from '@angular/common';
   declarations: [
     DropdownNotificationComponent,
     NavButtonComponent,
-    TitleBoxComponent
+    TitleBoxComponent,
   ],
   exports: [
     DropdownNotificationComponent,
     NavButtonComponent,
-    TitleBoxComponent
+    TitleBoxComponent,
   ]
 })
 export class UtilsModule {}

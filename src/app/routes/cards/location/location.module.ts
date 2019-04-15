@@ -8,16 +8,18 @@ import { LocationComponent } from './location.component';
 // Child components
 import { LocationPickerComponent } from '../../../components/location-picker/location-picker.component';
 import { FormsModule } from '@angular/forms';
+import { LocationModule as LModule } from '../location.module';
 
 @NgModule({
   imports: [
     CommonModule,
     LocationRoutingModule,
-    FormsModule
+    FormsModule,
+    LModule
   ],
   declarations: [
     LocationComponent,
-    LocationPickerComponent
+    LocationPickerComponent,
   ]
 })
 export class LocationModule { }
