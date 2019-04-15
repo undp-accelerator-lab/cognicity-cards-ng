@@ -1,40 +1,34 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-title-box',
   templateUrl: './title-box.component.html',
   styleUrls: ['./title-box.component.scss']
 })
-export class TitleBoxComponent implements OnInit {
+export class TitleBoxComponent {
   @Input() title: string;
-  @Input() tabs: number[];
   @Input() deck: string;
-  totalTabs: number[];
 
-  constructor() { }
+  constructor(public navController: NavigationService) { }
 
   getCssClass(i) {
-    if (this.deck === 'wind') return i <= this.tabs[1] ? 'tabs filled ' : 'tabs'
-    return i < this.tabs[1] ? 'tabs filled ' : 'tabs'
+    if (this.deck === 'earthquake') return i < this.navController.tabs[1] ? 'tabs filled ' : 'tabs'
+    return i <= this.navController.tabs[1] ? 'tabs filled ' : 'tabs'
   }
 
   get isShowTabs(): boolean {
-    if (this.deck === 'wind') {
-      return this.tabs[1] < this.totalTabs.length
+    if (this.deck === 'earthquake') {
+      return this.navController.tabs[1] > 0 && this.navController.tabs[1] <= this.totalTabs.length
     }
-    return this.tabs[1] > 0 && this.tabs[1] <= this.totalTabs.length
+    return this.navController.tabs[1] < this.totalTabs.length
   }
 
-  ngOnInit() {
-    let totalTabs;
-    if (this.deck === 'wind') {
-      totalTabs = this.tabs[0] - 1
-    } else {
-      totalTabs = this.tabs[0] - 2
-    }
+  get totalTabs(): number[] {
+    let offset;
+    if (this.deck === 'earthquake') offset = 2
+    else offset = 1
 
-    this.totalTabs = Array(totalTabs)
-    .fill(1).map((x, i) => x + i);
+    return Array(this.navController.tabs[0] - offset).fill(1).map((x, i) => x + i);
   }
-
 }

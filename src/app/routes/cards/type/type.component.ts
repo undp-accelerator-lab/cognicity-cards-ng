@@ -27,22 +27,6 @@ export class TypeComponent {
 
   initItems() {
     switch(this.deckService.getDeckType()) {
-      case 'fire': this.items = [
-        { 
-          title: 'Fire Nearby', 
-          hint: 'we will not report your location', 
-          subtype: 'fire', 
-          imgUrl: '../../../../assets/decks/fire/firetype/AddFireReport.png',
-          highlightImgUrl: '../../../../assets/decks/fire/firetype/AddFireReport_Highlight.png'
-        },
-        { 
-          title: 'Haze at My Location', 
-          hint: '',
-          subtype: 'haze', 
-          imgUrl: "../../../../assets/decks/fire/firetype/AddHazeReport.png",
-          highlightImgUrl: '../../../../assets/decks/fire/firetype/AddHazeReport_Highlight.png'
-        },
-      ]; break;
       case 'earthquake': this.items = [
         { 
           title: 'Road Accessibility', 
@@ -62,8 +46,11 @@ export class TypeComponent {
     }
   }
 
-  onTypeSelected(type) {
-    this.deckService.setDeckSubType(type)
+  onTypeSelected(subtype) {
+    this.deckService.setDeckSubType(subtype)
+
+    this.navController.filterRoutes(subtype);
+
     this.navController.next(this.route)
   }
 }

@@ -15,6 +15,10 @@ export class NavigationService {
     public deckService: DeckService
   ) { }
 
+  get tabs() {
+    return [this.cardRoutes.length, this.cardCounter]
+  }
+
   registerCardRoutes(deck) {
     this.deck = deck;
 
@@ -30,6 +34,10 @@ export class NavigationService {
     for (const route of cardRoutesConfig) {
       this.cardRoutes.push(route.path);
     }
+
+    console.log({ cardRoutesConfig })
+    console.log({ deckRoutes })
+    console.log('this.cardRoutes', this.cardRoutes)
   }
 
   getCardIndex(card) {
@@ -38,6 +46,17 @@ export class NavigationService {
 
   getCardPath() {
     return this.cardRoutes[this.cardCounter];
+  }
+
+  filterRoutes(subtype: string) {
+    switch (subtype) {
+      case 'road':
+        this.cardRoutes = ['type', 'location', 'accessibility', 'condition', "photo", "description", "review", "thank"];
+        break;
+      case 'structure':
+        this.cardRoutes = ['type', 'location', 'structure', "photo", "description", "review", "thank"];
+        break;
+    }
   }
 
   checkForFirstCard(route) {
@@ -68,7 +87,6 @@ export class NavigationService {
     if (this.getCardPath() === 'review') {
       const isLocationInIndonesia = await this.deckService.isLocationInIndonesia()
 
-      console.log({ isLocationInIndonesia });
       if (!this.deckService.isDescriptioORPhotoFilled || !isLocationInIndonesia) {
         return
       }
