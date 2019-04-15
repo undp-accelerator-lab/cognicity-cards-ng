@@ -144,21 +144,20 @@ export class FiredistanceComponent implements OnInit {
       this.addDistanceLine();
     });
 
-    // Change marker icon when drag and drop
-    marker.on("mouseover", () => {
-      this.setMarkerIcon(marker, type, true);
-    });
-    marker.on("moveend", () => {
-      this.setMarkerIcon(marker, type);
-    });
-    marker.on("mouseout", () => {
-      this.setMarkerIcon(marker, type);
-    });
+    // // Change marker icon when drag and drop
+    // marker.on("mouseover", () => {
+    //   this.setMarkerIcon(marker, type, true);
+    // });
+    // marker.on("moveend", () => {
+    //   this.setMarkerIcon(marker, type);
+    // });
+    // marker.on("mouseout", () => {
+    //   this.setMarkerIcon(marker, type);
+    // });
   }
 
   async onSearch() {
     const results = await this.provider.search({ query: this.search });
-    console.log(results)
 
     this.map.setView({ lat: results[0].y, lng: results[0].x }, 18)
 
