@@ -6,12 +6,6 @@
   #desc (input)="onChangeDescription(desc.value)"
 >
 </textarea>
-<div
-  class="textbox__warning"
-  *ngIf="isTryToSubmitButNotValid"
->
-  Please add a description OR a photo to continue!
-</div>
 <div [ngClass]="['textbox__icons', color]">
   <i class="material-icons" id="disable_icon">block</i>
   <i class="material-icons active-icon" id="keyboard_icon">keyboard</i>

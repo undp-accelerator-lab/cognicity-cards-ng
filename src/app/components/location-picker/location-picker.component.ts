@@ -32,7 +32,10 @@ export class LocationPickerComponent implements OnInit {
     locate.start()
 
     this.map.addControl(new L.Control.Compass());
-    this.map.on('locationfound ', (event) => { this.addMarker(event) })
+    this.map.on('locationfound ', (event) => { 
+      if (this.currentMarker) this.currentMarker.remove(this.map)      
+      this.addMarker(event)
+    })
 
     this.map.on('click', (event) => {
       if (this.currentMarker) this.currentMarker.remove(this.map)

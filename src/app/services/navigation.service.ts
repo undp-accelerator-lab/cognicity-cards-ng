@@ -65,12 +65,7 @@ export class NavigationService {
   }
 
   next(route) {
-    if (this.getCardPath() === 'photo') {
-      this.deckService.tryToSubmit = false
-    }
-
-    if (this.getCardPath() === 'description') {
-      this.deckService.tryToSubmit = true
+    if (this.getCardPath() === 'review') {
       if (!this.deckService.isAllowedToSubmit) {
         return
       }
