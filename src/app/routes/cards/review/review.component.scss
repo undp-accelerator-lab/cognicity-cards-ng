@@ -15,6 +15,14 @@
     max-width: 400px;
     margin: 15px 0;
   }
+
+  &__warning {
+    width: 80%;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    margin: 15px 0;
+  }
 }
 
 @media (max-width: 481px) {

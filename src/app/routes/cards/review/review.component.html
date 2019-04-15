@@ -2,10 +2,17 @@
   <app-report-review>
   </app-report-review>
     
-  <p class="review__text">
+  <p class="review__text" *ngIf="!showWarning">
     By submitting this report you are agreeing to the 
     <a href="https://petabencana.id/">PetaBencana.id Contributors Agreement</a>
   </p>
+
+  <div class="review__warning" *ngIf="showWarning">
+    <p>
+      <i class="fa fa-exclamation-circle"></i>  
+      A photo OR description is required to make a report
+    </p>
+  </div>
   
   <app-submit-swipe>
   </app-submit-swipe>
