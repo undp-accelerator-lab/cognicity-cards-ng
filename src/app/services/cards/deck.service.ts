@@ -28,7 +28,6 @@ export class DeckService {
   description: string = ''
   preview: File
 
-  tryToSubmit = false
   get isAllowedToSubmit() {
     return !!this.getPreview() || !!this.getDescription()
   }

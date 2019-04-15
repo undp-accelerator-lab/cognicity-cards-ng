@@ -1,9 +1,8 @@
-<div class="fire-distance">
+<form (ngSubmit)="onSearch()">
   <input 
-    type="text" class="fire-distance__search"
+    type="text" class="search"
     placeholder="Click & Drag to Move Pin or Search Here"
+    [(ngModel)]="search" name="search"
   >
-  <p class="fire-distance__hint">* We will not report your location</p>
-
-  <div id="mapid"></div>
-</div>
+</form>
+<div id="mapid"></div>

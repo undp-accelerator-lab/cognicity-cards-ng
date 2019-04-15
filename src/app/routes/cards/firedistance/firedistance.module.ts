@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { FiredistanceRoutingModule } from './firedistance-routing.module';
 import { FiredistanceComponent } from './firedistance.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    FiredistanceRoutingModule
+    FiredistanceRoutingModule,
+    FormsModule
   ],
   declarations: [FiredistanceComponent]
 })

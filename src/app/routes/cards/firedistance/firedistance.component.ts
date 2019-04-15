@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DeckService } from '../../../services/cards/deck.service'
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
 
 declare let L;
 
@@ -15,6 +16,8 @@ export class FiredistanceComponent implements OnInit {
   private fireMarker;
   private map;
   private distanceLine;
+  private provider;
+  public search;
 
   constructor(private deckService: DeckService) { }
 
@@ -44,6 +47,8 @@ export class FiredistanceComponent implements OnInit {
     else locate.start() // Locate user current location
 
     this.map.on("locationfound ", () => this.onLocateFound() );
+
+    this.provider = new OpenStreetMapProvider();
   }
 
   private onLocateFound(): void {
@@ -110,13 +115,7 @@ export class FiredistanceComponent implements OnInit {
     }
 
     const marker = L.marker([latlng.lat, latlng.lng], {
-      icon: L.icon({
-        iconUrl: `${this.rootIconDir}/Select${
-          type === "fire" ? "Fire" : ""
-          }Location_Grey.png`,
-        iconSize: [57.2 / 2, 103.5 / 2],
-        iconAnchor: [15, 50]
-      }),
+      icon: this.getIcon(type),
       draggable: true
     });
 
@@ -155,6 +154,30 @@ export class FiredistanceComponent implements OnInit {
     marker.on("mouseout", () => {
       this.setMarkerIcon(marker, type);
     });
+  }
+
+  async onSearch() {
+    const results = await this.provider.search({ query: this.search });
+    console.log(results)
+
+    this.map.setView({ lat: results[0].y, lng: results[0].x }, 18)
+
+    this.addMarker("informer");
+
+    this.deckService.setFireLocation(null);
+    this.addMarker("fire");
+    
+    this.addDistanceLine();
+  }
+
+  getIcon(type: 'informer' | 'fire') {
+    return L.icon({
+      iconUrl: `${this.rootIconDir}/Select${
+        type === "fire" ? "Fire" : ""
+        }Location_Grey.png`,
+      iconSize: [57.2 / 2, 103.5 / 2],
+      iconAnchor: [15, 50]
+    })
   }
 
   private setMarkerIcon(marker, type, highlight = false): void {

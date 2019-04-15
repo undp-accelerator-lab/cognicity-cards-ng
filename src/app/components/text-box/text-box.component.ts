@@ -28,8 +28,4 @@ export class TextBoxComponent {
   get description(): string {
     return this.deckService.getDescription()
   }
-
-  get isTryToSubmitButNotValid(): boolean {
-    return this.deckService.tryToSubmit && !this.deckService.isAllowedToSubmit
-  }
 }

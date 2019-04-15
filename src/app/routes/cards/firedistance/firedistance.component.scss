@@ -1,60 +1,48 @@
-#mapid { 
+:host {
   height: 100%;
   width: 100%; 
 }
 
-.fire-distance {
-  height: 100vh;
-
+form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
-  &__search {
-    z-index: 999;
-    position: fixed;
-    top: 60px;
-    display: block;
-    width: 75%;
-    height: 35px;
-    border-radius: 10px;
-    border: none;
-    text-align: center;
-  }
+.search {
+  z-index: 999;
+  position: fixed;
+  top: 60px;
+  display: block;
+  width: 75%;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
 
-  &__hint {
-    z-index: 999;
-    position: fixed;
-    top: 100px;
-    display: block;
-    font-size: 12px;
-    font-weight: 100;
-    width: 75%;
-    text-align: center;
-  }
+#mapid { 
+  height: 100vh;
+  width: 100vw; 
 }
 
 @media (max-width: 481px) {
-  .fire-distance {
-    &__search {
-      width: 70%;
+  .search {
+    width: 70%;
 
-      &::placeholder {
-        font-size: 10px;
-      }
+    &::placeholder {
+      font-size: 10px;
     }
   }
 }
 
 @media (max-width: 321px) {
-  .fire-distance {
-    &__search {
-      width: 65%;
+  .search {
+    width: 65%;
 
-      &::placeholder {
-        font-size: 8px;
-      }
+    &::placeholder {
+      font-size: 8px;
     }
   }
 }
