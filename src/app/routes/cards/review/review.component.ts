@@ -7,12 +7,19 @@ import { DeckService } from '../../../services/cards/deck.service';
   styleUrls: ['./review.component.scss']
 })
 export class ReviewComponent implements OnInit {
+  isLocationInIndonesia = true;
 
-  constructor(public deckService: DeckService) { }
+  constructor(public deckService: DeckService) {}
 
-  get showWarning(): boolean {
-    return !this.deckService.isAllowedToSubmit;
+  async ngOnInit() {
+    this.isLocationInIndonesia = await this.deckService.isLocationInIndonesia();
   }
 
-  ngOnInit() {}
+  get showWarning(): boolean {
+    return !this.isDescriptioORPhotoFilled() || !this.isLocationInIndonesia
+  }
+
+  isDescriptioORPhotoFilled(): boolean {
+    return this.deckService.isDescriptioORPhotoFilled;
+  }
 }

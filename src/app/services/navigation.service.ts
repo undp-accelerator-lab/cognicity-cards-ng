@@ -64,9 +64,12 @@ export class NavigationService {
     }
   }
 
-  next(route) {
+  async next(route) {
     if (this.getCardPath() === 'review') {
-      if (!this.deckService.isAllowedToSubmit) {
+      const isLocationInIndonesia = await this.deckService.isLocationInIndonesia()
+
+      console.log({ isLocationInIndonesia });
+      if (!this.deckService.isDescriptioORPhotoFilled || !isLocationInIndonesia) {
         return
       }
     }

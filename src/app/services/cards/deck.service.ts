@@ -28,8 +28,18 @@ export class DeckService {
   description: string = ''
   preview: File
 
-  get isAllowedToSubmit() {
+  get isDescriptioORPhotoFilled() {
     return !!this.getPreview() || !!this.getDescription()
+  }
+
+  async isLocationInIndonesia() {
+    const response = await fetch(`
+      https://nominatim.openstreetmap.org/reverse
+      ?format=json&lat=${this.location.lat}&lon=${this.location.lng}`)
+
+    const geocodeData = await response.json()
+
+    return geocodeData.address.country_code === 'id'
   }
 
   // Getter

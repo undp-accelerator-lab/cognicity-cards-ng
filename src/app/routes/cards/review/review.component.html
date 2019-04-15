@@ -8,9 +8,13 @@
   </p>
 
   <div class="review__warning" *ngIf="showWarning">
-    <p>
+    <p *ngIf="!isDescriptioORPhotoFilled()">
       <i class="fa fa-exclamation-circle"></i>  
       A photo OR description is required to make a report
+    </p>
+    <p *ngIf="!isLocationInIndonesia">
+      <i class="fa fa-exclamation-circle"></i>  
+      Unsupported location, report cannot be displayed on the map
     </p>
   </div>
   
