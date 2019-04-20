@@ -20,8 +20,8 @@
       "windstructure": "Report Structure Failure",
 
       "sign": "Report Volcanic Signs",
-      "evacuation-number": "Report Evacuation",
-      "evacuation-area": "Report Evacuation",
+      "evacuationnumber": "Report Evacuation",
+      "evacuationarea": "Report Evacuation",
 
       "photo": "Upload a Photo",
       "description": "Tell us more",
