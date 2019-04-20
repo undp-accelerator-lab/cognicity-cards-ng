@@ -11,6 +11,7 @@
   height: 200px;
   align-items: center;
   margin-bottom: 20px;
+  background-color: #424243;
 
   &__img {
     height: 100%;
@@ -27,7 +28,6 @@
     padding: 20px;
     height: 100%;
     color: white;
-    background-color: #424243;
     overflow: auto;
 
     p {

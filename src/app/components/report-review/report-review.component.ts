@@ -33,6 +33,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
       let previewImgSrc
       switch (this.deckService.getDeckSubType()) {
         case 'fire': previewImgSrc = '../../../assets/decks/fire/review/Fire.png'; break;
+        case 'volcano': previewImgSrc = '../../../assets/decks/volcano/review/volcano.png'; break;
         case 'haze': previewImgSrc = [
           "../../../../assets/decks/fire/visibility/Visibility_High.jpg",
           "../../../../assets/decks/fire/visibility/Visibility_Medium.jpg",
@@ -56,6 +57,9 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
         default: previewImgSrc = 'https://via.placeholder.com/150'; break;
       }
       this.previewImg.setAttribute('src', previewImgSrc)
+      if (this.deckService.getDeckSubType() === 'volcano') {
+        this.previewImg.style.maxHeight = '100px';
+      }
     }
   }
 

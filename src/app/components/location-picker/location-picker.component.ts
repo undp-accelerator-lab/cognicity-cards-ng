@@ -103,6 +103,8 @@ export class LocationPickerComponent implements OnInit {
         return '../../../assets/decks/earthquake/eqlocation/AddAccessReportIcon_Location.png'
       case 'wind':
         return '../../../assets/decks/wind/windlocation/Wind_Pin.png'
+      case 'volcano':
+        return '../../../assets/decks/volcano/location/Select_Report_Location.png'
       default:
         return '../../../assets/decks/fire/location/SelectHazeLocation.png';
     }
