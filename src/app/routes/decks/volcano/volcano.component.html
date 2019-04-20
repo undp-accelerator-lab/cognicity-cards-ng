@@ -8,7 +8,9 @@
   </router-outlet>
   
   <div
-    id="navWrapper">
+    id="navWrapper"
+    *ngIf="navController.cardCounter < navController.cardRoutes.length - 1"
+  >
     <app-nav-button
       [text]="'deck.prev' | translate"
       (navigate)="navController.back(route)">

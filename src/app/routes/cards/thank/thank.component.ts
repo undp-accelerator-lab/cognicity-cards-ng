@@ -29,6 +29,8 @@ export class ThankComponent {
       case 'structure': return '../../../../assets/decks/earthquake/thanks/AddStructureFailureIcon_Success.png'
 
       case 'wind': return '../../../../assets/decks/wind/thank/success_wind.png'
+
+      case 'volcano': return '../../../../assets/decks/volcano/thank/success.png'
     }
   }
 }
