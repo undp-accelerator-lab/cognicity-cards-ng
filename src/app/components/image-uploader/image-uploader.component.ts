@@ -16,7 +16,8 @@ export class ImageUploaderComponent implements OnInit {
       case 'haze': this.color = 'red'; break;
       case 'earthquake': this.color = 'orange'; break;
       case 'wind': this.color = 'cyan'; break;
-      default: this.color = 'blue'
+      case 'volcano': this.color = 'blue'; break;
+      default: this.color = 'blue'; break;
     }
   }
 

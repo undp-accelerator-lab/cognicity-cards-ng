@@ -12,11 +12,13 @@ export class TextBoxComponent {
   constructor(
     private deckService: DeckService
   ) {
+    console.log(deckService.getDeckType())
     switch(deckService.getDeckType()) {
       case 'fire': this.color = 'red'; break;
       case 'haze': this.color = 'red'; break;
       case 'earthquake': this.color = 'orange'; break;
       case 'wind': this.color = 'cyan'; break;
+      case 'volcano': this.color = 'blue'; break;
       default: this.color = 'blue'
     }
   }

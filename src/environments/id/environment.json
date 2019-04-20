@@ -60,6 +60,16 @@
         "review",
         "thank"
       ]
+    },
+    {
+      "name": "volcano",
+      "cards": [
+        "location",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
     }
   ]
 }
