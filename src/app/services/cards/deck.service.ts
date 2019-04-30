@@ -24,7 +24,7 @@ export class DeckService {
   fireLocation: LatLng
   fireRadius: LatLng
   fireDistance: number
-  volcanicSigns: []
+  volcanicSigns: number[] = []
   evacuationNumber: null | number = null
   evacuationArea: null | boolean = null
 
@@ -58,7 +58,7 @@ export class DeckService {
   getFireLocation(): LatLng { return this.fireLocation }
   getFireRadius(): LatLng { return this.fireRadius }
   getFireDistance(): number { return this.fireDistance }
-  getVolcanicSigns(): [] { return this.volcanicSigns }
+  getVolcanicSigns(): number[] { return this.volcanicSigns }
   getEvacuationNumber(): null | number { return this.evacuationNumber }
   getEvacuationArea(): null | boolean { return this.evacuationArea }
 
@@ -78,6 +78,7 @@ export class DeckService {
   setFireLocation(fireLocation: LatLng) { this.fireLocation = fireLocation }
   setFireRadius(fireRadius: LatLng) { this.fireRadius = fireRadius }
   setFireDistance(fireDistance: number) { this.fireDistance = fireDistance }
+  setVolcanicSigns(volcanicSigns : number[]) { this.volcanicSigns = volcanicSigns }
   setEvacuationNumber(evacuationNumber: number) { this.evacuationNumber = evacuationNumber }
   setEvacuationArea(evacuationArea: boolean) { this.evacuationArea = evacuationArea }
   

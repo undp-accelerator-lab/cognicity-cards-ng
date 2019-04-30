@@ -9,21 +9,17 @@ import { VolcanoRoutingModule } from './volcano-routing.module';
 import { VolcanoComponent } from './volcano.component';
 
 // Child components
-import { DropdownNotificationComponent } from '../../../components/dropdown-notification/dropdown-notification.component';
-import { NavButtonComponent } from '../../../components/nav-button/nav-button.component';
-import { TitleBoxComponent } from '../../../components/title-box/title-box.component';
+import { UtilsModule } from '../utils.module';
 
 @NgModule({
   imports: [
     CommonModule,
     VolcanoRoutingModule,
-    TranslateModule
+    TranslateModule,
+    UtilsModule
   ],
   declarations: [
     VolcanoComponent,
-    NavButtonComponent,
-    DropdownNotificationComponent,
-    TitleBoxComponent
   ],
   exports: [
     TranslateModule

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeckService } from '../../../services/cards/deck.service';
 
 @Component({
   selector: 'app-sign',
@@ -6,17 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign.component.scss']
 })
 export class SignComponent implements OnInit {
-  selectedOption = []
+  get selectedOption(): number[] {
+    return this.deckService.getVolcanicSigns()
+  }
 
-  constructor() { }
+  constructor(
+    public deckService: DeckService
+  ) { }
 
   ngOnInit() {}
 
   onOptionClick(option: number) {
-    if (this.selectedOption.includes(option)) {
-      this.selectedOption = this.selectedOption.filter(o => o !== option)
+    if (this.deckService.getVolcanicSigns().includes(option)) {
+      this.deckService.setVolcanicSigns(this.deckService.getVolcanicSigns().filter(o => o !== option))
     } else {
-      this.selectedOption.push(option)
+      this.deckService.setVolcanicSigns(this.deckService.getVolcanicSigns().concat(option))
     }
   }
 }
