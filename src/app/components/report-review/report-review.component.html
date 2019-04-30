@@ -48,6 +48,18 @@
       </div>
     </ng-template>
 
+    <ng-template [ngIf]="deckType === 'volcano'">
+      <p *ngFor="let sign of volcanicSigns" class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
+        {{ sign }};
+      </p>
+      <p class="evacuation-number" *ngIf="evacuationNumber" [style.color]="'#31aade'" [style.line-height]="1.5">
+        {{ evacuationNumber }};
+      </p>
+      <p class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
+        {{ evacuationArea }}
+      </p>
+    </ng-template>
+
     <div class="report-review__txt-desc">
       {{ description }}
     </div>

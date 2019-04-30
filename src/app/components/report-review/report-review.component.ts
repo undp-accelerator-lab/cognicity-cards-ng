@@ -59,6 +59,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
       this.previewImg.setAttribute('src', previewImgSrc)
       if (this.deckService.getDeckSubType() === 'volcano') {
         this.previewImg.style.maxHeight = '100px';
+        this.previewImg.style.margin = '30px'
       }
     }
   }
@@ -193,5 +194,33 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
       case 1: return '#f7941d'
       case 2: return '#be1e2d'
     }
+  }
+
+  // Volcano
+  get volcanicSigns() {
+    return this.deckService.getVolcanicSigns().map(sign => {
+      switch (sign) {
+        case 1: return "Significant Temperature Increases";
+        case 2: return "Drought / Vegetation";
+        case 3: return "Frequent Earthquake Tremors";
+        case 4: return "Frequent Rumbling Sounds";
+        case 5: return "Unusual Animal Behaviour";
+      }
+    })
+  }
+
+  get evacuationNumber() {
+    switch(this.deckService.getEvacuationNumber()) {
+      case 1: return '< 5'
+      case 2: return '5 - 50'
+      case 3: return '> 50'
+    }
+    return undefined
+  }
+
+  get evacuationArea() {
+    return this.deckService.getEvacuationArea()
+      ? "Know where to evacuate"
+      : "Don't know where to evacuate"
   }
 }
