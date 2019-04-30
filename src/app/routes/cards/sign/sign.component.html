@@ -1,22 +1,22 @@
 <div class="description">Indicate any observations:</div>
 <div class="options">
-  <div class="option">
+  <div (click)="onOptionClick(1)" [ngClass]="{'option': true, 'selected': selectedOption.includes(1)}">
     <p>Significant Temperature Increases</p>
     <img src="../../../../assets/decks/volcano/sign/Symptom_1.png" alt="Symptom_1">
   </div>
-  <div class="option">
+  <div (click)="onOptionClick(2)" [ngClass]="{'option': true, 'selected': selectedOption.includes(2)}">
     <p>Drought / Vegetation Death</p>
     <img src="../../../../assets/decks/volcano/sign/Symptom_2.png" alt="Symptom_2">
   </div>
-  <div class="option">
+  <div (click)="onOptionClick(5)" [ngClass]="{'option': true, 'selected': selectedOption.includes(5)}">
     <p>Unusual Animal Behaviour</p>
     <img src="../../../../assets/decks/volcano/sign/Symptom_5.png" alt="Symptom_5">
   </div>
-  <div class="option">
+  <div (click)="onOptionClick(3)" [ngClass]="{'option': true, 'selected': selectedOption.includes(3)}">
     <p>Frequent Earthquake Tremors</p>
     <img src="../../../../assets/decks/volcano/sign/Symptom_3.png" alt="Symptom_3">
   </div>
-  <div class="option">
+  <div (click)="onOptionClick(4)" [ngClass]="{'option': true, 'selected': selectedOption.includes(4)}">
     <p>Frequent Rumbling Sounds</p>
     <img src="../../../../assets/decks/volcano/sign/Symptom_4.png" alt="Symptom_4">
   </div>
