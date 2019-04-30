@@ -1,15 +1,12 @@
 <div class="description">Number of people in your village</div>
 <div class="options">
-  <div class="option">
-    <label for="option-1">< 5</label>
-    <input type="checkbox" id="option-1">
+  <div (click)="onOptionClick(1)" [ngClass]="{'option': true, 'selected': selectedOption === 1}">
+    <p>< 5</p>
   </div>
-  <div class="option">
-    <label for="option-2">5 - 50</label>
-    <input type="checkbox" id="option-2">
+  <div (click)="onOptionClick(2)" [ngClass]="{'option': true, 'selected': selectedOption === 2}">
+    <p>5 - 50</p>
   </div>
-  <div class="option">
-    <label for="option-3">> 50</label>
-    <input type="checkbox" id="option-3">
+  <div (click)="onOptionClick(3)" [ngClass]="{'option': true, 'selected': selectedOption === 3}">
+    <p>> 50</p>
   </div>
 </div>

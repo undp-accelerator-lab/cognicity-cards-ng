@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./evacuationnumber.component.scss']
 })
 export class EvacuationnumberComponent implements OnInit {
+  selectedOption = null
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  onOptionClick(option: number) {
+    this.selectedOption = option
+  }
 }
