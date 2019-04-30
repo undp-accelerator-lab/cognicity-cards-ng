@@ -65,6 +65,7 @@
       "name": "volcano",
       "cards": [
         "location",
+        "sign",
         "photo",
         "description",
         "evacuationnumber",

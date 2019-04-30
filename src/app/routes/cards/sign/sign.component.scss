@@ -1,0 +1,45 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 80vh;
+  width: 100%;
+}
+
+.description {
+  color: white;
+  margin-bottom: 30px;
+}
+
+.options {
+  width: 80%;
+  max-width: 480px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .option {
+    border: 1px solid white;
+    width: 100%;
+    border-radius: 15px;
+    color: rgb(167, 172, 167);
+    text-align: center;
+    background-color: #6D6E6D;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 0 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      max-height: 30px;
+      opacity: 0.5;
+    }
+  }
+}
