@@ -1,11 +1,9 @@
 <div class="description">Do you know where to evacuate to?</div>
 <div class="options">
-  <div class="option">
-    <label for="option-1">Yes</label>
-    <input type="checkbox" id="option-1">
+  <div (click)="onOptionClick(true)" [ngClass]="{'option': true, 'selected': selectedOption === true}">
+    <p>Yes</p>
   </div>
-  <div class="option">
-    <label for="option-2">No</label>
-    <input type="checkbox" id="option-2">
+  <div (click)="onOptionClick(false)" [ngClass]="{'option': true, 'selected': selectedOption === false}">
+    <p>No</p>
   </div>
 </div>
