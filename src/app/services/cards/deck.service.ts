@@ -24,6 +24,9 @@ export class DeckService {
   fireLocation: LatLng
   fireRadius: LatLng
   fireDistance: number
+  volcanicSigns: []
+  evacuationNumber: null | number = null
+  evacuationArea: null | boolean = null
 
   description: string = ''
   preview: File
@@ -55,6 +58,9 @@ export class DeckService {
   getFireLocation(): LatLng { return this.fireLocation }
   getFireRadius(): LatLng { return this.fireRadius }
   getFireDistance(): number { return this.fireDistance }
+  getVolcanicSigns(): [] { return this.volcanicSigns }
+  getEvacuationNumber(): null | number { return this.evacuationNumber }
+  getEvacuationArea(): null | boolean { return this.evacuationArea }
 
   getDescription() { return this.description }
   getPreview() { return this.preview }
@@ -72,6 +78,8 @@ export class DeckService {
   setFireLocation(fireLocation: LatLng) { this.fireLocation = fireLocation }
   setFireRadius(fireRadius: LatLng) { this.fireRadius = fireRadius }
   setFireDistance(fireDistance: number) { this.fireDistance = fireDistance }
+  setEvacuationNumber(evacuationNumber: number) { this.evacuationNumber = evacuationNumber }
+  setEvacuationArea(evacuationArea: boolean) { this.evacuationArea = evacuationArea }
   
   setDescription(description: string) { this.description = description }
   setPreview(preview: File) { this.preview = preview }
