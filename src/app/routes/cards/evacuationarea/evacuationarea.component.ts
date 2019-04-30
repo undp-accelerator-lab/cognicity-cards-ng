@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeckService } from '../../../services/cards/deck.service';
 
 @Component({
   selector: 'app-evacuationarea',
@@ -6,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./evacuationarea.component.scss']
 })
 export class EvacuationareaComponent implements OnInit {
-  selectedOption = null
+  get selectedOption(): null | boolean {
+    return this.deckService.getEvacuationArea()
+  }
 
-  constructor() { }
+  constructor(public deckService: DeckService) { }
 
   ngOnInit() {}
 
   onOptionClick(option: boolean) {
-    this.selectedOption = option
+    this.deckService.setEvacuationArea(option)
   }
 }

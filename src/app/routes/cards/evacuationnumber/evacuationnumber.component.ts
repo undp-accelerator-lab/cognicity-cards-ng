@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeckService } from '../../../services/cards/deck.service';
 
 @Component({
   selector: 'app-evacuationnumber',
@@ -6,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./evacuationnumber.component.scss']
 })
 export class EvacuationnumberComponent implements OnInit {
-  selectedOption = null
+  get selectedOption() : null | number {
+    return this.deckService.getEvacuationNumber()
+  }
 
-  constructor() { }
+  constructor(public deckService: DeckService) { }
 
   ngOnInit() {}
 
   onOptionClick(option: number) {
-    this.selectedOption = option
+    this.deckService.setEvacuationNumber(option)
   }
 }
