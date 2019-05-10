@@ -152,16 +152,24 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   get accessibilityHint() {
     const accessibility = this.deckService.getAccessibility()
 
-    if (accessibility <= 0.5) {
-      return "No Vehicle"
-    } else if (accessibility <= 1.0) {
-      return "2-Wheel Vehicle"
-    } else if(accessibility <= 1.4) {
-      return "4-Wheel Vehicle"
-    } else if (accessibility <= 1.8) {
-      return "Large Vehicle"
-    } else {
-      return "Large Vehicle (Truck)"
+    switch (accessibility) {
+      case 0 : return "No Vehicle"
+      case 1 : return "2-Wheel Vehicle"
+      case 2 : return "4-Wheel Vehicle"
+      case 3 : return "Large Vehicle"
+      case 4 : return "Large Vehicle (Truck)"
+    }
+  }
+
+  get accessibilityColor() {
+    const accessibility = this.deckService.getAccessibility()
+
+    switch (accessibility) {
+      case 0 : return "#BE1E2D"
+      case 1 : return "#F7941D"
+      case 2 : return "#FFDE17"
+      case 3 : return "#FFDE17"
+      case 4 : return "#00A651"
     }
   }
 

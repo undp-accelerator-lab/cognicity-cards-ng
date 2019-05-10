@@ -32,10 +32,10 @@
 
     <ng-template [ngIf]="deckType === 'road'">
       <div class="report-review__road-acc">
-        <p>Access: <span class="yellow">
+        <p>Access: <span [style.color]="accessibilityColor">
             {{ accessibility }}m
         </span></p>
-        <p class="yellow">{{ accessibilityHint }}</p>
+        <p [style.color]="accessibilityColor">{{ accessibilityHint }}</p>
       </div>
       <div class="report-review__road-dist">
         Disturbance: {{ condition }}
