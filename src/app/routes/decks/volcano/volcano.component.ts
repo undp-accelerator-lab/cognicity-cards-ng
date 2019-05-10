@@ -32,6 +32,8 @@ export class VolcanoComponent implements OnInit {
 
     this.deckService.setDeckType('volcano');
     this.deckService.setDeckSubType('volcano');
+
+    this.deckService.setRoute(route)
   }
 
   ngOnInit() { }

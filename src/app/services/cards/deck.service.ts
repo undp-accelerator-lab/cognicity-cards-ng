@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano'
 type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'volcano'
@@ -14,6 +15,8 @@ interface LatLng {
 export class DeckService {
   type: deckType
   subType: deckSubType
+
+  route: ActivatedRoute
 
   structureFailure = 0
   visibility = 0
@@ -49,6 +52,8 @@ export class DeckService {
   getDeckType() { return this.type; }
   getDeckSubType() { return this.subType }
 
+  getRoute() { return this.route }
+
   getStructureFailure() { return this.structureFailure };
   getVisibility(): number { return this.visibility; }
   getAirQuality(): number { return this.airQuality; }
@@ -68,6 +73,8 @@ export class DeckService {
   // Setter
   setDeckType(type: deckType) { this.type = type }
   setDeckSubType(subType: deckSubType) { this.subType = subType }
+
+  setRoute(route: ActivatedRoute) { this.route = route }
 
   setStructureFailure(structureFailure: number) { this.structureFailure = structureFailure }
   setVisibility(visibility: number) { this.visibility = visibility; }
