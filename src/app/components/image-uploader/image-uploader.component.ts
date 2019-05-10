@@ -8,18 +8,8 @@ import { DeckService } from '../../services/cards/deck.service'
 })
 export class ImageUploaderComponent implements OnInit {
   rotateDeg: number = 0
-  color: string
 
-  constructor(private deckService: DeckService) {
-    switch(deckService.getDeckType()) {
-      case 'fire': this.color = 'red'; break;
-      case 'haze': this.color = 'red'; break;
-      case 'earthquake': this.color = 'orange'; break;
-      case 'wind': this.color = 'cyan'; break;
-      case 'volcano': this.color = 'blue'; break;
-      default: this.color = 'blue'; break;
-    }
-  }
+  constructor(private deckService: DeckService) {}
 
   ngOnInit() {
     if (this.isImageSelected)
@@ -44,7 +34,6 @@ export class ImageUploaderComponent implements OnInit {
   }
 
   rotateImage() {
-    console.log('image rotated')
     this.rotateDeg += 90
   }
 
