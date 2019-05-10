@@ -12,11 +12,13 @@
     *ngIf="navController.cardCounter < navController.cardRoutes.length - 1"
   >
     <app-nav-button
+      type="left"
       [text]="'deck.prev' | translate"
       (navigate)="navController.back(route)">
     </app-nav-button>
   
     <app-nav-button
+      type="right"
       [text]="'deck.next' | translate"
       (navigate)="navController.next(route)">
     </app-nav-button>
