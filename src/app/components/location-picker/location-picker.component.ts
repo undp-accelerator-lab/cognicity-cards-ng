@@ -27,6 +27,10 @@ export class LocationPickerComponent implements OnInit {
 
     L.control.zoom({ position: 'bottomleft' })
 
+    // If user not approve permission
+    if (this.currentMarker) this.currentMarker.remove(this.map)      
+    this.addMarker({ latlng: { lat: -7.7, lng: 110.2 } })
+
     const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true }).addTo(this.map);
     locate.start()
 
