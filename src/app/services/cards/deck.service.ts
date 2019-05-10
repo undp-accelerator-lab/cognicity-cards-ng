@@ -79,7 +79,13 @@ export class DeckService {
   setFireRadius(fireRadius: LatLng) { this.fireRadius = fireRadius }
   setFireDistance(fireDistance: number) { this.fireDistance = fireDistance }
   setVolcanicSigns(volcanicSigns : number[]) { this.volcanicSigns = volcanicSigns }
-  setEvacuationNumber(evacuationNumber: number) { this.evacuationNumber = evacuationNumber }
+  setEvacuationNumber(evacuationNumber: number) { 
+    if (this.evacuationNumber !== evacuationNumber) {
+      this.evacuationNumber = evacuationNumber
+    } else {
+      this.evacuationNumber = null
+    }
+  }
   setEvacuationArea(evacuationArea: boolean) { this.evacuationArea = evacuationArea }
   
   setDescription(description: string) { this.description = description }
