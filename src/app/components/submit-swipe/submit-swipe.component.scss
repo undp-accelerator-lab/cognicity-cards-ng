@@ -30,30 +30,6 @@
 			background-color: #31aade;
 			box-shadow: 2px 5px 8px 0px rgba(0, 0, 0, 0.4);
 		}
-
-		&.white {
-			background-color: #fff;
-
-			&:active {
-				background-color: #fff;
-			}
-		}
-
-		&.orange {
-			background-color: #F15929;
-
-			&:active {
-				background-color: #F15929;
-			}
-		}
-
-		&.cyan {
-			background-color: #55c1ac;
-
-			&:active {
-				background-color: #55c1ac;
-			}
-		}
 	}
 	& .refText {
 		margin: 0px;
