@@ -16,7 +16,7 @@ export class DeckService {
   subType: deckSubType
 
   structureFailure = 0
-  visibility = 1
+  visibility = 0
   airQuality = 0
   accessibility = 0
   condition = 0
