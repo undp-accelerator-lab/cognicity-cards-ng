@@ -15,11 +15,11 @@ export class DeckService {
   type: deckType
   subType: deckSubType
 
-  structureFailure = 1
+  structureFailure = 0
   visibility = 1
   airQuality = 0
   accessibility = 0
-  condition = 1
+  condition = 0
   location: LatLng
   fireLocation: LatLng
   fireRadius: LatLng
