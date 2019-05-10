@@ -23,7 +23,7 @@
   align-items: center;
 
   .option {
-    border: 1px solid white;
+    border: 1px solid rgb(202, 202, 202);
     width: 100%;
     border-radius: 15px;
     text-align: center;
@@ -46,6 +46,9 @@
     }
 
     &.selected {
+      border-color: white;
+      background-color: #57585A;
+
       p {
         color: white;
       }
