@@ -46,6 +46,7 @@
     justify-content: flex-start;
     align-items: center;
     padding-top: 5px;
+    border-top: 2.5px solid #31AADE;
 
     .material-icons {
       cursor: pointer;
@@ -55,22 +56,6 @@
 
     .active-icon {
       color: white;
-    }
-
-    &.blue {
-      border-top: 2.5px solid #31AADE;
-    }
-
-    &.red {
-      border-top: 2.5px solid #EE1D23;
-    }
-  
-    &.orange {
-      border-top: 2.5px solid #F15A2B;
-    }
-
-    &.cyan {
-      border-top: 2.5px solid #55c1ac;
     }
   }
 }
