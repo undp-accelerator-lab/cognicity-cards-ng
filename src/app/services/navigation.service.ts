@@ -81,6 +81,11 @@ export class NavigationService {
     }
   }
 
+  reset(route) {
+    this.router.navigate([this.cardRoutes[0]], {relativeTo: route});
+    this.cardCounter = 0;
+  }
+
   async next(route) {
     if (this.getCardPath() === 'review') {
       const isLocationInIndonesia = await this.deckService.isLocationInIndonesia()

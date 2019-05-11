@@ -12,7 +12,8 @@ export class ThankComponent {
   isShowReportAgain = false
 
   constructor(
-    public deckService: DeckService, 
+    public deckService: DeckService,
+    public navController: NavigationService
   ) {
     const deckType = this.deckService.getDeckType()
     if (deckType === 'earthquake') {
@@ -32,5 +33,9 @@ export class ThankComponent {
 
       case 'volcano': return '../../../../assets/decks/volcano/thank/success.png'
     }
+  }
+
+  reportAnotherCard() {
+    this.navController.reset(this.deckService.getRoute())
   }
 }
