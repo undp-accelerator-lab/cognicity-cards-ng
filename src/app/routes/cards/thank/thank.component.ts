@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service'
 import { NavigationService } from '../../../services/navigation.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-thank',
@@ -16,9 +15,11 @@ export class ThankComponent {
     public navController: NavigationService
   ) {
     const deckType = this.deckService.getDeckType()
-    if (deckType === 'earthquake') {
+    if (deckType === 'earthquake' && this.deckService.resetTime === 0) {
       this.isShowReportAgain = true
     }
+
+    this.deckService.reset()
   }
 
   get typeImage(): string {

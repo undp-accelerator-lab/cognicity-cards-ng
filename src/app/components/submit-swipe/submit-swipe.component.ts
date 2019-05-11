@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DeckService } from '../../services/cards/deck.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-submit-swipe',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./submit-swipe.component.scss']
 })
 export class SubmitSwipeComponent {
-  constructor() {}
+  constructor(
+    public deckService: DeckService,
+    public navController: NavigationService
+  ) {}
+
+  submit() {
+    this.deckService.submit()
+    this.navController.next(this.deckService.getRoute())
+  }
 }

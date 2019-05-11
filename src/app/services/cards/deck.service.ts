@@ -13,6 +13,8 @@ interface LatLng {
   providedIn: 'root'
 })
 export class DeckService {
+  resetTime = 0
+
   type: deckType
   subType: deckSubType
 
@@ -97,4 +99,28 @@ export class DeckService {
   
   setDescription(description: string) { this.description = description }
   setPreview(preview: File) { this.preview = preview }
+
+  //
+  submit() {
+
+  }
+
+  reset() {
+    this.resetTime++
+
+    this.structureFailure = 0
+    this.visibility = 0
+    this.airQuality = 0
+    this.accessibility = 0
+    this.condition = 0
+    this.location = undefined
+    this.fireLocation = undefined
+    this.fireRadius = undefined
+    this.fireDistance = undefined
+    this.volcanicSigns = []
+    this.evacuationNumber = null
+    this.evacuationArea = null
+    this.description = ''
+    this.preview = undefined
+  }
 }
