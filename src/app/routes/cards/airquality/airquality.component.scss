@@ -140,6 +140,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 50px;
 
     cursor: pointer;
     background-color: #6D6E6D;
@@ -149,12 +150,13 @@
 
     &-text {
       color: #d6d6d6;
-      max-width: 60%;
+      max-width: 70%;
     }
 
     &-icon {
       display: block;
       width: 50px;
+      max-height: 40px;
     }
 
     &.highlight {
@@ -236,7 +238,7 @@
     }
 
     &__type {
-      padding: 1.5px 7.5px;
+      // padding: 1.5px 7.5px;
     }
   }
 }
