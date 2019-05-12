@@ -15,7 +15,7 @@ export class ThankComponent {
     public navController: NavigationService
   ) {
     const deckType = this.deckService.getDeckType()
-    if (deckType === 'earthquake' && this.deckService.resetTime === 0) {
+    if (deckType === 'earthquake' && this.deckService.finishedSubType.length === 0) {
       this.isShowReportAgain = true
     }
 

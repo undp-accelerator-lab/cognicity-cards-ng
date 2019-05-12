@@ -13,7 +13,7 @@ interface LatLng {
   providedIn: 'root'
 })
 export class DeckService {
-  resetTime = 0
+  finishedSubType = [] 
 
   type: deckType
   subType: deckSubType
@@ -100,13 +100,10 @@ export class DeckService {
   setDescription(description: string) { this.description = description }
   setPreview(preview: File) { this.preview = preview }
 
-  //
-  submit() {
-
-  }
+  submit() {}
 
   reset() {
-    this.resetTime++
+    this.finishedSubType.push(this.subType)
 
     this.structureFailure = 0
     this.visibility = 0

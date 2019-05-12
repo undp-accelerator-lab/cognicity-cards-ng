@@ -42,7 +42,7 @@ export class TypeComponent {
           imgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon.png',
           highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon_Click.png'
         }
-      ].filter(item => item.subtype !== this.deckService.getDeckSubType()); break;
+      ].filter(item => !this.deckService.finishedSubType.includes(item.subtype)); break;
     }
   }
 
