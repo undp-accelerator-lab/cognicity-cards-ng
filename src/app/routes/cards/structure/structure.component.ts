@@ -53,7 +53,7 @@ export class StructureComponent implements AfterViewChecked {
     this.cdRef.detectChanges()
   }
 
-  public setStructureFailure(value): void {
+  setStructureFailure(value): void {
     const intValue = parseInt(value)
     const leftArrow = document.querySelector('.left-arrow') as HTMLDivElement
     const rightArrow = document.querySelector('.right-arrow') as HTMLDivElement

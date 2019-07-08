@@ -101,6 +101,12 @@ export class NavigationService {
       }
     }
 
+    if (this.getCardPath() === 'sign') {
+      if (this.deckService.getVolcanicSigns().length === 0) {
+        return
+      }
+    }
+
     if (this.cardCounter < (this.cardRoutes.length - 1)) {
       const nextCardRoute = this.cardRoutes[this.cardCounter + 1];
       this.router.navigate([nextCardRoute], {relativeTo: route});
