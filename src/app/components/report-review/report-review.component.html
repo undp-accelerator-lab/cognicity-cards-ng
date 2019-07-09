@@ -1,8 +1,10 @@
 <div class="report-review">
-  <img 
-    id="preview-img" src="https://via.placeholder.com/150" 
-    alt="fire image" class="report-review__img"
-  >
+  <div id="preview-img-container" class="report-review__img-container">
+    <img 
+      id="preview-img" src="https://via.placeholder.com/150" 
+      alt="fire image" class="report-review__img"
+    >
+  </div>
   <div class="report-review__txt">
     <ng-template [ngIf]="deckType === 'fire'">
       <div class="report-review__fire">

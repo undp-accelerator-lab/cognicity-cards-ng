@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
+
 import { DeckService } from '../../services/cards/deck.service'
 
 @Component({
@@ -9,6 +10,7 @@ import { DeckService } from '../../services/cards/deck.service'
 export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   previewImg: HTMLImageElement
+  previewImgContainer: HTMLDivElement
 
   constructor(
     public deckService: DeckService,
@@ -26,6 +28,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   initPreviewImg() {
     this.previewImg = document.getElementById('preview-img') as HTMLImageElement
+    this.previewImgContainer = document.getElementById('preview-img-container') as HTMLDivElement
 
     if (this.deckService.getPreview()) {
       this.setImagePreview(this.deckService.getPreview())
@@ -58,8 +61,8 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
       }
       this.previewImg.setAttribute('src', previewImgSrc)
       if (this.deckService.getDeckSubType() === 'volcano') {
-        this.previewImg.style.maxHeight = '100px';
-        this.previewImg.style.margin = '30px'
+        this.previewImgContainer.style.padding = '10px 0'
+        this.previewImgContainer.style.justifyContent = 'center'
       }
     }
   }

@@ -13,15 +13,20 @@
   margin-bottom: 20px;
   background-color: #424243;
 
+  &__img-container {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    flex: 1;
+  }
+
   &__img {
     height: 100%;
-    max-height: 200px;
-    max-width: 50%;
-    display: block;
   }
 
   &__txt {
-    min-width: 50%;
+    flex: 1;
     box-sizing: border-box;
     word-break: break-word;
     font-size: 12px;
@@ -85,12 +90,14 @@
   .report-review {
     height: 140px;
 
-    &__img {
-      max-height: 140px;
-    }
-
     &__txt {
       padding: 5px 10px;
     }
+  }
+}
+
+@media (max-width: 321px) {
+  .report-review {
+    height: 120px;
   }
 }
