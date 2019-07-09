@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { DeckService } from '../../../services/cards/deck.service'
+import { MONUMEN_NASIONAL_LAT_LNG } from '../../../../utils/const';
 
 declare let L
 
@@ -23,8 +25,8 @@ export class FireestimateComponent implements OnInit {
   }
 
   private initMap(): void {
-    let lat = -7.7;
-    let lng = 110.2
+    let { lat, lng } = MONUMEN_NASIONAL_LAT_LNG;
+
     if (this.deckService.getFireLocation()) {
       lat = this.deckService.getFireLocation().lat
       lng = this.deckService.getFireLocation().lng

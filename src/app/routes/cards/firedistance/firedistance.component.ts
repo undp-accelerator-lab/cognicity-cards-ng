@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DeckService } from '../../../services/cards/deck.service'
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import { MONUMEN_NASIONAL_LAT_LNG } from "../../../../utils/const";
 
 declare let L;
 
@@ -26,19 +27,22 @@ export class FiredistanceComponent implements OnInit {
   }
 
   private initMap() {
-    let lat = -7.7;
-    let lng = 110.2
+    let { lat, lng } = MONUMEN_NASIONAL_LAT_LNG
+
     if (this.deckService.getFireLocation()) {
       lat = this.deckService.getLocation().lat
       lng = this.deckService.getLocation().lng
     }
 
-    this.map = L.map('mapid', { center: [lat, lng], zoom: 18});    
+    this.map = L.map('mapid', { center: [lat, lng], zoom: 18 });    
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(this.map);
 
     // Add compass
     this.map.addControl(new L.Control.Compass());
+
+    // Check if there is any error (ex: user turn off geolocation)
+    this.checkGeolocation()
 
     // Add locate
     const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true }).addTo(this.map);
@@ -49,6 +53,18 @@ export class FiredistanceComponent implements OnInit {
     this.map.on("locationfound ", () => this.onLocateFound() );
 
     this.provider = new OpenStreetMapProvider();
+  }
+
+  private checkGeolocation() {    
+    const addMarkerAtMonas = () => {
+      this.onLocateFound()
+    }
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.onLocateFound, addMarkerAtMonas);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
   }
 
   private onLocateFound(): void {
@@ -143,17 +159,6 @@ export class FiredistanceComponent implements OnInit {
       }
       this.addDistanceLine();
     });
-
-    // // Change marker icon when drag and drop
-    // marker.on("mouseover", () => {
-    //   this.setMarkerIcon(marker, type, true);
-    // });
-    // marker.on("moveend", () => {
-    //   this.setMarkerIcon(marker, type);
-    // });
-    // marker.on("mouseout", () => {
-    //   this.setMarkerIcon(marker, type);
-    // });
   }
 
   async onSearch(query: string) {
@@ -177,16 +182,5 @@ export class FiredistanceComponent implements OnInit {
       iconSize: [57.2 / 2, 103.5 / 2],
       iconAnchor: [15, 50]
     })
-  }
-
-  private setMarkerIcon(marker, type, highlight = false): void {
-    marker.setIcon(
-      L.icon({
-        iconUrl:
-          `${this.rootIconDir}` +
-          `/Select${type === "fire" ? "Fire" : ""}` +
-          `Location_${highlight ? "Highlight" : "Grey"}.png`
-      })
-    );
   }
 }

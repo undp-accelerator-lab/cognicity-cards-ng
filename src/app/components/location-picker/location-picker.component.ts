@@ -3,6 +3,8 @@ import { DeckService } from '../../services/cards/deck.service';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 // import * as L from 'leaflet'
 
+import { MONUMEN_NASIONAL_LAT_LNG } from "../../../utils/const";
+
 declare let L
 
 @Component({
@@ -21,7 +23,13 @@ export class LocationPickerComponent implements OnInit {
   constructor(private deckService: DeckService) { }
 
   ngOnInit() {
-    this.map = L.map('mapid', { center: [-7.7, 110.2], zoom: 18});    
+    this.map = L.map('mapid', { 
+      center: [
+        MONUMEN_NASIONAL_LAT_LNG.lat,
+        MONUMEN_NASIONAL_LAT_LNG.lng
+      ],
+      zoom: 18
+    });    
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
 
@@ -29,7 +37,7 @@ export class LocationPickerComponent implements OnInit {
 
     // If user not approve permission
     if (this.currentMarker) this.currentMarker.remove(this.map)      
-    this.addMarker({ latlng: { lat: -7.7, lng: 110.2 } })
+    this.addMarker({ latlng: MONUMEN_NASIONAL_LAT_LNG })
 
     const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true }).addTo(this.map);
     locate.start()
