@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DeckService } from '../../services/cards/deck.service';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 // import * as L from 'leaflet'
 
+import { DeckService } from '../../services/cards/deck.service';
 import { MONUMEN_NASIONAL_LAT_LNG } from "../../../utils/const";
 
 declare let L
@@ -23,13 +23,17 @@ export class LocationPickerComponent implements OnInit {
   constructor(private deckService: DeckService) { }
 
   ngOnInit() {
+    let { lat, lng } = MONUMEN_NASIONAL_LAT_LNG
+
+    if (this.deckService.getLocation()) {
+      lat = this.deckService.getLocation().lat
+      lng = this.deckService.getLocation().lng
+    }
+
     this.map = L.map('mapid', { 
-      center: [
-        MONUMEN_NASIONAL_LAT_LNG.lat,
-        MONUMEN_NASIONAL_LAT_LNG.lng
-      ],
+      center: [ lat, lng ],
       zoom: 18
-    });    
+    });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
 
@@ -37,20 +41,19 @@ export class LocationPickerComponent implements OnInit {
 
     // If user not approve permission
     if (this.currentMarker) this.currentMarker.remove(this.map)      
-    this.addMarker({ latlng: MONUMEN_NASIONAL_LAT_LNG })
+    this.addMarker()
 
     const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true }).addTo(this.map);
     locate.start()
 
     this.map.addControl(new L.Control.Compass());
-    this.map.on('locationfound ', (event) => { 
+    this.map.on('locationfound ', () => { 
       if (this.currentMarker) this.currentMarker.remove(this.map)      
-      this.addMarker(event)
+      this.addMarker()
     })
 
-    this.map.on('click', (event) => {
-      if (this.currentMarker) this.currentMarker.remove(this.map)
-      this.addMarker(event)
+    this.map.on('move', () => {
+      this.addMarker()
     })
 
     this.provider = new OpenStreetMapProvider()
@@ -63,51 +66,45 @@ export class LocationPickerComponent implements OnInit {
     if (this.currentMarker) this.currentMarker.remove(this.map)
 
     const icon = L.icon({
-      iconUrl: this.getIcon(),
+      iconUrl: this.icon,
       iconSize: [57.2 / 2, 103.5 / 2],
       iconAnchor: [15, 50],
       popupAnchor: [-3, -76],
     });
 
-    const marker = L.marker([results[0].y, results[0].x], { icon, draggable: true })
+    const marker = L.marker([results[0].y, results[0].x], { icon })
 
     this.latlng = { lat: results[0].y, lng: results[0].x }
     this.deckService.setLocation({ lat: results[0].y, lng: results[0].x })
 
-    marker.on('move', (event) => {
-      this.latlng = event.latlng
-      this.deckService.setLocation({ lat: results[0].y, lng: results[0].x })
-    })
-
+    if (this.currentMarker) this.currentMarker.remove(this.map)
     marker.addTo(this.map)
 
     this.currentMarker = marker
   }
 
-  private addMarker(e): void {
+  private addMarker(): void {
     const icon = L.icon({
-      iconUrl: this.getIcon(),
+      iconUrl: this.icon,
       iconSize: [57.2 / 2, 103.5 / 2],
       iconAnchor: [15, 50],
       popupAnchor: [-3, -76],
     });
 
-    const marker = L.marker([e.latlng.lat, e.latlng.lng], { icon, draggable: true })
+    const { lat, lng } = this.map.getCenter();
 
-    this.latlng = e.latlng
-    this.deckService.setLocation(e.latlng)
+    const marker = L.marker([lat, lng], { icon })
 
-    marker.on('move', (event) => {
-      this.latlng = event.latlng
-      this.deckService.setLocation(e.latlng)
-    })
+    this.latlng = { lat, lng }
+    this.deckService.setLocation({ lat, lng })
 
+    if (this.currentMarker) this.currentMarker.remove(this.map)
     marker.addTo(this.map)
 
     this.currentMarker = marker
   }
 
-  getIcon() {
+  get icon() {
     switch (this.type) {
       case 'structure':
         return '../../../assets/decks/earthquake/eqlocation/AddStructureFailureIcon_Location.png'
