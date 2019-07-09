@@ -25,6 +25,8 @@ export class EvacuationareaComponent implements OnInit {
   onOptionClick(option: boolean) {
     this.deckService.setEvacuationArea(option)
 
-    this.navController.next(this.deckService.getRoute())
+    setTimeout(() => {
+      this.navController.next(this.deckService.getRoute())
+    }, 500)
   }
 }
