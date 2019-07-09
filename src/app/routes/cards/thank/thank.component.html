@@ -11,7 +11,7 @@
   </p>
 
   <p *ngIf="isShowReportAgain" class="thanks__again">	
-    Would you like to submit another report?	
+    {{ reportAgainText }}	
   </p>
   <div *ngIf="isShowReportAgain" class="thanks__btn-group">	
     <a class="thanks__btn" (click)="reportAnotherCard()">Yes</a>	

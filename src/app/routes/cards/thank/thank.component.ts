@@ -9,6 +9,7 @@ import { NavigationService } from '../../../services/navigation.service';
 })
 export class ThankComponent {
   isShowReportAgain = false
+  reportAgainText = ''
 
   constructor(
     public deckService: DeckService,
@@ -17,6 +18,15 @@ export class ThankComponent {
     const deckType = this.deckService.getDeckType()
     if (deckType === 'earthquake' && this.deckService.finishedSubType.length === 0) {
       this.isShowReportAgain = true
+
+      switch(this.deckService.getDeckSubType()) {
+        case 'road':
+          this.reportAgainText = 'Would you also like to submit structural failure report?'
+          break;
+        case 'structure': 
+          this.reportAgainText = 'Would you also like to submit road accessibility report?'
+          break;
+      }
     }
 
     this.deckService.reset()
