@@ -24,6 +24,17 @@ export class FiredistanceComponent implements OnInit {
 
   ngOnInit() {
     this.initMap();
+
+    this.deckService.userCannotBack()
+    this.isUserAbleToContinue()
+  }
+
+  isUserAbleToContinue() {
+    if (!this.deckService.getLocation() && !this.deckService.getFireLocation()) {
+      this.deckService.userCannotContinue()
+    } else {
+      this.deckService.userCanContinue()
+    }
   }
 
   private initMap() {
@@ -149,6 +160,8 @@ export class FiredistanceComponent implements OnInit {
 
     // Adjust distance line between informer and fire
     marker.on("move", (e) => {
+      this.deckService.userCanContinue()
+
       switch (type) {
         case "informer":
           this.deckService.setLocation(e.latlng)

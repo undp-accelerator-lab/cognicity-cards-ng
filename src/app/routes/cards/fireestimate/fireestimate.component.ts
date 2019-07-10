@@ -22,6 +22,17 @@ export class FireestimateComponent implements OnInit {
 
   ngOnInit() {
     this.initMap()
+
+    this.deckService.userCanBack()
+    this.isUserAbleToContinue()
+  }
+
+  isUserAbleToContinue() {
+    if (!this.deckService.getFireRadius()) {
+      this.deckService.userCannotContinue()
+    } else {
+      this.deckService.userCanContinue()
+    }
   }
 
   private initMap(): void {
@@ -108,6 +119,7 @@ export class FireestimateComponent implements OnInit {
 
     marker.on('move', (e) => {
       this.deckService.setFireRadius(e.latlng)
+      this.deckService.userCanContinue()
       this.addCircleRadius()
     })
   }
