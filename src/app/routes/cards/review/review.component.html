@@ -8,7 +8,7 @@
   </p>
 
   <div class="review__warning" *ngIf="showWarning">
-    <p *ngIf="!isDescriptioORPhotoFilled()">
+    <p *ngIf="isDescriptionAndPhotoEmpty">
       <i class="fa fa-exclamation-circle"></i>  
       A photo OR description is required to make a report
     </p>

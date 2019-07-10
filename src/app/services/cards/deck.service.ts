@@ -55,10 +55,6 @@ export class DeckService {
     this.isNextButtonDisabled = true
   }
 
-  get isDescriptioORPhotoFilled() {
-    return !!this.getPreview() || !!this.getDescription()
-  }
-
   async isLocationInIndonesia() {
     const response = await fetch(`
       https://nominatim.openstreetmap.org/reverse

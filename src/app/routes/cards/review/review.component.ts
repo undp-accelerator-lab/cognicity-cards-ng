@@ -13,13 +13,24 @@ export class ReviewComponent implements OnInit {
 
   async ngOnInit() {
     this.isLocationInIndonesia = await this.deckService.isLocationInIndonesia();
+
+    this.deckService.userCanBack()
+    // Fallback when checking location
+    this.deckService.userCannotContinue()
+
+    // If both of description and image is empty or location is not indonesia, next button is disabled
+    if (this.isDescriptionAndPhotoEmpty || !this.isLocationInIndonesia) {
+      this.deckService.userCannotContinue()
+    } else {
+      this.deckService.userCanContinue()
+    }
   }
 
   get showWarning(): boolean {
-    return !this.isDescriptioORPhotoFilled() || !this.isLocationInIndonesia
+    return this.isDescriptionAndPhotoEmpty || !this.isLocationInIndonesia
   }
 
-  isDescriptioORPhotoFilled(): boolean {
-    return this.deckService.isDescriptioORPhotoFilled;
+  get isDescriptionAndPhotoEmpty(): boolean {
+    return !(this.deckService.getDescription() || this.deckService.getPreview());
   }
 }
