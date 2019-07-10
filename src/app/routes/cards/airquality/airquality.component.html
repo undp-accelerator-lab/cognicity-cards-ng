@@ -4,14 +4,14 @@
     <input 
       type="range" min="0" max="4" value="0" 
       [ngClass]="['airquality__range', 'stage-' + rangeValue ]" 
-      (change)="changeAirQuality($event.target.value)"
+      (change)="onInputChange($event.target.value)"
       #range orient="vertical" [value]="rangeValue"
     >
     <div class="airquality__types">
       <div 
         *ngFor="let fact of facts; let i = index" 
         [ngClass]="{ 'airquality__type': true, 'highlight': rangeValue == i }"
-        (click)="changeAirQuality(i)"
+        (click)="onInputChange(i)"
       >
         <p class="airquality__type-text">{{ fact }}</p>
         <img 

@@ -1,4 +1,4 @@
-import { Component, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
+import { Component, AfterViewChecked, ChangeDetectorRef, OnInit } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service';
 import { countArrowOffset } from '../../../utils/slider'
 
@@ -7,7 +7,7 @@ import { countArrowOffset } from '../../../utils/slider'
   templateUrl: './visibility.component.html',
   styleUrls: ['./visibility.component.scss']
 })
-export class VisibilityComponent implements AfterViewChecked {
+export class VisibilityComponent implements OnInit, AfterViewChecked {
   descriptions: string[]
   images: string[]
 
@@ -20,6 +20,20 @@ export class VisibilityComponent implements AfterViewChecked {
   ) {
     this.initDescriptions()
     this.initImages()
+  }
+
+  ngOnInit() {
+    this.deckService.userCanBack()
+
+    this.isUserAbleToContinue()
+  }
+
+  isUserAbleToContinue() {
+    if (this.deckService.getVisibility() === undefined) {
+      this.deckService.userCannotContinue()
+    } else {
+      this.deckService.userCanContinue()
+    }
   }
 
   initDescriptions() {
@@ -39,24 +53,35 @@ export class VisibilityComponent implements AfterViewChecked {
   }
 
   get visibility(): number {
-    return this.deckService.getVisibility()
+    return this.deckService.getVisibility() || 0
   }
 
   ngAfterViewChecked() {
-    this.onRangeChange(this.deckService.getVisibility().toString())
+    this.onVisibility(this.deckService.getVisibility() || 0, 'service')
     this.cdref.detectChanges()
   }
 
-  public onRangeChange(value: string): void {
+  onInputChange(value): void {
+    this.deckService.userCanContinue()
+
+    this.onVisibility(value, 'input')
+  }
+
+  public onVisibility(value, from: 'service' | 'input'): void {
     const leftArrow = document.querySelector('.left-arrow') as HTMLDivElement
     const rightArrow = document.querySelector('.right-arrow') as HTMLDivElement
     const slider = document.querySelector('.visibility__range') as HTMLInputElement
 
     const intValue = parseInt(value)
     
-    this.deckService.setVisibility(intValue)
     this.description = this.descriptions[intValue]
     this.image = this.images[intValue]
+
+    if (from === 'service' && this.deckService.getVisibility() === undefined) {
+      this.deckService.setVisibility(undefined)
+    } else {
+      this.deckService.setVisibility(intValue)
+    }
 
     leftArrow.style.left = countArrowOffset(intValue, 2, slider.offsetWidth, 'left')
     rightArrow.style.left = countArrowOffset(intValue, 2,  slider.offsetWidth, 'right')

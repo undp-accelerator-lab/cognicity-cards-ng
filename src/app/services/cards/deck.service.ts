@@ -21,8 +21,8 @@ export class DeckService {
   route: ActivatedRoute
 
   structureFailure: number | undefined = undefined
-  visibility = 0
-  airQuality = 0
+  visibility: number | undefined = undefined
+  airQuality: number | undefined = undefined
   accessibility = 0
   condition = 0
   location: LatLng

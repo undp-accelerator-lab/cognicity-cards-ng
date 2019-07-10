@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { DeckService } from '../../../services/cards/deck.service'
 
 @Component({
@@ -6,12 +6,22 @@ import { DeckService } from '../../../services/cards/deck.service'
   templateUrl: "./airquality.component.html",
   styleUrls: ["./airquality.component.scss"]
 })
-export class AirqualityComponent {
+export class AirqualityComponent implements OnInit {
 
   facts: string[]
 
   constructor(private deckService: DeckService) {
     this.initFacts()
+  }
+
+  ngOnInit() {
+    this.deckService.userCanBack()
+
+    if (this.deckService.getAirQuality() === undefined) {
+      this.deckService.userCannotContinue()
+    } else {
+      this.deckService.userCanContinue()
+    }
   }
 
   initFacts() {
@@ -25,10 +35,16 @@ export class AirqualityComponent {
   }
 
   get rangeValue(): number {
-    return this.deckService.getAirQuality();
+    return this.deckService.getAirQuality() || 0;
   }
 
-  public changeAirQuality(value): void {
+  onInputChange(value): void {
+    this.deckService.userCanContinue()
+
+    this.setAirQuality(value)
+  }
+
+  public setAirQuality(value): void {
     this.deckService.setAirQuality(parseInt(value));
   }
 }
