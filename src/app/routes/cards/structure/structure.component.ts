@@ -1,4 +1,4 @@
-import { Component, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
+import { Component, AfterViewChecked, ChangeDetectorRef, OnInit } from '@angular/core';
 import { countArrowOffset } from '../../../utils/slider'
 import { DeckService } from '../../../services/cards/deck.service';
 
@@ -7,7 +7,7 @@ import { DeckService } from '../../../services/cards/deck.service';
   templateUrl: './structure.component.html',
   styleUrls: ['./structure.component.scss']
 })
-export class StructureComponent implements AfterViewChecked {
+export class StructureComponent implements OnInit, AfterViewChecked {
   titles: string[]
   images: string[]
   
@@ -21,6 +21,20 @@ export class StructureComponent implements AfterViewChecked {
   ) {
     this.initTitles()
     this.initImages()
+  }
+
+  ngOnInit() {
+    this.deckService.userCanBack()
+
+    this.isUserAbleToContinue()
+  }
+
+  isUserAbleToContinue() {
+    if (this.deckService.getStructureFailure() === undefined) {
+      this.deckService.userCannotContinue()
+    } else {
+      this.deckService.userCanContinue()
+    }
   }
 
   initTitles() {
@@ -49,11 +63,17 @@ export class StructureComponent implements AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    this.setStructureFailure(this.deckService.getStructureFailure())
+    this.setStructureFailure(this.deckService.getStructureFailure() || 0, 'service')
     this.cdRef.detectChanges()
   }
 
-  setStructureFailure(value): void {
+  onInputChange(value): void {
+    this.deckService.userCanContinue()
+
+    this.setStructureFailure(value, 'input')
+  }
+
+  setStructureFailure(value, from: 'input' | 'service'): void {
     const intValue = parseInt(value)
     const leftArrow = document.querySelector('.left-arrow') as HTMLDivElement
     const rightArrow = document.querySelector('.right-arrow') as HTMLDivElement
@@ -63,7 +83,14 @@ export class StructureComponent implements AfterViewChecked {
     this.title = this.titles[intValue]
     this.image = this.images[intValue]
 
-    this.deckService.setStructureFailure(intValue)
+    // Fallback, if user not use the input to change the value,
+    // don't change the value in service yet
+    if (from === 'service' && this.deckService.getStructureFailure() === undefined) {
+      this.deckService.setStructureFailure(undefined)
+    } else {
+      this.deckService.setStructureFailure(intValue)
+    }
+
     leftArrow.style.left = countArrowOffset(intValue, 2, slider.offsetWidth, 'left')
     rightArrow.style.left = countArrowOffset(intValue, 2, slider.offsetWidth, 'right')
   }

@@ -10,8 +10,9 @@
       type="range" name="structure__slider-range" 
       min="0" max="2" 
       [ngClass]="['structure__slider-range', 'range-' + structure]" 
-      (change)="setStructureFailure($event.target.value)"
+      (change)="onInputChange($event.target.value)"
       [value]="structure"
+      (ngModelChange)="onTouched($event)"
     >
 
     <div class="left-arrow"><i class="fa fa-angle-left"></i></div>

@@ -20,7 +20,7 @@ export class DeckService {
 
   route: ActivatedRoute
 
-  structureFailure = 0
+  structureFailure: number | undefined = undefined
   visibility = 0
   airQuality = 0
   accessibility = 0
