@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeckService } from '../../../../app/services/cards/deck.service';
 
 @Component({
   selector: 'app-photo',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photo.component.scss']
 })
 export class PhotoComponent implements OnInit {
-
-  constructor() { }
+  constructor(
+    public deckService: DeckService
+  ) { }
 
   ngOnInit() {
+    this.deckService.userCanBack()
+    this.deckService.userCanContinue()
   }
-
 }

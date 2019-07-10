@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeckService } from '../../../../app/services/cards/deck.service';
 
 @Component({
   selector: 'app-description',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./description.component.scss']
 })
 export class DescriptionComponent implements OnInit {
-
-  constructor() { }
+  constructor(
+    public deckService: DeckService
+  ) { }
 
   ngOnInit() {
+    this.deckService.userCanBack()
+    this.deckService.userCanContinue()
   }
-
 }
