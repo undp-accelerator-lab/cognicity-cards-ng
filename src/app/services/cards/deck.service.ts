@@ -36,6 +36,25 @@ export class DeckService {
   description: string = ''
   preview: File
 
+  isPrevButtonDisabled = true
+  isNextButtonDisabled = true
+
+  userCanBack() {
+    this.isPrevButtonDisabled = false
+  }
+
+  userCannotBack() {
+    this.isPrevButtonDisabled = true
+  }
+
+  userCanContinue() {
+    this.isNextButtonDisabled = false
+  }
+
+  userCannotContinue() {
+    this.isNextButtonDisabled = true
+  }
+
   get isDescriptioORPhotoFilled() {
     return !!this.getPreview() || !!this.getDescription()
   }

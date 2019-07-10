@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import { isEqual } from 'lodash';
 // import * as L from 'leaflet'
 
 import { DeckService } from '../../services/cards/deck.service';
@@ -39,6 +40,15 @@ export class LocationPickerComponent implements OnInit {
 
     L.control.zoom({ position: 'bottomleft' })
 
+    this.map.on('move', () => {
+      this.addMarker()
+
+      // User can click next button if user has move the map
+      if (!isEqual(this.map.getCenter(), { lat, lng })) {
+        this.deckService.userCanContinue()
+      }
+    })
+
     // If user not approve permission
     if (this.currentMarker) this.currentMarker.remove(this.map)      
     this.addMarker()
@@ -47,13 +57,14 @@ export class LocationPickerComponent implements OnInit {
     locate.start()
 
     this.map.addControl(new L.Control.Compass());
-    this.map.on('locationfound ', () => { 
-      if (this.currentMarker) this.currentMarker.remove(this.map)      
+    this.map.on('locationfound ', (event) => { 
+      if (this.currentMarker) this.currentMarker.remove(this.map)
       this.addMarker()
-    })
 
-    this.map.on('move', () => {
-      this.addMarker()
+      // If location already same, no net to disable it again
+      if (isEqual(event.latlng, this.map.getCenter())) {
+        this.deckService.userCannotContinue()
+      }
     })
 
     this.provider = new OpenStreetMapProvider()

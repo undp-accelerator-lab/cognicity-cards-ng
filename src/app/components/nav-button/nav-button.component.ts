@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+import { DeckService } from '../../services/cards/deck.service';
+
 @Component({
   selector: 'app-nav-button',
   templateUrl: './nav-button.component.html',
@@ -8,16 +10,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NavButtonComponent implements OnInit {
   @Input() text: string;
-  @Input() type: string;
-  @Input() isDisabled: boolean
+  @Input() type: 'right' | 'left' ;
   @Output() navigate = new EventEmitter<any>();
 
-  constructor(public route: ActivatedRoute) { }
+  constructor(public route: ActivatedRoute, public deckService: DeckService) { }
 
-  ngOnInit() {
+  get isDisabled(): boolean {
+    return (
+      this.type === 'right' && this.deckService.isNextButtonDisabled ||
+      this.type === 'left' && this.deckService.isPrevButtonDisabled
+    )
   }
 
+  ngOnInit() {}
+
   onClick() {
+    if (this.isDisabled) return
+
     this.navigate.emit()
   }
 }
