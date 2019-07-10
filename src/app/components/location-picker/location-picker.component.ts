@@ -24,6 +24,10 @@ export class LocationPickerComponent implements OnInit {
   constructor(private deckService: DeckService) { }
 
   ngOnInit() {
+    this.deckService.userCannotBack()
+
+    this.checkIsUserAbleToContinue()
+
     let { lat, lng } = MONUMEN_NASIONAL_LAT_LNG
 
     if (this.deckService.getLocation()) {
@@ -68,6 +72,15 @@ export class LocationPickerComponent implements OnInit {
     })
 
     this.provider = new OpenStreetMapProvider()
+  }
+
+  checkIsUserAbleToContinue() {
+    // If user already move the map they can continue
+    if (this.deckService.location) {
+      this.deckService.userCanContinue()
+    } else {
+      this.deckService.userCannotContinue()
+    }
   }
 
   async onSearch(query: string) {

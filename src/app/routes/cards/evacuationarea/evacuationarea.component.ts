@@ -20,7 +20,20 @@ export class EvacuationareaComponent implements OnInit {
     public route: ActivatedRoute,
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.deckService.userCanBack()
+
+    this.isUserAbleToContinue()
+  }
+
+  isUserAbleToContinue() {
+    // If user not select anything yet, next button is disabled
+    if (this.deckService.getEvacuationArea() !== null) {
+      this.deckService.userCanContinue()
+    } else {
+      this.deckService.userCannotContinue()
+    }
+  }
 
   onOptionClick(option: boolean) {
     this.deckService.setEvacuationArea(option)

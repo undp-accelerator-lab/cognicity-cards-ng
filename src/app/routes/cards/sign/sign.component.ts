@@ -7,15 +7,28 @@ import { DeckService } from '../../../services/cards/deck.service';
   styleUrls: ['./sign.component.scss']
 })
 export class SignComponent implements OnInit {
+  constructor(
+    public deckService: DeckService
+  ) {}
+
+  ngOnInit() {
+    this.deckService.userCanBack()
+    
+    this.checkIsUserAbleToContinue()
+  }
+
   get selectedOption(): number[] {
     return this.deckService.getVolcanicSigns()
   }
 
-  constructor(
-    public deckService: DeckService
-  ) { }
-
-  ngOnInit() {}
+  checkIsUserAbleToContinue() {
+    // If user already select atleast one option, next button is enabled
+    if (this.deckService.getVolcanicSigns().length > 0) {
+      this.deckService.userCanContinue()
+    } else {
+      this.deckService.userCannotContinue()
+    }
+  }
 
   onOptionClick(option: number) {
     if (this.deckService.getVolcanicSigns().includes(option)) {
@@ -23,5 +36,7 @@ export class SignComponent implements OnInit {
     } else {
       this.deckService.setVolcanicSigns(this.deckService.getVolcanicSigns().concat(option))
     }
+
+    this.checkIsUserAbleToContinue()
   }
 }
