@@ -32,6 +32,8 @@ export class FireComponent implements OnInit {
 
     this.deckService.setDeckType('fire')
     this.deckService.setDeckSubType('fire')
+
+    this.deckService.setRoute(route)
   }
 
   ngOnInit() { }

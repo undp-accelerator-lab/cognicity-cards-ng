@@ -32,6 +32,8 @@ export class HazeComponent implements OnInit {
 
     this.deckService.setDeckType('haze')
     this.deckService.setDeckSubType('haze')
+
+    this.deckService.setRoute(route)
   }
 
   ngOnInit() { }
