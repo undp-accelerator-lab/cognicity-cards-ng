@@ -1,11 +1,31 @@
 <textarea 
-  [value]="description" 
-  name="textbox" class="textbox" 
+  #desc
+  name="textbox"
+  class="textbox" 
   placeholder="Add your description here..."
-  #desc (input)="onChangeDescription(desc.value)"
+  [value]="description" 
+  (input)="onChangeDescription($event.target.value)"
+  [maxLength]="MAX_LENGTH"
 >
 </textarea>
-<div class="textbox__icons">
-  <i class="material-icons" id="disable_icon">block</i>
-  <i class="material-icons active-icon" id="keyboard_icon">keyboard</i>
+<div class="bottom">
+  <div class="icons">
+    <i
+      class="material-icons"
+      id="disable_icon"
+      (click)="onDisableButtonClick()"
+    >
+      block
+    </i>
+    <i
+      class="material-icons active-icon"
+      id="keyboard_icon"
+    >
+      keyboard
+    </i>
+  </div>
+  <div class="counter" *ngIf="description.length > 0">
+    {{ description.length }} / {{ MAX_LENGTH }}
+  </div>
 </div>
+

@@ -1,5 +1,6 @@
 :host {
-  max-width: 60%;
+  width: 60%;
+  max-width: 300px;
   overflow-x: hidden;
 }
 
@@ -38,24 +39,36 @@
     height: 200px;
     border: 2.5px solid white;
   }
+}
 
-  &__icons {
-    width: 300px;
-    margin-top: 10px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 5px;
-    border-top: 2.5px solid #31AADE;
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2.5px solid #31AADE;
+  margin-top: 10px;
+  padding-top: 5px;
+}
 
-    .material-icons {
-      cursor: pointer;
-      margin: 0 5px;
-      color: #6D6E6D;
-    }
+.icons {
+  // width: 300px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 
-    .active-icon {
-      color: white;
-    }
+  .material-icons {
+    cursor: pointer;
+    margin: 0 5px;
+    color: #6D6E6D;
   }
+
+  .active-icon {
+    color: white;
+  }
+}
+
+.counter {
+  color: #424242;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
 }

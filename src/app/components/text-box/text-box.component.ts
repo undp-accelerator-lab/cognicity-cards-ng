@@ -7,12 +7,18 @@ import { DeckService } from '../../services/cards/deck.service'
   styleUrls: ['./text-box.component.scss']
 })
 export class TextBoxComponent {
+  MAX_LENGTH = 140
+
   constructor(
     private deckService: DeckService
   ) {}
 
   onChangeDescription(desc: string) {
     this.deckService.setDescription(desc)
+  }
+
+  onDisableButtonClick() {
+    this.deckService.setDescription('')
   }
 
   get description(): string {
