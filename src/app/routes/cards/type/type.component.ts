@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavigationService } from '../../../services/navigation.service';
 import { ActivatedRoute } from '@angular/router';
+
+import { NavigationService } from '../../../services/navigation.service';
 import { DeckService } from '../../../services/cards/deck.service'
 
 @Component({
@@ -14,7 +15,7 @@ export class TypeComponent {
     hint: string, 
     subtype: string, 
     imgUrl: string, 
-    highlightImgUrl,
+    highlightImgUrl: string,
   }[]
 
   constructor(

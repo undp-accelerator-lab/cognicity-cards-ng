@@ -14,6 +14,12 @@
 	box-shadow: inset 2px 5px 8px 0px rgba(0, 0, 0, 0.4);;
 	overflow: hidden;
 	z-index: 3;
+	transition: background-color .3s;
+
+	&.transparent {
+		background-color: rgba(31,73,99,0) !important;
+	}
+
 	& #submitKnob {
 		position: relative;
 		cursor: pointer;

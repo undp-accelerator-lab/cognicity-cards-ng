@@ -32,6 +32,8 @@ export class WindComponent implements OnInit {
 
     this.deckService.setDeckType('wind')
     this.deckService.setDeckSubType('wind')
+
+    this.deckService.setRoute(route)
   }
 
   ngOnInit() { }
