@@ -5,7 +5,7 @@
       [ngClass]="['accessibility__slider-range', 'stage-' + stage]"
       type="range" name="accessibility__range" 
       min="0" max="4" step="1"
-      (change)="onRangeChange($event.target.value)"
+      (change)="onInputChange($event.target.value)"
       [value]="accessibility"
     >
 

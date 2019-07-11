@@ -1,4 +1,5 @@
 import { Component, ChangeDetectorRef, AfterViewChecked } from '@angular/core';
+
 import { countArrowOffset } from '../../../utils/slider'
 import { DeckService } from '../../../services/cards/deck.service';
 
@@ -24,11 +25,22 @@ export class ConditionComponent implements AfterViewChecked {
     this.initTitles()
     this.initSubtitles()
     this.initImages()
+
+    this.deckService.userCanBack()
+    this.checkIsUserAbleToContinue()
   }
 
   ngAfterViewChecked() {
-    this.setRoadCondition(this.deckService.getCondition())
+    this.setRoadCondition(this.deckService.getCondition() || 0, 'service')
     this.cdRef.detectChanges()
+  }
+
+  checkIsUserAbleToContinue() {
+    if (this.deckService.getCondition() === undefined) {
+      this.deckService.userCannotContinue()
+    } else {
+      this.deckService.userCanContinue()
+    }
   }
 
   initTitles() {
@@ -55,18 +67,30 @@ export class ConditionComponent implements AfterViewChecked {
     ]
   }
 
-  public setRoadCondition(condition): void {
-    const intCondition = parseInt(condition)
+  onInputChange(value): void {
+    this.deckService.userCanContinue()
+
+    this.setRoadCondition(value, 'input')
+  }
+
+  public setRoadCondition(condition, from: 'service' | 'input'): void {
     const leftArrow = document.querySelector('.left-arrow') as HTMLDivElement
     const rightArrow = document.querySelector('.right-arrow') as HTMLDivElement
     const slider = document.querySelector('.condition__range') as HTMLInputElement
+    
+    const intCondition = parseInt(condition)
 
     this.condition = intCondition
     this.title = this.titles[intCondition]
     this.image = this.images[intCondition]
     this.subtitle = this.subtitles[intCondition]
 
-    this.deckService.setCondition(this.condition)
+    if (this.deckService.getCondition() === undefined && from === 'service') {
+      this.deckService.setCondition(undefined)
+    } else {
+      this.deckService.setCondition(intCondition)
+    }
+
     leftArrow.style.left = countArrowOffset(intCondition, 2, slider.offsetWidth, 'left')
     rightArrow.style.left = countArrowOffset(intCondition, 2, slider.offsetWidth, 'right')
   }

@@ -1,4 +1,5 @@
 import { Component, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
+
 import { DeckService } from '../../../services/cards/deck.service';
 import { countArrowOffset } from '../../../utils/slider'
 
@@ -20,11 +21,22 @@ export class AccessibilityComponent implements AfterViewChecked {
     public cdref: ChangeDetectorRef
   ) {
     this.initImages()
+
+    this.deckService.userCanBack()
+    this.checkIsUserAbleToContinue()
   }
 
   ngAfterViewChecked() {
-    this.onRangeChange(this.deckService.getAccessibility().toString())
+    this.setAccessibility(this.deckService.getAccessibility() || 0, 'service')
     this.cdref.detectChanges()
+  }
+
+  checkIsUserAbleToContinue() {
+    if (this.deckService.getAccessibility() === undefined) {
+      this.deckService.userCannotContinue()
+    } else {
+      this.deckService.userCanContinue()
+    }
   }
 
   initImages() {
@@ -37,7 +49,13 @@ export class AccessibilityComponent implements AfterViewChecked {
     ]
   }
 
-  public onRangeChange(inputValue: string): void {
+  onInputChange(value): void {
+    this.deckService.userCanContinue()
+
+    this.setAccessibility(value, 'input')
+  }
+
+  public setAccessibility(inputValue, from: 'service' | 'input'): void {
     const intValue = parseFloat(inputValue)
 
     const output = document.querySelector('.accessibility__slider-output') as HTMLDivElement
@@ -45,7 +63,6 @@ export class AccessibilityComponent implements AfterViewChecked {
     const leftArrow = document.querySelector('.left-arrow') as HTMLDivElement
     const rightArrow = document.querySelector('.right-arrow') as HTMLDivElement
 
-    let stage: number;
     let displayNumber: number;
 
     switch (intValue) {
@@ -61,7 +78,11 @@ export class AccessibilityComponent implements AfterViewChecked {
     this.accessibility = intValue
     this.displayNumber = displayNumber
 
-    this.deckService.setAccessibility(intValue)
+    if (this.deckService.getAccessibility() === undefined && from === 'service') {
+      this.deckService.setAccessibility(undefined)
+    } else {
+      this.deckService.setAccessibility(intValue)
+    }
 
     output.style.left = (intValue / 4.4) * input.offsetWidth + 'px'
     leftArrow.style.left = countArrowOffset(intValue, 4, input.offsetWidth, 'left')

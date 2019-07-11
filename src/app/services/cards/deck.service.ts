@@ -23,8 +23,8 @@ export class DeckService {
   structureFailure: number | undefined = undefined
   visibility: number | undefined = undefined
   airQuality: number | undefined = undefined
-  accessibility = 0
-  condition = 0
+  accessibility: number | undefined = undefined
+  condition: number | undefined = undefined
   location: LatLng
   fireLocation: LatLng
   fireRadius: LatLng
@@ -120,11 +120,11 @@ export class DeckService {
   reset() {
     this.finishedSubType.push(this.subType)
 
-    this.structureFailure = 0
-    this.visibility = 0
-    this.airQuality = 0
-    this.accessibility = 0
-    this.condition = 0
+    this.structureFailure = undefined
+    this.visibility = undefined
+    this.airQuality = undefined
+    this.accessibility = undefined
+    this.condition = undefined
     this.location = undefined
     this.fireLocation = undefined
     this.fireRadius = undefined
