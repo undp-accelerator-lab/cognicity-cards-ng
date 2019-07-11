@@ -19,21 +19,28 @@
     margin: 30px 0;
     position: relative;
 
+    display: flex;
+    align-items: center;
+
     .right-arrow, .left-arrow {
       position: absolute;
-      bottom: -2px;
       color: white;
     }
   }
 
   &__slider-range {
     width: 100%;
+    height: 5px;
 
     -webkit-appearance: none;
     background: transparent;
 
     &:focus {
       outline: none;
+    }
+
+    &::-moz-focus-outer {
+      border: 0;
     }
 
     // CIRCLE THUMB
@@ -46,43 +53,20 @@
       border-radius: 50%;
       background: #ffffff;
       cursor: pointer;
-      margin-top: -10px; 
+      margin-top: -10px;
       box-shadow: 0 0 15px 5px white;
-    }
-
-    &::-webkit-slider-thumb::before {
-      content: "<";
-      color: white;
-      font-size: 40px;
     }
 
     &::-moz-range-thumb {
+      -moz-appearance: none;
       border: 1px solid white;
       height: 25px;
       width: 25px;
       border-radius: 50%;
       background: #ffffff;
       cursor: pointer;
+      margin-top: -10px;
       box-shadow: 0 0 15px 5px white;
-    }
-
-    &::-ms-thumb {
-      border: 1px solid white;
-      height: 25px;
-      width: 25px;
-      border-radius: 50%;
-      background: #ffffff;
-      cursor: pointer;
-      box-shadow: 0 0 15px 5px white;
-    }
-
-    &::-ms-track {
-      width: 100%;
-      cursor: pointer;
-    
-      background: transparent; 
-      border-color: transparent;
-      color: transparent;
     }
 
     // TRACK LINE
@@ -97,40 +81,10 @@
 
     &::-moz-range-track {
       width: 100%;
-      height: 8.4px;
+      height: 5px;
       cursor: pointer;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-      background-image: linear-gradient(to right, black, white);
-      border-radius: 1.25px;
-      border: 0.1px solid #010101;
-    }
-    
-    &::-ms-track {
-      width: 100%;
-      height: 8.4px;
-      cursor: pointer;
-      background: transparent;
-      border-color: transparent;
-      border-width: 16px 0;
-      color: transparent;
-    }
-    &::-ms-fill-lower {
-      background-image: linear-gradient(to right, black, white);
-      border: 0.1px solid #010101;
-      border-radius: 2.5px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
-    &:focus::-ms-fill-lower {
-      background-image: linear-gradient(to right, black, white);
-    }
-    &::-ms-fill-upper {
-      background-image: linear-gradient(to right, black, white);
-      border: 0.1px solid #010101;
-      border-radius: 2.5px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    }
-    &:focus::-ms-fill-upper {
-      background-image: linear-gradient(to right, black, white);
+      background-image: linear-gradient(to right, #6C6D70, #6C6D70);
+      border-radius: 1.5px;
     }
   }
 
@@ -147,6 +101,14 @@
         background: #ffde17;
       }
 
+      &::-moz-range-thumb {
+        background: #ffde17;
+      }
+
+      &::-moz-range-track {
+        background-image: linear-gradient(to right, #6C6D70, #6C6D70);
+      }
+
       &::-webkit-slider-runnable-track {
         background-image: linear-gradient(to right, #6C6D70, #6C6D70);
       }
@@ -155,6 +117,14 @@
     &.range-1 {
       &::-webkit-slider-thumb {
         background: #f7941d;
+      }
+
+      &::-moz-range-thumb {
+        background: #f7941d;
+      }
+
+      &::-moz-range-track {
+        background-image: linear-gradient(to right, #ffde17, #f7941d 50%, #6C6D70 50%);
       }
 
       &::-webkit-slider-runnable-track {
@@ -167,7 +137,15 @@
         background: #be1e2d;
       }
 
+      &::-moz-range-thumb {
+        background: #be1e2d;
+      }
+
       &::-webkit-slider-runnable-track {
+        background-image: linear-gradient(to right, #ffde17, #f7941d, #be1e2d);
+      }
+
+      &::-moz-range-track {
         background-image: linear-gradient(to right, #ffde17, #f7941d, #be1e2d);
       }
     }
