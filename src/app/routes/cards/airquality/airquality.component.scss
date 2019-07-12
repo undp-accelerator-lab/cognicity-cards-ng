@@ -33,6 +33,10 @@
       outline: none;
     }
 
+    &::-moz-focus-outer {
+      border: 0;
+    }
+
     // CIRCLE THUMB
 
     &::-webkit-slider-thumb {
@@ -41,38 +45,22 @@
       width: 50px;
       border-radius: 50%;
       cursor: pointer;
-      margin-top: -22.5px; 
+      margin-top: -22.5px;
       box-shadow: 0 0 15px 2.5px white;
       transform: rotate(-90deg);
     }
 
     &::-moz-range-thumb {
-      border: 1px solid white;
-      height: 25px;
-      width: 25px;
+      -moz-appearance: none;
+      height: 50px;
+      width: 50px;
       border-radius: 50%;
+      cursor: pointer;
+      margin-top: -22.5px;
       background: #ffffff;
-      cursor: pointer;
-      box-shadow: 0 0 15px 5px white;
-    }
-
-    &::-ms-thumb {
-      border: 1px solid white;
-      height: 25px;
-      width: 25px;
-      border-radius: 50%;
-      background: #ffffff;
-      cursor: pointer;
-      box-shadow: 0 0 15px 5px white;
-    }
-
-    &::-ms-track {
-      width: 100%;
-      cursor: pointer;
-    
-      background: transparent; 
-      border-color: transparent;
-      color: transparent;
+      box-shadow: 0 0 15px 2.5px white;
+      -moz-transform: rotate(-90deg);
+      // transform: rotate(-90deg);
     }
 
     // TRACK LINE
@@ -88,41 +76,10 @@
 
     &::-moz-range-track {
       width: 100%;
-      height: 8.4px;
+      height: 5px;
       cursor: pointer;
-      background-image: linear-gradient(to right, black, white);
+      background-image: linear-gradient(to right, rgb(94, 94, 94), white);
       border-radius: 1.25px;
-      border: 0.1px solid #010101;
-    }
-    
-    &::-ms-track {
-      width: 100%;
-      height: 8.4px;
-      cursor: pointer;
-      background: transparent;
-      border-color: transparent;
-      border-width: 16px 0;
-      color: transparent;
-    }
-
-    &::-ms-fill-lower {
-      background-image: linear-gradient(to right, black, white);
-      border: 0.1px solid #010101;
-      border-radius: 2.5px;
-    }
-
-    &:focus::-ms-fill-lower {
-      background-image: linear-gradient(to right, black, white);
-    }
-
-    &::-ms-fill-upper {
-      background-image: linear-gradient(to right, black, white);
-      border: 0.1px solid #010101;
-      border-radius: 2.5px;
-    }
-
-    &:focus::-ms-fill-upper {
-      background-image: linear-gradient(to right, black, white);
     }
   }
 
@@ -182,7 +139,15 @@
     background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_0.png") center / contain no-repeat;
   }
 
+  &::-moz-range-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_0.png") center / contain no-repeat;
+  }
+
   &::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right, #6D6E6D, #6D6E6D);
+  }
+
+  &::-moz-range-track {
     background-image: linear-gradient(to right, #6D6E6D, #6D6E6D);
   }
 }
@@ -192,7 +157,15 @@
     background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_1.png") center / contain no-repeat;
   } 
 
+  &::-moz-range-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_1.png") center / contain no-repeat;
+  }
+
   &::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, #6D6E6D 25%);
+  }
+
+  &::-moz-range-track {
     background-image: linear-gradient(to right, green, lightgreen 25%, #6D6E6D 25%);
   }
 }
@@ -202,7 +175,15 @@
     background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_2.png") center / contain no-repeat;
   }
 
+  &::-moz-range-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_2.png") center / contain no-repeat;
+  }
+
   &::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, #6D6E6D 50%);
+  }
+
+  &::-moz-range-track {
     background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, #6D6E6D 50%);
   }
 }
@@ -212,7 +193,15 @@
     background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_3.png") center / contain no-repeat;
   }
 
+  &::-moz-range-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_3.png") center / contain no-repeat;
+  }
+
   &::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, #6D6E6D 75%);
+  }
+
+  &::-moz-range-track {
     background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, #6D6E6D 75%);
   }
 }
@@ -222,7 +211,15 @@
     background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_4.png") center / contain no-repeat;
   }
 
+  &::-moz-range-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_4.png") center / contain no-repeat;
+  }
+
   &::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, red);
+  }
+
+  &::-moz-range-track {
     background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, red);
   }
 }
