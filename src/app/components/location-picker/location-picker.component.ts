@@ -35,12 +35,16 @@ export class LocationPickerComponent implements OnInit {
       lng = this.deckService.getLocation().lng
     }
 
+    const accessToken = 'pk.eyJ1IjoiaWxoYW13YWhhYmkiLCJhIjoiY2p5MGllYW96MDNoNjNobnF2cWh2c3dkZyJ9.Vfmf0KAT-gZBA4L2LF7PNg';
+    
+    var mapboxTiles = L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${accessToken}`, {
+      attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    });
+    
     this.map = L.map('mapid', { 
       center: [ lat, lng ],
       zoom: 18
-    });
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
+    }).addLayer(mapboxTiles);
 
     L.control.zoom({ position: 'bottomleft' })
 
