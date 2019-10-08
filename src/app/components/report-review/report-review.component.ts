@@ -19,8 +19,8 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.initPreviewImg()
-
   }
+
   ngAfterViewChecked() {
     if (this.deckService.getDeckSubType() === 'haze') this.initHazeReview()
     this.cdRef.detectChanges()
@@ -212,7 +212,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     return this.deckService.getVolcanicSigns().map(sign => {
       switch (sign) {
         case 1: return "Significant Temperature Increases";
-        case 2: return "Drought / Vegetation";
+        case 2: return "Drought / Vegetation Death";
         case 3: return "Frequent Earthquake Tremors";
         case 4: return "Frequent Rumbling Sounds";
         case 5: return "Unusual Animal Behaviour";
