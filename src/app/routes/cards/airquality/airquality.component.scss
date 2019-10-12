@@ -277,12 +277,36 @@
 
 @media (max-height: 569px) {
   .airquality {
+    height: 80vh;
+
+    &__title {
+      margin: 0 0 25px 0;
+      font-size: 14px;
+    }
+
     &__range {
-      width: 350px;
+      width: 250px;
+      left: -20%;
     }
 
     &__types {
-      height: 350px;
+      height: 250px;
+      width: 75%;
+    }
+
+    &__type {
+      height: 25px;  
+      padding: 5px 10px;
+  
+      &-text {
+        font-size: 10px;
+        margin: 0;
+      }
+  
+      &-icon {
+        width: 25px;
+        max-height: 20px;
+      }
     }
   }
 }

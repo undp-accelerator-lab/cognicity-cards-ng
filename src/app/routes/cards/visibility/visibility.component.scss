@@ -93,3 +93,24 @@
     color: white;
   }
 }
+
+@media (max-height: 560px) {
+  .visibility {
+    height: 80vh;
+
+    &__img {
+      max-height: 200px;
+      max-width: 200px;
+    }
+  
+    &__slider {
+      max-width: 200px;
+      margin: 17.5px 0;
+    }
+  
+    &__txt {
+      margin: .25rem;
+      font-size: 14px;
+    }
+  }
+}
