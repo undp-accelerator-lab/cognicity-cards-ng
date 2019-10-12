@@ -18,6 +18,7 @@
       "condition": "Jelaskan Kondisi Jalan",
       "structure": "Laporkan Dampak Pada Bangunan",
 
+      "impact": "Laporkan Dampak Karena Angin",
       "windstructure": "Laporan Dampak Pada Bangunan",
 
       "photo": "Unggah Foto",

@@ -3,23 +3,26 @@ import { countArrowOffset } from '../../../utils/slider'
 import { DeckService } from '../../../services/cards/deck.service';
 
 @Component({
-  selector: 'app-structure',
-  templateUrl: './structure.component.html',
-  styleUrls: ['./structure.component.scss']
+  selector: 'app-impact',
+  templateUrl: './impact.component.html',
+  styleUrls: ['./impact.component.scss']
 })
-export class StructureComponent implements OnInit, AfterViewChecked {
+export class ImpactComponent implements OnInit, AfterViewChecked {
   titles: string[]
+  subtitles: string[]
   images: string[]
   
   title: string
+  subtitle: string
   image: string
-  structure: number
+  impact: number
 
   constructor(
     public deckService: DeckService,
     private cdRef: ChangeDetectorRef
   ) {
     this.initTitles()
+    this.initSubtitles()
     this.initImages()
   }
 
@@ -30,7 +33,7 @@ export class StructureComponent implements OnInit, AfterViewChecked {
   }
 
   isUserAbleToContinue() {
-    if (this.deckService.getStructureFailure() === undefined) {
+    if (this.deckService.getImpact() === undefined) {
       this.deckService.userCannotContinue()
     } else {
       this.deckService.userCanContinue()
@@ -39,47 +42,56 @@ export class StructureComponent implements OnInit, AfterViewChecked {
 
   initTitles() {
     this.titles = [
-      "Cracking",
-      "Partially Collapsed",
-      "Fully Collapsed",
+      "Low Disruption",
+      "Medium Disruption",
+      "High Disruption",
+    ]
+  }
+
+  initSubtitles() {
+    this.subtitles = [
+      "Small obstacles flying",
+      "Road blockages, transport disturbance, blackout",
+      "Flying roofs, structural failures, large obstacles flying, crop damage"
     ]
   }
 
   initImages() {
     this.images = [
-      "../../../../assets/decks/earthquake/structure/StructureFailure_1.png",
-      "../../../../assets/decks/earthquake/structure/StructureFailure_2.png",
-      "../../../../assets/decks/earthquake/structure/StructureFailure_3.png",
-    ]; 
+      "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
+      "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
+      "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
+    ];
   }
 
   ngAfterViewChecked() {
-    this.setStructureFailure(this.deckService.getStructureFailure() || 0, 'service')
+    this.setImpact(this.deckService.getImpact() || 0, 'service')
     this.cdRef.detectChanges()
   }
 
   onInputChange(value): void {
     this.deckService.userCanContinue()
 
-    this.setStructureFailure(value, 'input')
+    this.setImpact(value, 'input')
   }
 
-  setStructureFailure(value, from: 'input' | 'service'): void {
+  setImpact(value, from: 'input' | 'service'): void {
     const intValue = parseInt(value)
     const leftArrow = document.querySelector('.left-arrow') as HTMLDivElement
     const rightArrow = document.querySelector('.right-arrow') as HTMLDivElement
-    const slider = document.querySelector('.structure__slider-range') as HTMLInputElement
+    const slider = document.querySelector('.impact__slider-range') as HTMLInputElement
 
-    this.structure = intValue
+    this.impact = intValue
     this.title = this.titles[intValue]
     this.image = this.images[intValue]
+    this.subtitle = this.subtitles[intValue]
 
     // Fallback, if user not use the input to change the value,
     // don't change the value in service yet
-    if (from === 'service' && this.deckService.getStructureFailure() === undefined) {
-      this.deckService.setStructureFailure(undefined)
+    if (from === 'service' && this.deckService.getImpact() === undefined) {
+      this.deckService.setImpact(undefined)
     } else {
-      this.deckService.setStructureFailure(intValue)
+      this.deckService.setImpact(intValue)
     }
 
     leftArrow.style.left = countArrowOffset(intValue, 2, slider.offsetWidth, 'left')

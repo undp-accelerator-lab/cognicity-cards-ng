@@ -43,10 +43,10 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
           "../../../../assets/decks/fire/visibility/Visibility_Low.jpg",
         ][this.deckService.getVisibility()]; break;
         case 'wind': previewImgSrc = [
-          "../../../../assets/decks/wind/windstructure/Graphic_Cracking.png",
-          "../../../../assets/decks/wind/windstructure/Graphic_PartialCollapse.png",
-          "../../../../assets/decks/wind/windstructure/Graphic_TotalCollapse.png",
-        ][this.deckService.getStructureFailure()]; break;
+          "../../../../assets/decks/wind/impact/Graphic_Cracking.png",
+          "../../../../assets/decks/wind/impact/Graphic_PartialCollapse.png",
+          "../../../../assets/decks/wind/impact/Graphic_TotalCollapse.png",
+        ][this.deckService.getImpact()]; break;
         case 'structure': previewImgSrc = [
           "../../../../assets/decks/earthquake/structure/StructureFailure_1.png",
           "../../../../assets/decks/earthquake/structure/StructureFailure_2.png",

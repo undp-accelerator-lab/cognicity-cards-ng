@@ -21,6 +21,7 @@ export class DeckService {
   route: ActivatedRoute
 
   structureFailure: number | undefined = undefined
+  impact: number | undefined = undefined
   visibility: number | undefined = undefined
   airQuality: number | undefined = undefined
   accessibility: number | undefined = undefined
@@ -72,6 +73,7 @@ export class DeckService {
   getRoute() { return this.route }
 
   getStructureFailure() { return this.structureFailure };
+  getImpact() { return this.impact };
   getVisibility(): number { return this.visibility; }
   getAirQuality(): number { return this.airQuality; }
   getAccessibility() { return this.accessibility }
@@ -94,6 +96,7 @@ export class DeckService {
   setRoute(route: ActivatedRoute) { this.route = route }
 
   setStructureFailure(structureFailure: number) { this.structureFailure = structureFailure }
+  setImpact(impact: number) { this.impact = impact }
   setVisibility(visibility: number) { this.visibility = visibility; }
   setAirQuality(airQuality: number) { this.airQuality = airQuality; }
   setAccessibility(accessibility: number) { this.accessibility = accessibility }
@@ -120,6 +123,7 @@ export class DeckService {
   reset() {
     this.finishedSubType.push(this.subType)
 
+    this.impact = undefined
     this.structureFailure = undefined
     this.visibility = undefined
     this.airQuality = undefined

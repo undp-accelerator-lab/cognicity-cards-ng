@@ -17,6 +17,7 @@
       "condition": "Describe Road Condition",
       "structure": "Report Structure Failure",
 
+      "impact": "Report Wind Impact",
       "windstructure": "Report Structure Failure",
 
       "sign": "Report Volcanic Signs",
@@ -94,10 +95,19 @@
       "Partially Collapsed",
       "Fully Collapsed"
     ],
-    "windstructure": [
-      "Cracking",
-      "Partially Collapsed",
-      "Fully Collapsed"
+    "impact": [
+      {
+        "title": "Low Disruption",
+        "subtitle": "Small obstacles flying"
+      },
+      {
+        "title": "Medium Disruption",
+        "subtitle": "Road blockages, transport disturbance, blackout"
+      },
+      {
+        "title": "High Disruption",
+        "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
+      }
     ],
     "description": "Add your description here ...",
     "review": { 

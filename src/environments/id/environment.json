@@ -54,7 +54,7 @@
       "name": "wind",
       "cards": [
         "location",
-        "structure",
+        "impact",
         "photo",
         "description",
         "review",
