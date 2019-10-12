@@ -43,11 +43,14 @@ export class FireestimateComponent implements OnInit {
       lng = this.deckService.getFireLocation().lng
     }
 
-    this.map = L.map('mapid', { center: [lat, lng], zoom: 18})
+    this.map = L.map('mapid', { 
+      center: [ lat, lng ],
+      zoom: 16
+    });
 
     const accessToken = 'pk.eyJ1IjoiaWxoYW13YWhhYmkiLCJhIjoiY2p5MGllYW96MDNoNjNobnF2cWh2c3dkZyJ9.Vfmf0KAT-gZBA4L2LF7PNg';
     
-    L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=${accessToken}`, {
+    L.tileLayer(`https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=${accessToken}`, {
       attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(this.map);
 
@@ -99,7 +102,7 @@ export class FireestimateComponent implements OnInit {
   private addRadiusMarker() {
     let latlng;
     if (!this.deckService.getFireRadius()) {
-      latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 1000000 }
+      latlng = { lat: this.map.getCenter().lat, lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000 }
     } else {
       latlng = this.deckService.getFireRadius()
     }
