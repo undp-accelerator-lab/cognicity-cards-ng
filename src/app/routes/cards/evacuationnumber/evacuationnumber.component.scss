@@ -50,3 +50,20 @@
     }
   }
 }
+
+@media (max-height: 560px) {
+  :host {
+    font-size: 14px;
+  }
+
+  .description {
+    margin-bottom: 15px;
+  }
+
+  .options {
+    .option {
+      margin-top: 10px;
+      padding: 0 7.5px;
+    }
+  }
+}
