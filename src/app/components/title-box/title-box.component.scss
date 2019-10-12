@@ -11,13 +11,14 @@
   position: absolute;
   display: table;
   table-layout: fixed;
+  margin-top: -1px;
   width: 100%;
+  background-color: #3D5C69;
 
   z-index: 999;
 
   .tabs {
     display: table-cell;
-    background-color: #ccc;
     height: 5px;
 
     &.filled {
