@@ -185,6 +185,8 @@
 
 @media (max-height: 560px) {
   .impact {
+    height: 80vh;
+
     &__img {
       max-height: 200px;
       max-width: 200px;

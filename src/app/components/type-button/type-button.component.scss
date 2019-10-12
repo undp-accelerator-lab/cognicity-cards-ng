@@ -50,3 +50,16 @@
     }
   }
 }
+
+@media (max-height: 569px) {
+  .type {
+    &__img {
+      width: 125px;
+      height: 125px;;
+    }
+  
+    &__btn {
+      padding: 5px 35px;
+    }
+  }
+}
