@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { DeckService } from '../../../services/cards/deck.service'
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
+
+import { DeckService } from '../../../services/cards/deck.service'
 import { MONUMEN_NASIONAL_LAT_LNG } from "../../../../utils/const";
 
 declare let L;
@@ -150,7 +151,8 @@ export class FiredistanceComponent implements OnInit {
 
     const marker = L.marker([latlng.lat, latlng.lng], {
       icon: this.getIcon(type),
-      draggable: true
+      draggable: true,
+      opacity: 0.5,
     });
 
     switch (type) {
@@ -179,6 +181,19 @@ export class FiredistanceComponent implements OnInit {
       }
       this.addDistanceLine();
     });
+
+    // Change marker icon when drag and drop
+    // change icon directly cause marker is not reactive so change opacity instead
+    // not reactive = when doing drag, sometimes marker is left behind
+    marker.on("mouseover", () => {
+      marker.setOpacity(1)
+    });
+    marker.on("moveend", () => {
+      marker.setOpacity(0.75)
+    });
+    marker.on("mouseout", () => {
+      marker.setOpacity(0.75)
+    });
   }
 
   async onSearch(query: string) {
@@ -200,7 +215,7 @@ export class FiredistanceComponent implements OnInit {
         type === "fire" ? "Fire" : ""
         }Location_Grey.png`,
       iconSize: [57.2 / 2, 103.5 / 2],
-      iconAnchor: [15, 50]
+      iconAnchor: [15, 50],
     })
   }
 }
