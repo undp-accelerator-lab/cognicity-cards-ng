@@ -5,6 +5,7 @@ import { isEqual } from 'lodash';
 
 import { DeckService } from '../../services/cards/deck.service';
 import { MONUMEN_NASIONAL_LAT_LNG } from "../../../utils/const";
+import { environment as env } from '../../../environments/environment';
 
 declare let L
 
@@ -40,7 +41,7 @@ export class LocationPickerComponent implements OnInit {
       zoom: 16
     });
 
-    const accessToken = 'pk.eyJ1IjoiaWxoYW13YWhhYmkiLCJhIjoiY2p5MGllYW96MDNoNjNobnF2cWh2c3dkZyJ9.Vfmf0KAT-gZBA4L2LF7PNg';
+    const accessToken = env.mapbox_access_token;
     
     L.tileLayer(`https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=${accessToken}`, {
       attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
