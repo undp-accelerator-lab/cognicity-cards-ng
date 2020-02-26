@@ -2,6 +2,11 @@
   "production": true,
   "stage": "prod",
   "deployment": "id",
+  "supported_languages": ["en", "id"],
+  "default_language": "id",
+  "mapbox_access_token": "pk.eyJ1IjoidXJiYW5yaXNrbWFwIiwiYSI6ImNpdmVhbTFraDAwNHIyeWw1ZDB6Y2hhbTYifQ.tpgt1PB5lkJ-wITS02c96Q",
+  "data_server": "https://data.petabencana.id/",
+  "app": "https://petabencana.id/",
   "decks": [
     {
       "name": "flood",
@@ -11,6 +16,20 @@
         "photo",
         "description",
         "review"
+      ]
+    },
+    {
+      "name": "earthquake",
+      "cards": [
+        "type",
+        "location",
+        "structure",
+        "accessibility",
+        "condition",
+        "photo",
+        "description",
+        "review",
+        "thank"
       ]
     }
   ]

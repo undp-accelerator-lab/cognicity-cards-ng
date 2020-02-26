@@ -2,6 +2,12 @@
   "production": false,
   "stage": "dev",
   "deployment": "id",
+  
+  "supported_languages": ["en", "id"],
+  "default_language": "id",
+  "mapbox_access_token": "pk.eyJ1IjoidXJiYW5yaXNrbWFwIiwiYSI6ImNpdmVhbTFraDAwNHIyeWw1ZDB6Y2hhbTYifQ.tpgt1PB5lkJ-wITS02c96Q",
+  "data_server": "https://data-dev.petabencana.id/",
+  "app": "https://dev.petabencana.id/",
 
   "decks": [{
       "name": "flood",
