@@ -1,5 +1,8 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { environment as env } from '../../../environments/environment'
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano'
 type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'volcano'
@@ -13,7 +16,8 @@ interface LatLng {
   providedIn: 'root'
 })
 export class DeckService {
-  finishedSubType = [] 
+  constructor(private http: HttpClient) { }
+  finishedSubType = []
 
   type: deckType
   subType: deckSubType
@@ -33,7 +37,7 @@ export class DeckService {
   volcanicSigns: number[] = []
   evacuationNumber: null | number = null
   evacuationArea: null | boolean = null
-
+  imageSignedUrl: string = 'url_error'
   description: string = ''
   preview: File
 
@@ -105,8 +109,8 @@ export class DeckService {
   setFireLocation(fireLocation: LatLng) { this.fireLocation = fireLocation }
   setFireRadius(fireRadius: LatLng) { this.fireRadius = fireRadius }
   setFireDistance(fireDistance: number) { this.fireDistance = fireDistance }
-  setVolcanicSigns(volcanicSigns : number[]) { this.volcanicSigns = volcanicSigns }
-  setEvacuationNumber(evacuationNumber: number) { 
+  setVolcanicSigns(volcanicSigns: number[]) { this.volcanicSigns = volcanicSigns }
+  setEvacuationNumber(evacuationNumber: number) {
     if (this.evacuationNumber !== evacuationNumber) {
       this.evacuationNumber = evacuationNumber
     } else {
@@ -114,7 +118,7 @@ export class DeckService {
     }
   }
   setEvacuationArea(evacuationArea: boolean) { this.evacuationArea = evacuationArea }
-  
+
   setDescription(description: string) { this.description = description }
   setPreview(preview: File) { this.preview = preview }
 
@@ -138,5 +142,33 @@ export class DeckService {
     this.evacuationArea = null
     this.description = ''
     this.preview = undefined
+    this.imageSignedUrl = 'url_error';
   }
+
+  updateSignedUrl(image: File) {
+    const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
+    this.getSignedURL(cardId, image.type).then(
+      signedURL => this.imageSignedUrl = signedURL
+    ).catch(error => {
+      this.imageSignedUrl = "url_error"
+    });
+  }
+
+  getSignedURL(id, type): Promise<string> {
+    var self = this
+    return new Promise(function (resolve, reject) {
+      self._getSignedUrl(id, type)
+        .subscribe(responseData => {
+          resolve(responseData.signedRequest);
+
+        },
+          err => { reject(err) });
+    });
+  }
+
+  _getSignedUrl(id, type): Observable<any> {
+    return this.http.get(env.data_server + 'cards/' + id + '/images', { headers: { 'content-type': type } });
+  }
+
+
 }
