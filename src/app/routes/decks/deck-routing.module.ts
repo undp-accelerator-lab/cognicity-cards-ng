@@ -19,13 +19,13 @@ export class AuthGuard implements CanActivate {
     private router: Router
   ) { }
 
-  canActivate(
+  async canActivate(
     next: ActivatedRouteSnapshot,
     // state: RouterStateSnapshot
-  ): boolean {
+  ): Promise<boolean> {
     const otl = next.params.otl;
 
-    if (this.authService.checkOTL(env['stage'], otl)) {
+    if (await this.authService.checkOTL(env['stage'], otl)) {
       return true;
     } else {
       this.router.navigate(['/error']);
