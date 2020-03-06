@@ -1,7 +1,22 @@
-<form (ngSubmit)="onSubmit()">
-  <input 
-    type="text" class="search"
-    placeholder="Click & Drag to Move Pin or Search Here"
-    [(ngModel)]="query" name="search"
-  >
+<form (ngSubmit)="onSubmit()" class='search-location-form' autocomplete="off" (blur)="onBlur()"
+(focus)="onFocus()">
+
+  <div class='search-location-form__search-bar-wrapper'>
+    <input
+      type="text" class="search-location-form__input"
+      placeholder="Click & Drag to Move Pin or Search Here"
+      [(ngModel)]="query" name="search"
+      (ngModelChange)="onInputChange($event)"
+
+    >
+    <button type="submit" class="search-location-form__btn"><span class="material-icons">search</span></button>
+  </div>
+
+  <div class='dynamic-search-results-container' [ngStyle]="{'display': dynamicResultsDisplay }">
+    <div class='dynamic-search-results-wrapper'>
+      <div (click)= 'onOptionClick(data.label)' class='dynamic-search-results__result' *ngFor="let data of searchResultsData">
+        <h3>{{ data.label }}</h3>
+      </div>
+    </div>
+  </div>
 </form>

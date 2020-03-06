@@ -1,38 +1,40 @@
-form {
+@import '../../../styles/mixins.scss';
+
+$search-comp-width: 60%;
+
+.search-location-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-
-.search {
-  z-index: 999;
-  position: fixed;
+  position: absolute;
   top: 60px;
-  display: block;
-  width: 75%;
-  height: 35px;
-  border-radius: 10px;
-  border: none;
-  text-align: center;
-}
+  z-index: 1000;
+  width: 100%;
 
-@media (max-width: 481px) {
-  .search {
-    width: 70%;
+  .search-location-form__search-bar-wrapper{
+    width: $search-comp-width;
+    display: flex;
 
-    &::placeholder {
-      font-size: 10px;
+    .search-location-form__input {
+      height: 60px;
+      font-size: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
+      flex: 1;
+    }
+
+    .search-location-form__btn{
+
     }
   }
-}
 
-@media (max-width: 321px) {
-  .search {
-    width: 65%;
+  .dynamic-search-results-container{
+    background-color: $snow-white;
+    width: $search-comp-width;
 
-    &::placeholder {
-      font-size: 8px;
+    .dynamic-search-results__result{
+      padding: 20px;
     }
   }
+
 }

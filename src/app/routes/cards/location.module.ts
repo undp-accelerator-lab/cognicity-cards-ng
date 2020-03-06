@@ -1,10 +1,12 @@
 import { NgModule } from "@angular/core";
+import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 import { SearchLocationComponent } from "../../components/search-location/search-location.component";
 
 @NgModule({
   imports: [
-    FormsModule,
+    CommonModule,
+    FormsModule
   ],
   declarations: [
     SearchLocationComponent
