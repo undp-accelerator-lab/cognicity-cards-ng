@@ -122,8 +122,6 @@ export class DeckService {
   setDescription(description: string) { this.description = description }
   setPreview(preview: File) { this.preview = preview }
 
-  submit() {}
-
   reset() {
     this.finishedSubType.push(this.subType)
 
@@ -154,7 +152,7 @@ export class DeckService {
     });
   }
 
-  getSignedURL(id, type): Promise<string> {
+  getSignedURL(id: string, type: string): Promise<string> {
     var self = this
     return new Promise(function (resolve, reject) {
       self._getSignedUrl(id, type)
@@ -166,9 +164,100 @@ export class DeckService {
     });
   }
 
-  _getSignedUrl(id, type): Observable<any> {
+  _getSignedUrl(id: string, type: string): Observable<any> {
     return this.http.get(env.data_server + 'cards/' + id + '/images', { headers: { 'content-type': type } });
   }
 
+  submit(): Promise<any> {
+    var signedURL = this.imageSignedUrl;
+    const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
+    var report = this._get_report_summary()
+    if (this.preview && signedURL) {
+      let photo = this.preview;
+      if (signedURL === 'url_error') {
+        // PUT report & notify user about upload error
+        return this.putReport(report, cardId, true, false);
+      } else {
+        // PUT photo in S3 bucket using signedURL
+        this.http.put(signedURL, photo)
+          .subscribe(success => {
+            // PUT report & patch image_url
+            return this.putReport(report, cardId, true, true);
+          }, error => {
+            // PUT report & notify user about upload error
+            return this.putReport(report, cardId, true, false);
+          });
+      }
+    } else {
+      // PUT report & proceed to thanks
+      return this.putReport(report, cardId, false, false);
+    }
+  }
+  _get_report_summary() {
+    return {
+      disaster_type: this.type,
+      card_data: {
+        report_type: this.subType
+      },
+      text: this.description,
+      created_at: new Date().toISOString(),
+      image_url: '',
+      location: this.location
+    }
+  }
+  putReport(report: any, id: any, hasPhoto: boolean, photoUploaded: boolean): Promise<any> {
+    const reportURL = env.data_server + 'cards/' + id;
+    // Define route settings pointers
+    // var error_settings, thanks_settings;
+    // for (let route of router.routes) {
+    //   if (route.name === 'error') {
+    //     error_settings = route.settings;
+    //   }
+    //   if (route.name === 'thanks') {
+    //     thanks_settings = route.settings;
+    //   }
+    // }
+
+    // PUT reportcard data
+    return new Promise((resolve, reject) => this.http.put(reportURL, report)
+      .subscribe(
+        data => {
+          if (hasPhoto && photoUploaded) {
+            // If photo uploaded successfully, patch image_url
+            this.http.patch(reportURL, {
+              // TODO: match server patch handler
+              image_url: id
+            }).subscribe(patch_success => {
+              // Proceed to thanks page
+              // thanks_settings.code = 'pass';
+              // router.navigate('thanks');
+              resolve();
+            }, patch_error => {
+              // Proceed to thanks page with image upload error notification
+              // thanks_settings.code = 'fail';
+              // router.navigate('thanks');
+              reject();
+            });
+          } else if (hasPhoto && !photoUploaded) {
+            // Proceed to thanks page with image upload error notification
+            // thanks_settings.code = 'fail';
+            // router.navigate('thanks');
+            reject();
+          } else {
+            // Proceed to thanks page
+            // thanks_settings.code = 'pass';
+            // router.navigate('thanks');
+            resolve();
+          }
+        },
+        error => {
+          // error_settings.code = put_error.statusCode;
+          // error_settings.msg = put_error.statusText;
+          // router.navigate('error');
+          reject()
+        }
+      )
+    );
+  }
 
 }

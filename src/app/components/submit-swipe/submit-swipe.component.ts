@@ -96,11 +96,12 @@ export class SubmitSwipeComponent implements OnInit {
 
   async submit() {
     this.isLoading = true
-    this.deckService.submit()
-    this.isLoading = false
-
-    setTimeout(() => {
+    this.deckService.submit().then(() =>{
+      this.isLoading = false
       this.navController.next(this.deckService.getRoute())
-    }, 250)
+    })
+
+    // setTimeout(() => {
+    // }, 250)
   }
 }
