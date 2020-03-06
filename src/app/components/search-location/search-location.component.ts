@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input, SimpleChanges, OnChanges } from "@angular/core";
+import { Component, Output, EventEmitter, Input, SimpleChanges, OnChanges, Renderer2, ElementRef, ViewChild } from "@angular/core";
 
 @Component({
   selector: 'search-location',
@@ -16,6 +16,27 @@ export class SearchLocationComponent {
   searchResultsData: any
   dynamicResultsDisplay: string = 'block';
 
+  @ViewChild('searchBar') searchBar: ElementRef;
+  @ViewChild('searchResult') searchResult: ElementRef;
+  @ViewChild('searchResultText') searchResultText: ElementRef;
+
+
+  constructor(private renderer: Renderer2) {
+
+    this.renderer.listen('window', 'click',(e:Event)=>{
+
+        if(
+          e.target !== this.searchBar.nativeElement &&
+          e.target !== this.searchResult.nativeElement &&
+          e.target !== this.searchResultText.nativeElement
+        ){
+          this.dynamicResultsDisplay = 'none';
+        }else if(e.target === this.searchBar.nativeElement){
+            this.dynamicResultsDisplay = 'block';
+          }
+    });
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     this.searchResultsData = changes.searchResults.currentValue;
     console.log(this.searchResultsData);
@@ -30,15 +51,10 @@ export class SearchLocationComponent {
     this.search.emit(this.query);
   }
 
-  onBlur() {
-    this.dynamicResultsDisplay = 'block';
-  }
-
-  onFocus() {
-    this.dynamicResultsDisplay = 'block';
-  }
-
   onOptionClick(option) {
+
     this.confirmSearch.emit(option);
+    this.dynamicResultsDisplay = 'none';
+
   }
 }

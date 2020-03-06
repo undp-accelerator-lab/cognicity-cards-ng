@@ -1,16 +1,9 @@
 import { Component, OnInit, NgModule } from '@angular/core';
-import DepthBgComponent from '../depth-bg/depth-bg.component';
 
 @Component({
   selector: 'app-depth-slider',
   templateUrl: './depth-slider.component.html',
   styleUrls: ['./depth-slider.component.scss'],
-})
-
-@NgModule({
-  declarations: [
-    DepthBgComponent
-  ]
 })
 
 export class DepthSliderComponent implements OnInit {
