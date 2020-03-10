@@ -12,7 +12,8 @@ import { NavigationService } from '../../services/navigation.service';
 })
 export class SubmitSwipeComponent implements OnInit {
   isLocationInIndonesia = true;
-  isLoading = false
+  isLoading = false;
+  isSumbitted = false;
 
   @Input() isUserAbleToContinue: boolean
 
@@ -20,7 +21,7 @@ export class SubmitSwipeComponent implements OnInit {
     public deckService: DeckService,
     public navController: NavigationService,
     public route: ActivatedRoute,
-  ) {}
+  ) { }
 
   get isDescriptionAndPhotoEmpty(): boolean {
     return !(this.deckService.getDescription() || this.deckService.getPreview());
@@ -47,7 +48,7 @@ export class SubmitSwipeComponent implements OnInit {
       return
     }
 
-    knob.on('mousedown touchstart', function(event){
+    knob.on('mousedown touchstart', function (event) {
       mouseIsDown = true;
       slideMovementTotal = slider.width() - $(this).width() - 13;
       initialMouse = event.clientX || (event.originalEvent as any).touches[0].pageX;
@@ -59,7 +60,7 @@ export class SubmitSwipeComponent implements OnInit {
       mouseIsDown = false;
       const currentMouse = event.clientX || event.changedTouches[0].pageX;
       const relativeMouse = currentMouse - initialMouse;
-    
+
       if (relativeMouse < slideMovementTotal) {
         slider.addClass('transparent')
         knob.animate({ left: "0" }, 300, () => {
@@ -74,7 +75,7 @@ export class SubmitSwipeComponent implements OnInit {
         return;
 
       const currentMouse = event.clientX || (event.originalEvent as any).touches[0].pageX;
-      const relativeMouse = currentMouse - initialMouse;      
+      const relativeMouse = currentMouse - initialMouse;
 
       slider.css(
         'background-color',
@@ -82,24 +83,27 @@ export class SubmitSwipeComponent implements OnInit {
       )
 
       if (relativeMouse <= 0) {
-        knob.css({'left': '0'});
+        knob.css({ 'left': '0' });
         return;
       }
-      if (relativeMouse >= slideMovementTotal) {
-        knob.css({'left': slideMovementTotal + 'px'});
+      if (relativeMouse >= slideMovementTotal && ! this.isSumbitted) {
+        knob.css({ 'left': slideMovementTotal + 'px' });
         this.submit()
         return;
       }
-      knob.css({'left': relativeMouse});
+      knob.css({ 'left': relativeMouse });
     });
   }
 
   async submit() {
     this.isLoading = true
-    this.deckService.submit().then(() =>{
-      this.isLoading = false
-      this.navController.next(this.deckService.getRoute())
-    })
+    if (!this.isSumbitted) {
+      this.isSumbitted = true;
+      this.deckService.submit().then(() => {
+        this.isLoading = false
+        this.navController.next(this.deckService.getRoute())
+      })
+    }
 
     // setTimeout(() => {
     // }, 250)

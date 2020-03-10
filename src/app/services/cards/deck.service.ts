@@ -168,7 +168,7 @@ export class DeckService {
     return this.http.get(env.data_server + 'cards/' + id + '/images', { headers: { 'content-type': type } });
   }
 
-  submit(): Promise<any> {
+  async submit(): Promise<any> {
     var signedURL = this.imageSignedUrl;
     const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
     var report = this._get_report_summary()
@@ -179,11 +179,11 @@ export class DeckService {
         return this.putReport(report, cardId, true, false);
       } else {
         // PUT photo in S3 bucket using signedURL
-        this.http.put(signedURL, photo)
-          .subscribe(success => {
+        return await this.http.put(signedURL, photo).toPromise()
+          .then(success => {
             // PUT report & patch image_url
             return this.putReport(report, cardId, true, true);
-          }, error => {
+          }).catch((error) => {
             // PUT report & notify user about upload error
             return this.putReport(report, cardId, true, false);
           });
