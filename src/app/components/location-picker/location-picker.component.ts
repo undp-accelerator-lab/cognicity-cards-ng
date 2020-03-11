@@ -21,6 +21,7 @@ export class LocationPickerComponent implements OnInit {
 
   private currentMarker: any
   public latlng: { lat: string, lng: string }
+  searchResults
 
   constructor(private deckService: DeckService) { }
 
@@ -36,13 +37,13 @@ export class LocationPickerComponent implements OnInit {
       lng = this.deckService.getLocation().lng
     }
 
-    this.map = L.map('mapid', { 
+    this.map = L.map('mapid', {
       center: [ lat, lng ],
       zoom: 16
     });
 
     const accessToken = env.mapbox_access_token;
-    
+
     L.tileLayer(`https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=${accessToken}`, {
       attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(this.map);
@@ -59,14 +60,14 @@ export class LocationPickerComponent implements OnInit {
     })
 
     // If user not approve permission
-    if (this.currentMarker) this.currentMarker.remove(this.map)      
+    if (this.currentMarker) this.currentMarker.remove(this.map)
     this.addMarker()
 
     const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true }).addTo(this.map);
     locate.start()
 
     this.map.addControl(new L.Control.Compass());
-    this.map.on('locationfound ', (event) => { 
+    this.map.on('locationfound ', (event) => {
       if (this.currentMarker) this.currentMarker.remove(this.map)
       this.addMarker()
 
@@ -89,6 +90,11 @@ export class LocationPickerComponent implements OnInit {
   }
 
   async onSearch(query: string) {
+    const results = await this.provider.search({ query });
+    this.searchResults = results; //we send this to the child component search-location
+  }
+
+  async onConfirmSearch(query: string) {
     const results = await this.provider.search({ query });
 
     this.map.setView({ lat: results[0].y, lng: results[0].x }, 18)
