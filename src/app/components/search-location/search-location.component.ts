@@ -39,7 +39,7 @@ export class SearchLocationComponent {
 
   ngOnChanges(changes: SimpleChanges) {
     this.searchResultsData = changes.searchResults.currentValue;
-    console.log(this.searchResultsData);
+    // console.log(this.searchResultsData);
   }
 
   onSubmit() {
@@ -47,7 +47,7 @@ export class SearchLocationComponent {
   }
 
   onInputChange(value) {
-    console.log(value)
+    // console.log(value)
     this.search.emit(this.query);
   }
 
