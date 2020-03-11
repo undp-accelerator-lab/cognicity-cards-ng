@@ -4,7 +4,7 @@ import { environment as env } from '../../../environments/environment'
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
-type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano'
+type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood'
 type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'volcano'
 
 interface LatLng {
@@ -32,6 +32,7 @@ export class DeckService {
   accessibility: number | undefined = undefined
   condition: number | undefined = undefined
   location: LatLng
+  floodDepth: string
   fireLocation: LatLng
   fireRadius: LatLng
   fireDistance: number
@@ -89,6 +90,7 @@ export class DeckService {
   getAccessibility() { return this.accessibility }
   getCondition() { return this.condition }
   getLocation() { return this.location }
+  getFloodDepth() { return this.floodDepth }
   getFireLocation(): LatLng { return this.fireLocation }
   getFireRadius(): LatLng { return this.fireRadius }
   getFireDistance(): number { return this.fireDistance }
@@ -112,6 +114,7 @@ export class DeckService {
   setAccessibility(accessibility: number) { this.accessibility = accessibility }
   setCondition(condition: number) { this.condition = condition }
   setLocation(location: LatLng) { this.location = location }
+  setFloodDepth(floodDepth: string) { this.floodDepth = floodDepth }
   setFireLocation(fireLocation: LatLng) { this.fireLocation = fireLocation }
   setFireRadius(fireRadius: LatLng) { this.fireRadius = fireRadius }
   setFireDistance(fireDistance: number) { this.fireDistance = fireDistance }
@@ -178,6 +181,12 @@ export class DeckService {
     var signedURL = this.imageSignedUrl;
     const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
     var report = this._get_report_summary()
+    //conditionally add properties to the report depending on the current deck type
+    if(this.type === 'flood'){
+      report.floodDepth = this.floodDepth;
+    }
+    console.log(report);
+    console.log(cardId);
     if (this.preview && signedURL) {
       let photo = this.preview;
       if (signedURL === 'url_error') {
