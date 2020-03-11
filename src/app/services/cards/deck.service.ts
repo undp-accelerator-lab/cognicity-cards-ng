@@ -16,6 +16,7 @@ interface LatLng {
   providedIn: 'root'
 })
 export class DeckService {
+  
   constructor(private http: HttpClient) { }
   finishedSubType = []
 
@@ -39,6 +40,7 @@ export class DeckService {
   evacuationArea: null | boolean = null
   imageSignedUrl: string = 'url_error'
   description: string = ''
+  sub_submission: boolean = false
   preview: File
 
   isPrevButtonDisabled = true
@@ -58,6 +60,10 @@ export class DeckService {
 
   userCannotContinue() {
     this.isNextButtonDisabled = true
+  }
+
+  setSubSubmission() {
+    this.sub_submission = true
   }
 
   async isLocationInIndonesia() {
@@ -199,6 +205,7 @@ export class DeckService {
       card_data: {
         report_type: this.subType
       },
+      sub_submission: this.sub_submission,
       text: this.description,
       created_at: new Date().toISOString(),
       image_url: '',
@@ -242,7 +249,7 @@ export class DeckService {
             // Proceed to thanks page with image upload error notification
             // thanks_settings.code = 'fail';
             // router.navigate('thanks');
-            reject();
+            resolve();
           } else {
             // Proceed to thanks page
             // thanks_settings.code = 'pass';

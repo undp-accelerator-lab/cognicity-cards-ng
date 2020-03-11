@@ -99,7 +99,7 @@ export class SubmitSwipeComponent implements OnInit {
     this.isLoading = true
     if (!this.isSumbitted) {
       this.isSumbitted = true;
-      this.deckService.submit().then(() => {
+      await this.deckService.submit().then(() => {
         this.isLoading = false
         this.navController.next(this.deckService.getRoute())
       })

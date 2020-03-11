@@ -47,6 +47,7 @@ export class ThankComponent {
   }
 
   reportAnotherCard() {
+    this.deckService.setSubSubmission()
     this.navController.reset(this.deckService.getRoute())
   }
 }
