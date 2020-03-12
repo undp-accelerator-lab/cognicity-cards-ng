@@ -183,7 +183,7 @@ export class DeckService {
     var report = this._get_report_summary()
     //conditionally add properties to the report depending on the current deck type
     if(this.type === 'flood'){
-      report.card_data.floodDepth = this.floodDepth;
+      report.card_data.flood_depth = this.floodDepth;
     }
     console.log(report);
     console.log(cardId);
