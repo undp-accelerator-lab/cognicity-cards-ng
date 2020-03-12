@@ -33,7 +33,7 @@ export class DepthSliderComponent implements OnInit {
       this.currentY = parseInt(this.depthText.split(' ')[0])/2;
     }
     else {
-      this.deckService.setFloodDepth(this.depthText);
+      this.deckService.setFloodDepth(this.currentY * 2);
     }
   }
 
@@ -47,7 +47,7 @@ export class DepthSliderComponent implements OnInit {
   dragEnd($event) {
     this.sliderIsActive = false;
     this.knobClass = '';
-    this.deckService.setFloodDepth(this.depthText);
+    this.deckService.setFloodDepth(this.currentY * 2);
   }
 
   calcPercentInverted(val, total){
