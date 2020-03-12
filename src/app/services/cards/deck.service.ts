@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
 type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood'
-type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'volcano'
+type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'volcano' | 'flood'
 
 interface LatLng {
   lat: number;
