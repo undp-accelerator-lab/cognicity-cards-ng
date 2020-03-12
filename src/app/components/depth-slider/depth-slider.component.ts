@@ -32,6 +32,9 @@ export class DepthSliderComponent implements OnInit {
       this.depthText = this.deckService.getFloodDepth();
       this.currentY = parseInt(this.depthText.split(' ')[0])/2;
     }
+    else {
+      this.deckService.setFloodDepth(this.depthText);
+    }
   }
 
   dragStart($event) {
