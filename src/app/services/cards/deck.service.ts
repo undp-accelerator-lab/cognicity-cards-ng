@@ -208,7 +208,7 @@ export class DeckService {
       return this.putReport(report, cardId, false, false);
     }
   }
-  _get_report_summary() {
+  _get_report_summary():any {
     return {
       disaster_type: this.type,
       card_data: {
