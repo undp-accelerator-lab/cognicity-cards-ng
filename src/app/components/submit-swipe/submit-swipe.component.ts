@@ -70,7 +70,7 @@ export class SubmitSwipeComponent implements OnInit {
       }
     });
 
-    knob.on('mousemove touchmove', (event) => {
+    $(document.body).on('mousemove touchmove', (event) => {
       if (!mouseIsDown)
         return;
 
