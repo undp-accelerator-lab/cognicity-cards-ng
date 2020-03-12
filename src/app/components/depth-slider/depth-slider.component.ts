@@ -29,8 +29,10 @@ export class DepthSliderComponent implements OnInit {
     this.dragContainerHeight = this.dragContainer.getBoundingClientRect().bottom - document.querySelector('#cardContentWrapper').getBoundingClientRect().top;
 
     if (this.deckService.getFloodDepth()) {
-      this.depthText = this.deckService.getFloodDepth();
-      this.currentY = parseInt(this.depthText.split(' ')[0])/2;
+      // this.depthText = this.deckService.getFloodDepth();
+      // this.currentY = parseInt(this.depthText.split(' ')[0])/2;
+      this.currentY = this.deckService.getFloodDepth()/2;
+      this.depthText = Math.round(this.currentY * 2) + ' cm';;
     }
     else {
       this.deckService.setFloodDepth(this.currentY * 2);
