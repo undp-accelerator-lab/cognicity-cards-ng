@@ -48,10 +48,10 @@ export class TypeComponent {
   }
 
   onTypeSelected(subtype) {
-    this.deckService.setDeckSubType(subtype)
+    this.deckService.setDeckSubType(subtype);
 
     this.navController.filterRoutes(subtype);
-
-    this.navController.next(this.route)
+    this.deckService.userCanContinue();
+    // this.navController.next(this.route)
   }
 }
