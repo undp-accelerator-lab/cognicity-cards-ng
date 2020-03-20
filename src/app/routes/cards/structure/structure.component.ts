@@ -1,6 +1,7 @@
 import { Component, AfterViewChecked, ChangeDetectorRef, OnInit } from '@angular/core';
 import { countArrowOffset } from '../../../utils/slider'
 import { DeckService } from '../../../services/cards/deck.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-structure',
@@ -17,7 +18,8 @@ export class StructureComponent implements OnInit, AfterViewChecked {
 
   constructor(
     public deckService: DeckService,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
+    public translate: TranslateService,
   ) {
     this.initTitles()
     this.initImages()
@@ -39,9 +41,9 @@ export class StructureComponent implements OnInit, AfterViewChecked {
 
   initTitles() {
     this.titles = [
-      "Cracking",
-      "Partially Collapsed",
-      "Fully Collapsed",
+      "card.structure.cracking",
+      "card.structure.partially_collapsed",
+      "card.structure.fully_collapsed",
     ]
   }
 

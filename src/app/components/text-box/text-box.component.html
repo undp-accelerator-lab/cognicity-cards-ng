@@ -2,7 +2,7 @@
   #desc
   name="textbox"
   class="textbox" 
-  placeholder="Add your description here..."
+  placeholder="{{ placeholder }}"
   [value]="description" 
   (input)="onChangeDescription($event.target.value)"
   [maxLength]="MAX_LENGTH"

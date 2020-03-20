@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DeckService } from '../../services/cards/deck.service'
 
 @Component({
@@ -7,6 +7,7 @@ import { DeckService } from '../../services/cards/deck.service'
   styleUrls: ['./text-box.component.scss']
 })
 export class TextBoxComponent {
+  @Input() placeholder:string;
   MAX_LENGTH = 140
 
   constructor(

@@ -4,7 +4,7 @@
     "next": "LANJUTKAN"
   },
   "search": {
-    "placeholder": "Click & Drag to Move Pin or Search Here"
+    "placeholder": "Klik & seret untuk pindahkan pin atau cari di sini"
   },
   "card": {
     "titles": {
@@ -90,11 +90,11 @@
         "subtitle": "jalan putus/tidak bisa dilintasi"
       }
     ],
-    "structure": [
-      "Retak",
-      "Roboh Sebagian",
-      "Roboh Total"
-    ],
+    "structure": {
+      "cracking": "Retak",
+      "partially_collapsed": "Roboh Sebagian",
+      "fully_collapsed": "Roboh Total"
+    },
     "windstructure": [
       "Retak",
       "Roboh Sebagian",

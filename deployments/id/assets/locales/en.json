@@ -93,11 +93,11 @@
         "subtitle": "Destroyed Road, Completely Blocked, No access"
       }
     ],
-    "structure": [
-      "Cracking",
-      "Partially Collapsed",
-      "Fully Collapsed"
-    ],
+    "structure": {
+      "cracking": "Cracking",
+      "partially_collapsed": "Partially Collapsed",
+      "fully_collapsed": "Fully Collapsed"
+    },
     "impact": [
       {
         "title": "Low Disruption",
