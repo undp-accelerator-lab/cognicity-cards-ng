@@ -13,6 +13,7 @@ export class SearchLocationComponent {
   @Output() search: EventEmitter<string> = new EventEmitter()
 
   @Input() searchResults: any
+  @Input() searchText: string
   searchResultsData: any
   dynamicResultsDisplay: string = 'block';
 

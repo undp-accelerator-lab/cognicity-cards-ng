@@ -1,4 +1,6 @@
 <div class="location">
-  <app-location-picker [type]="deckService.getDeckSubType()">
+  <app-location-picker 
+      [type]="deckService.getDeckSubType()" 
+      [searchText]="'search.placeholder' | translate">
   </app-location-picker>
 </div>

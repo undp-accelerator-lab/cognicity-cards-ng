@@ -3,6 +3,9 @@
     "prev": "KEMBALI",
     "next": "LANJUTKAN"
   },
+  "search": {
+    "placeholder": "Click & Drag to Move Pin or Search Here"
+  },
   "card": {
     "titles": {
       "type": "Jenis Laporan",

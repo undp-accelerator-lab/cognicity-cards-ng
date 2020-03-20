@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { NavigationService } from '../../../services/navigation.service';
 import { DeckService } from '../../../services/cards/deck.service'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-type',
@@ -19,6 +20,7 @@ export class TypeComponent {
   }[]
 
   constructor(
+    public translate: TranslateService,
     public navController: NavigationService,
     public route: ActivatedRoute,
     public deckService: DeckService,
@@ -30,14 +32,14 @@ export class TypeComponent {
     switch(this.deckService.getDeckType()) {
       case 'earthquake': this.items = [
         { 
-          title: 'Road Accessibility', 
+          title: 'card.type.earthquake.roadTypeButton', 
           hint: '', 
           subtype: 'road', 
           imgUrl: '../../../../assets/decks/earthquake/eqtype/AddAccessReportIcon.png',
           highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddAccessReportIcon_Click.png'
         },
         {
-          title: 'Structural Failure', 
+          title: 'card.type.earthquake.structureTypeButton', 
           hint: '', 
           subtype: 'structure', 
           imgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon.png',

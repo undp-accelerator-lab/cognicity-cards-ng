@@ -3,7 +3,7 @@
   <div class='search-location-form__search-bar-wrapper'>
     <input
       type="text" class="search-location-form__input"
-      placeholder="Click & Drag to Move Pin or Search Here"
+      placeholder="{{ searchText }}"
       [(ngModel)]="query" name="search"
       (ngModelChange)="onInputChange($event)"
       #searchBar

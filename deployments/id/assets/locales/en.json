@@ -3,6 +3,9 @@
     "prev": "PREV",
     "next": "NEXT"
   },
+  "search": {
+    "placeholder": "Click & Drag to Move Pin or Search Here"
+  },
   "card": {
     "titles": {
       "type": "Select Report Type",

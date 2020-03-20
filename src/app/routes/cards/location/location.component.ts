@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-location',
@@ -7,5 +8,7 @@ import { DeckService } from '../../../services/cards/deck.service';
   styleUrls: ['./location.component.scss']
 })
 export class LocationComponent {
-  constructor(public deckService: DeckService) {}
+  constructor(
+    public deckService: DeckService,
+    public translate: TranslateService,) {}
 }

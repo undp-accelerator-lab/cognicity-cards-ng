@@ -16,6 +16,7 @@ declare let L
 })
 export class LocationPickerComponent implements OnInit {
   @Input() type: string
+  @Input() searchText: string
   provider: any
   map: any
 
