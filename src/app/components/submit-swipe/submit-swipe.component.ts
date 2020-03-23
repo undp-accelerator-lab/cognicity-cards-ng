@@ -102,6 +102,9 @@ export class SubmitSwipeComponent implements OnInit {
       await this.deckService.submit().then(() => {
         this.isLoading = false
         this.navController.next(this.deckService.getRoute())
+      }).catch(() => {
+        this.isLoading = false
+        this.navController.next(this.deckService.getRoute())
       })
     }
 
