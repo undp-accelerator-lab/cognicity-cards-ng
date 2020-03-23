@@ -1,17 +1,15 @@
 <div class="thanks">
   <img [src]="typeImage" alt="success image report" class="thanks__img">
   <p class="thanks__title">
-    SUCCESS!
+    "{{'thank.result' | translate}}"
   </p>
   <p class="thanks__subtitle">
+  "{{'thank.title' | translate}}"
     Thank you for your report.
-  </p>
-  <p class="thanks__subtitle">
-    We will notify you when it's on the map
   </p>
 
   <p *ngIf="isShowReportAgain" class="thanks__again">	
-    {{ reportAgainText }}	
+    {{ reportAgainText | translate}}	
   </p>
   <div *ngIf="isShowReportAgain" class="thanks__btn-group">	
     <a class="thanks__btn" (click)="reportAnotherCard()">Yes</a>	

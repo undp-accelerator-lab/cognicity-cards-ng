@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service'
 import { NavigationService } from '../../../services/navigation.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-thank',
@@ -13,7 +14,8 @@ export class ThankComponent {
 
   constructor(
     public deckService: DeckService,
-    public navController: NavigationService
+    public navController: NavigationService,
+    public translate: TranslateService,
   ) {
     const deckType = this.deckService.getDeckType()
     if (deckType === 'earthquake' && this.deckService.finishedSubType.length === 0) {
