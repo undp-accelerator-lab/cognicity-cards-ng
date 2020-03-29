@@ -2,6 +2,7 @@ import { Component, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 
 import { DeckService } from '../../../services/cards/deck.service';
 import { countArrowOffset } from '../../../utils/slider'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-accessibility',
@@ -15,10 +16,12 @@ export class AccessibilityComponent implements AfterViewChecked {
   image: string
   accessibility: number
   displayNumber: number
+  accessibilityText: string;
 
   constructor(
     public deckService: DeckService,
-    public cdref: ChangeDetectorRef
+    public cdref: ChangeDetectorRef,
+    public translate:TranslateService 
   ) {
     this.initImages()
 
@@ -77,6 +80,7 @@ export class AccessibilityComponent implements AfterViewChecked {
     this.stage = intValue + 1
     this.accessibility = intValue
     this.displayNumber = displayNumber
+    this.accessibilityText = "card.accessibility."+this.accessibility
 
     if (this.deckService.getAccessibility() === undefined && from === 'service') {
       this.deckService.setAccessibility(undefined)

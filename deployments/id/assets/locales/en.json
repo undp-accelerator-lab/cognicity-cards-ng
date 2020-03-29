@@ -75,8 +75,8 @@
     },
     "accessibility": [
       "No Vehicle",
-      "Wheel Vehicle",
-      "Wheel Vehicle",
+      "2 Wheel Vehicle",
+      "4 Wheel Vehicle",
       "Large Vehicle (Truck)"
     ],
     "condition": [
