@@ -124,6 +124,8 @@
       "acceptButton": "Yes",
       "rejectButton": "No",
       "tips": "Click here for safety tips from BNPB"
-    }
+    },
+    "reportAgainStructure": "Would you also like to submit structural failure report?",
+    "reportAgainAccess": "Would you also like to submit road accessibility report?"
   }
 }

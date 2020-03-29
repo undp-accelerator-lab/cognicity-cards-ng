@@ -15,7 +15,7 @@ export class ThankComponent {
   constructor(
     public deckService: DeckService,
     public navController: NavigationService,
-    public translate: TranslateService,
+    public translate: TranslateService
   ) {
     const deckType = this.deckService.getDeckType()
     if (deckType === 'earthquake' && this.deckService.finishedSubType.length === 0) {
@@ -23,10 +23,10 @@ export class ThankComponent {
 
       switch(this.deckService.getDeckSubType()) {
         case 'road':
-          this.reportAgainText = 'Would you also like to submit structural failure report?'
+          this.reportAgainText = 'card.reportAgainStructure'
           break;
         case 'structure': 
-          this.reportAgainText = 'Would you also like to submit road accessibility report?'
+          this.reportAgainText = 'card.reportAgainAccess'
           break;
       }
     }

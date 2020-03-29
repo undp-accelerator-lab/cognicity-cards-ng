@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-review',
@@ -9,7 +10,10 @@ import { DeckService } from '../../../services/cards/deck.service';
 export class ReviewComponent implements OnInit {
   isLocationInIndonesia = true;
 
-  constructor(public deckService: DeckService) {}
+  constructor(
+    public deckService: DeckService,
+    public translate: TranslateService
+  ) {}
 
   async ngOnInit() {
     this.deckService.userCanBack()

@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef, AfterViewChecked } from '@angular/core';
 
 import { countArrowOffset } from '../../../utils/slider'
 import { DeckService } from '../../../services/cards/deck.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-condition',
@@ -20,6 +21,7 @@ export class ConditionComponent implements AfterViewChecked {
 
   constructor(
     private deckService: DeckService,
+    public translate: TranslateService,
     private cdRef: ChangeDetectorRef
   ) {
     this.initTitles()
@@ -45,17 +47,17 @@ export class ConditionComponent implements AfterViewChecked {
 
   initTitles() {
     this.titles = [
-      "Light Disturbance",
-      "Moderate Disturbance",
-      "Heavy Disturbance",
+      "card.condition.0.title",
+      "card.condition.1.title",
+      "card.condition.2.title",
     ]
   }
 
   initSubtitles() {
     this.subtitles = [
-      "Small Road Cracks, Few Obstacles, Partial Access",
-      "Large Road Cracks, Partially Blocked, Limited Access",
-      "Destroyed Road, Completely Blocked, No access",
+      "card.condition.0.subtitle",
+      "card.condition.1.subtitle",
+      "card.condition.2.subtitle",
     ]
   }
 
