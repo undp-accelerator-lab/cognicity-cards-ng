@@ -112,6 +112,9 @@
       "acceptButton": "Ya",
       "rejectButton": "Tidak",
       "tips": "Klik di sini untuk tips dari BNPB"
-    }
+    },
+    "swipeText": "Geser",
+    "reportAgainStructure": "Would you also like to submit structural failure report?",
+    "reportAgainAccess": "Would you also like to submit road accessibility report?"
   }
 }

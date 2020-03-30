@@ -4,6 +4,7 @@ import * as $ from 'jquery';
 
 import { DeckService } from '../../services/cards/deck.service';
 import { NavigationService } from '../../services/navigation.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-submit-swipe',
@@ -16,6 +17,7 @@ export class SubmitSwipeComponent implements OnInit {
   isSumbitted = false;
 
   @Input() isUserAbleToContinue: boolean
+  @Input() swipeText: string;
 
   constructor(
     public deckService: DeckService,
