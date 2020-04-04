@@ -3,12 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { VisibilityRoutingModule } from './visibility-routing.module';
 import { VisibilityComponent } from './visibility.component';
+import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
-    VisibilityRoutingModule
+    VisibilityRoutingModule,
+    TranslateModule
   ],
-  declarations: [VisibilityComponent]
+  declarations: [VisibilityComponent],
+  exports: [
+    TranslateModule
+  ],
+  providers: [
+    TranslatePipe
+  ]
 })
 export class VisibilityModule { }

@@ -13,7 +13,7 @@
         [ngClass]="{ 'airquality__type': true, 'highlight': rangeValue == i }"
         (click)="onInputChange(i)"
       >
-        <p class="airquality__type-text">{{ fact }}</p>
+        <p class="airquality__type-text">{{ fact | translate }}</p>
         <img 
           [ngClass]="{ 'airquality__type-icon': true, 'none': i == 0 }" 
           alt="air quality icon" 

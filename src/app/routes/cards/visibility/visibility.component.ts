@@ -1,6 +1,7 @@
 import { Component, AfterViewChecked, ChangeDetectorRef, OnInit } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service';
 import { countArrowOffset } from '../../../utils/slider'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-visibility',
@@ -16,7 +17,8 @@ export class VisibilityComponent implements OnInit, AfterViewChecked {
 
   constructor(
     private deckService: DeckService,
-    private cdref: ChangeDetectorRef
+    private cdref: ChangeDetectorRef,
+    public translate: TranslateService
   ) {
     this.initDescriptions()
     this.initImages()
@@ -38,9 +40,9 @@ export class VisibilityComponent implements OnInit, AfterViewChecked {
 
   initDescriptions() {
     this.descriptions = [
-      "I can still see but I need to wear a mask.",
-      "I can still see but not clear enough to drive.",
-      "I can barely see. Too dangerous to go out."
+      "card.visibility.card.0",
+      "card.visibility.card.1",
+      "card.visibility.card.2",
     ]
   }
 

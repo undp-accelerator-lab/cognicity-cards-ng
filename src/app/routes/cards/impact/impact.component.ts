@@ -1,6 +1,7 @@
 import { Component, AfterViewChecked, ChangeDetectorRef, OnInit } from '@angular/core';
 import { countArrowOffset } from '../../../utils/slider'
 import { DeckService } from '../../../services/cards/deck.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-impact',
@@ -19,7 +20,8 @@ export class ImpactComponent implements OnInit, AfterViewChecked {
 
   constructor(
     public deckService: DeckService,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
+    public translate: TranslateService
   ) {
     this.initTitles()
     this.initSubtitles()
@@ -42,17 +44,17 @@ export class ImpactComponent implements OnInit, AfterViewChecked {
 
   initTitles() {
     this.titles = [
-      "Low Disruption",
-      "Medium Disruption",
-      "High Disruption",
+      "card.impact.0.title",
+      "card.impact.1.title",
+      "card.impact.2.title"
     ]
   }
 
   initSubtitles() {
     this.subtitles = [
-      "Small obstacles flying",
-      "Road blockages, transport disturbance, blackout",
-      "Flying roofs, structural failures, large obstacles flying, crop damage"
+      "card.impact.0.subtitle",
+      "card.impact.1.subtitle",
+      "card.impact.2.subtitle"
     ]
   }
 

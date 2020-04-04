@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DeckService } from '../../../services/cards/deck.service'
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-airquality",
@@ -10,7 +11,10 @@ export class AirqualityComponent implements OnInit {
 
   facts: string[]
 
-  constructor(private deckService: DeckService) {
+  constructor(
+    private deckService: DeckService,
+    public translate: TranslateService
+    ) {
     this.initFacts()
   }
 
@@ -26,11 +30,11 @@ export class AirqualityComponent implements OnInit {
 
   initFacts() {
     this.facts = [
-      "None",
-      "Smell Smoke",
-      "Watery Eyes / Throat Irritation",
-      "Headache / Nauseous",
-      "Shortness of Breath / Chest Tightness"
+      "card.airquality.card.0",
+      "card.airquality.card.1",
+      "card.airquality.card.2",
+      "card.airquality.card.3",
+      "card.airquality.card.4",
     ]
   }
 

@@ -95,6 +95,20 @@
       "partially_collapsed": "Roboh Sebagian",
       "fully_collapsed": "Roboh Total"
     },
+    "impact": [
+      {
+        "title": "Low Disruption",
+        "subtitle": "Small obstacles flying"
+      },
+      {
+        "title": "Medium Disruption",
+        "subtitle": "Road blockages, transport disturbance, blackout"
+      },
+      {
+        "title": "High Disruption",
+        "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
+      }
+    ],
     "windstructure": [
       "Retak",
       "Roboh Sebagian",
