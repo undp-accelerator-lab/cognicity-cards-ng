@@ -13,7 +13,7 @@ const routes: Routes = [
   // Optional, redirectTo first card in fire
   {
     path: '**',
-    redirectTo: 'location',
+    redirectTo: 'firedistance',
     pathMatch: 'full'
   }
 ];
