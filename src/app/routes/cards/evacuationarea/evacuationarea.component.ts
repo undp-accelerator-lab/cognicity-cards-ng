@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { DeckService } from '../../../services/cards/deck.service';
 import { NavigationService } from '../../../services/navigation.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-evacuationarea',
@@ -18,6 +19,7 @@ export class EvacuationareaComponent implements OnInit {
     public deckService: DeckService,
     public navController: NavigationService,
     public route: ActivatedRoute,
+    public translate: TranslateService
   ) { }
 
   ngOnInit() {

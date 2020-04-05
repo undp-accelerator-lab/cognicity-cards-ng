@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sign',
@@ -8,7 +9,8 @@ import { DeckService } from '../../../services/cards/deck.service';
 })
 export class SignComponent implements OnInit {
   constructor(
-    public deckService: DeckService
+    public deckService: DeckService,
+    public translate: TranslateService
   ) {}
 
   ngOnInit() {

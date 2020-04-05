@@ -1,4 +1,4 @@
-<div class="description">Number of people in your village</div>
+<div class="description">{{ card.evacuationnumber.description | translate }}</div>
 <div class="options">
   <div (click)="onOptionClick(1)" [ngClass]="{'option': true, 'selected': selectedOption === 1}">
     <p>< 5</p>

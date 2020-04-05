@@ -98,6 +98,22 @@
       "partially_collapsed": "Partially Collapsed",
       "fully_collapsed": "Fully Collapsed"
     },
+    "evacuation": {
+      "description": "Do you know where to evacuate to?"
+    },
+    "evacuationnumber":{
+      "description": "Number of people in your village"
+    },
+    "sign" : {
+      "description": "Indicate any observations:",
+      "symptoms":[
+        "Significant Temperature Increases",
+        "Drought / Vegetation Death",
+        "Unusual Animal Behaviour",
+        "Frequent Earthquake Tremors",
+        "Frequent Rumbling Sounds"
+      ]
+    },
     "impact": [
       {
         "title": "Low Disruption",

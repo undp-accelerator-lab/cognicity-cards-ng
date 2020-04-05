@@ -1,4 +1,4 @@
-<div class="description">Do you know where to evacuate to?</div>
+<div class="description">{{ card.evacuation.description | translate }}</div>
 <div class="options">
   <div (click)="onOptionClick(true)" [ngClass]="{'option': true, 'selected': selectedOption === true}">
     <p>Yes</p>

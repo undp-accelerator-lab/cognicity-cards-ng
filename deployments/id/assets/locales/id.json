@@ -20,6 +20,7 @@
       "accessibility": "Laporkan Akses Jalan",
       "condition": "Jelaskan Kondisi Jalan",
       "structure": "Laporkan Dampak Pada Bangunan",
+      "evacuationnumber": "Report Evacuation",
 
       "impact": "Laporkan Dampak Karena Angin",
       "windstructure": "Laporan Dampak Pada Bangunan",
@@ -94,6 +95,22 @@
       "cracking": "Retak",
       "partially_collapsed": "Roboh Sebagian",
       "fully_collapsed": "Roboh Total"
+    },
+    "evacuation": {
+      "description": "Do you know where to evacuate to?"
+    },
+    "evacuationnumber":{
+      "description": "Number of people in your village"
+    },
+    "sign" : {
+      "description": "Indicate any observations:",
+      "symptoms":[
+        "Significant Temperature Increases",
+        "Drought / Vegetation Death",
+        "Unusual Animal Behaviour",
+        "Frequent Earthquake Tremors",
+        "Frequent Rumbling Sounds"
+      ]
     },
     "impact": [
       {
