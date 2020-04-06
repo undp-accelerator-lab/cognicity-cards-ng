@@ -20,10 +20,13 @@
       "accessibility": "Laporkan Akses Jalan",
       "condition": "Jelaskan Kondisi Jalan",
       "structure": "Laporkan Dampak Pada Bangunan",
-      "evacuationnumber": "Report Evacuation",
-
+      
       "impact": "Laporkan Dampak Karena Angin",
       "windstructure": "Laporan Dampak Pada Bangunan",
+      
+      "sign": "Laporkan Tanda-Tanda Gunungapi",
+      "evacuationnumber": "Laporkan Evakuasi",
+      "evacuationarea": "Laporkan Evakuasi",
 
       "photo": "Unggah Foto",
       "description": "Tambahkan Deskripsi",
@@ -97,33 +100,33 @@
       "fully_collapsed": "Roboh Total"
     },
     "evacuation": {
-      "description": "Do you know where to evacuate to?"
+      "description": "Apakah Anda tahu ke mana arah evakuasi jika terjadi erupsi?"
     },
     "evacuationnumber":{
-      "description": "Number of people in your village"
+      "description": "Jumlah orang di sekitar anda"
     },
     "sign" : {
-      "description": "Indicate any observations:",
+      "description": "Hasil Pengamatan:",
       "symptoms":[
-        "Significant Temperature Increases",
-        "Drought / Vegetation Death",
-        "Unusual Animal Behaviour",
-        "Frequent Earthquake Tremors",
-        "Frequent Rumbling Sounds"
+        "Kenaikan Suhu Signifikan",
+        "Kekeringan/Kematian Tumbuh-tumbuhan",
+        "Perilaku Hewan Yang Tidak Biasa",
+        "Getaran Gempabumi yang Sering",
+        "Suara Gemuruh yang Sering"
       ]
     },
     "impact": [
       {
-        "title": "Low Disruption",
-        "subtitle": "Small obstacles flying"
+        "title": "Dampak ringan",
+        "subtitle": "objek kecil beterbangan"
       },
       {
-        "title": "Medium Disruption",
-        "subtitle": "Road blockages, transport disturbance, blackout"
+        "title": "Dampak sedang",
+        "subtitle": "penutupan jalan, gangguan transportasi, listrik padam"
       },
       {
-        "title": "High Disruption",
-        "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
+        "title": "Dampak berat",
+        "subtitle": "atap bangunan terbang, kerusakan bangunan, objek besar roboh, kerusakan pertanian"
       }
     ],
     "windstructure": [
@@ -145,7 +148,7 @@
       "tips": "Klik di sini untuk tips dari BNPB"
     },
     "swipeText": "Geser",
-    "reportAgainStructure": "Would you also like to submit structural failure report?",
-    "reportAgainAccess": "Would you also like to submit road accessibility report?"
+    "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan dampak pada bangunan?",
+    "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?"
   }
 }
