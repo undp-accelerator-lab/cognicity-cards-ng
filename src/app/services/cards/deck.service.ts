@@ -182,9 +182,7 @@ export class DeckService {
     const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
     var report = this._get_report_summary()
     //conditionally add properties to the report depending on the current deck type
-    if(this.type === 'flood'){
-      report.card_data.flood_depth = this.floodDepth;
-    }
+    
     console.log(report);
     console.log(cardId);
     if (this.preview && signedURL) {
@@ -209,7 +207,7 @@ export class DeckService {
     }
   }
   _get_report_summary():any {
-    return {
+    let summary:any = {
       disaster_type: this.type,
       card_data: {
         report_type: this.subType
@@ -220,6 +218,32 @@ export class DeckService {
       image_url: '',
       location: this.location
     }
+    switch(this.type) {
+      case 'flood': summary.card_data.flood_depth = this.floodDepth; break;
+      case 'wind': summary.card_data.impact = this.impact; break;
+      case 'fire': 
+        summary.card_data.fireDistance = this.fireDistance; 
+        summary.card_data.fireLocation = this.fireLocation; 
+        summary.card_data.fireRadius = this.fireRadius; 
+        break;
+      case 'volcano': 
+        summary.card_data.volcanicSigns = this.volcanicSigns; 
+        summary.card_data.evacuationNumber = this.evacuationNumber; 
+        summary.card_data.evacuationArea = this.evacuationArea; 
+        break;
+      case 'haze': 
+        summary.card_data.visibility = this.visibility;
+        summary.card_data.airQuality = this.airQuality;
+        break;
+      case 'earthquake': 
+        if(this.subType == 'structure')
+          summary.card_data.structureFailure = this.structureFailure;
+        else if (this.subType == "road")
+          summary.card_data.accessabilityFailure = this.accessibility;
+          summary.card_data.condition = this.condition;
+        break;
+    }
+    return summary
   }
   putReport(report: any, id: any, hasPhoto: boolean, photoUploaded: boolean): Promise<any> {
     const reportURL = env.data_server + 'cards/' + id;
