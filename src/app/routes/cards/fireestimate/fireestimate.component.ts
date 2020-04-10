@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DeckService } from '../../../services/cards/deck.service'
 import { MONUMEN_NASIONAL_LAT_LNG } from '../../../../utils/const';
+import { TranslateModule } from '@ngx-translate/core';
 
 declare let L
 
@@ -18,7 +19,10 @@ export class FireestimateComponent implements OnInit {
 
   private map
 
-  constructor(private deckService: DeckService) { }
+  constructor(
+    private deckService: DeckService,
+    public translate: TranslateModule
+  ) { }
 
   ngOnInit() {
     this.initMap()
@@ -81,7 +85,7 @@ export class FireestimateComponent implements OnInit {
               src="../../../assets/decks/fire/location/SelectFireLocation_Highlight.png"
               style="width: 25px;"
             />
-            <p style="width: 75px; text-align: center;" id="ha">${this.fireRange} hectares</p>
+            <p style="width: 75px; text-align: center;" id="ha">${this.fireRange} {{'card.fireestimate.unit' | translate}}</p>
           </div>
         `,
         iconAnchor: [8, 42.5],

@@ -104,6 +104,9 @@
     "evacuationnumber":{
       "description": "Number of people in your village"
     },
+    "fireestimate": {
+      "unit": "hectares"
+    },
     "sign" : {
       "description": "Indicate any observations:",
       "symptoms":[

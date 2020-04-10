@@ -19,10 +19,10 @@
 
       "accessibility": "Laporkan Akses Jalan",
       "condition": "Jelaskan Kondisi Jalan",
-      "structure": "Laporkan Dampak Pada Bangunan",
+      "structure": "Laporkan Kerusakan Bangunan",
       
       "impact": "Laporkan Dampak Karena Angin",
-      "windstructure": "Laporan Dampak Pada Bangunan",
+      "windstructure": "Laporan Kerusakan Bangunan",
       
       "sign": "Laporkan Tanda-Tanda Gunungapi",
       "evacuationnumber": "Laporkan Evakuasi",
@@ -43,7 +43,7 @@
       },
       "earthquake": {
         "roadTypeButton": "Laporkan Akses Jalan",
-        "structureTypeButton": "Laporkan Dampak Pada Bangunan"
+        "structureTypeButton": "Laporkan Kerusakan Bangunan"
       }
     },
     "visibility": {
@@ -105,6 +105,9 @@
     "evacuationnumber":{
       "description": "Jumlah orang di sekitar anda"
     },
+    "fireestimate": {
+      "unit": "hektar"
+    },
     "sign" : {
       "description": "Hasil Pengamatan:",
       "symptoms":[
@@ -148,7 +151,7 @@
       "tips": "Klik di sini untuk tips dari BNPB"
     },
     "swipeText": "Geser",
-    "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan dampak pada bangunan?",
+    "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
     "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?"
   }
 }
