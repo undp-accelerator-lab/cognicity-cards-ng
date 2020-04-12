@@ -11,7 +11,7 @@
     {{ reportAgainText | translate}}	
   </p>
   <div *ngIf="isShowReportAgain" class="thanks__btn-group">	
-    <a class="thanks__btn" (click)="reportAnotherCard()">Yes</a>	
-    <a class="thanks__btn" (click)="isShowReportAgain = false">No</a>	
+    <a class="thanks__btn" (click)="reportAnotherCard()">{{'card.thank.acceptButton' | translate}}</a>	
+    <a class="thanks__btn" (click)="isShowReportAgain = false">{{'card.thank.rejectButton' | translate}}</a>	
   </div>
 </div>

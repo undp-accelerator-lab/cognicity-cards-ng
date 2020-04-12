@@ -4,7 +4,7 @@
     "next": "LANJUTKAN"
   },
   "search": {
-    "placeholder": "Klik & seret untuk pindahkan pin atau cari di sini"
+    "placeholder": "Klik & geser untuk pindahkan pin atau cari di sini"
   },
   "card": {
     "titles": {
@@ -75,10 +75,11 @@
       ]
     },
     "accessibility": [
-      "Tidak bisa dilewati kendaraan",
-      "Kendaraan Roda 2",
-      "Kendaraan Roda 4",
-      "Kendaraan Muatan Berat (Truk)"
+      "tidak bisa dilewati kendaraan",
+      "Kendaraan roda dua",
+      "Kendaraan roda empat kecil (Sedan)",
+      "Kendaraan roda empat sedang (SUV)",
+      "Kendaraan muatan berat (Truk)"
     ],
     "condition": [
       { 
