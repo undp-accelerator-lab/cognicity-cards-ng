@@ -85,7 +85,7 @@ export class AccessibilityComponent implements AfterViewChecked {
     if (this.deckService.getAccessibility() === undefined && from === 'service') {
       this.deckService.setAccessibility(undefined)
     } else {
-      this.deckService.setAccessibility(displayNumber)
+      this.deckService.setAccessibility(intValue)
     }
 
     output.style.left = (intValue / 4.4) * input.offsetWidth + 'px'
