@@ -27,6 +27,7 @@ export class SearchLocationComponent {
     this.renderer.listen('window', 'click',(e:Event)=>{
 
         if(
+          this.searchResult &&
           e.target !== this.searchBar.nativeElement &&
           e.target !== this.searchResult.nativeElement &&
           e.target !== this.searchResultText.nativeElement

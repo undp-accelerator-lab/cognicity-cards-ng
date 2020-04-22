@@ -143,6 +143,8 @@ export class LocationPickerComponent implements OnInit {
 
   get icon() {
     switch (this.type) {
+      case 'flood':
+        return '../../../assets/decks/flood/AddFloodIcon_Location.png'
       case 'structure':
         return '../../../assets/decks/earthquake/eqlocation/AddStructureFailureIcon_Location.png'
       case 'road':
@@ -151,6 +153,8 @@ export class LocationPickerComponent implements OnInit {
         return '../../../assets/decks/wind/windlocation/Wind_Pin.png'
       case 'volcano':
         return '../../../assets/decks/volcano/location/Select_Report_Location.png'
+      case 'haze':
+        return '../../../assets/decks/fire/location/SelectHazeLocation.png';
       default:
         return '../../../assets/decks/fire/location/SelectHazeLocation.png';
     }
