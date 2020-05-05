@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { NavigationService } from '../../../services/navigation.service';
 import { DeckService } from '../../../services/cards/deck.service'
 import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-type',
@@ -11,11 +12,11 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./type.component.scss']
 })
 export class TypeComponent {
-  items: { 
-    title: string, 
-    hint: string, 
-    subtype: string, 
-    imgUrl: string, 
+  items: {
+    title: string,
+    hint: string,
+    subtype: string,
+    imgUrl: string,
     highlightImgUrl: string,
   }[]
 
@@ -23,25 +24,28 @@ export class TypeComponent {
     public translate: TranslateService,
     public navController: NavigationService,
     public route: ActivatedRoute,
+    private router: Router,
     public deckService: DeckService,
   ) {
     this.initItems()
+    // Store card routes for navigation
+    this.navController.registerCardRoutes('earthquake');
   }
 
   initItems() {
     switch(this.deckService.getDeckType()) {
       case 'earthquake': this.items = [
-        { 
-          title: 'card.type.earthquake.roadTypeButton', 
-          hint: '', 
-          subtype: 'road', 
+        {
+          title: 'card.type.earthquake.roadTypeButton',
+          hint: '',
+          subtype: 'road',
           imgUrl: '../../../../assets/decks/earthquake/eqtype/AddAccessReportIcon.png',
           highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddAccessReportIcon_Click.png'
         },
         {
-          title: 'card.type.earthquake.structureTypeButton', 
-          hint: '', 
-          subtype: 'structure', 
+          title: 'card.type.earthquake.structureTypeButton',
+          hint: '',
+          subtype: 'structure',
           imgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon.png',
           highlightImgUrl: '../../../../assets/decks/earthquake/eqtype/AddStructureFailureIcon_Click.png'
         }
@@ -50,10 +54,11 @@ export class TypeComponent {
   }
 
   onTypeSelected(subtype) {
+    console.log('currentRouteName',this.navController.getCurrentRouteName());
     this.deckService.setDeckSubType(subtype);
-
     this.navController.filterRoutes(subtype);
     this.deckService.userCanContinue();
-    // this.navController.next(this.route)
+    this.navController.nextFromChild(this.route, '../../../');
+
   }
 }

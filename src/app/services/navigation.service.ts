@@ -87,10 +87,21 @@ export class NavigationService {
   }
 
   next(route) {
-    if (this.cardCounter < (this.cardRoutes.length - 1)) {
       const nextCardRoute = this.cardRoutes[this.cardCounter + 1];
       this.router.navigate([nextCardRoute], {relativeTo: route});
       this.cardCounter += 1;
     }
+
+  nextFromChild(route, relativePathPrefix) {
+    console.log(route);
+    if (this.cardCounter < (this.cardRoutes.length - 1)) {
+      const nextCardRoute = this.cardRoutes[this.cardCounter + 1];
+      this.router.navigate([relativePathPrefix+nextCardRoute], {relativeTo: route});
+      this.cardCounter += 1;
+    }
+  }
+
+  getCurrentRouteName() {
+    return this.cardRoutes[this.cardCounter];
   }
 }
