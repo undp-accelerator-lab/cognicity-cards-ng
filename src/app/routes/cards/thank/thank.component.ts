@@ -25,7 +25,7 @@ export class ThankComponent {
         case 'road':
           this.reportAgainText = 'card.reportAgainStructure'
           break;
-        case 'structure': 
+        case 'structure':
           this.reportAgainText = 'card.reportAgainAccess'
           break;
       }
@@ -49,7 +49,15 @@ export class ThankComponent {
   }
 
   reportAnotherCard() {
-    this.deckService.setSubSubmission()
-    this.navController.reset(this.deckService.getRoute())
+    this.deckService.setSubSubmission();
+    if(this.deckService.getDeckType() === 'earthquake' ){
+      this.deckService.setDeckSubType(this.deckService.getDeckSubType());
+      this.navController.resetEqDeckToLocation(this.deckService.getRoute());
+    }else{
+      this.navController.reset(this.deckService.getRoute());
+    }
+
+    // console.log('deckType',this.deckService.getDeckType());
+    // console.log('deckSubType',this.deckService.getDeckSubType());
   }
 }

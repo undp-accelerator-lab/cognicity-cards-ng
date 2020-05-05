@@ -16,7 +16,7 @@ interface LatLng {
   providedIn: 'root'
 })
 export class DeckService {
-  
+
   constructor(private http: HttpClient) { }
   finishedSubType = []
 
@@ -182,7 +182,7 @@ export class DeckService {
     const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
     var report = this._get_report_summary()
     //conditionally add properties to the report depending on the current deck type
-    
+
     console.log(report);
     console.log(cardId);
     if (this.preview && signedURL) {
@@ -221,21 +221,21 @@ export class DeckService {
     switch(this.type) {
       case 'flood': summary.card_data.flood_depth = this.floodDepth; break;
       case 'wind': summary.card_data.impact = this.impact; break;
-      case 'fire': 
-        summary.card_data.fireDistance = this.fireDistance; 
-        summary.card_data.fireLocation = this.fireLocation; 
-        summary.card_data.fireRadius = this.fireRadius; 
+      case 'fire':
+        summary.card_data.fireDistance = this.fireDistance;
+        summary.card_data.fireLocation = this.fireLocation;
+        summary.card_data.fireRadius = this.fireRadius;
         break;
-      case 'volcano': 
-        summary.card_data.volcanicSigns = this.volcanicSigns; 
-        summary.card_data.evacuationNumber = this.evacuationNumber; 
-        summary.card_data.evacuationArea = this.evacuationArea; 
+      case 'volcano':
+        summary.card_data.volcanicSigns = this.volcanicSigns;
+        summary.card_data.evacuationNumber = this.evacuationNumber;
+        summary.card_data.evacuationArea = this.evacuationArea;
         break;
-      case 'haze': 
+      case 'haze':
         summary.card_data.visibility = this.visibility;
         summary.card_data.airQuality = this.airQuality;
         break;
-      case 'earthquake': 
+      case 'earthquake':
         if(this.subType == 'structure')
           summary.card_data.structureFailure = this.structureFailure;
         else if (this.subType == "road")

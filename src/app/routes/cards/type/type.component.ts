@@ -54,7 +54,7 @@ export class TypeComponent {
   }
 
   onTypeSelected(subtype) {
-    console.log('currentRouteName',this.navController.getCurrentRouteName());
+    // console.log('currentRouteName',this.navController.getCurrentRouteName());
     this.deckService.setDeckSubType(subtype);
     this.navController.filterRoutes(subtype);
     this.deckService.userCanContinue();
