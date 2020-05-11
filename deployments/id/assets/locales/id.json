@@ -141,6 +141,7 @@
     "description": "Masukkan deskripsi di sini ...",
     "review": { 
       "text": "Dengan mengirimkan laporan ini Anda setuju dengan",
+      "terms": "Persetujuan pengguna & Kebijakan privasi",
       "link": "Kesepakatan Kontribusi PetaBencana.id"
     },
     "thank": { 

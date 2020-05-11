@@ -51,7 +51,7 @@ export class ThankComponent {
   reportAnotherCard() {
     this.deckService.setSubSubmission();
     if(this.deckService.getDeckType() === 'earthquake' ){
-      let newDeckSubType = this.deckService.getDeckSubType() === 'road' ? 'structure' : 'road';
+      let newDeckSubType:any = this.deckService.getDeckSubType() === 'road' ? 'structure' : 'road';
       this.deckService.setDeckSubType(newDeckSubType);
       this.navController.resetEqDeckToLocation(this.deckService.getRoute());
     }else{

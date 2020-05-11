@@ -6,6 +6,10 @@
     {{'card.review.text' | translate}} 
     <a href="https://petabencana.id/">{{'card.review.link' | translate}}</a>
   </p>
+  
+  <p class="review__text" *ngIf="!showWarning">
+    <a (click)="showTerms()"> {{'card.review.terms' | translate}}</a>
+  </p>
 
   <div class="review__warning" *ngIf="showWarning">
     <p *ngIf="isDescriptionAndPhotoEmpty">
@@ -16,6 +20,28 @@
       <i class="fa fa-exclamation-circle"></i>  
       Unsupported location, report cannot be displayed on the map
     </p>
+  </div>
+
+  <div id="termsPopup">
+    <div id="tabRow">
+      <div
+        *ngFor="let switch of termscontents; let i = index"
+        class="termsTabs"
+        (click)="switchTab(switch.tab_key)"
+      >
+        <p>{{switch.tab_name}}</p>
+      </div>
+    </div>
+    <div id="tabContent">
+      <div
+        repeat.for="content of termscontents"
+        class="termsContents"
+        [innerHTML]="tabContent"
+      ></div>
+    </div>
+    <div id="closeRow">
+      <p (click)="closeTerms()">Close&nbsp;&nbsp;&nbsp;&nbsp;</p>
+    </div>
   </div>
   
   <app-submit-swipe swipeText="{{ 'card.swipeText' | translate}}">

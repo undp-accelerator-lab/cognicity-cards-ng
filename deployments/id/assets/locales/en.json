@@ -135,6 +135,7 @@
     "description": "Add your description here ...",
     "review": { 
       "text": "By submitting this report you are agreeing to the ",
+      "terms": "User agreement & Privacy policy",
       "link": "PetaBencana.id Contributors Agreement"
     },
     "thank": { 
