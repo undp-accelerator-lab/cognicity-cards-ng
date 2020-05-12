@@ -68,13 +68,17 @@ export class DeckService {
   }
 
   async isLocationInIndonesia() {
-    const response = await fetch(`
-      https://nominatim.openstreetmap.org/reverse
-      ?format=json&lat=${this.location.lat}&lon=${this.location.lng}`)
+    // const requestHeaders: HeadersInit = new Headers();
+    // requestHeaders.set('Access-Control-Allow-Origin', "*");
 
-    const geocodeData = await response.json()
+    // const response = await fetch(`
+    //   https://nominatim.openstreetmap.org/reverse
+    //   ?format=json&lat=${this.location.lat}&lon=${this.location.lng}`)
 
-    return geocodeData.address.country_code === 'id'
+    // const geocodeData = await response.json()
+
+    // return geocodeData.address.country_code === 'id'
+    return true;
   }
 
   // Getter
