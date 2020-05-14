@@ -118,7 +118,7 @@ export class DeckService {
   setAccessibility(accessibility: number) { this.accessibility = accessibility }
   setCondition(condition: number) { this.condition = condition }
   setLocation(location: LatLng) { this.location = location }
-  setFloodDepth(floodDepth: number) { this.floodDepth = floodDepth }
+  setFloodDepth(floodDepth: number) { this.floodDepth = Math.round(floodDepth) }
   setFireLocation(fireLocation: LatLng) { this.fireLocation = fireLocation }
   setFireRadius(fireRadius: LatLng) { this.fireRadius = fireRadius }
   setFireDistance(fireDistance: number) { this.fireDistance = fireDistance }
