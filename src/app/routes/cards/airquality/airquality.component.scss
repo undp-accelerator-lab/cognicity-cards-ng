@@ -1,0 +1,312 @@
+.airquality {
+  height: 85vh;
+  padding: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    color: white;
+    margin: 0 0 35px 0;
+    font-size: 18px;
+  }
+
+  &__input {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__range {
+    position: absolute;
+    left: 10%;
+
+    width: 450px;
+    transform: rotateZ(90deg);
+
+    -webkit-appearance: none;
+    background: transparent;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-moz-focus-outer {
+      border: 0;
+    }
+
+    // CIRCLE THUMB
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-top: -22.5px;
+      box-shadow: 0 0 15px 2.5px white;
+      transform: rotate(-90deg);
+    }
+
+    &::-moz-range-thumb {
+      -moz-appearance: none;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-top: -22.5px;
+      background: #ffffff;
+      box-shadow: 0 0 15px 2.5px white;
+      -moz-transform: rotate(-90deg);
+      // transform: rotate(-90deg);
+    }
+
+    // TRACK LINE
+
+    &::-webkit-slider-runnable-track {
+      width: 250px;
+      height: 5px;
+      cursor: pointer;
+      background-image: linear-gradient(to right, rgb(94, 94, 94), white);
+      border-radius: 1.25px;
+      border: 0.1px solid #010101;
+    }
+
+    &::-moz-range-track {
+      width: 100%;
+      height: 5px;
+      cursor: pointer;
+      background-image: linear-gradient(to right, rgb(94, 94, 94), white);
+      border-radius: 1.25px;
+    }
+  }
+
+  &__types {
+    height: 450px;
+    width: 75%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__type {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+
+    cursor: pointer;
+    background-color: #6D6E6D;
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: 2px solid white;
+
+    &-text {
+      color: #d6d6d6;
+      max-width: 70%;
+    }
+
+    &-icon {
+      display: block;
+      width: 50px;
+      max-height: 40px;
+    }
+
+    &.highlight {
+      background-color: #57585A;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.none {
+  display: none;
+}
+
+.stage-0 {
+  &::-webkit-slider-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_0.png") center / contain no-repeat;
+  }
+
+  &::-moz-range-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_0.png") center / contain no-repeat;
+  }
+
+  &::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right, #6D6E6D, #6D6E6D);
+  }
+
+  &::-moz-range-track {
+    background-image: linear-gradient(to right, #6D6E6D, #6D6E6D);
+  }
+}
+
+.stage-1 {
+  &::-webkit-slider-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_1.png") center / contain no-repeat;
+  } 
+
+  &::-moz-range-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_1.png") center / contain no-repeat;
+  }
+
+  &::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, #6D6E6D 25%);
+  }
+
+  &::-moz-range-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, #6D6E6D 25%);
+  }
+}
+
+.stage-2 {
+  &::-webkit-slider-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_2.png") center / contain no-repeat;
+  }
+
+  &::-moz-range-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_2.png") center / contain no-repeat;
+  }
+
+  &::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, #6D6E6D 50%);
+  }
+
+  &::-moz-range-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, #6D6E6D 50%);
+  }
+}
+
+.stage-3 {
+  &::-webkit-slider-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_3.png") center / contain no-repeat;
+  }
+
+  &::-moz-range-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_3.png") center / contain no-repeat;
+  }
+
+  &::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, #6D6E6D 75%);
+  }
+
+  &::-moz-range-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, #6D6E6D 75%);
+  }
+}
+
+.stage-4 {
+  &::-webkit-slider-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_4.png") center / contain no-repeat;
+  }
+
+  &::-moz-range-thumb {
+    background: white url("../../../../assets/decks/fire/airquality/range/AirQuality_4.png") center / contain no-repeat;
+  }
+
+  &::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, red);
+  }
+
+  &::-moz-range-track {
+    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, red);
+  }
+}
+
+@media (max-width: 481px) {
+  .airquality {
+    &__range {
+      left: -40%;
+    }
+
+    &__types {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 381px) and (min-width: 361px) {
+  .airquality {
+    &__types {
+      font-size: 16px;
+      width: 60%;
+    }
+  }
+}
+
+@media (max-width: 361px) {
+  .airquality {
+    &__range {
+      left: -50%;
+    }
+
+    &__types {
+      width: 60%;
+      font-size: 12px;
+    }
+
+    &__type {
+      padding: 2.5px 7.5px;
+    }
+  }
+}
+
+@media (max-width: 481px) and (max-height: 721px) {
+  .airquality {
+    &__range {
+      left: -35%;
+      width: 400px;
+    }
+
+    &__types {
+      height: 400px;
+    }
+  }
+}
+
+@media (max-height: 569px) {
+  .airquality {
+    height: 80vh;
+
+    &__title {
+      margin: 0 0 25px 0;
+      font-size: 14px;
+    }
+
+    &__range {
+      width: 250px;
+      left: -20%;
+    }
+
+    &__types {
+      height: 250px;
+      width: 75%;
+    }
+
+    &__type {
+      height: 25px;  
+      padding: 5px 10px;
+  
+      &-text {
+        font-size: 10px;
+        margin: 0;
+      }
+  
+      &-icon {
+        width: 25px;
+        max-height: 20px;
+      }
+    }
+  }
+}

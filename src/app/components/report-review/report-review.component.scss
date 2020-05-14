@@ -1,0 +1,103 @@
+:host {
+  width: 100%;
+}
+
+.report-review {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  max-width: 400px;
+  height: 200px;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #424243;
+
+  &__img-container {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    flex: 1;
+  }
+
+  &__img {
+    height: 100%;
+  }
+
+  &__txt {
+    flex: 1;
+    box-sizing: border-box;
+    word-break: break-word;
+    font-size: 12px;
+    padding: 20px;
+    height: 100%;
+    color: white;
+    overflow: auto;
+
+    p {
+      margin: 0;
+    }
+
+    &-desc {
+      margin: 10px 0;
+    }
+  }
+
+  &__fire {
+    margin: 5px 0;
+
+    &-dist {
+      margin: 2.5px 0;
+      display: block;
+      color: red;
+    }
+  }
+
+  &__road {
+    &-acc {
+      p:first-child {
+        margin: 5px 0 2.5px 0;
+      }
+
+      p:last-child {
+        margin: 2.5px 0 5px 0;
+      }
+
+      .yellow {
+        color: rgb(201, 201, 4);
+      }
+    }
+
+    &-dist {
+      margin: 10px 0;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  margin-top: 5px;
+  align-items: center;
+
+  & img {
+    height: 50%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 481px) {
+  .report-review {
+    height: 140px;
+
+    &__txt {
+      padding: 5px 10px;
+    }
+  }
+}
+
+@media (max-width: 321px) {
+  .report-review {
+    height: 120px;
+  }
+}

@@ -1,0 +1,94 @@
+@import '../../../styles/mixins.scss';
+
+.cardContentContainer{
+  width: 100%;
+  height: 100vh;
+  margin-top: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .cardContentWrapper{
+    position: relative;
+    width: 300px;
+    height: 300px;
+
+    #bgImage {
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    #floodZone {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      border-top: 2px dashed white;
+      background: linear-gradient(rgba(49, 170, 222, 0.6), rgba(49, 170, 222, 0));
+      z-index: 3;
+    }
+
+    #sliderWrapper {
+      position: absolute;
+      width: 100%;
+      height: 30px;
+      right: 0;
+      transform: translateY(50%);
+      z-index: 10;
+
+      #sliderZone{
+        height: 100%;
+        z-index: 10;
+        position: absolute;
+        width: 100%;
+        cursor: grab;
+      }
+
+      #knob{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        bottom: 0;
+        background-color: #31aade;
+        border: 2px solid #fff;
+        border-radius: 20px;
+        z-index: 8;
+        box-shadow: 0px 0px 12px 8px rgba(49,170,222,0.4);
+        right: 0;
+
+        &.active{
+          box-shadow: 0px 0px 12px 8px rgba(179, 214, 239, 0.5);
+
+          .knobIcon{
+            opacity: 0; //hide prompt arrows when slider is active
+          }
+        }
+
+        .knobIcon{
+          position: absolute;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          color: $snow-white;
+          transition: opacity 0.2s ease-out;
+        }
+
+        .knobIcon--arrowUpIcon{
+          top: 0;
+          transform: translateY(-100%);
+        }
+
+        .knobIcon--arrowDownIcon{
+          bottom: 0;
+          transform: translateY(100%);
+        }
+      }
+
+      #depthText {
+        transform: translateY(-50%);
+        user-select: none;
+      }
+    }
+  }
+}

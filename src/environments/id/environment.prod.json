@@ -1,0 +1,82 @@
+{
+  "production": true,
+  "stage": "prod",
+  "deployment": "id",
+  "supported_languages": ["en", "id"],
+  "default_language": "id",
+  "mapbox_access_token": "pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ",
+  "data_server": "https://data.petabencana.id/",
+  "app": "https://petabencana.id/",
+  "decks": [{
+    "name": "flood",
+    "cards": [
+      "location",
+      "depth",
+      "photo",
+      "description",
+      "review"
+    ]
+  },
+  {
+    "name": "fire",
+    "cards": [
+      "firedistance",
+      "fireestimate",
+      "photo",
+      "description",
+      "review",
+      "thank"
+    ]
+  },
+  {
+    "name": "haze",
+    "cards": [
+      "location",
+      "visibility",
+      "airquality",
+      "photo",
+      "description",
+      "review",
+      "thank"
+    ]
+  },
+  {
+    "name": "earthquake",
+    "cards": [
+      "type",
+      "location",
+      "structure",
+      "accessibility",
+      "condition",
+      "photo",
+      "description",
+      "review",
+      "thank"
+    ]
+  },
+  {
+    "name": "wind",
+    "cards": [
+      "location",
+      "impact",
+      "photo",
+      "description",
+      "review",
+      "thank"
+    ]
+  },
+  {
+    "name": "volcano",
+    "cards": [
+      "location",
+      "sign",
+      "photo",
+      "description",
+      "evacuationnumber",
+      "evacuationarea",
+      "review",
+      "thank"
+    ]
+  }
+]
+}

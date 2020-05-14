@@ -1,0 +1,20 @@
+<div class="accessibility">
+  <img [src]="image" alt="Accessibility" class="accessibility__img">
+  <div class="accessibility__slider">
+    <input
+      [ngClass]="['accessibility__slider-range', 'stage-' + stage]"
+      type="range" name="accessibility__range" 
+      min="0" max="4" step="1"
+      (change)="onInputChange($event.target.value)"
+      [value]="accessibility"
+    >
+
+    <div class="left-arrow"><i class="fa fa-angle-left"></i></div>
+    <div class="right-arrow"><i class="fa fa-angle-right"></i></div>
+
+    <div class="accessibility__slider-output">
+      {{ displayNumber }} m
+    </div>
+  </div>
+  <p class="accessibility__txt">{{ accessibilityText | translate }}</p>
+</div>

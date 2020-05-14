@@ -1,0 +1,79 @@
+{
+  "production": false,
+  "stage": "dev",
+  "deployment": "jp",
+
+  "decks": [{
+      "name": "flood",
+      "cards": [
+        "location",
+        "depth",
+        "photo",
+        "description",
+        "review"
+      ]
+    },
+    {
+      "name": "fire",
+      "cards": [
+        "type",
+        "firedistance",
+        "fireestimate",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
+    },
+    {
+      "name": "haze",
+      "cards": [
+        "location",
+        "visibility",
+        "airquality",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
+    },
+    {
+      "name": "earthquake",
+      "cards": [
+        "type",
+        "location",
+        "structure",
+        "accessibility",
+        "condition",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
+    },
+    {
+      "name": "wind",
+      "cards": [
+        "location",
+        "structure",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
+    },
+    {
+      "name": "volcano",
+      "cards": [
+        "location",
+        "sign",
+        "photo",
+        "description",
+        "evacuationnumber",
+        "evacuationarea",
+        "review",
+        "thank"
+      ]
+    }
+  ]
+}

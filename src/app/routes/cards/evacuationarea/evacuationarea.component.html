@@ -1,0 +1,9 @@
+<div class="description">{{ card.evacuation.description | translate }}</div>
+<div class="options">
+  <div (click)="onOptionClick(true)" [ngClass]="{'option': true, 'selected': selectedOption === true}">
+    <p>Yes</p>
+  </div>
+  <div (click)="onOptionClick(false)" [ngClass]="{'option': true, 'selected': selectedOption === false}">
+    <p>No</p>
+  </div>
+</div>

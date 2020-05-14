@@ -1,0 +1,28 @@
+#titleText {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  color: white;
+  background-color: #424243;
+  line-height: 50px;
+}
+
+#tabsRow {
+  position: absolute;
+  display: table;
+  table-layout: fixed;
+  margin-top: -1px;
+  width: 100%;
+  background-color: #3D5C69;
+
+  z-index: 999;
+
+  .tabs {
+    display: table-cell;
+    height: 5px;
+
+    &.filled {
+      background-color: #31aade;
+    }
+  }
+}

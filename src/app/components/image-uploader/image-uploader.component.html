@@ -1,0 +1,43 @@
+<label id="image-uploader-label" for="image-uploader-button">
+  <i 
+    class="material-icons" id="image-uploader-icon" 
+    *ngIf="!isImageSelected"
+  >
+    photo_camera
+  </i>
+  <img 
+    [ngStyle]="{ 'transform': 'rotate(' + rotateDeg + 'deg)' }" 
+    id="image-uploader-picture" alt="" *ngIf="isImageSelected"
+  >
+</label>
+
+<div id="image-uploader-divider">
+  <div id="image-uploader-divider__left">
+    <label for="image-uploader-button">
+      <i 
+        [ngClass]="{'material-icons': true, 'active-icon': isImageSelected }" 
+        id="image-uploader-divider__take"
+      >
+        photo_camera
+      </i>
+    </label>
+    <i 
+      [ngClass]="{'material-icons': true, 'active-icon': isImageSelected }" 
+      (click)="rotateImage()" id="image-uploader-divider__reload"
+    >
+      refresh
+    </i>
+  </div>
+  <div id="image-uploader-divider__right" (click)="deletePreview()">
+    <i 
+      [ngClass]="{'material-icons': true, 'active-icon': isImageSelected }" 
+      id="image-uploader-divider__delete"
+    >
+      delete
+    </i>
+  </div>
+</div>
+<input 
+  (change)="onFileChanged($event)" 
+  type="file" accept="image/*" id="image-uploader-button" #file
+>

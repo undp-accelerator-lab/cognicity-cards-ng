@@ -1,0 +1,23 @@
+<div class="impact">
+  <img 
+    [src]="image" 
+    alt="Impact" 
+    class="impact__img"
+  >
+
+  <div class="impact__slider">
+    <input 
+      type="range" name="impact__slider-range" 
+      min="0" max="2" 
+      [ngClass]="['impact__slider-range', 'range-' + impact]" 
+      (change)="onInputChange($event.target.value)"
+      [value]="impact"
+    >
+
+    <div class="left-arrow"><i class="fa fa-angle-left"></i></div>
+    <div class="right-arrow"><i class="fa fa-angle-right"></i></div>
+  </div>
+
+  <p class="impact__txt">{{ title | translate }}</p>
+  <p class="impact__sub">({{ subtitle | translate }})</p>
+</div>

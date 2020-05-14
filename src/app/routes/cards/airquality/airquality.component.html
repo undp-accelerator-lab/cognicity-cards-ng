@@ -1,0 +1,25 @@
+<div class="airquality">
+  <p class="airquality__title">Indicate any symptoms:</p>
+  <div class="airquality__input">
+    <input 
+      type="range" min="0" max="4" value="0" 
+      [ngClass]="['airquality__range', 'stage-' + rangeValue ]" 
+      (change)="onInputChange($event.target.value)"
+      #range orient="vertical" [value]="rangeValue"
+    >
+    <div class="airquality__types">
+      <div 
+        *ngFor="let fact of facts; let i = index" 
+        [ngClass]="{ 'airquality__type': true, 'highlight': rangeValue == i }"
+        (click)="onInputChange(i)"
+      >
+        <p class="airquality__type-text">{{ fact | translate }}</p>
+        <img 
+          [ngClass]="{ 'airquality__type-icon': true, 'none': i == 0 }" 
+          alt="air quality icon" 
+          src="../../../../assets/decks/fire/airquality/type/AirQuality_Icon_{{i}}.png"
+        >
+      </div>
+    </div>
+  </div>
+</div>

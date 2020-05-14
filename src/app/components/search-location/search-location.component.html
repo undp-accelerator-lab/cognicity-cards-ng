@@ -1,0 +1,21 @@
+<form  (ngSubmit)="onSubmit()" class='search-location-form' autocomplete="off">
+
+  <div class='search-location-form__search-bar-wrapper'>
+    <input
+      type="text" class="search-location-form__input"
+      placeholder="{{ searchText }}"
+      [(ngModel)]="query" name="search"
+      (ngModelChange)="onInputChange($event)"
+      #searchBar
+    >
+    <button type="submit" class="search-location-form__btn"><span class="material-icons">search</span></button>
+  </div>
+
+  <div  class='dynamic-search-results-container' [ngStyle]="{'display': dynamicResultsDisplay }">
+    <div class='dynamic-search-results-wrapper'>
+      <div #searchResult (click)= 'onOptionClick(data.label)' class='dynamic-search-results__result' *ngFor="let data of searchResultsData">
+        <h3 #searchResultText >{{ data.label }}</h3>
+      </div>
+    </div>
+  </div>
+</form>

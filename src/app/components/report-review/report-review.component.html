@@ -1,0 +1,69 @@
+<div class="report-review">
+  <div id="preview-img-container" class="report-review__img-container">
+    <img 
+      id="preview-img" src="https://via.placeholder.com/150" 
+      alt="fire image" class="report-review__img"
+    >
+  </div>
+  <div class="report-review__txt">
+    <ng-template [ngIf]="deckType === 'fire'">
+      <div class="report-review__fire">
+        Fire Extent:
+        <span class="report-review__fire-dist">
+          {{ fireRange }} hectares
+        </span>
+      </div>
+    </ng-template>
+
+    <ng-template [ngIf]="deckType === 'haze'">
+      <div class="row" *ngIf="airQuality !== ''">
+        <img id="airquality" src="" alt="Air Quality Indicator">
+        <div>
+          <p>Air Quality: </p>  
+          <p id="airquality-text">{{ airQuality }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <img id="visibility" src="" alt="Air Quality Indicator">
+        <div>
+          <p>Visibility: </p>  
+          <p>{{ visibility }}</p>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template [ngIf]="deckType === 'road'">
+      <div class="report-review__road-acc">
+        <p>Access: <span [style.color]="accessibilityColor">
+            {{ accessibility }}m
+        </span></p>
+        <p [style.color]="accessibilityColor">{{ accessibilityHint }}</p>
+      </div>
+      <div class="report-review__road-dist">
+        Disturbance: {{ condition }}
+      </div>
+    </ng-template>
+
+    <ng-template [ngIf]="deckType === 'structure' || deckType === 'wind'">
+      <div [style.margin-top]="'10px'" >
+        <p [style.color]="structuralFailureColor">{{ structuralFailure }}</p>
+      </div>
+    </ng-template>
+
+    <ng-template [ngIf]="deckType === 'volcano'">
+      <p *ngFor="let sign of volcanicSigns" class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
+        {{ sign }};
+      </p>
+      <p class="evacuation-number" *ngIf="evacuationNumber" [style.color]="'#31aade'" [style.line-height]="1.5">
+        {{ evacuationNumber }} people in the area;
+      </p>
+      <p class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
+        {{ evacuationArea }}
+      </p>
+    </ng-template>
+
+    <div class="report-review__txt-desc">
+      {{ description }}
+    </div>
+  </div>
+</div>

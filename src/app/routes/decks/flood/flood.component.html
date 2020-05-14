@@ -1,0 +1,20 @@
+<div>
+  <app-title-box [title]="'card.titles.' + navController.getCardPath() | translate">
+  </app-title-box>
+</div>
+
+<router-outlet>
+</router-outlet>
+
+<div
+  id="navWrapper">
+  <app-nav-button
+    [text]="'deck.prev' | translate"
+    (navigate)="navController.back(route)">
+  </app-nav-button>
+
+  <app-nav-button
+    [text]="'deck.next' | translate"
+    (navigate)="navController.next(route)">
+  </app-nav-button>
+</div>

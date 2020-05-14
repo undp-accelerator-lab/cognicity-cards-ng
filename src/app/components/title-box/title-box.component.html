@@ -1,0 +1,11 @@
+<div id="titleText">
+  {{ title }}
+</div>
+
+<div id="tabsRow" *ngIf="isShowTabs">
+  <div
+    *ngFor="let tab of totalTabs; index as i"
+    [ngClass]="[getCssClass(i)]"
+  >
+  </div>
+</div>

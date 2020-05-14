@@ -1,0 +1,17 @@
+<div class="thanks">
+  <img [src]="typeImage" alt="success image report" class="thanks__img">
+  <p class="thanks__title">
+    {{'card.thank.result' | translate}}
+  </p>
+  <p class="thanks__subtitle">
+  {{'card.thank.title' | translate}}
+  </p>
+
+  <p *ngIf="isShowReportAgain" class="thanks__again">	
+    {{ reportAgainText | translate}}	
+  </p>
+  <div *ngIf="isShowReportAgain" class="thanks__btn-group">	
+    <a class="thanks__btn" (click)="reportAnotherCard()">{{'card.thank.acceptButton' | translate}}</a>	
+    <a class="thanks__btn" (click)="isShowReportAgain = false">{{'card.thank.rejectButton' | translate}}</a>	
+  </div>
+</div>

@@ -1,0 +1,40 @@
+@import '../../../styles/mixins.scss';
+
+$search-comp-width: 60%;
+
+.search-location-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 60px;
+  z-index: 1000;
+  width: 100%;
+
+  .search-location-form__search-bar-wrapper{
+    width: $search-comp-width;
+    display: flex;
+
+    .search-location-form__input {
+      height: 60px;
+      font-size: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
+      flex: 1;
+    }
+
+    .search-location-form__btn{
+
+    }
+  }
+
+  .dynamic-search-results-container{
+    background-color: $snow-white;
+    width: $search-comp-width;
+
+    .dynamic-search-results__result{
+      padding: 20px;
+    }
+  }
+
+}

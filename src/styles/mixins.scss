@@ -1,0 +1,167 @@
+//@import "../../../assets/fonts/roboto/css/fonts.css';
+
+//__COLOR VARIABLES__
+//Card layouts & background fills
+$dark-gray:       #2f2f2f;
+$steel-gray:      #424242;
+$light-gray:      #808080;
+$snow-white:      #ffffff;
+$translucent-white: rgba(255, 255, 255, .85);
+$translucent-black: rgba(0, 0, 0, .8);
+$solid-black: #000000;
+
+//Card highlights
+$banjir-blue:     #31aade;
+$dark-blue:       #1f4963;
+$blue-hover: saturate($banjir-blue, 100%);
+
+//Map icons
+$tree-green:      #006b3b;
+$drain-brown:     #782a07;
+$canal-yellow:    #ba870d;
+$silt-orange:     #d14d11;
+
+//Icons & graphs
+$flash-green:     #99cc33;
+$flash-yellow:    #ede838;
+$flash-orange:    #eaaf1c;
+$flash-red:       #ef4f21;
+$bencana-red:     #c1272d; //
+
+//Text
+$title-color:     #ffffff;
+$body-color:      #ffffff;
+// $hint-color:             ; //appropriate gray
+// $link-color:             ; //blue?
+// $swap-color:             ; //dark gray or black on light gray BG, eg. logos
+$disabled-color:  #808080;
+
+//__SHADOW VARIABLES__
+//Shadow styles
+$drop-shadow:       0px 4px 8px 0px rgba(0, 0, 0, 0.4);
+$spread-shadow:     0px 6px 20px 0px rgba(0, 0, 0, 0.4);
+$inset-shadow:      inset 2px 5px 8px 0px rgba(0, 0, 0, 0.4);
+$boxshadow-normal:  2px 5px 8px 0px rgba(0, 0, 0, 0.4);
+$boxshadow-pressed: 2px 3px 6px 0px rgba(0, 0, 0, 0.4);
+
+
+//_Transform class_
+@mixin translate-mixin($x, $y){
+  -ms-transform: translate($x, $y);
+  -webkit-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+
+//_Font styles Variables_
+@mixin bodylight-mixin($var){
+  font-family: "Roboto-Light", "Roboto", Open Sans;
+  font-size: $var;
+  color: $steel-gray;
+}
+
+@mixin bodyregular-mixin($var){
+  font-family: "Roboto", "Roboto", Open Sans;
+  font-size: $var;
+  color: $steel-gray;
+}
+
+@mixin bodymedium-mixin($var){
+  font-family: "Roboto-Medium", "Roboto", Open Sans;
+  font-size: $var;
+  color: $steel-gray;
+}
+
+@mixin bodybold-mixin($var){
+  font-family: "Roboto-Bold", "Roboto", Open Sans;
+  font-size: $var;
+  color: $steel-gray;
+}
+
+@mixin linklight-mixin($var){
+  font-family: "Roboto-Light", "Roboto", Open Sans;
+  font-size: $var;
+  color: $steel-gray;
+  cursor: pointer;
+  @media (min-width: 420px) {
+    &:hover {
+      color: $blue-hover;
+    }
+  }
+  &:active {
+    color: $dark-blue;
+  }
+}
+
+@mixin linkmedium-mixin($var){
+  font-family: "Roboto-Medium", "Roboto", Open Sans;
+  font-size: $var;
+  color: $steel-gray;
+  cursor: pointer;
+  @media (min-width: 420px) {
+    &:hover {
+      color: $blue-hover;
+    }
+  }
+  &:active {
+    color: $dark-blue;
+  }
+}
+
+//Custom layout configs
+@mixin fullspan-mixin(){
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+//Card variables
+@mixin fixed-content-wrapper(){
+  position: absolute;
+  width: 300px;
+  height: 272px;
+  left: 50%;
+  top: 0px;
+  @include translate-mixin(-50%, 0);
+  @media screen and (min-height: 372px) {
+    top: 40%;
+    @include translate-mixin(-50%, -50%);
+  }
+  overflow: visible;
+}
+
+@mixin inset-content-wrapper(){
+  position: relative;
+  width: 300px;
+  height: 280px;
+  margin: 0px auto;
+  padding: 30px 0px 0px 0px;
+  border: none;
+}
+
+//Map page variables
+$bar-heights: 45px;
+
+@mixin mappane-mixin($ht){
+  display: none;
+  position: absolute;
+  @media screen {
+    @media (min-width: 320px) {
+      width: 100%;
+    }
+    @media (min-width: 420px) {
+      width: 420px;
+      right: 0px;
+    }
+  }
+  height: $ht; //configured to pre-set pixels here, change in js on the fly
+  bottom: 0px;
+  padding: 0px;
+  margin: 0px;
+  z-index: 1000;
+  background-color: $translucent-white;
+  box-shadow: $spread-shadow;
+}
+::-webkit-scrollbar {
+    display: none;
+}

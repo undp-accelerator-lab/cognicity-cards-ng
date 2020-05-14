@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~material-design-icons/iconfont/material-icons.css';
+
+html, body {
+  top: 0;
+  left: 0;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #808080
+}
+
+// Decks
+.deck {
+  background-color: #808281;
+  min-height: 100vh;
+}
+
+#navWrapper {
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
+  z-index: 999;
+  height: 15%;
+  text-align: center;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+// MODIFY TOP LEFT GET CURRENT LOCATION APPEARANCE
+
+.locate {
+  height: 100%;
+  background-image: url('../assets/decks/fire/location/locate.svg');
+  display: block;
+  background-position: center;
+  background-size: 75%;
+  background-repeat: no-repeat;
+}
+
+// MODIFY TOP RIGHT COMPASS APPEARANCE
+
+.leaflet-compass.leaflet-control {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.leaflet-compass .compass-icon {
+  background: url("../assets/decks/fire/location/NorthArrow.png") center center no-repeat !important;
+  background-size: 32px !important;
+}
+
+// Fire Estimate Marker
+
+.radius {
+  &-icon {
+    background-color: #EE1D23;
+    width: 25px;
+    width: 25px;
+    border-radius: 50%;
+
+    border: 1.5px solid white;
+    box-shadow: 0 0 10px 1px #EE1D23;
+  }
+
+  &-circle {
+    stroke: white;
+    stroke-dasharray: 4;
+    stroke-width: 1.5px;
+
+    fill: #EE1D23;
+    fill-opacity: 0.25;
+  }
+}

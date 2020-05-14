@@ -1,0 +1,13 @@
+.fire-estimate {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  #mapid { 
+    height: 100%;
+    width: 100%; 
+  }
+}
