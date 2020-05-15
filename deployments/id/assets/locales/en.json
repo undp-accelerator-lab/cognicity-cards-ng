@@ -1,4 +1,8 @@
 {
+  "terms": {
+    "userAgreement": "User Agreement",
+    "privacy": "Privacy policy"
+  },
   "deck": {
     "prev": "PREV",
     "next": "NEXT"
