@@ -1,4 +1,8 @@
 {
+  "terms": {
+    "userAgreement": "Persetujuan pengguna",
+    "privacy": "Kebijakan privasi"
+  },
   "deck": {
     "prev": "KEMBALI",
     "next": "LANJUTKAN"
