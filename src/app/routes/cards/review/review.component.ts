@@ -31,7 +31,7 @@ export class ReviewComponent implements OnInit {
   async ngOnInit() {
     this.deckService.userCanBack()
     this.deckService.userCannotContinue()
-
+    this.switchTab(this.termscontents[0].tab_key);
     this.isLocationInIndonesia = await this.deckService.isLocationInIndonesia();
   }
 
@@ -46,8 +46,11 @@ export class ReviewComponent implements OnInit {
   switchTab(key) {
     this.termscontents.forEach(element => {
       if(element.tab_key === key) 
-        this.tabContent = element.tab_content;  
-    });
+        this.tabContent = element.tab_content; 
+      else
+        $("."+element.tab_key).removeClass("active");
+      });
+    $("."+key).addClass("active");
   }
 
   closeTerms() {

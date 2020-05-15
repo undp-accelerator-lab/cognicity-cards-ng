@@ -4,13 +4,9 @@
     
   <p class="review__text" *ngIf="!showWarning">
     {{'card.review.text' | translate}} 
-    <a href="https://petabencana.id/">{{'card.review.link' | translate}}</a>
-  </p>
-  
-  <p class="review__text" *ngIf="!showWarning">
     <a (click)="showTerms()"> {{'card.review.terms' | translate}}</a>
   </p>
-
+  
   <div class="review__warning" *ngIf="showWarning">
     <p *ngIf="isDescriptionAndPhotoEmpty">
       <i class="fa fa-exclamation-circle"></i>  
@@ -23,9 +19,13 @@
   </div>
 
   <div id="termsPopup">
+    <div id="termsHeader"> 
+      <p> {{'card.review.terms' | translate}} </p>
+    </div>
     <div id="tabRow">
       <div
         *ngFor="let switch of termscontents; let i = index"
+        [ngClass]="switch.tab_key"
         class="termsTabs"
         (click)="switchTab(switch.tab_key)"
       >
