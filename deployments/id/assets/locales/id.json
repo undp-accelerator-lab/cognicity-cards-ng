@@ -27,7 +27,11 @@
       
       "impact": "Laporkan Dampak Karena Angin",
       "windstructure": "Laporan Kerusakan Bangunan",
-      Kedalaman Banjir
+      
+      "sign": "Laporkan Tanda-Tanda Gunungapi",
+      "evacuationnumber": "Laporkan Evakuasi",
+      "evacuationarea": "Laporkan Evakuasi",
+
       "photo": "Unggah Foto",
       "description": "Tambahkan Deskripsi",
       "review": "Tinjau & Laporkan",
