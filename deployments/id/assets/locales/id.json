@@ -27,11 +27,7 @@
       
       "impact": "Laporkan Dampak Karena Angin",
       "windstructure": "Laporan Kerusakan Bangunan",
-      
-      "sign": "Laporkan Tanda-Tanda Gunungapi",
-      "evacuationnumber": "Laporkan Evakuasi",
-      "evacuationarea": "Laporkan Evakuasi",
-
+      Kedalaman Banjir
       "photo": "Unggah Foto",
       "description": "Tambahkan Deskripsi",
       "review": "Tinjau & Laporkan",
@@ -146,7 +142,10 @@
     "review": { 
       "text": "Dengan mengirimkan laporan ini Anda setuju dengan",
       "terms": "Persetujuan pengguna & Kebijakan privasi",
-      "link": "Kesepakatan Kontribusi PetaBencana.id"
+      "link": "Kesepakatan Kontribusi PetaBencana.id",
+      "disturbanceKey": "Rusak:",
+      "accessKey": "kendaraan:",
+      "floodKey": "Kedalaman Banjir"
     },
     "thank": { 
       "result": "SUKSES!",

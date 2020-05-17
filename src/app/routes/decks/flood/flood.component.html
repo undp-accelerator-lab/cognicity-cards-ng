@@ -8,7 +8,7 @@
 
 <div
   id="navWrapper"
-  ngIf="navController.getCurrentRouteName() !== 'thank'" >
+  *ngIf="navController.getCurrentRouteName() !== 'thank'" >
   <app-nav-button
     [text]="'deck.prev' | translate"
     (navigate)="navController.back(route)">

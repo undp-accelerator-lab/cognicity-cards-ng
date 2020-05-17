@@ -140,7 +140,10 @@
     "review": { 
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",
-      "link": "PetaBencana.id Contributors Agreement"
+      "link": "PetaBencana.id Contributors Agreement",
+      "disturbanceKey": "Disturbance:",
+      "accessKey": "Access:",
+      "floodKey": "Flood Depth"
     },
     "thank": { 
       "result": "SUCCESS!",

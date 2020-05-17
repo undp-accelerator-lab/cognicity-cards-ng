@@ -6,6 +6,15 @@
     >
   </div>
   <div class="report-review__txt">
+    <ng-template [ngIf]="deckType === 'flood'">
+      <div class="report-review__fire">
+        {{ floodKey }}
+        <span class="report-review__fire-dist">
+          {{ floodKey }} m
+        </span>
+      </div>
+    </ng-template>
+    
     <ng-template [ngIf]="deckType === 'fire'">
       <div class="report-review__fire">
         Fire Extent:
@@ -34,13 +43,13 @@
 
     <ng-template [ngIf]="deckType === 'road'">
       <div class="report-review__road-acc">
-        <p>Access: <span [style.color]="accessibilityColor">
+        <p>{{ accessibilityKey }} <span [style.color]="accessibilityColor">
             {{ accessibility }}m
         </span></p>
         <p [style.color]="accessibilityColor">{{ accessibilityHint }}</p>
       </div>
       <div class="report-review__road-dist">
-        Disturbance: {{ condition }}
+        {{ disturbanceKey }} {{ condition }}
       </div>
     </ng-template>
 
