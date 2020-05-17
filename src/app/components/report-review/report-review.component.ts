@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 
 import { DeckService } from '../../services/cards/deck.service'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-report-review',
@@ -14,7 +15,8 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   constructor(
     public deckService: DeckService,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
+    public translate: TranslateService,
   ) { }
 
   ngOnInit() {
@@ -122,6 +124,10 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     if (range < 1) return '<1'
     return range.toFixed(2)
   }
+  
+  get floodDepth() {
+    return this.deckService.getFloodDepth();
+  }
 
   // Haze
 
@@ -154,14 +160,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   get accessibilityHint() {
     const accessibility = this.deckService.getAccessibility()
-
-    switch (accessibility) {
-      case 0 : return "No Vehicle"
-      case 1 : return "2-Wheel Vehicle"
-      case 2 : return "4-Wheel Vehicle"
-      case 3 : return "Large Vehicle"
-      case 4 : return "Large Vehicle (Truck)"
-    }
+    return this.translate.instant("card.accessibility."+accessibility)
   }
 
   get accessibilityColor() {
@@ -176,14 +175,19 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     }
   }
 
+  get accessibilityKey() {
+    return this.translate.instant("card.review.accessKey");
+  }
+  get disturbanceKey() {
+    return this.translate.instant("card.review.disturbanceKey");
+  }
+  get floodKey() {
+    return this.translate.instant("card.review.floodKey");
+  }
+
   get condition() {
     const condition = this.deckService.getCondition()
-
-    switch (condition) {
-      case 0: return 'Light'
-      case 1: return 'Moderate'
-      case 2: return 'Heavy'
-    }
+    return this.translate.instant("card.condition."+condition+".title");
   }
 
   // Structure
@@ -191,9 +195,9 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     const failure = this.deckService.getStructureFailure()
 
     switch(failure) {
-      case 0: return 'Cracking'
-      case 1: return 'Partially Collapsed'
-      case 2: return 'Fully Collapsed'
+      case 0: return this.translate.instant("card.structure.cracking")
+      case 1: return this.translate.instant("card.structure.partially_collapsed")
+      case 2: return this.translate.instant("card.structure.fully_collapsed")
     }
   }
 
