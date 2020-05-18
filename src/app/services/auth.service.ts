@@ -1,12 +1,16 @@
 import { Injectable, NgModule } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment as env } from '../../environments/environment';
+import { DeckService } from './cards/deck.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private deckService: DeckService
+    ) {}
 
   async checkOTL(stage, otl) {
     if (
@@ -35,6 +39,7 @@ export class AuthService {
     var is_unique = false;
     try {
       var responseData = await self.GetOTLuniqueness(unique_id);
+      this.deckService.setCardLanguage(responseData.result.language);
       console.log(responseData);
       is_unique = true;
       if (responseData.result.received === true)

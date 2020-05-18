@@ -19,6 +19,7 @@ export class DeckService {
 
   constructor(private http: HttpClient) { }
   finishedSubType = []
+  cardLanguage = ""
 
   type: deckType
   subType: deckSubType
@@ -66,6 +67,9 @@ export class DeckService {
   setSubSubmission() {
     this.sub_submission = true
   }
+  setCardLanguage(lang:string) {
+    this.cardLanguage = lang
+  }
 
   async isLocationInIndonesia() {
     // const requestHeaders: HeadersInit = new Headers();
@@ -101,6 +105,7 @@ export class DeckService {
   getVolcanicSigns(): number[] { return this.volcanicSigns }
   getEvacuationNumber(): null | number { return this.evacuationNumber }
   getEvacuationArea(): null | boolean { return this.evacuationArea }
+  getCardLanguage(): string { return this.cardLanguage }
 
   getDescription() { return this.description }
   getPreview() { return this.preview }
