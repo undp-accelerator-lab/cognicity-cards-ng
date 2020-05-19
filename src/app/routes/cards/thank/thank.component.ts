@@ -53,7 +53,9 @@ export class ThankComponent {
     if(this.deckService.getDeckType() === 'earthquake' ){
       let newDeckSubType:any = this.deckService.getDeckSubType() === 'road' ? 'structure' : 'road';
       this.deckService.setDeckSubType(newDeckSubType);
+      this.navController.filterRoutes(newDeckSubType);
       this.navController.resetEqDeckToLocation(this.deckService.getRoute());
+      // this.navController.nextFromChild(this.route, '../../../');
     }else{
       this.navController.reset(this.deckService.getRoute());
     }
