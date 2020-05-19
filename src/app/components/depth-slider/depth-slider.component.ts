@@ -35,7 +35,7 @@ export class DepthSliderComponent implements OnInit {
       this.depthText = Math.round(this.currentY * 2) + ' cm';;
     }
     else {
-      this.deckService.setFloodDepth(this.currentY * 2);
+      this.deckService.setFloodDepth(Math.round(this.currentY * 2));
     }
   }
 
