@@ -22,7 +22,7 @@ export class HazeComponent implements OnInit {
     translate.setDefaultLang('id');
 
     // the lang to use, if the lang isn't available, it will use the current loader to get them
-    translate.use('id');
+    translate.use(this.deckService.getCardLanguage());
 
     // Store card routes for navigation
     this.navController.registerCardRoutes('haze');

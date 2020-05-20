@@ -10,7 +10,7 @@
       <div class="report-review__fire">
         {{ floodKey }}
         <span class="report-review__fire-dist">
-          {{ floodKey }} m
+          {{ floodDepth }} m
         </span>
       </div>
     </ng-template>
@@ -55,7 +55,7 @@
 
     <ng-template [ngIf]="deckType === 'structure' || deckType === 'wind'">
       <div [style.margin-top]="'10px'" >
-        <p [style.color]="structuralFailureColor">{{ structuralFailure }}</p>
+        <p> {{ structuralFailureKey }}<span> [style.color]="structuralFailureColor">{{ structuralFailure }} </span></p>
       </div>
     </ng-template>
 

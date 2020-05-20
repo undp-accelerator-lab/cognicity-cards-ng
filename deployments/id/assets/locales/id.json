@@ -149,7 +149,8 @@
       "link": "Kesepakatan Kontribusi PetaBencana.id",
       "disturbanceKey": "Rusak:",
       "accessKey": "kendaraan:",
-      "floodKey": "Kedalaman Banjir"
+      "structureKey": "Kerusakan Bangunan",
+      "floodKey": "Tinggi Banjir"
     },
     "thank": { 
       "result": "SUKSES!",

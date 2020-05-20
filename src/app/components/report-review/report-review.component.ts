@@ -189,8 +189,11 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     const condition = this.deckService.getCondition()
     return this.translate.instant("card.condition."+condition+".title");
   }
-
+  
   // Structure
+  get structuralFailureKey() {
+    return this.translate.instant("card.review.structureKey")
+  }
   get structuralFailure() {
     const failure = this.deckService.getStructureFailure()
 
