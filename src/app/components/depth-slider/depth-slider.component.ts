@@ -49,7 +49,7 @@ export class DepthSliderComponent implements OnInit {
   dragEnd($event) {
     this.sliderIsActive = false;
     this.knobClass = '';
-    this.deckService.setFloodDepth(this.currentY * 2);
+    this.deckService.setFloodDepth(Math.round(this.currentY * 2));
   }
 
   calcPercentInverted(val, total){
