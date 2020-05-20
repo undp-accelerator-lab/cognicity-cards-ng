@@ -14,7 +14,8 @@
       "depth",
       "photo",
       "description",
-      "review"
+      "review",
+      "thank"
     ]
   },
   {
