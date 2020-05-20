@@ -78,7 +78,7 @@
       ]
     },
     "accessibility": [
-      "No Vehicle",
+      "no access for vehicles",
       "2 Wheel Vehicle",
       "4 Wheel Vehicle (Sedan)",
       "4 Wheel Vehicle (SUV)",
@@ -143,6 +143,7 @@
       "link": "PetaBencana.id Contributors Agreement",
       "disturbanceKey": "Disturbance:",
       "accessKey": "Access:",
+      "structureKey": "Structural Failure",
       "floodKey": "Flood Depth"
     },
     "thank": { 

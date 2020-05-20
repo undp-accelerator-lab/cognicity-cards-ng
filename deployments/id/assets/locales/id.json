@@ -148,8 +148,9 @@
       "terms": "Persetujuan pengguna & Kebijakan privasi",
       "link": "Kesepakatan Kontribusi PetaBencana.id",
       "disturbanceKey": "Rusak:",
-      "accessKey": "kendaraan:",
-      "floodKey": "Kedalaman Banjir"
+      "accessKey": "Kendaraan:",
+      "structureKey": "Kerusakan Bangunan",
+      "floodKey": "Tinggi Banjir"
     },
     "thank": { 
       "result": "SUKSES!",
