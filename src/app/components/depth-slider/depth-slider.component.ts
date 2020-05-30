@@ -40,7 +40,9 @@ export class DepthSliderComponent implements OnInit {
   }
 
   dragStart($event) {
+    console.log($event);
     if ($event.target === this.dragItem) {
+      console.log($event);
        this.sliderIsActive = true;
        this.knobClass = 'active';
      }
@@ -57,12 +59,13 @@ export class DepthSliderComponent implements OnInit {
   }
 
   drag($event) {
-    const dragPos = this.calcPercentInverted($event.clientY - this.dragContainerOffsetTop, this.dragContainerHeight);
+    const mousePos = $event.touches? $event.touches[0].clientY : $event.clientY
+    const dragPos = this.calcPercentInverted(mousePos - this.dragContainerOffsetTop, this.dragContainerHeight);
     if (this.sliderIsActive) {
       $event.preventDefault();
       //only allow currentY to update if its not bleeding beyond the boundaries of dragContainer
       if(dragPos >= 0 && dragPos <= 100){
-        this.currentY = this.calcPercentInverted($event.clientY - this.dragContainerOffsetTop, this.dragContainerHeight);
+        this.currentY = this.calcPercentInverted(mousePos - this.dragContainerOffsetTop, this.dragContainerHeight);
         this.depthText = Math.round(this.currentY * 2) + ' cm';
       }
     }
