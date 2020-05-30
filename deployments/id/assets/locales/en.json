@@ -78,10 +78,10 @@
       ]
     },
     "accessibility": [
-      "no access for vehicles",
-      "2 Wheel Vehicle",
-      "4 Wheel Vehicle (Sedan)",
-      "4 Wheel Vehicle (SUV)",
+      "No access for vehicles",
+      "2-Wheel Vehicle",
+      "4-Wheel Vehicle (Sedan)",
+      "4-Wheel Vehicle (SUV)",
       "Large Vehicle (Truck)"
     ],
     "condition": [
@@ -142,9 +142,9 @@
       "terms": "User agreement & Privacy policy",
       "link": "PetaBencana.id Contributors Agreement",
       "disturbanceKey": "Disturbance:",
-      "accessKey": "Access:",
-      "structureKey": "Structural Failure",
-      "floodKey": "Flood Depth"
+      "accessKey": "Road Accessibility:",
+      "structureKey": "Structural Failure:",
+      "floodKey": "Flood Depth:"
     },
     "thank": { 
       "result": "SUCCESS!",

@@ -6,7 +6,10 @@
     class="cardContentWrapper"
     (mousemove)="drag($event)"
     (mousedown)="dragStart($event)"
+    (touchstart)="dragStart($event)"
+    (touchmove)="drag($event)"
     (mouseup)="dragEnd($event)"
+    (touchend)="dragEnd($event)"
     (mouseleave)="dragEnd($event)"
     >
     <svg id="bgImage">

@@ -79,7 +79,7 @@
       ]
     },
     "accessibility": [
-      "tidak bisa dilewati kendaraan",
+      "Tidak bisa dilewati kendaraan",
       "Kendaraan roda dua",
       "Kendaraan roda empat kecil (Sedan)",
       "Kendaraan roda empat sedang (SUV)",
@@ -88,15 +88,15 @@
     "condition": [
       { 
         "title": "Rusak ringan",
-        "subtitle": "jalan retak halus, sedikit hambatan, dapat dilintasi sebagian" 
+        "subtitle": "Jalan retak halus, sedikit hambatan, dapat dilintasi sebagian" 
       },
       {
         "title": "Rusak sedang",
-        "subtitle": "jalan retak lebar, sebagian tertutup, akses untuk melintas terbatas"
+        "subtitle": "Jalan retak lebar, sebagian tertutup, akses untuk melintas terbatas"
       },
       {
         "title": "Rusak berat",
-        "subtitle": "jalan putus/tidak bisa dilintasi"
+        "subtitle": "Jalan putus/tidak bisa dilintasi"
       }
     ],
     "structure": {
@@ -148,9 +148,9 @@
       "terms": "Persetujuan pengguna & Kebijakan privasi",
       "link": "Kesepakatan Kontribusi PetaBencana.id",
       "disturbanceKey": "Rusak:",
-      "accessKey": "Kendaraan:",
-      "structureKey": "Kerusakan Bangunan",
-      "floodKey": "Tinggi Banjir"
+      "accessKey": "Akses Jalan:",
+      "structureKey": "Kerusakan Bangunan:",
+      "floodKey": "Tinggi Banjir:"
     },
     "thank": { 
       "result": "SUKSES!",
