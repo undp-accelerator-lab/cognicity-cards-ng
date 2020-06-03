@@ -17,9 +17,9 @@
     
     <ng-template [ngIf]="deckType === 'fire'">
       <div class="report-review__fire">
-        Fire Extent:
+        {{ fireKey }}
         <span class="report-review__fire-dist">
-          {{ fireRange }} hectares
+          {{ fireRange }} {{ fireRangeUnit }}
         </span>
       </div>
     </ng-template>

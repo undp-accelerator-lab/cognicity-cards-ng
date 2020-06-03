@@ -150,7 +150,8 @@
       "disturbanceKey": "Rusak:",
       "accessKey": "Akses Jalan:",
       "structureKey": "Kerusakan Bangunan:",
-      "floodKey": "Tinggi Banjir:"
+      "floodKey": "Tinggi Banjir:",
+      "fireKey": "Perkiraan Kebakaran:"
     },
     "thank": { 
       "result": "SUKSES!",

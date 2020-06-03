@@ -124,6 +124,10 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     if (range < 1) return '<1'
     return range.toFixed(2)
   }
+
+  get fireRangeUnit() {
+    return this.translate.instant('card.fireestimate.unit');
+  }
   
   get floodDepth() {
     return this.deckService.getFloodDepth();
@@ -183,6 +187,10 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   }
   get floodKey() {
     return this.translate.instant("card.review.floodKey");
+  }
+  
+  get fireKey() {
+    return this.translate.instant("card.review.fireKey");
   }
 
   get condition() {

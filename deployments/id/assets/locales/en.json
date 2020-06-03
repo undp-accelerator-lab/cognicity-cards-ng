@@ -144,7 +144,8 @@
       "disturbanceKey": "Disturbance:",
       "accessKey": "Road Accessibility:",
       "structureKey": "Structural Failure:",
-      "floodKey": "Flood Depth:"
+      "floodKey": "Flood Depth:",
+      "fireKey": "Fire Extent:"
     },
     "thank": { 
       "result": "SUCCESS!",
