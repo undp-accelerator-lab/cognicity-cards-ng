@@ -151,7 +151,10 @@
       "accessKey": "Akses Jalan:",
       "structureKey": "Kerusakan Bangunan:",
       "floodKey": "Tinggi Banjir:",
-      "fireKey": "Perkiraan Kebakaran:"
+      "fireKey": "Perkiraan Kebakaran:",
+      "airQualityKey": "Kualitas Udara:",
+      "visibilityKey": "Jarak Pandang:"
+
     },
     "thank": { 
       "result": "SUKSES!",

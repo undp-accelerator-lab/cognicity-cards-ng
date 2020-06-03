@@ -137,24 +137,12 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   get airQuality() {
     const quality = this.deckService.getAirQuality()
-
-    switch(quality) {
-      case 0: return ''
-      case 1: return 'Moderate'
-      case 2: return 'Poor'
-      case 3: return 'Severe'
-      case 4: return 'Hazardous'
-    }
+    return this.translate.instant('card.airquality.review.'+quality)
   }
 
   get visibility() {
     const visibleValue = this.deckService.getVisibility()
-
-    switch (visibleValue) {
-      case 0: return 'High'
-      case 1: return 'Moderate'
-      case 2: return 'Low'
-    }
+    return this.translate.instant('card.airquality.review.'+visibleValue)
   }
 
   // Road
@@ -191,6 +179,14 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   
   get fireKey() {
     return this.translate.instant("card.review.fireKey");
+  }
+  
+  get airQualityKey() {
+    return this.translate.instant("card.review.airQualityKey");
+  }
+  
+  get visibilityKey() {
+    return this.translate.instant("card.review.visibilityKey");
   }
 
   get condition() {

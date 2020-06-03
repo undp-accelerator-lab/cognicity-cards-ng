@@ -28,14 +28,14 @@
       <div class="row" *ngIf="airQuality !== ''">
         <img id="airquality" src="" alt="Air Quality Indicator">
         <div>
-          <p>Air Quality: </p>  
+          <p>{{ airQualityKey }}</p>  
           <p id="airquality-text">{{ airQuality }}</p>
         </div>
       </div>
       <div class="row">
         <img id="visibility" src="" alt="Air Quality Indicator">
         <div>
-          <p>Visibility: </p>  
+          <p> {{ visibilityKey }} </p>  
           <p>{{ visibility }}</p>
         </div>
       </div>
