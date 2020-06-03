@@ -221,13 +221,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   // Volcano
   get volcanicSigns() {
     return this.deckService.getVolcanicSigns().map(sign => {
-      switch (sign) {
-        case 1: return "Significant Temperature Increases";
-        case 2: return "Drought / Vegetation Death";
-        case 3: return "Frequent Earthquake Tremors";
-        case 4: return "Frequent Rumbling Sounds";
-        case 5: return "Unusual Animal Behaviour";
-      }
+      return this.translate.instant('card.sign.symptoms.'+sign)
     })
   }
 
