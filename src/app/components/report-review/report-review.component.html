@@ -53,22 +53,31 @@
       </div>
     </ng-template>
 
-    <ng-template [ngIf]="deckType === 'structure' || deckType === 'wind'">
+    <ng-template [ngIf]="deckType === 'structure'">
       <div [style.margin-top]="'10px'" >
         <p> {{ structuralFailureKey }}<span [style.color]="structuralFailureColor">{{ structuralFailure }} </span></p>
       </div>
     </ng-template>
+    
+    <ng-template [ngIf]="deckType === 'wind'">
+      <div [style.margin-top]="'10px'" >
+        <p> {{ impactKey }}<span>{{ impact }} </span></p>
+      </div>
+    </ng-template>
 
     <ng-template [ngIf]="deckType === 'volcano'">
+      {{ volcanoKey }}
       <p *ngFor="let sign of volcanicSigns" class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
         {{ sign }};
       </p>
-      <p class="evacuation-number" *ngIf="evacuationNumber" [style.color]="'#31aade'" [style.line-height]="1.5">
-        {{ evacuationNumber }} people in the area;
-      </p>
-      <p class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
+      {{ peopleKey }}
+      <span class="evacuation-number" *ngIf="evacuationNumber" [style.color]="'#31aade'" [style.line-height]="1.5">
+        {{ evacuationNumber }} ;
+      </span>
+      <p> {{ evacuateKey }}</p>
+      <span class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
         {{ evacuationArea }}
-      </p>
+      </span>
     </ng-template>
 
     <div class="report-review__txt-desc">

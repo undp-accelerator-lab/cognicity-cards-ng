@@ -11,6 +11,8 @@
     "placeholder": "Click & Drag to Move Pin or Search Here"
   },
   "card": {
+    "yes": "yes",
+    "no": "no",
     "titles": {
       "type": "Select Report Type",
       "location": "Select Report Location",
@@ -62,6 +64,7 @@
       ]
     },
     "airquality": {
+      "title": "Indicate any symptoms:",
       "card": [
         "None",
         "Smell Smoke",
@@ -122,20 +125,27 @@
         "Frequent Rumbling Sounds"
       ]
     },
-    "impact": [
-      {
-        "title": "Low Disruption",
-        "subtitle": "Small obstacles flying"
-      },
-      {
-        "title": "Medium Disruption",
-        "subtitle": "Road blockages, transport disturbance, blackout"
-      },
-      {
-        "title": "High Disruption",
-        "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
-      }
-    ],
+    "impact": {
+        "symptoms" : [
+        {
+          "title": "Low Disruption",
+          "subtitle": "Small obstacles flying"
+        },
+        {
+          "title": "Medium Disruption",
+          "subtitle": "Road blockages, transport disturbance, blackout"
+        },
+        {
+          "title": "High Disruption",
+          "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
+        }
+      ],
+      "review":[
+        "Ringan",
+        "Sedang",
+        "Berat"
+      ]
+    },
     "description": "Add your description here ...",
     "review": { 
       "text": "By submitting this report you are agreeing to the ",
@@ -146,12 +156,17 @@
       "structureKey": "Structural Failure:",
       "floodKey": "Flood Depth:",
       "fireKey": "Fire Extent:",
+      "impactKey": "Impact:",
       "airQualityKey": "Air Quality:",
-      "visibilityKey": "Visibility:"
+      "visibilityKey": "Visibility:",
+      "volcanoKey": "Observations",
+      "peopleKey": "Number of people nearby:",
+      "evacuateKey": "Know where to evacuate:",
+      "people": "people"
     },
     "thank": { 
       "result": "SUCCESS!",
-      "title": "Thank you for your report. We will notify you when it's on the map",
+      "title": "Thank you for your report. Check petabencana.id to view your report and see real-time disaster updates.",
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",

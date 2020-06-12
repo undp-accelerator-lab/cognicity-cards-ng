@@ -185,6 +185,14 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     return this.translate.instant("card.review.airQualityKey");
   }
   
+  get impactKey() {
+    return this.translate.instant("card.review.airQualityKey");
+  }
+  
+  get volcanoKey() {
+    return this.translate.instant("card.review.volcanoKey");
+  }
+  
   get visibilityKey() {
     return this.translate.instant("card.review.visibilityKey");
   }
@@ -194,6 +202,19 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     return this.translate.instant("card.condition."+condition+".title");
   }
   
+  get impact() {
+    const impact = this.deckService.getImpact();
+    return this.translate.instant("card.impact.review."+impact);
+  }
+
+  get peopleKey() {
+    return this.translate.instant("card.review.peopleKey")
+  }
+  
+  get evacuateKey() {
+    return this.translate.instant("card.review.evacuateKey")
+  }
+
   // Structure
   get structuralFailureKey() {
     return this.translate.instant("card.review.structureKey")
@@ -227,16 +248,16 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   get evacuationNumber() {
     switch(this.deckService.getEvacuationNumber()) {
-      case 1: return '< 5'
-      case 2: return '5 - 50'
-      case 3: return '> 50'
+      case 1: return '< 5 ' + this.translate.instant("card.review.people")
+      case 2: return '5 - 50 ' + this.translate.instant("card.review.people")
+      case 3: return '> 50 ' + this.translate.instant("card.review.people")
     }
     return undefined
   }
 
   get evacuationArea() {
     return this.deckService.getEvacuationArea()
-      ? "Know where to evacuate"
-      : "Don't know where to evacuate"
+      ? this.translate.instant("card.yes")
+      : this.translate.instant("card.no")
   }
 }
