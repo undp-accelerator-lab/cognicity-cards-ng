@@ -186,7 +186,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   }
   
   get impactKey() {
-    return this.translate.instant("card.review.airQualityKey");
+    return this.translate.instant("card.review.impactKey");
   }
   
   get volcanoKey() {

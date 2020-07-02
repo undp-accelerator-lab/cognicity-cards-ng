@@ -159,7 +159,7 @@
       "impactKey": "Impact:",
       "airQualityKey": "Air Quality:",
       "visibilityKey": "Visibility:",
-      "volcanoKey": "Observations",
+      "volcanoKey": "Observations:",
       "peopleKey": "Number of people nearby:",
       "evacuateKey": "Know where to evacuate:",
       "people": "people"
