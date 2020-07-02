@@ -164,7 +164,7 @@
     &__txt {
       font-size: 18px;
     }
-  
+
     &__sub {
       font-size: 12px;
     }
@@ -176,14 +176,14 @@
     &__txt {
       font-size: 18px;
     }
-  
+
     &__sub {
       font-size: 10px;
     }
   }
 }
 
-@media (max-height: 560px) {
+@media (max-height: 680px) {
   .impact {
     height: 80vh;
 
@@ -191,17 +191,17 @@
       max-height: 200px;
       max-width: 200px;
     }
-  
+
     &__slider {
       max-width: 200px;
       margin: 17.5px 0;
     }
-  
+
     &__txt {
       margin: .25rem;
       font-size: 16px;
     }
-  
+
     &__sub {
       font-size: 12px;
       margin: 1.5px 0;
