@@ -40,7 +40,7 @@
     },
     "type": {
       "fire": {
-        "fireTypeButton": { 
+        "fireTypeButton": {
           "text": "Fire Nearby",
           "hint": "we will not report your location"
         },
@@ -88,9 +88,9 @@
       "Large Vehicle (Truck)"
     ],
     "condition": [
-      { 
+      {
         "title": "Light Disturbance",
-        "subtitle": "Small Road Cracks, Few Obstacles, Partial Access" 
+        "subtitle": "Small Road Cracks, Few Obstacles, Partial Access"
       },
       {
         "title": "Moderate Disturbance",
@@ -141,13 +141,13 @@
         }
       ],
       "review":[
-        "Ringan",
-        "Sedang",
-        "Berat"
-      ]
+        "Low Disruption",
+        "Medium Disruption",
+        "High Disruption"
+      ],
     },
     "description": "Add your description here ...",
-    "review": { 
+    "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",
       "link": "PetaBencana.id Contributors Agreement",
@@ -164,9 +164,12 @@
       "evacuateKey": "Know where to evacuate:",
       "people": "people"
     },
-    "thank": { 
+    "thank": {
       "result": "SUCCESS!",
-      "title": "Thank you for your report. Check petabencana.id to view your report and see real-time disaster updates.",
+      "title": [
+        "Thank you for your report. Check",
+        "to view your report and see real-time disaster updates."
+      ],
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",

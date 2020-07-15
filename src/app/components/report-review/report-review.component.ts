@@ -81,19 +81,19 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     switch (this.deckService.getVisibility()) {
       case 0: visibilityImgSrc += '_Low.png'; break;
       case 1: visibilityImgSrc += '_Medium.png'; break;
-      case 2: visibilityImgSrc += '_High.png'; break;      
+      case 2: visibilityImgSrc += '_High.png'; break;
     }
 
     const airQuality = this.deckService.getAirQuality()
     switch (airQuality) {
       case 1: airqualityImgSrc += '_Moderate.png'; airqualityTextColor = 'lightgreen'; break;
-      case 2: airqualityImgSrc += '_Poor.png'; airqualityTextColor = 'yellow'; break;      
-      case 3: airqualityImgSrc += '_Severe.png'; airqualityTextColor = 'orange' ;break;      
-      case 4: airqualityImgSrc += '_Hazardous.png'; airqualityTextColor = 'red'; break;      
+      case 2: airqualityImgSrc += '_Poor.png'; airqualityTextColor = 'yellow'; break;
+      case 3: airqualityImgSrc += '_Severe.png'; airqualityTextColor = 'orange' ;break;
+      case 4: airqualityImgSrc += '_Hazardous.png'; airqualityTextColor = 'red'; break;
     }
 
     visibilityImg.setAttribute('src', visibilityImgSrc)
-    if (airQuality > 0) { 
+    if (airQuality > 0) {
       airqualityImg.setAttribute('src', airqualityImgSrc)
       airqualityText.style.color = airqualityTextColor
     }
@@ -120,7 +120,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   get fireRange() {
     const radius = this.deckService.getFireDistance()
     const range = Math.PI * Math.pow(radius, 2) / 10000
-    
+
     if (range < 1) return '<1'
     return range.toFixed(2)
   }
@@ -128,7 +128,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   get fireRangeUnit() {
     return this.translate.instant('card.fireestimate.unit');
   }
-  
+
   get floodDepth() {
     return this.deckService.getFloodDepth();
   }
@@ -142,7 +142,7 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   get visibility() {
     const visibleValue = this.deckService.getVisibility()
-    return this.translate.instant('card.airquality.review.'+visibleValue)
+    return this.translate.instant('card.visibility.review.'+visibleValue)
   }
 
   // Road
@@ -176,23 +176,23 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
   get floodKey() {
     return this.translate.instant("card.review.floodKey");
   }
-  
+
   get fireKey() {
     return this.translate.instant("card.review.fireKey");
   }
-  
+
   get airQualityKey() {
     return this.translate.instant("card.review.airQualityKey");
   }
-  
+
   get impactKey() {
     return this.translate.instant("card.review.impactKey");
   }
-  
+
   get volcanoKey() {
     return this.translate.instant("card.review.volcanoKey");
   }
-  
+
   get visibilityKey() {
     return this.translate.instant("card.review.visibilityKey");
   }
@@ -201,16 +201,29 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     const condition = this.deckService.getCondition()
     return this.translate.instant("card.condition."+condition+".title");
   }
-  
+
   get impact() {
     const impact = this.deckService.getImpact();
     return this.translate.instant("card.impact.review."+impact);
   }
 
+  get impactColor() {
+    const impact = this.deckService.getImpact();
+    switch(impact){
+      case 0:
+      return '#ffde17'
+      case 1:
+      return '#f7941d'
+      case 2:
+      return '#be1e2d'
+    }
+  }
+
+
   get peopleKey() {
     return this.translate.instant("card.review.peopleKey")
   }
-  
+
   get evacuateKey() {
     return this.translate.instant("card.review.evacuateKey")
   }

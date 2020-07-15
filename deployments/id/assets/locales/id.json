@@ -26,10 +26,10 @@
       "accessibility": "Laporkan Akses Jalan",
       "condition": "Jelaskan Kondisi Jalan",
       "structure": "Laporkan Kerusakan Bangunan",
-      
+
       "impact": "Laporkan Dampak Angin Kencang",
       "windstructure": "Laporan Kerusakan Bangunan",
-      
+
       "sign": "Laporkan Tanda-Tanda Gunungapi",
       "evacuationnumber": "Laporkan Evakuasi",
       "evacuationarea": "Laporkan Evakuasi",
@@ -41,7 +41,7 @@
     },
     "type": {
       "fire": {
-        "fireTypeButton": { 
+        "fireTypeButton": {
           "text": "Kebakaran di dekat saya",
           "hint": "Lokasi anda akan disembunyikan"
         },
@@ -59,9 +59,9 @@
         "Sulit melihat. Terlalu berbahaya untuk keluar"
       ],
       "review": [
-        "Jelas",
-        "Agak Jelas",
-        "Buram"
+        "Baik",
+        "Sedang/Cukup",
+        "Buruk"
       ]
     },
     "airquality": {
@@ -89,9 +89,9 @@
       "Kendaraan muatan berat (Truk)"
     ],
     "condition": [
-      { 
+      {
         "title": "Rusak ringan",
-        "subtitle": "Jalan retak halus, sedikit hambatan, dapat dilintasi sebagian" 
+        "subtitle": "Jalan retak halus, sedikit hambatan, dapat dilintasi sebagian"
       },
       {
         "title": "Rusak sedang",
@@ -153,7 +153,7 @@
       "Roboh Total"
     ],
     "description": "Masukkan deskripsi di sini ...",
-    "review": { 
+    "review": {
       "text": "Dengan mengirimkan laporan ini Anda setuju dengan",
       "terms": "Persetujuan pengguna & Kebijakan privasi",
       "link": "Kesepakatan Kontribusi PetaBencana.id",
@@ -170,9 +170,12 @@
       "evacuateKey": "Tahu arah Evakuasi:",
       "people": "orang"
     },
-    "thank": { 
+    "thank": {
       "result": "SUKSES!",
-      "title": "Terima kasih atas laporan Anda. Cek petabencana.id untuk melihat laporanmu dan mengetahui situasi terkini.",
+      "title": [
+        "Terima kasih atas laporan Anda. Cek",
+        "untuk melihat laporan Anda dan mengetahui situasi terkini."
+      ],
       "subtitle": "Mau submit laporan lainnya?",
       "acceptButton": "Ya",
       "rejectButton": "Tidak",

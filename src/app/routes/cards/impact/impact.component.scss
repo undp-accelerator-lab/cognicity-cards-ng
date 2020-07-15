@@ -183,17 +183,18 @@
   }
 }
 
+
 @media (max-height: 680px) {
   .impact {
     height: 80vh;
 
     &__img {
-      max-height: 200px;
-      max-width: 200px;
+      max-height: 300px;
+      max-width: 300px;
     }
 
     &__slider {
-      max-width: 200px;
+      max-width: 300px;
       margin: 17.5px 0;
     }
 
@@ -205,6 +206,19 @@
     &__sub {
       font-size: 12px;
       margin: 1.5px 0;
+    }
+  }
+}
+
+@media (max-height: 550px) {
+  .impact {
+    &__img{
+      max-height: 200px;
+      max-width: 200px;
+    }
+
+    &__slider {
+      max-width: 200px;
     }
   }
 }
