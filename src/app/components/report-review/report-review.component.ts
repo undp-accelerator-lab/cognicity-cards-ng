@@ -86,9 +86,9 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
     const airQuality = this.deckService.getAirQuality()
     switch (airQuality) {
-      case 1: airqualityImgSrc += '_Moderate.png'; airqualityTextColor = 'lightgreen'; break;
-      case 2: airqualityImgSrc += '_Poor.png'; airqualityTextColor = 'yellow'; break;
-      case 3: airqualityImgSrc += '_Severe.png'; airqualityTextColor = 'orange' ;break;
+      case 1: airqualityImgSrc += '_Moderate.png'; airqualityTextColor = 'yellow'; break;
+      case 2: airqualityImgSrc += '_Poor.png'; airqualityTextColor = 'orange'; break;
+      case 3: airqualityImgSrc += '_Severe.png'; airqualityTextColor = 'red' ;break;
       case 4: airqualityImgSrc += '_Hazardous.png'; airqualityTextColor = 'red'; break;
     }
 
