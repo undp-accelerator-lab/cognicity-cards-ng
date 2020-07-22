@@ -44,17 +44,17 @@ export class ImpactComponent implements OnInit, AfterViewChecked {
 
   initTitles() {
     this.titles = [
-      "card.impact.0.title",
-      "card.impact.1.title",
-      "card.impact.2.title"
+      "card.impact.symptoms.0.title",
+      "card.impact.symptoms.1.title",
+      "card.impact.symptoms.2.title"
     ]
   }
 
   initSubtitles() {
     this.subtitles = [
-      "card.impact.0.subtitle",
-      "card.impact.1.subtitle",
-      "card.impact.2.subtitle"
+      "card.impact.symptoms.0.subtitle",
+      "card.impact.symptoms.1.subtitle",
+      "card.impact.symptoms.2.subtitle"
     ]
   }
 

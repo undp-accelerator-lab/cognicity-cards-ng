@@ -1,7 +1,7 @@
 <div class="report-review">
   <div id="preview-img-container" class="report-review__img-container">
-    <img 
-      id="preview-img" src="https://via.placeholder.com/150" 
+    <img
+      id="preview-img" src="https://via.placeholder.com/150"
       alt="fire image" class="report-review__img"
     >
   </div>
@@ -14,12 +14,12 @@
         </span>
       </div>
     </ng-template>
-    
+
     <ng-template [ngIf]="deckType === 'fire'">
       <div class="report-review__fire">
-        Fire Extent:
+        {{ fireKey }}
         <span class="report-review__fire-dist">
-          {{ fireRange }} hectares
+          {{ fireRange }} {{ fireRangeUnit }}
         </span>
       </div>
     </ng-template>
@@ -28,14 +28,14 @@
       <div class="row" *ngIf="airQuality !== ''">
         <img id="airquality" src="" alt="Air Quality Indicator">
         <div>
-          <p>Air Quality: </p>  
+          <p>{{ airQualityKey }}</p>
           <p id="airquality-text">{{ airQuality }}</p>
         </div>
       </div>
       <div class="row">
         <img id="visibility" src="" alt="Air Quality Indicator">
         <div>
-          <p>Visibility: </p>  
+          <p> {{ visibilityKey }} </p>
           <p>{{ visibility }}</p>
         </div>
       </div>
@@ -53,22 +53,31 @@
       </div>
     </ng-template>
 
-    <ng-template [ngIf]="deckType === 'structure' || deckType === 'wind'">
+    <ng-template [ngIf]="deckType === 'structure'">
       <div [style.margin-top]="'10px'" >
         <p> {{ structuralFailureKey }}<span [style.color]="structuralFailureColor">{{ structuralFailure }} </span></p>
       </div>
     </ng-template>
 
+    <ng-template [ngIf]="deckType === 'wind'">
+      <div [style.margin-top]="'10px'" >
+        <p> {{ impactKey }} <span [style.color]="impactColor">{{ impact }} </span></p>
+      </div>
+    </ng-template>
+
     <ng-template [ngIf]="deckType === 'volcano'">
+      {{ volcanoKey }}
       <p *ngFor="let sign of volcanicSigns" class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
         {{ sign }};
       </p>
-      <p class="evacuation-number" *ngIf="evacuationNumber" [style.color]="'#31aade'" [style.line-height]="1.5">
-        {{ evacuationNumber }} people in the area;
-      </p>
-      <p class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
+      {{ peopleKey }}
+      <span class="evacuation-number" *ngIf="evacuationNumber" [style.color]="'#31aade'" [style.line-height]="1.5">
+        {{ evacuationNumber }} ;
+      </span>
+      <p> {{ evacuateKey }}</p>
+      <span class="evacuation-area" [style.color]="'#31aade'" [style.line-height]="1.5">
         {{ evacuationArea }}
-      </p>
+      </span>
     </ng-template>
 
     <div class="report-review__txt-desc">

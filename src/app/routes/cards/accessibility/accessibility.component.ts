@@ -28,8 +28,10 @@ export class AccessibilityComponent implements AfterViewChecked {
     this.deckService.userCanBack()
     this.checkIsUserAbleToContinue()
   }
+  ngAfterViewChecked(): void {
+  }
 
-  ngAfterViewChecked() {
+  ngAfterViewInit() {
     this.setAccessibility(this.deckService.getAccessibility() || 0, 'service')
     this.cdref.detectChanges()
   }

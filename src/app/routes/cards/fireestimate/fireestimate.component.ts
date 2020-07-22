@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DeckService } from '../../../services/cards/deck.service'
 import { MONUMEN_NASIONAL_LAT_LNG } from '../../../../utils/const';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 declare let L
 
@@ -21,7 +21,7 @@ export class FireestimateComponent implements OnInit {
 
   constructor(
     private deckService: DeckService,
-    public translate: TranslateModule
+    public translate: TranslateService
   ) { }
 
   ngOnInit() {
@@ -85,7 +85,7 @@ export class FireestimateComponent implements OnInit {
               src="../../../assets/decks/fire/location/SelectFireLocation_Highlight.png"
               style="width: 25px;"
             />
-            <p style="width: 75px; text-align: center;" id="ha">${this.fireRange} {{'card.fireestimate.unit' | translate}}</p>
+            <p style="width: 75px; text-align: center;" id="ha">${this.fireRange} ${this.translate.instant('card.fireestimate.unit')}</p>
           </div>
         `,
         iconAnchor: [8, 42.5],
@@ -154,7 +154,7 @@ export class FireestimateComponent implements OnInit {
 
     this.deckService.setFireDistance(radius)
 
-    document.getElementById('ha').innerText = `${this.fireRange} hectares` 
+    document.getElementById('ha').innerText = `${this.fireRange} ${this.translate.instant('card.fireestimate.unit')}` 
 
     if (this.circleRadius) this.circleRadius.remove(this.map)
     this.circleRadius = circle

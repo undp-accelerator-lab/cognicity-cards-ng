@@ -11,6 +11,8 @@
     "placeholder": "Click & Drag to Move Pin or Search Here"
   },
   "card": {
+    "yes": "yes",
+    "no": "no",
     "titles": {
       "type": "Select Report Type",
       "location": "Select Report Location",
@@ -38,7 +40,7 @@
     },
     "type": {
       "fire": {
-        "fireTypeButton": { 
+        "fireTypeButton": {
           "text": "Fire Nearby",
           "hint": "we will not report your location"
         },
@@ -62,6 +64,7 @@
       ]
     },
     "airquality": {
+      "title": "Indicate any symptoms:",
       "card": [
         "None",
         "Smell Smoke",
@@ -85,9 +88,9 @@
       "Large Vehicle (Truck)"
     ],
     "condition": [
-      { 
+      {
         "title": "Light Disturbance",
-        "subtitle": "Small Road Cracks, Few Obstacles, Partial Access" 
+        "subtitle": "Small Road Cracks, Few Obstacles, Partial Access"
       },
       {
         "title": "Moderate Disturbance",
@@ -122,33 +125,51 @@
         "Frequent Rumbling Sounds"
       ]
     },
-    "impact": [
-      {
-        "title": "Low Disruption",
-        "subtitle": "Small obstacles flying"
-      },
-      {
-        "title": "Medium Disruption",
-        "subtitle": "Road blockages, transport disturbance, blackout"
-      },
-      {
-        "title": "High Disruption",
-        "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
-      }
-    ],
+    "impact": {
+        "symptoms" : [
+        {
+          "title": "Low Disruption",
+          "subtitle": "Small obstacles flying"
+        },
+        {
+          "title": "Medium Disruption",
+          "subtitle": "Road blockages, transport disturbance, blackout"
+        },
+        {
+          "title": "High Disruption",
+          "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
+        }
+      ],
+      "review":[
+        "Low Disruption",
+        "Medium Disruption",
+        "High Disruption"
+      ]
+    },
     "description": "Add your description here ...",
-    "review": { 
+    "review": {
       "text": "By submitting this report you are agreeing to the ",
       "terms": "User agreement & Privacy policy",
       "link": "PetaBencana.id Contributors Agreement",
       "disturbanceKey": "Disturbance:",
       "accessKey": "Road Accessibility:",
       "structureKey": "Structural Failure:",
-      "floodKey": "Flood Depth:"
+      "floodKey": "Flood Depth:",
+      "fireKey": "Fire Extent:",
+      "impactKey": "Impact:",
+      "airQualityKey": "Air Quality:",
+      "visibilityKey": "Visibility:",
+      "volcanoKey": "Observations:",
+      "peopleKey": "Number of people nearby:",
+      "evacuateKey": "Know where to evacuate:",
+      "people": "people"
     },
-    "thank": { 
+    "thank": {
       "result": "SUCCESS!",
-      "title": "Thank you for your report. We will notify you when it's on the map",
+      "title": [
+        "Thank you for your report. Check",
+        "to view your report and see real-time disaster updates."
+      ],
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",

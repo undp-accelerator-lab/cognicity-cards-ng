@@ -162,11 +162,11 @@
   }
 
   &::-webkit-slider-runnable-track {
-    background-image: linear-gradient(to right, green, lightgreen 25%, #6D6E6D 25%);
+    background-image: linear-gradient(to right, yellow, #f5f5a1 25%, #6D6E6D 25%);
   }
 
   &::-moz-range-track {
-    background-image: linear-gradient(to right, green, lightgreen 25%, #6D6E6D 25%);
+    background-image: linear-gradient(to right, yellow, #f5f5a1 25%, #6D6E6D 25%);
   }
 }
 
@@ -180,11 +180,11 @@
   }
 
   &::-webkit-slider-runnable-track {
-    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, #6D6E6D 50%);
+    background-image: linear-gradient(to right, yellow, #f5f5a1 25%, orange 50%, #6D6E6D 50%);
   }
 
   &::-moz-range-track {
-    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, #6D6E6D 50%);
+    background-image: linear-gradient(to right, yellow, #f5f5a1 25%, orange 50%, #6D6E6D 50%);
   }
 }
 
@@ -198,11 +198,11 @@
   }
 
   &::-webkit-slider-runnable-track {
-    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, #6D6E6D 75%);
+    background-image: linear-gradient(to right, yellow, #f5f5a1 25%, orange 50%,  #6D6E6D 75%);
   }
 
   &::-moz-range-track {
-    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, #6D6E6D 75%);
+    background-image: linear-gradient(to right, yellow, #f5f5a1 25%, orange 50%,  #6D6E6D 75%);
   }
 }
 
@@ -216,11 +216,11 @@
   }
 
   &::-webkit-slider-runnable-track {
-    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, red);
+    background-image: linear-gradient(to right, yellow, #f5f5a1 25%,  orange 75%, red);
   }
 
   &::-moz-range-track {
-    background-image: linear-gradient(to right, green, lightgreen 25%, yellow 50%, orange 75%, red);
+    background-image: linear-gradient(to right, yellow, #f5f5a1 25%,  orange 75%, red);
   }
 }
 
