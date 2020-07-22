@@ -233,7 +233,9 @@ export class DeckService {
       case 'fire':
         summary.card_data.fireDistance = this.fireDistance;
         summary.card_data.fireLocation = this.fireLocation;
+        summary.card_data.personLocation = this.location;
         summary.card_data.fireRadius = this.fireRadius;
+        summary.location = this.fireLocation;
         break;
       case 'volcano':
         summary.card_data.volcanicSigns = this.volcanicSigns;
