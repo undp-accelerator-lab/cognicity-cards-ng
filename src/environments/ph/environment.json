@@ -1,7 +1,7 @@
 {
   "production": false,
   "stage": "dev",
-  "deployment": "id",
+  "deployment": "ph",
 
   "supported_languages": ["en", "id"],
   "default_language": "id",
