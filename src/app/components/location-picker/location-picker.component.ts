@@ -91,7 +91,7 @@ export class LocationPickerComponent implements OnInit {
   }
 
   async onSearch(query: string) {
-    query = query + ", Indonesia";
+    query = query + env.loc_search_suffix;
     const results = await this.provider.search({ query });
     this.searchResults = results; //we send this to the child component search-location
   }
