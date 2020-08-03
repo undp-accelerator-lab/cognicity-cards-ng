@@ -31,7 +31,7 @@ export class LocationPickerComponent implements OnInit {
 
     this.checkIsUserAbleToContinue()
 
-    let { lat, lng } = MONUMEN_NASIONAL_LAT_LNG
+    let { lat, lng } = env.default_location;
 
     if (this.deckService.getLocation()) {
       lat = this.deckService.getLocation().lat
