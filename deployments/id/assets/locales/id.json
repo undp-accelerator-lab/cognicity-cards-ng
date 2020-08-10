@@ -3,6 +3,9 @@
     "userAgreement": "Persetujuan pengguna",
     "privacy": "Kebijakan privasi"
   },
+  "validationErrors": {
+    "noPhoto": "Wajib menyertakan foto ATAU deskripsi untuk melapor" 
+  },
   "deck": {
     "prev": "KEMBALI",
     "next": "LANJUTKAN"

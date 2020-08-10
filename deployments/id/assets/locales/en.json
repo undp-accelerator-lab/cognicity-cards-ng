@@ -3,6 +3,9 @@
     "userAgreement": "User Agreement",
     "privacy": "Privacy policy"
   },
+  "validationErrors": {
+    "noPhoto": "A photo OR description is required to make a report"
+  },
   "deck": {
     "prev": "PREV",
     "next": "NEXT"
