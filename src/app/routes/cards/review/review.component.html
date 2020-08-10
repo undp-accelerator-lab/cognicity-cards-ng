@@ -9,11 +9,12 @@
 
   <div class="review__warning" *ngIf="showWarning">
     <p *ngIf="isDescriptionAndPhotoEmpty">
-      <i class="fa fa-exclamation-circle"></i>  
+      <i class="fa fa-exclamation-circle"></i>
       {{'validationErrors.noPhoto' | translate}}
     </p>
     <p *ngIf="!isLocationInIndonesia">
       <i class="fa fa-exclamation-circle"></i>
+      {{'validationErrors.unsupportedLocation' | translate }}
       Unsupported location, report cannot be displayed on the map
     </p>
   </div>
