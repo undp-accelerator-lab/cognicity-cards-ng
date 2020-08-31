@@ -1,13 +1,13 @@
 {
   "production": false,
   "stage": "dev",
-  "deployment": "id",
+  "deployment": "ph",
 
   "supported_languages": ["en", "id"],
   "default_language": "id",
   "mapbox_access_token": "pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ",
-  "data_server": "https://data.petabencana.id/",
-  "app": "https://petabencana.id/",
+  "data_server": "http://localhost:8001/",
+  "app": "https://dev.petabencana.id/",
 
   "decks": [{
       "name": "flood",

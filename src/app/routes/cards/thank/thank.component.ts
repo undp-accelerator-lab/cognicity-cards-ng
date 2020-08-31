@@ -38,6 +38,7 @@ export class ThankComponent {
     switch (this.deckService.getDeckSubType()) {
       case 'fire': return '../../../assets/decks/fire/thanks/SuccessFireReport.png';
       case 'haze': return '../../../assets/decks/fire/thanks/SuccessHazeReport.png';
+      case 'flood': return '../../../assets/decks/flood/thanks/SuccessFloodReport.svg';
 
       case 'road': return '../../../../assets/decks/earthquake/thanks/AddAccessReportIcon_Success.png'
       case 'structure': return '../../../../assets/decks/earthquake/thanks/AddStructureFailureIcon_Success.png'

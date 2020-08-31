@@ -3,10 +3,6 @@
     "userAgreement": "User Agreement",
     "privacy": "Privacy policy"
   },
-  "validationErrors": {
-    "noPhoto": "A photo OR description is required to make a report",
-    "unsupportedLocation" : "Unsupported location, report cannot be displayed on the map"
-  },
   "deck": {
     "prev": "PREV",
     "next": "NEXT"

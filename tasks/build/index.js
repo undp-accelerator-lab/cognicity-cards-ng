@@ -266,10 +266,11 @@ var deploymentMap = {
   jp: "Japan, riskmap.jp",
   in: "India, riskmap.in",
   us: "USA, riskmap.us",
-  id: "Indonesia, petabencana.id"
+  id: "Indonesia, petabencana.id",
+  ph: "Philippines, petabencana.ph"
 };
 
-if (dep === "jp" || dep === "in" || dep === "us" || dep === "id") {
+if (dep === "jp" || dep === "in" || dep === "us" || dep === "id" || dep === 'ph') {
   console.log("Specified deployment is " + deploymentMap[dep]);
 } else {
   throw "No deployment specified, prefix `export dep=jp|in|us` to command";

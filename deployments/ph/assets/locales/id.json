@@ -3,10 +3,6 @@
     "userAgreement": "Persetujuan pengguna",
     "privacy": "Kebijakan privasi"
   },
-  "validationErrors": {
-    "noPhoto": "Wajib menyertakan foto ATAU deskripsi untuk melapor",
-    "unsupportedLocation" : "Lokasi tidak terjangkau, laporan tidak dapat ditampilkan pada peta" 
-  },
   "deck": {
     "prev": "KEMBALI",
     "next": "LANJUTKAN"

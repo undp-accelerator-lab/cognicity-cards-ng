@@ -1,25 +1,26 @@
 <div class="review">
   <app-report-review>
   </app-report-review>
-    
+
   <p class="review__text" *ngIf="!showWarning">
-    {{'card.review.text' | translate}} 
+    {{'card.review.text' | translate}}
     <a (click)="showTerms()"> {{'card.review.terms' | translate}}</a>
   </p>
-  
+
   <div class="review__warning" *ngIf="showWarning">
     <p *ngIf="isDescriptionAndPhotoEmpty">
-      <i class="fa fa-exclamation-circle"></i>  
-      A photo OR description is required to make a report
+      <i class="fa fa-exclamation-circle"></i>
+      {{'validationErrors.noPhoto' | translate}}
     </p>
     <p *ngIf="!isLocationInIndonesia">
-      <i class="fa fa-exclamation-circle"></i>  
+      <i class="fa fa-exclamation-circle"></i>
+      {{'validationErrors.unsupportedLocation' | translate }}
       Unsupported location, report cannot be displayed on the map
     </p>
   </div>
 
   <div id="termsPopup">
-    <div id="termsHeader"> 
+    <div id="termsHeader">
       <p> {{'card.review.terms' | translate}} </p>
     </div>
     <div id="tabRow">
@@ -43,7 +44,7 @@
       <p (click)="closeTerms()">Close&nbsp;&nbsp;&nbsp;&nbsp;</p>
     </div>
   </div>
-  
+
   <app-submit-swipe swipeText="{{ 'card.swipeText' | translate}}">
   </app-submit-swipe>
 </div>
