@@ -1,0 +1,178 @@
+{
+  "terms": {
+    "userAgreement": "User Agreement",
+    "privacy": "Patakaran sa Privacy"
+  },
+  "deck": {
+    "prev": "DATI",
+    "next": "SUSUNOD"
+  },
+  "search": {
+    "placeholder": "I-click at I-drag upang Malipat ang Pin o Maghanap Dito"
+  },
+  "card": {
+    "yes": "Oo",
+    "no": "Hindi",
+    "titles": {
+      "type": "Piliin ang uri ng ulat ",
+      "location": "Pillin ang lokasyon ng ulat",
+      "depth": "Piliin ang lebel ng baha",
+      "fireestimate": "I-ulat ang lawak ng apoy",
+      "firedistance": "Iyong Lokasyon at Lokasyon ng Apoy",
+      "airquality": "I-ulat ang Kalidad ng Hangin",
+      "visibility": "I-ulat ang Visibility",
+      "accessibility": "I-ulat ang Accessibility ng Daan",
+      "condition": "I-ulat and Kondisyon ng Daan",
+      "structure": "I-ulat ang Pinsala sa Istruktura",
+      "impact": "I-ulat ang Epekto ng Hangin",
+      "windstructure": " I-ulat kung may Pagguho ng Istruktura",
+      "sign": " I-ulat ang mga Palatandaan ng Bulkan ",
+      "evacuationnumber": "I-ulat ang Paglikas",
+      "evacuationarea": " I-ulat ang Paglikas",
+      "photo": "Magsumite ng Larawan",
+      "description": "Magbigay ng iba pang impormasyon",
+      "review": "Suriin at I-sumite",
+      "thank": "Salamat!"
+    },
+    "type": {
+      "fire": {
+        "fireTypeButton": {
+          "text": "Malapit na Apoy",
+          "hint": "Hindi naming iu-ulat ang iyong lokasyon"
+        },
+        "hazeTypeButton": "Haze at My Location"
+      },
+      "earthquake": {
+        "roadTypeButton": "Accessibility ng Daan ",
+        "structureTypeButton": "Pagguho ng Istruktura"
+      }
+    },
+    "visibility": {
+      "card": [
+        " Nakikita pa rin ako pero kailangan kong mag-mask.",
+        " Nakikita pa rin ako ngunit hindi sapat ang kalinisan upang magmaneho.",
+        "Halos hindi ko makita. Masyadong mapanganib na lumabas."
+      ],
+      "review": [
+        "Mataas",
+        "Katamtaman",
+        "Mababa"
+      ]
+    },
+    "airquality": {
+      "title": "Ibigay ang Sintomas:",
+      "card": [
+        "Wala",
+        "Amoy Usok",
+        "Nagtutubig na Mata / Iritasyon sa Lalamunan",
+        "Sakit ng Ulo / Pagsusuka",
+        " Kakapusan ng Paghinga / Paninikip ng Dibdib"
+      ],
+      "review": [
+        "",
+        "Katamtaman",
+        "Mahina",
+        "Matindi",
+        "Mapanganib"
+      ]
+    },
+    "accessibility": [
+      "Walang access para sa mga sasakyan",
+      "2-Wheel na Sasakyan",
+      "4-Wheel na Sasakyan (Sedan)",
+      "4-Wheel na Sasakyan (SUV)",
+      "Malalaking Sasakyan (Truck)"
+    ],
+    "condition": [
+      {
+        "title": "Magaan na Pagkagambala",
+        "subtitle": "Maliit na mga Biyak sa Daan, Ilang Sagabal, Bahagyang Access"
+      },
+      {
+        "title": "Katamtamang Pagkagambala",
+        "subtitle": " Malalaking Biyak sa Daan, Bahagyang Naharagan, Limitadong Access"
+      },
+      {
+        "title": "Mabigat na Pagkagambala",
+        "subtitle": "Sirang Daan, Ganap na Naharangan, Walang Access"
+      }
+    ],
+    "structure": {
+      "cracking": "Cracking",
+      "partially_collapsed": "Bahagyang Gumuho",
+      "fully_collapsed": "Ganap na Gumuho"
+    },
+    "evacuation": {
+      "description": "Alam mo ba kung saan ka lilikas?"
+    },
+    "evacuationnumber": {
+      "description": "Ilan ang mga tao sa iyong barangay?"
+    },
+    "fireestimate": {
+      "unit": "Ektarya"
+    },
+    "sign": {
+      "description": "Ilagay ang anumang mga obserbasyon:",
+      "symptoms": [
+        " Malubhang Pagtaas ng Temperatura",
+        "Tagtuyot / Pagkamatay ng Gulay",
+        " Hindi Karaniwang Ugali ng Hayop",
+        "Madalas na Mga Panginginig ng Lindol ",
+        "Madalas na Tunog "
+      ]
+    },
+    "impact": {
+      "symptoms": [
+        {
+          "title": "Low Disruption",
+          "subtitle": "Small obstacles flying"
+        },
+        {
+          "title": "Medium Disruption",
+          "subtitle": "Road blockages, transport disturbance, blackout"
+        },
+        {
+          "title": "High Disruption",
+          "subtitle": "Flying roofs, structural failures, large obstacles flying, crop damage"
+        }
+      ],
+      "review": [
+        "Mababang Pagkagambala",
+        "Katamtamang Pagkagambala",
+        "Malubhang Pagkagambala"
+      ]
+    },
+    "description": "Idagdag ang iyong deskripsyon dito ...",
+    "review": {
+      "text": " Sa pamamagitan ng pagsusumite ng ulat na ito sumasang-ayon ka sa",
+      "terms": "User agreement & Privacy policy",
+      "link": "MapaKalamidad.ph Contributors Agreement",
+      "disturbanceKey": "Pagkagambala:",
+      "accessKey": "Accessibility ng Daan:",
+      "structureKey": "Pagkaguho ng Istruktura:",
+      "floodKey": "Lebel ng Baha:",
+      "fireKey": "Lawak ng Apoy:",
+      "impactKey": "Epekto:",
+      "airQualityKey": "Kalidad ng Hangin:",
+      "visibilityKey": "Visibility:",
+      "volcanoKey": "Mga Obserbasyon:",
+      "peopleKey": "Bilang ng malalapit ng tao:",
+      "evacuateKey": "Alamin kung saan lilikas:",
+      "people": "Tao"
+    },
+    "thank": {
+      "result": "TAGUMPAY!",
+      "title": [
+        "Salamat sa iyong ulat. Tignan",
+        "upang matingnan ang iyong ulat at makita ang mga real-time na update ng sakuna."
+      ],
+      "subtitle": "Gusto mo bang magsumite ng ulat?",
+      "acceptButton": "Oo",
+      "rejectButton": "Hindi",
+      "tips": "Click here for safety tips from OCD"
+    },
+    "swipeText": "Mag-swipe upang isumite ",
+    "reportAgainStructure": "Gusto mo rin bang mag-ulat ng pagkaguho ng istruktura?",
+    "reportAgainAccess": "Gusto mo rin bang mag-ulat ng accessibility ng daan?"
+  }
+}
