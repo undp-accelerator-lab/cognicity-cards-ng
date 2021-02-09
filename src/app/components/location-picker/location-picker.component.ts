@@ -81,6 +81,11 @@ export class LocationPickerComponent implements OnInit {
     this.provider = new OpenStreetMapProvider()
   }
 
+  ngOnDestroy() {
+    this.deckService.userCannotBack();
+    this.deckService.userCannotContinue();
+  }
+
   checkIsUserAbleToContinue() {
     // If user already move the map they can continue
     if (this.deckService.location) {
