@@ -1,6 +1,8 @@
 <div class="location">
   <app-location-picker 
       [type]="deckService.getDeckSubType()" 
-      [searchText]="'search.placeholder' | translate">
+      [searchText]="'search.placeholder' | translate"
+      [locateText]="'search.locateText' | translate"
+      *ngIf="'search.locateText' | translate">
   </app-location-picker>
 </div>
