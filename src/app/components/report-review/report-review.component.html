@@ -9,7 +9,7 @@
     <ng-template [ngIf]="deckType === 'flood'">
       <div class="report-review__fire">
         {{ floodKey }}
-        <span class="report-review__fire-dist">
+        <span class="report-review__fire-dist" [style.color]="floodColor">
           {{ floodDepth }} cm
         </span>
       </div>

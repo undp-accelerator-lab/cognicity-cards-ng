@@ -31,10 +31,14 @@ export class ReviewComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.deckService.userCanBack()
-    this.deckService.userCannotContinue()
+    // this.deckService.userCanBack()
+    // this.deckService.userCannotContinue()
     this.switchTab(this.termscontents[0].tab_key);
     this.isLocationInIndonesia = await this.deckService.isLocationInIndonesia();
+  }
+  async ngAfterContentInit() {
+    this.deckService.userCanBack();
+    this.deckService.userCannotContinue();
   }
 
   get showWarning(): boolean {
@@ -42,6 +46,7 @@ export class ReviewComponent implements OnInit {
   }
 
   get isDescriptionAndPhotoEmpty(): boolean {
+    console.log(this.deckService.isNextButtonDisabled);
     return !(this.deckService.getDescription() || this.deckService.getPreview());
   }
   
