@@ -44,6 +44,13 @@
       <p (click)="closeTerms()">Close&nbsp;&nbsp;&nbsp;&nbsp;</p>
     </div>
   </div>
+  <form [formGroup]="captchaForm">
+    <ngx-recaptcha2
+      siteKey="6LdbMVIaAAAAAHnTSXOKsJrpkgD4BxneuVy1c_3-"
+      (success)="handleSuccess($event)"
+      formControlName="recaptcha">
+    </ngx-recaptcha2>
+  </form>
 
   <app-submit-swipe swipeText="{{ 'card.swipeText' | translate}}">
   </app-submit-swipe>
