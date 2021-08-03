@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./review.component.scss']
 })
 export class ReviewComponent implements OnInit {
-  protected captchaForm: FormGroup;
+  captchaForm: FormGroup;
   isLocationInIndonesia = true;
   termscontents = [
     {
