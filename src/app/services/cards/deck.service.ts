@@ -16,11 +16,12 @@ interface LatLng {
   providedIn: 'root'
 })
 export class DeckService {
-
+  
   constructor(private http: HttpClient) { }
   finishedSubType = []
   cardLanguage = ""
-
+  
+  tweetID: string;
   type: deckType
   subType: deckSubType
 
@@ -128,6 +129,7 @@ export class DeckService {
   setFireRadius(fireRadius: LatLng) { this.fireRadius = fireRadius }
   setFireDistance(fireDistance: number) { this.fireDistance = fireDistance }
   setVolcanicSigns(volcanicSigns: number[]) { this.volcanicSigns = volcanicSigns }
+  setTwitterID(tweetID: string) { if(tweetID) this.tweetID = tweetID;}
   setEvacuationNumber(evacuationNumber: number) {
     if (this.evacuationNumber !== evacuationNumber) {
       this.evacuationNumber = evacuationNumber
@@ -225,8 +227,9 @@ export class DeckService {
       text: this.description,
       created_at: new Date().toISOString(),
       image_url: '',
-      location: this.location
+      location: this.location,
     }
+    if(this.tweetID) summary.tweetID = this.tweetID;
     switch(this.type) {
       case 'flood': summary.card_data.flood_depth = this.floodDepth; break;
       case 'wind': summary.card_data.impact = this.impact; break;
