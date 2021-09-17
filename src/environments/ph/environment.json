@@ -9,8 +9,8 @@
   "data_server": "https://data-dev.mapakalamidad.ph/",
   "app": "https://mapakalamidad.ph/",
   "default_location": {
-    "lat": 14.49,
-    "lng": 120.57
+    "lat": 14.35,
+    "lng": 120.58
   },
   "loc_search_suffix": ", Philippines",
   "decks": [{
