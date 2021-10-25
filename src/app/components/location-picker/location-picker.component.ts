@@ -6,6 +6,7 @@ import { isEqual } from 'lodash';
 import { DeckService } from '../../services/cards/deck.service';
 import { MONUMEN_NASIONAL_LAT_LNG } from "../../../utils/const";
 import { environment as env } from '../../../environments/environment';
+import { TranslateService } from '@ngx-translate/core';
 
 declare let L
 
@@ -17,6 +18,7 @@ declare let L
 export class LocationPickerComponent implements OnInit {
   @Input() type: string
   @Input() searchText: string
+  @Input() locateText: string
   provider: any
   map: any
 
@@ -24,7 +26,10 @@ export class LocationPickerComponent implements OnInit {
   public latlng: { lat: string, lng: string }
   searchResults
 
-  constructor(private deckService: DeckService) { }
+  constructor(
+    private deckService: DeckService,
+    public translate: TranslateService
+    ) { }
 
   ngOnInit() {
     this.deckService.userCannotBack()
@@ -45,7 +50,7 @@ export class LocationPickerComponent implements OnInit {
 
     const accessToken = env.mapbox_access_token;
 
-    L.tileLayer(`https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=${accessToken}`, {
+    L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}?access_token=${accessToken}`, {
       attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(this.map);
 
@@ -64,7 +69,7 @@ export class LocationPickerComponent implements OnInit {
     if (this.currentMarker) this.currentMarker.remove(this.map)
     this.addMarker()
 
-    const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true }).addTo(this.map);
+    const locate = L.control.locate({ icon: 'locate', keepCurrentZoomLevel: true, strings: {title: this.locateText} }).addTo(this.map);
     locate.start()
 
     this.map.addControl(new L.Control.Compass());
@@ -79,6 +84,11 @@ export class LocationPickerComponent implements OnInit {
     })
 
     this.provider = new OpenStreetMapProvider()
+  }
+
+  ngOnDestroy() {
+    this.deckService.userCannotBack();
+    this.deckService.userCannotContinue();
   }
 
   checkIsUserAbleToContinue() {

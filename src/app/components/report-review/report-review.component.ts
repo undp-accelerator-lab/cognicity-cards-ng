@@ -134,6 +134,18 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     return this.deckService.getFloodDepth();
   }
 
+  get floodColor() {
+    const depth = this.deckService.getFloodDepth()
+
+    if (depth <= 70) {
+      return '#FFFB4E';
+    } else if (depth <= 150) {
+      return '#FB8334';
+    } else if (depth > 150) {
+      return '#C83047';
+    }
+  }
+
   // Haze
 
   get airQuality() {

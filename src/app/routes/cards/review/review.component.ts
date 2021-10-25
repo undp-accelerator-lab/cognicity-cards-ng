@@ -34,14 +34,18 @@ export class ReviewComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.deckService.userCanBack()
-    this.deckService.userCannotContinue()
+    // this.deckService.userCanBack()
+    // this.deckService.userCannotContinue()
     this.deckService.setCaptchaNotCleared()
     this.switchTab(this.termscontents[0].tab_key);
     this.isLocationInIndonesia = await this.deckService.isLocationInIndonesia();
     this.captchaForm = this.formBuilder.group({
       recaptcha: ['', Validators.required]
     });
+  }
+  async ngAfterContentInit() {
+    this.deckService.userCanBack();
+    this.deckService.userCannotContinue();
   }
 
   handleSuccess(event) {
@@ -54,6 +58,7 @@ export class ReviewComponent implements OnInit {
   }
 
   get isDescriptionAndPhotoEmpty(): boolean {
+    console.log(this.deckService.isNextButtonDisabled);
     return !(this.deckService.getDescription() || this.deckService.getPreview());
   }
   

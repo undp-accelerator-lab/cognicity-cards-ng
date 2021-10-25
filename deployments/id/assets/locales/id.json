@@ -12,7 +12,8 @@
     "next": "LANJUTKAN"
   },
   "search": {
-    "placeholder": "Klik & geser untuk pindahkan pin atau cari di sini"
+    "placeholder": "Klik & geser untuk pindahkan pin atau cari di sini",
+    "locateText": "Tampilkan lokasi saya"
   },
   "card": {
     "yes": "Ya",

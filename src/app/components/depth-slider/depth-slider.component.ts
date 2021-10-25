@@ -21,7 +21,9 @@ export class DepthSliderComponent implements OnInit {
   //val that may need to pass to parent comp / DB.
   depthText:string = this.currentY*2 + ' cm';
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.deckService.userCanBack();
+    this.deckService.userCannotContinue();
     //get position of the card relative to top
     this.dragContainer = document.querySelector('#cardContentWrapper');
     this.dragItem = document.querySelector('#sliderZone');
@@ -33,6 +35,7 @@ export class DepthSliderComponent implements OnInit {
       // this.currentY = parseInt(this.depthText.split(' ')[0])/2;
       this.currentY = this.deckService.getFloodDepth()/2;
       this.depthText = Math.round(this.currentY * 2) + ' cm';;
+      this.deckService.userCanContinue();
     }
     else {
       this.deckService.setFloodDepth(Math.round(this.currentY * 2));
@@ -52,6 +55,7 @@ export class DepthSliderComponent implements OnInit {
     this.sliderIsActive = false;
     this.knobClass = '';
     this.deckService.setFloodDepth(Math.round(this.currentY * 2));
+    this.deckService.userCanContinue();
   }
 
   calcPercentInverted(val, total){
