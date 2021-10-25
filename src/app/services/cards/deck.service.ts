@@ -44,6 +44,7 @@ export class DeckService {
   imageSignedUrl: string = 'url_error'
   description: string = ''
   sub_submission: boolean = false
+  captchaCleared: boolean = false
   preview: File
 
   isPrevButtonDisabled = true
@@ -108,6 +109,7 @@ export class DeckService {
   getEvacuationArea(): null | boolean { return this.evacuationArea }
   getCardLanguage(): string { return this.cardLanguage }
 
+  isCaptchaCleared(): boolean {return this.captchaCleared}
   getDescription() { return this.description }
   getPreview() { return this.preview }
 
@@ -141,6 +143,8 @@ export class DeckService {
 
   setDescription(description: string) { this.description = description }
   setPreview(preview: File) { this.preview = preview }
+  setCaptchaNotCleared() {this.captchaCleared = false }
+  setCaptchaCleared() {this.captchaCleared = true }
 
   reset() {
     this.finishedSubType.push(this.subType)
@@ -160,6 +164,7 @@ export class DeckService {
     this.evacuationArea = null
     this.description = ''
     this.preview = undefined
+    this.captchaCleared = false
     this.imageSignedUrl = 'url_error';
   }
 
