@@ -18,7 +18,7 @@ export class TitleBoxComponent {
 
   getCssClass(i) {
     if (this.deckService.getDeckType() === 'earthquake') { return i < this.navController.tabs[1] ? 'tabs filled ' : 'tabs'; }
-    return i <= this.navController.tabs[1] ? 'tabs filled ' : 'tabs';
+    return i <= this.navController.tabs[1] ? $('#partnerCode').val() !== '' ? 'tabs filled_partner' : 'tabs filled ' : 'tabs';
   }
 
   get isShowTabs(): boolean {
@@ -41,6 +41,10 @@ export class TitleBoxComponent {
 
   showPartnerPopup() {
     $('#partnerCodePopup').show();
+  }
+
+  isSubmitted(){
+    return $('#partnerCode').val() !== ''
   }
 
   submitCode() {

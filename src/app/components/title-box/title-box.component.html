@@ -1,4 +1,4 @@
-<div id="titleItems">
+<div class="titleItems" [class.partnerTitleItems] = "isSubmitted()">
   <span id="partnerIcon" (click)="showPartnerPopup()" >
     <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
   </span>
@@ -13,15 +13,15 @@
   >
   </div>
 </div>
-<div id="partnerCodePopup">
-  <span>Anyone can submit a disaster report to PetaBencana.id </span>
-  <span>To submit an anonymous disaster report, skip this step! </span>
-  <span>If you are submitting a report as a partner organization, enter your code below</span>
-  <input type="text" id="partnerCode" placeholder="Partner Code" [(value)]="partnerCode" />
-  <div id="submitRow">
-    <p (click)="submitCode()">Submit&nbsp;&nbsp;&nbsp;&nbsp;</p>
-  </div>
-  <div id="closeRow">
-    <p (click)="closePartnerPopup()">Close&nbsp;&nbsp;&nbsp;&nbsp;</p>
-  </div>
+  <div id="partnerCodePopup">
+    <div id="closeRow">
+      <span (click)="closePartnerPopup()">&times;</span>
+    </div>
+    <p><b>Anyone can submit a disaster report to PetaBencana.id </b></p>
+    <p><u><b>To submit an anonymous disaster report, skip this step! </b></u></p>
+    <p><b>If you are submitting a report as a partner organization, enter your code below</b></p>
+    <input type="text" id="partnerCode" placeholder="Partner Code" [(value)]="partnerCode" />
+    <div id="submitRow">
+      <button  (click)="submitCode()">Submit</button>
+    </div>
 </div>
