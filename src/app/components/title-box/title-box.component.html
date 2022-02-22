@@ -1,5 +1,9 @@
-<div id="titleText">
-  {{ title }}
+<div id="titleItems">
+  <span id="partnerIcon" (click)="showPartnerPopup()" >
+    <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
+  </span>
+  <span id="titleText">{{ title }} </span>
+  <span></span>
 </div>
 
 <div id="tabsRow" *ngIf="isShowTabs">
@@ -7,5 +11,17 @@
     *ngFor="let tab of totalTabs; index as i"
     [ngClass]="[getCssClass(i)]"
   >
+  </div>
+</div>
+<div id="partnerCodePopup">
+  <span>Anyone can submit a disaster report to PetaBencana.id </span>
+  <span>To submit an anonymous disaster report, skip this step! </span>
+  <span>If you are submitting a report as a partner organization, enter your code below</span>
+  <input type="text" id="partnerCode" placeholder="Partner Code" [(value)]="partnerCode" />
+  <div id="submitRow">
+    <p (click)="submitCode()">Submit&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  </div>
+  <div id="closeRow">
+    <p (click)="closePartnerPopup()">Close&nbsp;&nbsp;&nbsp;&nbsp;</p>
   </div>
 </div>
