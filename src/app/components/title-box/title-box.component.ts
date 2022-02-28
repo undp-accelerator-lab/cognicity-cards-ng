@@ -4,51 +4,73 @@ import { DeckService } from '../../services/cards/deck.service';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-title-box',
-  templateUrl: './title-box.component.html',
-  styleUrls: ['./title-box.component.scss']
+  selector: "app-title-box",
+  templateUrl: "./title-box.component.html",
+  styleUrls: ["./title-box.component.scss"],
 })
 export class TitleBoxComponent {
   @Input() title: string;
-  partnerCode = '';
+  partnerCode = "";
+  isError: boolean = false; // hidden by default
+  isPartner: boolean = false; // hidden by default
 
   constructor(
     public navController: NavigationService,
-    public deckService: DeckService) { }
+    public deckService: DeckService
+  ) {}
 
   getCssClass(i) {
-    if (this.deckService.getDeckType() === 'earthquake') { return i < this.navController.tabs[1] ? 'tabs filled ' : 'tabs'; }
-    return i <= this.navController.tabs[1] ? $('#partnerCode').val() !== '' ? 'tabs filled_partner' : 'tabs filled ' : 'tabs';
+    if (this.deckService.getDeckType() === "earthquake") {
+      return i < this.navController.tabs[1] ? "tabs filled " : "tabs";
+    }
+    return i <= this.navController.tabs[1]
+      ? this.isPartner
+        ? "tabs filled_partner"
+        : "tabs filled "
+      : "tabs";
   }
 
   get isShowTabs(): boolean {
-    if (this.deckService.getDeckType() === 'earthquake') {
-      return this.navController.tabs[1] > 0 && this.navController.tabs[1] <= this.totalTabs.length;
+    if (this.deckService.getDeckType() === "earthquake") {
+      return (
+        this.navController.tabs[1] > 0 &&
+        this.navController.tabs[1] <= this.totalTabs.length
+      );
     }
     return this.navController.tabs[1] < this.totalTabs.length;
   }
 
   get totalTabs(): number[] {
     let offset;
-    if (this.deckService.getDeckType() === 'earthquake') { offset = 2; } else { offset = 1; }
+    if (this.deckService.getDeckType() === "earthquake") {
+      offset = 2;
+    } else {
+      offset = 1;
+    }
 
-    return Array(this.navController.tabs[0] - offset).fill(1).map((x, i) => x + i);
+    return Array(this.navController.tabs[0] - offset)
+      .fill(1)
+      .map((x, i) => x + i);
   }
 
   closePartnerPopup() {
-    $('#partnerCodePopup').hide();
+    $("#partnerCodePopup").hide();
   }
 
   showPartnerPopup() {
-    $('#partnerCodePopup').show();
+    $("#partnerCodePopup").show();
   }
 
-  isSubmitted(){
-    return $('#partnerCode').val() !== ''
-  }
 
   submitCode() {
-    this.deckService.setPartnerCode(<string>$('#partnerCode').val());
-    this.closePartnerPopup();
+    this.deckService
+      .verifyPartnerCode(<string>$("#partnerCode").val())
+      .then((response) => {
+        this.closePartnerPopup();
+        this.isPartner = true;
+      })
+      .catch((err) => {
+        this.isError = true;
+      });
   }
 }

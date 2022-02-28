@@ -1,4 +1,4 @@
-<div class="titleItems" [class.partnerTitleItems] = "isSubmitted()">
+<div class="titleItems" [ngClass] = "{'partnerTitleItems': isPartner}">
   <span id="partnerIcon" (click)="showPartnerPopup()" >
     <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
   </span>
@@ -24,4 +24,7 @@
     <div id="submitRow">
       <button  (click)="submitCode()">Submit</button>
     </div>
+    <p *ngIf="isError" id="partnerCodeError">
+      Partner code not found or in inactive status , Kindly check your partner code or contact the admin
+    </p>
 </div>
