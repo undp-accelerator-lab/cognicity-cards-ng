@@ -47,6 +47,11 @@
     vertical-align: middle;
   }
 
+  & a{
+    color: #626262;
+    font-size: 0.75rem;
+  }
+
   & #submitRow{
     display: flex;
     justify-content: flex-end;

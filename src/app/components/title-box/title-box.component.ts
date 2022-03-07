@@ -13,6 +13,7 @@ export class TitleBoxComponent {
   partnerCode = "";
   isError: boolean = false; // hidden by default
   isPartner: boolean = false; // hidden by default
+  isShown: boolean = false; // hidden by default
 
   constructor(
     public navController: NavigationService,
@@ -54,13 +55,12 @@ export class TitleBoxComponent {
   }
 
   closePartnerPopup() {
-    $("#partnerCodePopup").hide();
+    this.isShown = false;
   }
 
   showPartnerPopup() {
-    $("#partnerCodePopup").show();
+        this.isShown = true;
   }
-
 
   submitCode() {
     this.deckService
