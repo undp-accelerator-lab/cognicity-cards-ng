@@ -293,10 +293,6 @@ export class DeckService {
 
     console.log(report);
     console.log(cardId);
-    console.log(
-      "🚀 ~ file: deck.service.ts ~ line 207 ~ DeckService ~ submit ~ this.preview",
-      signedURL
-    );
     if (this.preview && signedURL) {
       const photo = this.preview;
       if (signedURL === "url_error") {
@@ -332,7 +328,7 @@ export class DeckService {
       created_at: new Date().toISOString(),
       image_url: "",
       location: this.location,
-      partnerCode: this.partnerCode,
+      partnerCode: this.partnerCode ? this.partnerCode : "",
     };
     if (this.tweetID) {
       summary.tweetID = this.tweetID;
