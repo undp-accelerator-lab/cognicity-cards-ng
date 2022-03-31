@@ -13,21 +13,37 @@
   >
   </div>
 </div>
-  <div *ngIf="isShown" id="partnerCodePopup">
-    <div id="closeRow">
-      <span (click)="closePartnerPopup()">&times;</span>
-    </div>
+<div id="welcomeToast" *ngIf="partnerIcon != ''">
+  <header  class="partnerCodePopup__header">
+    <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
+    <p><b>WELCOME BACK!</b></p>
+    <span></span>
+  </header>
+  <div class="welcomeToast__body">
+    <img src='{{ partnerIcon }}' alt="partner Icon"/>
+  </div>
+</div>
+  <div *ngIf="isShown && !isPartner" id="partnerCodePopup">
+    <header class="partnerCodePopup__header">
+        <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
+        <p><b>Enter Partner Mode ?</b></p>
+        <div id="closeRow">
+          <span (click)="closePartnerPopup()">X</span>
+        </div>
+      </header>
+    <div class="partnerCodePopup__body">
     <p><b>Anyone can submit a disaster report to PetaBencana.id </b></p>
-    <p><u><b>To submit an anonymous disaster report, skip this step! </b></u></p>
+    <p (click)="closePartnerPopup()" class="partnerCodePopup__body--underline"><u><b>To submit an anonymous disaster report, skip this step! </b></u></p>
     <p><b>If you are submitting a report as a partner organization, enter your code below</b></p>
     <input type="text" id="partnerCode" placeholder="Partner Code" [(value)]="partnerCode" />
     <a href = "mailto:abc@example.com?subject = Feedback&body = Message">
-    <p><u>Forgot Partner code?</u></p>
+    <p class="partnerCodePopup__body--link"><u>Forgot Partner code?</u></p>
     </a>
     <div id="submitRow">
-      <button  (click)="submitCode()">Submit</button>
+      <button  (click)="submitCode()">GO</button>
     </div>
     <p *ngIf="isError" id="partnerCodeError">
       Partner code not found or in inactive status , Kindly check your partner code or contact the admin
     </p>
+  </div>
 </div>

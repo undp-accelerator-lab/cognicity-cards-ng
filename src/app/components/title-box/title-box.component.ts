@@ -14,10 +14,13 @@ export class TitleBoxComponent {
   isError: boolean = false; // hidden by default
   isPartner: boolean = false; // hidden by default
   isShown: boolean = false; // hidden by default
+  partnerIcon:string = ""
+
 
   constructor(
     public navController: NavigationService,
-    public deckService: DeckService
+    public deckService: DeckService,
+
   ) {}
 
   getCssClass(i) {
@@ -62,12 +65,26 @@ export class TitleBoxComponent {
         this.isShown = true;
   }
 
+fetchPartnerName(){
+  this.deckService
+    .verifyPartnerCode(<string>$("#partnerCode").val())
+    .then((response) => {
+      let partnerImage = response[0]['partner_icon'].split("?")
+      this.partnerIcon = partnerImage[0]
+      setTimeout(() => {this.partnerIcon = "" }, 3000)
+    })
+    .catch((err) => {
+      this.isError = true;
+    });
+}
+
   submitCode() {
     this.deckService
       .verifyPartnerCode(<string>$("#partnerCode").val())
       .then((response) => {
         this.closePartnerPopup();
         this.isPartner = true;
+        this.fetchPartnerName()
       })
       .catch((err) => {
         this.isError = true;

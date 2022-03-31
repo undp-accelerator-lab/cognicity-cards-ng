@@ -439,7 +439,7 @@ export class DeckService {
         (responseData) => {
           if (responseData.length !== 0 && responseData[0]["partner_status"]) {
             self.setPartnerCode(partnerCode);
-            resolve(partnerCode);
+            resolve(responseData);
           } else reject("Partner Not found");
         },
         (err) => {
