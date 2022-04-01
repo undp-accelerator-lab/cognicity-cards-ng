@@ -183,5 +183,6 @@
     "swipeText": "Swipe to submit",
     "reportAgainStructure": "Would you also like to submit structural failure report?",
     "reportAgainAccess": "Would you also like to submit road accessibility report?"
-  }
+  },
+  "partner_mode_title": "Enter Partner Mode?"
 }

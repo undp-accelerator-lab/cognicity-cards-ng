@@ -5,7 +5,7 @@
   },
   "validationErrors": {
     "noPhoto": "Wajib menyertakan foto ATAU deskripsi untuk melapor",
-    "unsupportedLocation" : "Lokasi tidak terjangkau, laporan tidak dapat ditampilkan pada peta" 
+    "unsupportedLocation" : "Lokasi tidak terjangkau, laporan tidak dapat ditampilkan pada peta"
   },
   "deck": {
     "prev": "KEMBALI",
@@ -189,5 +189,6 @@
     "swipeText": "Geser",
     "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
     "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?"
-  }
+  },
+  "partner_mode_title": "Mode Partner"
 }

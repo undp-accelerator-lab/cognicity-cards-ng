@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NavigationService } from '../../services/navigation.service';
 import { DeckService } from '../../services/cards/deck.service';
 import * as $ from 'jquery';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: "app-title-box",
@@ -20,6 +21,7 @@ export class TitleBoxComponent {
   constructor(
     public navController: NavigationService,
     public deckService: DeckService,
+    public translate: TranslateService,
 
   ) {}
 
@@ -44,6 +46,9 @@ export class TitleBoxComponent {
     return this.navController.tabs[1] < this.totalTabs.length;
   }
 
+  get partnerModeTitle(): string {
+    return this.translate.instant('partner_mode_title');
+  }
   get totalTabs(): number[] {
     let offset;
     if (this.deckService.getDeckType() === "earthquake") {

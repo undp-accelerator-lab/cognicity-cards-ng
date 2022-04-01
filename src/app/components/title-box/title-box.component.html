@@ -26,7 +26,7 @@
   <div *ngIf="isShown && !isPartner" id="partnerCodePopup">
     <header class="partnerCodePopup__header">
         <img src="../assets/nav/partnerIcon.svg" alt="Partner Icon"/>
-        <p><b>Enter Partner Mode ?</b></p>
+        <p><b>{{partnerModeTitle}}</b></p>
         <div id="closeRow">
           <span (click)="closePartnerPopup()">X</span>
         </div>
