@@ -32,15 +32,15 @@
         </div>
       </header>
     <div class="partnerCodePopup__body">
-    <p><b>Anyone can submit a disaster report to PetaBencana.id </b></p>
-    <p (click)="closePartnerPopup()" class="partnerCodePopup__body--underline"><u><b>To submit an anonymous disaster report, skip this step! </b></u></p>
-    <p><b>If you are submitting a report as a partner organization, enter your code below</b></p>
-    <input type="text" id="partnerCode" placeholder="Partner Code" [(value)]="partnerCode" />
-    <a href = "mailto:abc@example.com?subject = Feedback&body = Message">
-    <p class="partnerCodePopup__body--link"><u>Forgot Partner code?</u></p>
+    <p><b>{{partnerModeBody1}}</b></p>
+    <p (click)="closePartnerPopup()" class="partnerCodePopup__body--underline"><u><b>{{partnerModeBody2}} </b></u></p>
+    <p><b>{{partnerModeBody3}} </b></p>
+    <input type="text" id="partnerCode" placeholder={{partnerModePlaceHolder}} [(value)]="partnerCode" />
+    <a href = "mailto:info@petabencana.id?subject = Feedback&body = Message">
+    <p class="partnerCodePopup__body--link"><u>{{partnerModeForgotPassword}}</u></p>
     </a>
     <div id="submitRow">
-      <button  (click)="submitCode()">GO</button>
+      <button  (click)="submitCode()">{{partnerModeCTA}}</button>
     </div>
     <p *ngIf="isError" id="partnerCodeError">
       Partner code not found or in inactive status , Kindly check your partner code or contact the admin

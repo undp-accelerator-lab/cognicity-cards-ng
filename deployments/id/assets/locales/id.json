@@ -190,5 +190,12 @@
     "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
     "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?"
   },
-  "partner_mode_title": "Mode Partner"
+  "partner_mode_title": "Enter Partner Mode?",
+  "partner_mode_body1":"Siapapun dapat melaporkan bencana ke PetaBencana.id.",
+  "partner_mode_body2":"Untuk mengirimkan laporan bencana secara anonim, lewati langkah ini.",
+  "partner_mode_body3":"Untuk mengirimkan laporan sebagai mitra, masukkan kode organisasi di bawah ini:",  
+  "partner_mode_placeholder":"Kode Mitra",
+  "forgot_partner_code":"Lupa Kode Mitra",
+  "partner_mode_cta":"Masuk"
+
 }

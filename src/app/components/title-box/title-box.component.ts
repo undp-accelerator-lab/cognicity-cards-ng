@@ -49,6 +49,31 @@ export class TitleBoxComponent {
   get partnerModeTitle(): string {
     return this.translate.instant('partner_mode_title');
   }
+
+  get partnerModeBody1(): string {
+    return this.translate.instant('partner_mode_body1');
+  }
+
+  get partnerModeBody2(): string {
+    return this.translate.instant('partner_mode_body2');
+  }
+
+  get partnerModeBody3(): string {
+    return this.translate.instant('partner_mode_body3');
+  }
+
+  get partnerModePlaceHolder(): string {
+    return this.translate.instant('partner_mode_placeholder');
+  }
+
+  get partnerModeForgotPassword(): string {
+    return this.translate.instant('forgot_partner_code');
+  }
+
+  get partnerModeCTA(): string {
+    return this.translate.instant('partner_mode_cta');
+  }
+
   get totalTabs(): number[] {
     let offset;
     if (this.deckService.getDeckType() === "earthquake") {
