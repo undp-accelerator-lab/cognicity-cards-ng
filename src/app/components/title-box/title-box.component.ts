@@ -16,6 +16,8 @@ export class TitleBoxComponent {
   isPartner: boolean = false; // hidden by default
   isShown: boolean = false; // hidden by default
   partnerIcon:string = ""
+  partnerText:string = ""
+
 
 
   constructor(
@@ -74,6 +76,26 @@ export class TitleBoxComponent {
     return this.translate.instant('partner_mode_cta');
   }
 
+  get partnerModeLoginHeader(): string {
+    return this.translate.instant('partner_mode_loginHeader');
+  }
+
+  get partnerModeCodeNotFound(): string {
+    return this.translate.instant('partner_mode_partnerNotfound');
+  }
+
+  get forgotPartnerModeEmail(): string {
+    return this.translate.instant('forgot_partner_email');
+  }
+
+  get forgotPartnerModeSubject(): string {
+    return this.translate.instant('forgot_partner_subject');
+  }
+
+  get forgotPartnerModeBody(): string {
+    return this.translate.instant('forgot_partner_body');
+  }
+
   get totalTabs(): number[] {
     let offset;
     if (this.deckService.getDeckType() === "earthquake") {
@@ -100,8 +122,9 @@ fetchPartnerName(){
     .verifyPartnerCode(<string>$("#partnerCode").val())
     .then((response) => {
       let partnerImage = response[0]['partner_icon'].split("?")
+      this.partnerText = response[0]['partner_text']
       this.partnerIcon = partnerImage[0]
-      setTimeout(() => {this.partnerIcon = "" }, 3000)
+      // setTimeout(() => {this.partnerIcon = "" }, 3000)
     })
     .catch((err) => {
       this.isError = true;

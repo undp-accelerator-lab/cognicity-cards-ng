@@ -190,5 +190,11 @@
   "partner_mode_body3":"To submit a report as a partner organization, enter your code below",  
   "partner_mode_placeholder":"Partner Code",
   "forgot_partner_code":"Forget Partner Code",
-  "partner_mode_cta":"GO"
+  "partner_mode_cta":"GO",
+  "partner_mode_loginHeader":"Welcome Back! You are submitting a report as",
+  "partner_mode_partnerNotfound":"Partner code not found or in inactive status , Kindly check your partner code or email us at info@petabencana.id",
+  "forgot_partner_email":" info@petabencana.id",
+  "forgot_partner_subject":"Forgot PetaBencana.id Partner Code",
+  "forgot_partner_body":"Hi PetaBencana.id My name is [enter your name] from [enter your organization]. I have forgotten my partner code and/or I would like to gain access to a Partner Code to be able to report disasters as an official partner representative of PetaBencana.id ,Thank you."
+
 }
