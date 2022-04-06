@@ -124,7 +124,7 @@ fetchPartnerName(){
       let partnerImage = response[0]['partner_icon'].split("?")
       this.partnerText = response[0]['partner_text']
       this.partnerIcon = partnerImage[0]
-      // setTimeout(() => {this.partnerIcon = "" }, 3000)
+      setTimeout(() => {this.partnerIcon = "" }, 3000)
     })
     .catch((err) => {
       this.isError = true;
