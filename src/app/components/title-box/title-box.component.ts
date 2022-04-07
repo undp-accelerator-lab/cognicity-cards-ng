@@ -80,6 +80,10 @@ export class TitleBoxComponent {
     return this.translate.instant('partner_mode_loginHeader');
   }
 
+  get partnerModeLoginSubHeader(): string {
+    return this.translate.instant('partner_mode_loginSubHeader');
+  }
+
   get partnerModeCodeNotFound(): string {
     return this.translate.instant('partner_mode_partnerNotfound');
   }

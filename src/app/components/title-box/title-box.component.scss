@@ -51,20 +51,37 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  width: clamp(15rem, 75%, 25rem);
+  width: clamp(15rem, 95%, 25rem);
   transform: translate(-50%,-50%);
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.4);;
   z-index: 1030;
   background: #CDCDCD;
   opacity: 90%;
 
-  & p{
+  .partnerCodePopup__header{
+    display: flex;
+    gap: 2em;
+  }
+
+  & h3 ,  p{
     text-align: center;
+    color: #fff;
+    margin:5px;
+  }
+
+  p{
+    font-size: 0.875em;
   }
 
   .welcomeToast__body {
     padding: 30px;
   }
+  .welcomeToast__partnerimage{
+    width: 40%;
+    margin: auto;
+    display: flex;
+  }
+
 }
 
 #partnerCodePopup {
@@ -72,7 +89,7 @@
   position: fixed;
   top: 54%;
   left: 50%;
-  width: clamp(15rem, 75%, 25rem);
+  width: clamp(15rem, 95%, 25rem);
   transform: translate(-50%,-50%);
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.4);;
   z-index: 1030;
