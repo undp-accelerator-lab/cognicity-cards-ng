@@ -455,6 +455,6 @@ export class DeckService {
   }
 
   setPartnerCode(partnerCode: string) {
-    this.partnerCode = partnerCode;
+    this.partnerCode = partnerCode.toLowerCase();
   }
 }
