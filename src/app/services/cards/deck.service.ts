@@ -291,8 +291,7 @@ export class DeckService {
     const report = this._get_report_summary();
     // conditionally add properties to the report depending on the current deck type
 
-    console.log(report);
-    console.log(cardId);
+    console.log("Report image" , report , signedURL , cardId);
     if (this.preview && signedURL) {
       const photo = this.preview;
       if (signedURL === "url_error") {
@@ -435,10 +434,10 @@ export class DeckService {
   verifyPartnerCode(partnerCode: string) {
     const self = this;
     return new Promise(function (resolve, reject) {
-      self._verifyPartnerCode(partnerCode).subscribe(
+      self._verifyPartnerCode(partnerCode.toLowerCase()).subscribe(
         (responseData) => {
           if (responseData.length !== 0 && responseData[0]["partner_status"]) {
-            self.setPartnerCode(partnerCode);
+            self.setPartnerCode(partnerCode.toLowerCase());
             resolve(responseData);
           } else reject("Partner Not found");
         },
@@ -455,6 +454,6 @@ export class DeckService {
   }
 
   setPartnerCode(partnerCode: string) {
-    this.partnerCode = partnerCode.toLowerCase();
+    this.partnerCode = partnerCode;
   }
 }
