@@ -36,7 +36,7 @@ export class LocationPickerComponent implements OnInit {
 
     this.checkIsUserAbleToContinue()
 
-    let { lat, lng } = MONUMEN_NASIONAL_LAT_LNG
+    let { lat, lng } = env.default_location;
 
     if (this.deckService.getLocation()) {
       lat = this.deckService.getLocation().lat
@@ -101,7 +101,7 @@ export class LocationPickerComponent implements OnInit {
   }
 
   async onSearch(query: string) {
-    query = query + ", Indonesia";
+    query = query + env.loc_search_suffix;
     const results = await this.provider.search({ query });
     this.searchResults = results; //we send this to the child component search-location
   }

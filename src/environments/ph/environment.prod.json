@@ -2,11 +2,11 @@
   "production": true,
   "stage": "prod",
   "deployment": "ph",
-  "supported_languages": ["en", "id"],
-  "default_language": "id",
+  "supported_languages": ["en", "ph"],
+  "default_language": "ph",
   "mapbox_access_token": "pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ",
-  "data_server": "https://data.petabencana.id/",
-  "app": "https://petabencana.id/",
+  "data_server": "https://data.mapakalamidad.ph/",
+  "app": "https://mapakalamidad.ph/",
   "decks": [{
     "name": "flood",
     "cards": [
@@ -14,67 +14,6 @@
       "depth",
       "photo",
       "description",
-      "review",
-      "thank"
-    ]
-  },
-  {
-    "name": "fire",
-    "cards": [
-      "firedistance",
-      "fireestimate",
-      "photo",
-      "description",
-      "review",
-      "thank"
-    ]
-  },
-  {
-    "name": "haze",
-    "cards": [
-      "location",
-      "visibility",
-      "airquality",
-      "photo",
-      "description",
-      "review",
-      "thank"
-    ]
-  },
-  {
-    "name": "earthquake",
-    "cards": [
-      "type",
-      "location",
-      "structure",
-      "accessibility",
-      "condition",
-      "photo",
-      "description",
-      "review",
-      "thank"
-    ]
-  },
-  {
-    "name": "wind",
-    "cards": [
-      "location",
-      "impact",
-      "photo",
-      "description",
-      "review",
-      "thank"
-    ]
-  },
-  {
-    "name": "volcano",
-    "cards": [
-      "location",
-      "sign",
-      "photo",
-      "description",
-      "evacuationnumber",
-      "evacuationarea",
       "review",
       "thank"
     ]

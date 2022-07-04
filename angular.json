@@ -101,6 +101,31 @@
                   "with": "src/environments/id/environment.prod.ts"
                 }
               ]
+            },
+            "dev-ph": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/ph/environment.ts"
+                }
+              ]
+            },
+            "prod-ph": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/ph/environment.prod.ts"
+                }
+              ]
             }
           }
         },
