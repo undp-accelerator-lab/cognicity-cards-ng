@@ -36,7 +36,7 @@
     "add-component": "ng g c components/$comp -m routes/cards/$card",
     "pre-build-tasks": "babel tasks/build/**/*.ts tasks/build/*.ts -o tasks/build/index.js && gulp -f ./tasks/build --dep $dep",
     "build": "npm run build-dev && npm run build-prod",
-    "build-dev": "npm run build-dev-ph",
+    "build-dev": "npm run build-dev-id",
     "build-prod": "npm run build-prod-id",
     "build-dev-jp": "dep=jp npm run pre-build-tasks && ng build --configuration=dev-jp --output-path='dist/dev-jp'",
     "build-prod-jp": "dep=jp npm run pre-build-tasks && ng build --prod --configuration=prod-jp --output-path='dist/prod-jp' --build-optimizer --vendor-chunk=true --stats-json",
