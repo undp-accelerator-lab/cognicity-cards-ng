@@ -4,7 +4,6 @@ import { DeckService } from '../../../services/cards/deck.service'
 import { MONUMEN_NASIONAL_LAT_LNG } from '../../../../utils/const';
 import { TranslateService } from '@ngx-translate/core';
 import mapboxgl from 'mapbox-gl';
-// import MapboxDraw from "@mapbox/mapbox-gl-draw";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { lineString , length} from "@turf/turf";
 declare let L

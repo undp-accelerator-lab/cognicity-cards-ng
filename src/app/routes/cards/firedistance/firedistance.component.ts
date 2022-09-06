@@ -5,6 +5,7 @@ import { DeckService } from '../../../services/cards/deck.service'
 import { MONUMEN_NASIONAL_LAT_LNG } from "../../../../utils/const";
 import { environment as env } from '../../../../environments/environment';
 import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { lineString , length} from "@turf/turf";
 import { TranslateService } from '@ngx-translate/core';
 
