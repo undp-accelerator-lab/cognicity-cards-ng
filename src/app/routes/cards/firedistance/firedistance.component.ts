@@ -1,12 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit  } from "@angular/core";
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
 
 import { DeckService } from '../../../services/cards/deck.service'
 import { MONUMEN_NASIONAL_LAT_LNG } from "../../../../utils/const";
+import { environment as env } from '../../../../environments/environment';
 import mapboxgl from 'mapbox-gl';
 import { lineString , length} from "@turf/turf";
+import { TranslateService } from '@ngx-translate/core';
 
-declare let L;
 @Component({
   selector: "app-firedistance",
   templateUrl: "./firedistance.component.html",
@@ -23,8 +24,10 @@ export class FiredistanceComponent implements OnInit {
   private labelLayer;
   private provider;
   public search;
+  searchResults
 
-  constructor(private deckService: DeckService) { }
+  constructor(private deckService: DeckService , public translate: TranslateService,) {}
+  
 
   ngOnInit() {
     this.initMap();
@@ -43,7 +46,6 @@ export class FiredistanceComponent implements OnInit {
 
   private initMap() {
     let { lat, lng } = MONUMEN_NASIONAL_LAT_LNG
-    console.log("🚀 ~ file: firedistance.component.ts ~ line 49 ~ FiredistanceComponent ~ initMap ~ this.deckService.getLocation()", this.deckService.getLocation())
 
     if (this.deckService.getFireLocation()) {
       lat = this.deckService.getLocation().lat
@@ -183,22 +185,22 @@ export class FiredistanceComponent implements OnInit {
        this.distanceLine = this.map.getSource('geojson').setData(this.geojson);
   }
 
-  private addMarker(type: "informer" | "fire"): void {
+  private addMarker(type: "informer" | "fire" , LatLng = undefined): void {
+    console.log(this.map.getCenter())
     let latlng;
     switch (type) {
       case "informer":
         latlng = {
-          lat: this.map.getCenter().lat,
-          lng: this.map.getCenter().lng
+          lat: LatLng  ? LatLng.lat : this.map.getCenter().lat,
+          lng:  LatLng ? LatLng.lng : this.map.getCenter().lng
         };
         this.deckService.setLocation(latlng);
-        console.log(this.deckService.getLocation())
         break;
       case "fire":
         if (!this.deckService.getFireLocation()) {
           latlng = {
-            lat: this.map.getCenter().lat,
-            lng: this.map.getCenter().lng - this.map.getCenter().lng / 100000
+            lat: LatLng ? LatLng.lat : this.map.getCenter().lat,
+            lng:  LatLng  ? LatLng.lng - LatLng.lng /100000  : this.map.getCenter().lng - this.map.getCenter().lng / 100000
           };
           this.deckService.setFireLocation(latlng);
         } else {
@@ -232,6 +234,7 @@ export class FiredistanceComponent implements OnInit {
       case "fire":
         if (this.fireMarker) this.fireMarker.remove(this.map);
         this.fireMarker = marker;
+        console.log("adding marker informer fire")
         break;
     }
 
@@ -266,16 +269,27 @@ export class FiredistanceComponent implements OnInit {
   }
 
   async onSearch(query: string) {
+    query = query + env.loc_search_suffix;
+    const minimumCharCount = 3
+    const results = query.split(',')[0].length > minimumCharCount && await this.provider.search({ query }) // Optimising the calls made to search api
+    this.searchResults = results; //we send this to the child component search-location
+  }
+
+  async onConfirmSearch(query: string) {
     const results = await this.provider.search({ query });
+    this.map.flyTo({
+      center: [results[0].x, results[0].y],
+      essential: true // this animation is considered essential with respect to prefers-reduced-motion
+      });
 
-    this.map.setView({ lat: results[0].y, lng: results[0].x }, 18)
 
-    this.addMarker("informer");
+    this.addMarker("informer" , {lat : results[0].y , lng : results[0].x});
 
     this.deckService.setFireLocation(null);
-    this.addMarker("fire");
+    this.addMarker("fire" , {lat : results[0].y , lng : results[0].x});
     
     this.addDistanceLine();
+    
   }
 
   getIcon(type: 'informer' | 'fire') {
