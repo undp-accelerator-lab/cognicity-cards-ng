@@ -10,7 +10,7 @@ import { DeckService } from '../../services/cards/deck.service';
 })
 export class NavButtonComponent implements OnInit {
   @Input() text: string;
-  @Input() type: 'right' | 'left' ;
+  @Input() type: 'right' | 'left' | 'default';
   @Output() navigate = new EventEmitter<any>();
 
   constructor(public route: ActivatedRoute, public deckService: DeckService) { }

@@ -3,9 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import { environment as env } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import * as topojson from 'topojson-client';
 
 type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood';
-type deckSubType = 'fire' | 'haze' | 'road' | 'structure' | 'wind' | 'volcano' | 'flood';
+type deckSubType =
+  | 'fire'
+  | 'haze'
+  | 'road'
+  | 'structure'
+  | 'wind'
+  | 'volcano'
+  | 'flood';
 
 interface LatLng {
   lat: number;
@@ -13,16 +21,17 @@ interface LatLng {
 }
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class DeckService {
   private partnerCode: string;
 
   constructor(private http: HttpClient) {}
   finishedSubType = [];
-  cardLanguage = "";
+  cardLanguage = '';
 
   tweetID: string;
+  waNumber: string;
   type: deckType;
   subType: deckSubType;
 
@@ -39,11 +48,13 @@ export class DeckService {
   fireLocation: LatLng;
   fireRadius: LatLng;
   fireDistance: number;
+  selectedRegion: Object;
   volcanicSigns: number[] = [];
   evacuationNumber: null | number = null;
   evacuationArea: null | boolean = null;
-  imageSignedUrl = "url_error";
-  description = "";
+  imageSignedUrl = 'url_error';
+  description = '';
+  inputValue = [];
   sub_submission = false;
   captchaCleared = false;
   preview: File;
@@ -76,13 +87,15 @@ export class DeckService {
 
   async isPermittedLocation() {
     const requestHeaders: HeadersInit = new Headers();
-    requestHeaders.set('Access-Control-Allow-Origin', "*");
+    requestHeaders.set('Access-Control-Allow-Origin', '*');
 
-    const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${this.location.lat}&lon=${this.location.lng}`)
+    const response = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${this.location.lat}&lon=${this.location.lng}`
+    );
 
-    const geocodeData = await response.json()
+    const geocodeData = await response.json();
 
-    return geocodeData.address.country_code === env.country_code
+    return geocodeData.address.country_code === env.country_code;
   }
 
   // Getter
@@ -149,8 +162,17 @@ export class DeckService {
   getDescription() {
     return this.description;
   }
+
+  getInputValue() {
+    return this.inputValue;
+  }
+
   getPreview() {
     return this.preview;
+  }
+
+  getSelectedRegion() {
+    return this.selectedRegion;
   }
 
   // Setter
@@ -163,6 +185,10 @@ export class DeckService {
 
   setRoute(route: ActivatedRoute) {
     this.route = route;
+  }
+
+  setSelectedRegion(selectedRegion: Object) {
+    this.selectedRegion = selectedRegion;
   }
 
   setStructureFailure(structureFailure: number) {
@@ -206,6 +232,11 @@ export class DeckService {
       this.tweetID = tweetID;
     }
   }
+  setWaNumber(waNumber: string) {
+    if (waNumber) {
+      this.waNumber = waNumber;
+    }
+  }
   setEvacuationNumber(evacuationNumber: number) {
     if (this.evacuationNumber !== evacuationNumber) {
       this.evacuationNumber = evacuationNumber;
@@ -220,6 +251,29 @@ export class DeckService {
   setDescription(description: string) {
     this.description = description;
   }
+
+  setInputValue(name: string, inputValue: string) {
+    switch (name) {
+      case 'facebook':
+        this.inputValue.push({ name: name, value: inputValue });
+        break;
+      case 'twitter':
+        this.inputValue.push({ name: name, value: inputValue });
+        break;
+      case 'telegram':
+        this.inputValue.push({ name: name, value: inputValue });
+        break;
+      case 'whatsapp':
+        this.inputValue.push({ name: name, value: inputValue });
+        break;
+      case 'instagram':
+        this.inputValue.push({ name: name, value: inputValue });
+        break;
+      default:
+        break;
+    }
+  }
+
   setPreview(preview: File) {
     this.preview = preview;
   }
@@ -246,19 +300,19 @@ export class DeckService {
     this.volcanicSigns = [];
     this.evacuationNumber = null;
     this.evacuationArea = null;
-    this.description = "";
+    this.description = '';
     this.preview = undefined;
     this.captchaCleared = false;
-    this.imageSignedUrl = "url_error";
-    this.partnerCode = "";
+    this.imageSignedUrl = 'url_error';
+    this.partnerCode = '';
   }
 
   updateSignedUrl(image: File) {
-    const cardId = this.route.snapshot["_routerState"].url.split("/")[1];
+    const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
     this.getSignedURL(cardId, image.type)
       .then((signedURL) => (this.imageSignedUrl = signedURL))
       .catch((error) => {
-        this.imageSignedUrl = "url_error";
+        this.imageSignedUrl = 'url_error';
       });
   }
 
@@ -277,21 +331,44 @@ export class DeckService {
   }
 
   _getSignedUrl(id: string, type: string): Observable<any> {
-    return this.http.get(env.data_server + "cards/" + id + "/images", {
-      headers: { "content-type": type },
+    return this.http.get(env.data_server + 'cards/' + id + '/images', {
+      headers: { 'content-type': type },
+    });
+  }
+
+  async submitNotificationRequest(): Promise<any> {
+    const selectedRegion = this.getSelectedRegion();
+    const notifyMedium = this.waNumber;
+    const data  = {
+      region_code : selectedRegion['properties']['region_code'],
+      whatsapp: notifyMedium,
+    }
+    return new Promise(async(resolve, reject) => {
+      return await this.http
+        .post(`${env.data_server}subscriptions/add-subscriber`, data)
+        .toPromise()
+        .then((success) => {
+          // PUT report & patch image_url
+          resolve(success);
+        })
+        .catch((error) => {
+          reject(error)
+          console.log('Error', error);
+          // PUT report & notify user about upload error
+        });
     });
   }
 
   async submit(): Promise<any> {
     const signedURL = this.imageSignedUrl;
-    const cardId = this.route.snapshot["_routerState"].url.split("/")[1];
+    const cardId = this.route.snapshot['_routerState'].url.split('/')[1];
     const report = this._get_report_summary();
     // conditionally add properties to the report depending on the current deck type
 
-    console.log("Report image" , report , signedURL , cardId);
+    console.log('Report image', report, signedURL, cardId);
     if (this.preview && signedURL) {
       const photo = this.preview;
-      if (signedURL === "url_error") {
+      if (signedURL === 'url_error') {
         // PUT report & notify user about upload error
         return this.putReport(report, cardId, true, false);
       } else {
@@ -322,40 +399,40 @@ export class DeckService {
       sub_submission: this.sub_submission,
       text: this.description,
       created_at: new Date().toISOString(),
-      image_url: "",
+      image_url: '',
       location: this.location,
-      partnerCode: this.partnerCode ? this.partnerCode : "",
+      partnerCode: this.partnerCode ? this.partnerCode : '',
     };
     if (this.tweetID) {
       summary.tweetID = this.tweetID;
     }
     switch (this.type) {
-      case "flood":
+      case 'flood':
         summary.card_data.flood_depth = this.floodDepth;
         break;
-      case "wind":
+      case 'wind':
         summary.card_data.impact = this.impact;
         break;
-      case "fire":
+      case 'fire':
         summary.card_data.fireDistance = this.fireDistance;
         summary.card_data.fireLocation = this.fireLocation;
         summary.card_data.personLocation = this.location;
         summary.card_data.fireRadius = this.fireRadius;
         summary.location = this.fireLocation;
         break;
-      case "volcano":
+      case 'volcano':
         summary.card_data.volcanicSigns = this.volcanicSigns;
         summary.card_data.evacuationNumber = this.evacuationNumber;
         summary.card_data.evacuationArea = this.evacuationArea;
         break;
-      case "haze":
+      case 'haze':
         summary.card_data.visibility = this.visibility;
         summary.card_data.airQuality = this.airQuality;
         break;
-      case "earthquake":
-        if (this.subType == "structure") {
+      case 'earthquake':
+        if (this.subType == 'structure') {
           summary.card_data.structureFailure = this.structureFailure;
-        } else if (this.subType == "road") {
+        } else if (this.subType == 'road') {
           summary.card_data.accessabilityFailure = this.accessibility;
         }
         summary.card_data.condition = this.condition;
@@ -369,7 +446,7 @@ export class DeckService {
     hasPhoto: boolean,
     photoUploaded: boolean
   ): Promise<any> {
-    const reportURL = env.data_server + "cards/" + id;
+    const reportURL = env.data_server + 'cards/' + id;
     // Define route settings pointers
     // var error_settings, thanks_settings;
     // for (let route of router.routes) {
@@ -428,15 +505,40 @@ export class DeckService {
     );
   }
 
+  getCitiesData() {
+    const self = this;
+    return new Promise(function (resolve, reject) {
+      self._getCitiesData().subscribe(
+        (responseData) => {
+          if (responseData.statusCode === 200) {
+            let result = responseData.result;
+            if (result && result.objects) {
+              resolve(topojson.feature(result, result.objects.output));
+            } else {
+              resolve(null);
+            }
+          }
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
+  }
+
+  _getCitiesData(): Observable<any> {
+    return this.http.get(`${env.data_server}regions`);
+  }
+
   verifyPartnerCode(partnerCode: string) {
     const self = this;
     return new Promise(function (resolve, reject) {
       self._verifyPartnerCode(partnerCode.toLowerCase()).subscribe(
         (responseData) => {
-          if (responseData.length !== 0 && responseData[0]["partner_status"]) {
+          if (responseData.length !== 0 && responseData[0]['partner_status']) {
             self.setPartnerCode(partnerCode.toLowerCase());
             resolve(responseData);
-          } else reject("Partner Not found");
+          } else reject('Partner Not found');
         },
         (err) => {
           reject(err);
@@ -446,8 +548,10 @@ export class DeckService {
   }
 
   _verifyPartnerCode(partnerCode: string): Observable<any> {
-    return this.http.get(env.data_server + "partners/partner/?partner_code=" + partnerCode, {
-    });
+    return this.http.get(
+      env.data_server + 'partners/partner/?partner_code=' + partnerCode,
+      {}
+    );
   }
 
   setPartnerCode(partnerCode: string) {

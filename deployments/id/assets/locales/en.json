@@ -41,7 +41,13 @@
       "photo": "Upload a Photo",
       "description": "Tell us more",
       "review": "Review & Submit",
-      "thank": "Thank you!"
+      "thank": "Thank you!",
+
+      "region": "Select region(s)",
+      "summary" : "Review & Submit",
+      "thankyou":"Thank You!"
+
+
     },
     "type": {
       "fire": {

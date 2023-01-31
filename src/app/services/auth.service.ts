@@ -16,6 +16,7 @@ export class AuthService {
     if (
       otl === 'error'
       || otl === 'thanks'
+      || otl === 'location-based'
     ) {
       return true;
     }

@@ -1,0 +1,25 @@
+
+.input {
+  background-color: gray;
+  border: 1px solid #fff;
+  margin: 0;
+  height: 30px;
+  border-radius: 10px;
+  min-width: 500px;
+
+
+  &::-moz-placeholder {
+    color: black;
+  }
+
+  &::-webkit-input-placeholder {
+    color: black;
+  }
+
+
+  &:focus {
+    outline: none;
+    background-color: rgb(37, 150, 190);
+    border: none;
+  }
+}

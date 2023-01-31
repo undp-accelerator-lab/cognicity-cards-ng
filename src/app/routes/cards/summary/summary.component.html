@@ -1,0 +1,20 @@
+<div class="summary">
+    <p>
+        Summary : 
+    </p>
+    <span>City</span> : <span>{{getSubscriptions.properties.city}}</span>
+</div>
+<div class="submit__swipe">
+    <div class="captchaContainer"> 
+        <form [formGroup]="captchaForm">
+            <ngx-recaptcha2
+              siteKey="6LdbMVIaAAAAAHnTSXOKsJrpkgD4BxneuVy1c_3-"
+              (success)="handleSuccess($event)"
+              data-theme='dark'
+              formControlName="recaptcha">
+            </ngx-recaptcha2>
+          </form>
+    </div>
+    <app-submit-swipe swipeText="{{ 'card.swipeText' | translate}}">
+    </app-submit-swipe>
+</div>

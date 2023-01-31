@@ -1,0 +1,22 @@
+.notification-medium {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  align-items: center;
+  gap: 24px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.notification-medium > * {
+  flex: 1;
+}
+
+@media (max-width: 721px) {
+  .signup {
+    flex-direction: column;
+  }
+}

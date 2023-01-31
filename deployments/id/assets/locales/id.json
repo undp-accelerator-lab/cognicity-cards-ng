@@ -42,7 +42,12 @@
       "photo": "Unggah Foto",
       "description": "Tambahkan Deskripsi",
       "review": "Tinjau & Laporkan",
-      "thank": "Terima Kasih!"
+      "thank": "Terima Kasih!",
+
+      "region": "Select region(s)",
+      "summary" :  "Tinjau",
+      "thankyou":"Terima Kasih!"
+
     },
     "type": {
       "fire": {
