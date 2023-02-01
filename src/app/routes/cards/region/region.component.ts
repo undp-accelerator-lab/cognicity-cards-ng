@@ -52,18 +52,18 @@ export class RegionComponent implements OnInit {
     const self = this;
 
     const data = await self.getData();
-
-    // this.map.on('load', () => {
-    this.addMapSource(data);
-    // });
+    self.map.on('load', () => {
+      self.addMapSource(data);
+    });
   }
 
   private addMapSource(data) {
+  
     try {
       if (this.map._loaded) {
         this.map.addSource('cities', {
           type: 'geojson',
-          data:data,
+          data: data,
         });
 
         this.map.addLayer({
@@ -96,14 +96,17 @@ export class RegionComponent implements OnInit {
           const selectedFeatures = this.map.queryRenderedFeatures(bbox, {
             layers: ['cities-fill'],
           });
-          this.deckService.setSelectedRegion(selectedFeatures[0])
+          this.deckService.setSelectedRegion(selectedFeatures[0]);
           const features = selectedFeatures.map(
             (feature) => feature.properties.region_code
           );
-          console.log("🚀 ~ file: region.component.ts:103 ~ RegionComponent ~ this.map.on ~ features", features)
           // Set a filter matching selected features by FIPS codes
           // to activate the 'counties-highlighted' layer.
-          this.map.setFilter('cities-highlighted', ['in', 'region_code', ...features]);
+          this.map.setFilter('cities-highlighted', [
+            'in',
+            'region_code',
+            ...features,
+          ]);
         });
       }
     } catch (err) {
