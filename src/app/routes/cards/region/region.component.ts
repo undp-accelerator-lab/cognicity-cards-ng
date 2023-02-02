@@ -13,10 +13,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
   styleUrls: ['./region.component.scss'],
 })
 export class RegionComponent implements OnInit {
-  private fireMarker;
-  private radiusMarker;
   private geojson;
-  private circleRadius;
   public latlng: { lat: string; lng: string };
 
   private map;
@@ -39,31 +36,22 @@ export class RegionComponent implements OnInit {
       lng = this.deckService.getFireLocation().lng;
     }
 
-    mapboxgl.accessToken =
-      'pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ';
-    this.map = new mapboxgl.Map({
-      container: 'mapid', // container ID
-      style: 'mapbox://styles/petabencana/ckq0nc6hp01vw17p9n17yxue2', // style URL
-      center: [lng, lat],
-      minZoom: 4,
-      zoom: 8,
-    });
+    this.geojson = await this.getData();
 
-    const self = this;
-
-    const data = await self.getData();
-    self.map.on('load', () => {
-      self.addMapSource(data);
-    });
-  }
-
-  private addMapSource(data) {
-  
-    try {
-      if (this.map._loaded) {
+    if (this.geojson.hasOwnProperty('features')) {
+      mapboxgl.accessToken =
+        'pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ';
+      this.map = new mapboxgl.Map({
+        container: 'mapid', // container ID
+        style: 'mapbox://styles/petabencana/ckq0nc6hp01vw17p9n17yxue2', // style URL
+        center: [lng, lat],
+        minZoom: 4,
+        zoom: 8,
+      });
+      this.map.on('load', () => {
         this.map.addSource('cities', {
           type: 'geojson',
-          data: data,
+          data: this.geojson,
         });
 
         this.map.addLayer({
@@ -108,9 +96,7 @@ export class RegionComponent implements OnInit {
             ...features,
           ]);
         });
-      }
-    } catch (err) {
-      console.log('err hre', err);
+      });
     }
   }
 
