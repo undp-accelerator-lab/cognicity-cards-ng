@@ -342,6 +342,7 @@ export class DeckService {
     const data  = {
       region_code : selectedRegion['properties']['region_code'],
       whatsapp: notifyMedium,
+      language_code : this.getCardLanguage()
     }
     return new Promise(async(resolve, reject) => {
       return await this.http
