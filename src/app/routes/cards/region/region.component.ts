@@ -84,10 +84,13 @@ export class RegionComponent implements OnInit {
           const selectedFeatures = this.map.queryRenderedFeatures(bbox, {
             layers: ['cities-fill'],
           });
-          this.deckService.setSelectedRegion(selectedFeatures[0]);
           const features = selectedFeatures.map(
             (feature) => feature.properties.region_code
           );
+          const selectedFeatureRegion = selectedFeatures.map(
+            (feature) => feature.properties.city
+          );
+          this.deckService.setSelectedRegion(selectedFeatureRegion[0]);
           // Set a filter matching selected features by FIPS codes
           // to activate the 'counties-highlighted' layer.
           this.map.setFilter('cities-highlighted', [
