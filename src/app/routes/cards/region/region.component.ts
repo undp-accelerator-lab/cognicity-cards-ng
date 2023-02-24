@@ -90,6 +90,7 @@ export class RegionComponent implements OnInit {
           const selectedFeatureRegion = selectedFeatures.map(
             (feature) => feature.properties.city
           );
+          this.deckService.setSelectedRegionCode(features[0]);
           this.deckService.setSelectedRegion(selectedFeatureRegion[0]);
           // Set a filter matching selected features by FIPS codes
           // to activate the 'counties-highlighted' layer.

@@ -49,6 +49,7 @@ export class DeckService {
   fireRadius: LatLng;
   fireDistance: number;
   selectedRegion: Object;
+  selectedRegionCode: Object;
   volcanicSigns: number[] = [];
   evacuationNumber: null | number = null;
   evacuationArea: null | boolean = null;
@@ -175,6 +176,10 @@ export class DeckService {
     return this.selectedRegion;
   }
 
+  getSelectedRegionCode() {
+    return this.selectedRegionCode;
+  }
+
   // Setter
   setDeckType(type: deckType) {
     this.type = type;
@@ -189,6 +194,10 @@ export class DeckService {
 
   setSelectedRegion(selectedRegion: Object) {
     this.selectedRegion = selectedRegion;
+  }
+
+  setSelectedRegionCode(selectedRegionCode: Object) {
+    this.selectedRegionCode = selectedRegionCode;
   }
 
   setStructureFailure(structureFailure: number) {
@@ -337,10 +346,10 @@ export class DeckService {
   }
 
   async submitNotificationRequest(): Promise<any> {
-    const selectedRegion = this.getSelectedRegion();
+    const selectedRegion = this.getSelectedRegionCode();
     const notifyMedium = this.waNumber;
     const data  = {
-      region_code : selectedRegion['properties']['region_code'],
+      region_code : selectedRegion,
       whatsapp: notifyMedium,
       language_code : this.getCardLanguage()
     }
