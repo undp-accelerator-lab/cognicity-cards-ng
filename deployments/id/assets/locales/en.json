@@ -43,7 +43,7 @@
       "review": "Review & Submit",
       "thank": "Thank you!",
 
-      "region": "Select region(s)",
+      "region": "Select region(s) to receive notifications for",
       "summary" : "Review & Submit",
       "thankyou":"Thank You!"
 
@@ -184,7 +184,8 @@
       "subtitle": "Would you like to submit another report?",
       "acceptButton": "Yes",
       "rejectButton": "No",
-      "tips": "Click here for safety tips from BNPB"
+      "tips": "Click here for safety tips from BNPB",
+      "subscribeText": "Thank you for subscribing! We will send a notification when there is a report in your selected region"
     },
     "swipeText": "Swipe to submit",
     "reportAgainStructure": "Would you also like to submit structural failure report?",
