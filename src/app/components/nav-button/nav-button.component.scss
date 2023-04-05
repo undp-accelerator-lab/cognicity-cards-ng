@@ -28,6 +28,15 @@ button {
     color: #888;
   }
 
+  &.button-default {
+    &:focus{
+      outline: none;
+      background-color: rgb(37, 150, 190);
+      border: none;
+      color: white;
+    }
+  }
+
   &:focus {
     outline: none;
     background-color: rgba(66, 66, 66, 0.3);

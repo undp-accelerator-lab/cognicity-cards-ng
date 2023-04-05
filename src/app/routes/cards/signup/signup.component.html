@@ -1,0 +1,17 @@
+<div class="signup">
+  <div>
+    <app-nav-button
+      [type]="'default'"
+      [text]="'Sign up'"
+      (navigate)="navController.nextFromChild(route, '../../../')"
+    >
+    </app-nav-button>
+    <app-nav-button
+      [type]="'default'"
+      [text]="'Update Preferences'"
+      [ngClass]="buttonComp"
+      (navigate)="navController.nextFromChild(route, '../../../')"
+    >
+    </app-nav-button>
+  </div>
+</div>

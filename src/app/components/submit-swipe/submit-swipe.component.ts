@@ -35,11 +35,10 @@ export class SubmitSwipeComponent implements OnInit {
   }
 
   canSubmit():boolean {
-    return (!this.isDescriptionAndPhotoEmpty && this.deckService.isCaptchaCleared() && this.isPermittedLocation)
+    return ((!this.isDescriptionAndPhotoEmpty && this.deckService.isCaptchaCleared() && this.isPermittedLocation) || (this.deckService.isCaptchaCleared() && this.navController.getCurrentRouteName() === 'summary'))
   }
 
   knobStart(event) {
-    console.log(this.canSubmit());
     if (!this.canSubmit()) return; 
     this.mouseDown = true;
     this.slideMovementTotal = this.slider.width() - this.knob.width() - 13;
@@ -72,7 +71,7 @@ export class SubmitSwipeComponent implements OnInit {
     this.knob = $('#submitKnob');
     // const slider = $('#submitSlider')
     this.slider = $('#submitSlider')
-    this.isPermittedLocation = await this.deckService.isPermittedLocation();
+    this.isPermittedLocation = this.navController.getCurrentRouteName() === 'summary' ? true : await this.deckService.isPermittedLocation();
 
     // If both of description and image is empty, next button is disabled
     // if (!canSubmit()) {
@@ -109,6 +108,15 @@ export class SubmitSwipeComponent implements OnInit {
 
   async submit() {
     this.isLoading = true
+    if(this.navController.getCurrentRouteName() === 'summary' && !this.isSumbitted ){
+      this.isSumbitted = true;
+      return await this.deckService.submitNotificationRequest().then(() => {
+        this.isLoading = false
+        this.navController.next(this.deckService.getRoute())
+      }).catch(() => {
+        this.navController.next(this.deckService.getRoute())
+      })
+    }
     if (!this.isSumbitted) {
       this.isSumbitted = true;
       await this.deckService.submit().then(() => {

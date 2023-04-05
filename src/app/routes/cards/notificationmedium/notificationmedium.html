@@ -1,0 +1,7 @@
+<div class="notification-medium">
+  <span>* you can select more than one</span>
+  <div *ngFor="let socialMediaItem of socialMediaItems">
+    <app-input-box name="{{socialMediaItem.name}}" placeholder="{{socialMediaItem.placeholder}}">
+    </app-input-box>
+  </div>
+</div>

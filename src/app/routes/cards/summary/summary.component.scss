@@ -1,0 +1,34 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 30px;
+  height: min-content;
+  background-color: #424243;
+  border: 1px solid #424243;
+  p {
+    color: #fff;
+  }
+  span {
+    color: #2596be;
+  }
+}
+
+.submit__swipe{
+  position: absolute;
+  top: 70%;
+  width: 100%;
+}
+
+.captchaContainer{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
