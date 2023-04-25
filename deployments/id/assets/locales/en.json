@@ -187,7 +187,7 @@
       "tips": "Click here for safety tips from BNPB",
       "subscribeText": "Thank you for subscribing! We will send a notification when there is a report in your selected region"
     },
-    "swipeText": "Swipe to submit",
+    "swipeText": "SUBMIT",
     "reportAgainStructure": "Would you also like to submit structural failure report?",
     "reportAgainAccess": "Would you also like to submit road accessibility report?"
   },
