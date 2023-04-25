@@ -5,7 +5,7 @@
   },
   "validationErrors": {
     "noPhoto": "Wajib menyertakan foto ATAU deskripsi untuk melapor",
-    "unsupportedLocation" : "Lokasi tidak terjangkau, laporan tidak dapat ditampilkan pada peta"
+    "unsupportedLocation": "Lokasi tidak terjangkau, laporan tidak dapat ditampilkan pada peta"
   },
   "deck": {
     "prev": "KEMBALI",
@@ -45,9 +45,8 @@
       "thank": "Terima Kasih!",
 
       "region": "Pilih wilayah untuk mendapatkan notifikasi",
-      "summary" :  "Tinjau",
-      "thankyou":"Tinjau dan kirimkan"
-
+      "summary": "Tinjau",
+      "thankyou": "Tinjau dan kirimkan"
     },
     "type": {
       "fire": {
@@ -68,11 +67,7 @@
         "Bisa melihat tapi kurang jelas untuk berkendara",
         "Sulit melihat. Terlalu berbahaya untuk keluar"
       ],
-      "review": [
-        "Baik",
-        "Sedang/Cukup",
-        "Buruk"
-      ]
+      "review": ["Baik", "Sedang/Cukup", "Buruk"]
     },
     "airquality": {
       "title": "Gejala yang terasa:",
@@ -83,13 +78,7 @@
         "Pusing / Mual",
         "Sesak Nafas / Dada Nyeri"
       ],
-      "review": [
-        "",
-        "Sedang / Cukup",
-        "Buruk",
-        "Parah",
-        "Berbahaya"
-      ]
+      "review": ["", "Sedang / Cukup", "Buruk", "Parah", "Berbahaya"]
     },
     "accessibility": [
       "Tidak bisa dilewati kendaraan",
@@ -120,15 +109,15 @@
     "evacuation": {
       "description": "Apakah Anda tahu ke mana arah evakuasi jika terjadi erupsi?"
     },
-    "evacuationnumber":{
+    "evacuationnumber": {
       "description": "Jumlah orang di sekitar anda"
     },
     "fireestimate": {
       "unit": "hektar"
     },
-    "sign" : {
+    "sign": {
       "description": "Hasil Pengamatan:",
-      "symptoms":[
+      "symptoms": [
         "Kenaikan Suhu Signifikan",
         "Kekeringan/Kematian Tumbuh-tumbuhan",
         "Perilaku Hewan yang Tidak Biasa",
@@ -151,17 +140,9 @@
           "subtitle": "atap bangunan terbang, kerusakan bangunan, objek besar roboh, kerusakan pertanian"
         }
       ],
-      "review":[
-        "Ringan",
-        "Sedang",
-        "Berat"
-      ]
-  },
-    "windstructure": [
-      "Retak",
-      "Roboh Sebagian",
-      "Roboh Total"
-    ],
+      "review": ["Ringan", "Sedang", "Berat"]
+    },
+    "windstructure": ["Retak", "Roboh Sebagian", "Roboh Total"],
     "description": "Masukkan deskripsi di sini ...",
     "review": {
       "text": "Dengan mengirimkan laporan ini Anda setuju dengan",
@@ -194,19 +175,19 @@
     },
     "swipeText": "Geser",
     "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
-    "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?",
+    "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?"
   },
   "partner_mode_title": "Lapor sebagai Mitra Resmi?",
-  "partner_mode_body1":"Siapapun dapat melaporkan bencana ke PetaBencana.id.",
-  "partner_mode_body2":"Untuk mengirimkan laporan bencana secara anonim, lewati langkah ini.",
-  "partner_mode_body3":"Untuk mengirimkan laporan sebagai mitra, masukkan kode organisasi di bawah ini:",  
-  "partner_mode_placeholder":"Kode Mitra",
-  "forgot_partner_code":"Lupa Kode Mitra",
-  "partner_mode_cta":"Masuk",
-  "partner_mode_loginHeader":"Selamat Datang!",
-  "partner_mode_loginSubHeader" : "Anda akan melapor bencana sebagai:",
-  "partner_mode_partnerNotfound":"Kode mitra tidak ditemukan atau status tidak aktif, cek kembali kode Anda atau klik Lupa Kode Mitra untuk mengirim email ke info@petabencana.id",
-  "forgot_partner_email":" info@petabencana.id",
-  "forgot_partner_subject":"Lupa Kode Mitra PetaBencana.id",
-  "forgot_partner_body":"Halo PetaBencana.id, Saya [Nama] dari [Organisasi/Lembaga]. Saya lupa kode mitra dan/atau ingin mendapatkan akses Kode Mitra untuk dapat melaporkan bencana sebagai perwakilan organisasi mitra resmi di PetaBencana.id Terima kasih."
+  "partner_mode_body1": "Siapapun dapat melaporkan bencana ke PetaBencana.id.",
+  "partner_mode_body2": "Untuk mengirimkan laporan bencana secara anonim, lewati langkah ini.",
+  "partner_mode_body3": "Untuk mengirimkan laporan sebagai mitra, masukkan kode organisasi di bawah ini:",
+  "partner_mode_placeholder": "Kode Mitra",
+  "forgot_partner_code": "Lupa Kode Mitra",
+  "partner_mode_cta": "Masuk",
+  "partner_mode_loginHeader": "Selamat Datang!",
+  "partner_mode_loginSubHeader": "Anda akan melapor bencana sebagai:",
+  "partner_mode_partnerNotfound": "Kode mitra tidak ditemukan atau status tidak aktif, cek kembali kode Anda atau klik Lupa Kode Mitra untuk mengirim email ke info@petabencana.id",
+  "forgot_partner_email": " info@petabencana.id",
+  "forgot_partner_subject": "Lupa Kode Mitra PetaBencana.id",
+  "forgot_partner_body": "Halo PetaBencana.id, Saya [Nama] dari [Organisasi/Lembaga]. Saya lupa kode mitra dan/atau ingin mendapatkan akses Kode Mitra untuk dapat melaporkan bencana sebagai perwakilan organisasi mitra resmi di PetaBencana.id Terima kasih."
 }
