@@ -127,8 +127,5 @@ export class SubmitSwipeComponent implements OnInit {
         this.navController.next(this.deckService.getRoute())
       })
     }
-
-    // setTimeout(() => {
-    // }, 250)
   }
 }
