@@ -347,12 +347,14 @@ export class DeckService {
 
   async submitNotificationRequest(): Promise<any> {
     const selectedRegion = this.getSelectedRegionCode();
+    const languageCode = this.getCardLanguage();
     const notifyMedium = this.waNumber;
     const data  = {
       region_code : selectedRegion,
       whatsapp: notifyMedium,
-      language_code : this.getCardLanguage()
+      language_code : languageCode
     }
+    console.log("Language code" , languageCode );
     return new Promise(async(resolve, reject) => {
       return await this.http
         .post(`${env.data_server}subscriptions/add-subscriber`, data)
