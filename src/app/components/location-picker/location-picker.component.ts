@@ -49,11 +49,11 @@ export class LocationPickerComponent implements OnInit {
     //   center: [ lat, lng ],
     //   zoom: 16
     // });
-    mapboxgl.accessToken = 'pk.eyJ1IjoicGV0YWJlbmNhbmEiLCJhIjoiY2s2MjF1cnZmMDlxdzNscWc5MGVoMTRkeCJ9.PGcoQqU6lBrcLfBmvTrWrQ';
+    mapboxgl.accessToken = 'pk.eyJ1IjoicGFuYW1hbGFiIiwiYSI6ImNsbHVsN3QwYzF2NXUzbW56ZjV4Z294eWYifQ.2CvQp6Z6WiiR_24F_LFyCA';
     this.map = new mapboxgl.Map({
       container: 'mapid', // container ID
       style: 'mapbox://styles/mapbox/streets-v11', // style URL
-        center:[lng , lat], // starting position [lng, lat]
+      center:[lng , lat], // starting position [lng, lat]
       zoom: 16, // starting zoom
     });
 
@@ -155,6 +155,7 @@ export class LocationPickerComponent implements OnInit {
   
   private addMarker() {
     const { lat, lng } = this.map.getCenter();
+    console.log("🚀 ~ file: location-picker.component.ts:158 ~ LocationPickerComponent ~ addMarker ~ lat:", lat , lng)
    
 
     const imageElement = document.createElement('div');

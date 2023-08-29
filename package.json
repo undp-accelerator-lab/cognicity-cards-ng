@@ -24,6 +24,7 @@
     "ng": "ng",
     "start": "dep=id npm run pre-build-tasks && ng serve",
     "start-ph": "dep=ph npm run pre-build-tasks && ng serve",
+    "start-pa": "dep=pa npm run pre-build-tasks && ng serve",
     "serve-prod": "dep=id npm run pre-build-tasks && ng serve --prod",
     "serve-prod-ngsw": "npm run build-prod-ngsw && http-server dist/prod-us -p 8080",
     "test": "ng test",
@@ -36,14 +37,17 @@
     "add-component": "ng g c components/$comp -m routes/cards/$card",
     "pre-build-tasks": "babel tasks/build/**/*.ts tasks/build/*.ts -o tasks/build/index.js && gulp -f ./tasks/build --dep $dep",
     "build": "npm run build-dev && npm run build-prod",
-    "build-dev": "npm run build-dev-id",
-    "build-prod": "npm run build-prod-id",
+    "build-dev": "npm run build-dev-id && npm run build-dev-pa",
+    "build-prod": "npm run build-prod-id && npm run build-prod-ngsw-pa",
     "build-dev-jp": "dep=jp npm run pre-build-tasks && ng build --configuration=dev-jp --output-path='dist/dev-jp'",
     "build-prod-jp": "dep=jp npm run pre-build-tasks && ng build --prod --configuration=prod-jp --output-path='dist/prod-jp' --build-optimizer --vendor-chunk=true --stats-json",
     "build-dev-id": "dep=id npm run pre-build-tasks && ng build --configuration=dev-id --output-path='dist/dev-id'",
     "build-prod-id": "dep=id npm run pre-build-tasks && ng build --prod --configuration=prod-id --output-path='dist/prod-id' --build-optimizer --vendor-chunk=true --stats-json",
     "build-dev-ph": "dep=ph npm run pre-build-tasks && ng build --configuration=dev-ph --output-path='dist/dev-ph'",
-    "build-prod-ph": "dep=ph npm run pre-build-tasks && ng build --prod --configuration=prod-ph --output-path='dist/prod-ph' --build-optimizer --vendor-chunk=true --stats-json"
+    "build-prod-ph": "dep=ph npm run pre-build-tasks && ng build --prod --configuration=prod-ph --output-path='dist/prod-ph' --build-optimizer --vendor-chunk=true --stats-json",
+    "build-dev-pa": "dep=pa npm run pre-build-tasks && ng build --env=dev-pa --output-path='dist/dev-pa'",
+    "build-prod-pa": "dep=pa npm run pre-build-tasks && ng build --prod --env=prod-pa --output-path='dist/prod-pa' --build-optimizer --vendor-chunk=true --stats-json",
+    "build-prod-ngsw-pa": "npm run build-prod-pa && node_modules/.bin/ngsw-config dist/prod-pa ./src/ngsw-config.json && cp node_modules/@angular/service-worker/ngsw-worker.js ./dist/prod-pa/ngsw-worker.js"
   },
   "private": true,
   "dependencies": {

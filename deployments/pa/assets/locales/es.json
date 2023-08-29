@@ -1,0 +1,193 @@
+{
+  "terms": {
+    "userAgreement": "Acuerdo de usuario",
+    "privacy": "Política de privacidad"
+  },
+  "validationErrors": {
+    "noPhoto": "Se requiere una foto O una descripción para realizar un reporte.",
+    "unsupportedLocation": "Ubicación no admitida; el reporte no se puede mostrar en el mapa"
+  },
+  "deck": {
+    "prev": "PREV",
+    "next": "PROX"
+  },
+  "search": {
+    "placeholder": "Haz clic y arrastra para mover el pin o busca aquí",
+    "locateText": "Muéstrame dónde estoy"
+  },
+  "card": {
+    "yes": "Si",
+    "no": "No",
+    "titles": {
+      "type": "Jenis Laporan",
+      "location": "Selecciona la ubicación del reporte",
+      "depth": "Mide la altura de la inundación",
+      "firetype": "Jenis Laporan",
+      "fireestimate": "Perkiraan Kebakaran",
+      "firedistance": "Lokasi Anda dan Kebakaran",
+      "airquality": "Kualitas Udara",
+      "visibility": "Jarak Pandang",
+
+      "accessibility": "Laporkan Akses Jalan",
+      "condition": "Jelaskan Kondisi Jalan",
+      "structure": "Laporkan Kerusakan Bangunan",
+
+      "impact": "Laporkan Dampak Angin Kencang",
+      "windstructure": "Laporan Kerusakan Bangunan",
+
+      "sign": "Laporkan Tanda-Tanda Gunungapi",
+      "evacuationnumber": "Laporkan Evakuasi",
+      "evacuationarea": "Laporkan Evakuasi",
+
+      "photo": "Sube una foto",
+      "description": "Cuéntanos más",
+      "review": "Revisar y enviar",
+      "thank": "¡Gracias!",
+
+      "region": "Pilih wilayah untuk mendapatkan notifikasi",
+      "summary": "Tinjau",
+      "thankyou": "Tinjau dan kirimkan"
+    },
+    "type": {
+      "fire": {
+        "fireTypeButton": {
+          "text": "Kebakaran di dekat saya",
+          "hint": "Lokasi anda akan disembunyikan"
+        },
+        "hazeTypeButton": "Tandai kabut asap di lokasi saya"
+      },
+      "earthquake": {
+        "roadTypeButton": "Laporkan Akses Jalan",
+        "structureTypeButton": "Laporkan Kerusakan Bangunan"
+      }
+    },
+    "visibility": {
+      "card": [
+        "Bisa melihat jelas tapi butuh masker",
+        "Bisa melihat tapi kurang jelas untuk berkendara",
+        "Sulit melihat. Terlalu berbahaya untuk keluar"
+      ],
+      "review": ["Baik", "Sedang/Cukup", "Buruk"]
+    },
+    "airquality": {
+      "title": "Gejala yang terasa:",
+      "card": [
+        "Tidak ada",
+        "Tercium Bau Asap",
+        "Mata Pedih / Radang Tenggorokan",
+        "Pusing / Mual",
+        "Sesak Nafas / Dada Nyeri"
+      ],
+      "review": ["", "Sedang / Cukup", "Buruk", "Parah", "Berbahaya"]
+    },
+    "accessibility": [
+      "Tidak bisa dilewati kendaraan",
+      "Kendaraan roda dua",
+      "Kendaraan roda empat kecil (Sedan)",
+      "Kendaraan roda empat sedang (SUV)",
+      "Kendaraan muatan berat (Truk)"
+    ],
+    "condition": [
+      {
+        "title": "Rusak ringan",
+        "subtitle": "Jalan retak halus, sedikit hambatan, dapat dilintasi sebagian"
+      },
+      {
+        "title": "Rusak sedang",
+        "subtitle": "Jalan retak lebar, sebagian tertutup, akses untuk melintas terbatas"
+      },
+      {
+        "title": "Rusak berat",
+        "subtitle": "Jalan putus/tidak bisa dilintasi"
+      }
+    ],
+    "structure": {
+      "cracking": "Retak",
+      "partially_collapsed": "Roboh Sebagian",
+      "fully_collapsed": "Roboh Total"
+    },
+    "evacuation": {
+      "description": "Apakah Anda tahu ke mana arah evakuasi jika terjadi erupsi?"
+    },
+    "evacuationnumber": {
+      "description": "Jumlah orang di sekitar anda"
+    },
+    "fireestimate": {
+      "unit": "hektar"
+    },
+    "sign": {
+      "description": "Hasil Pengamatan:",
+      "symptoms": [
+        "Kenaikan Suhu Signifikan",
+        "Kekeringan/Kematian Tumbuh-tumbuhan",
+        "Perilaku Hewan yang Tidak Biasa",
+        "Getaran Gempabumi yang Sering",
+        "Suara Gemuruh yang Sering"
+      ]
+    },
+    "impact": {
+      "symptoms": [
+        {
+          "title": "Dampak ringan",
+          "subtitle": "objek kecil beterbangan"
+        },
+        {
+          "title": "Dampak sedang",
+          "subtitle": "penutupan jalan, gangguan transportasi, listrik padam"
+        },
+        {
+          "title": "Dampak berat",
+          "subtitle": "atap bangunan terbang, kerusakan bangunan, objek besar roboh, kerusakan pertanian"
+        }
+      ],
+      "review": ["Ringan", "Sedang", "Berat"]
+    },
+    "windstructure": ["Retak", "Roboh Sebagian", "Roboh Total"],
+    "description": "Agrega una descripción aquí ...",
+    "review": {
+      "text": "Al enviar este reporte usted acepta el",
+      "terms": "Acuerdo de usuario y política de privacidad",
+      "link": "Mapeatudesastre.org",
+      "disturbanceKey": "Rusak:",
+      "accessKey": "Akses Jalan:",
+      "structureKey": "Kerusakan Bangunan:",
+      "floodKey": "Altura de la inundación:",
+      "fireKey": "Perkiraan Kebakaran:",
+      "impactKey": "Dampak:",
+      "airQualityKey": "Kualitas Udara:",
+      "visibilityKey": "Jarak Pandang:",
+      "volcanoKey": "Hasil Pengamatan:",
+      "peopleKey": "Jumlah orang di sekitar:",
+      "evacuateKey": "Tahu arah Evakuasi:",
+      "people": "orang"
+    },
+    "thank": {
+      "result": "¡LISTO!",
+      "title": [
+        "Gracias por tu reporte. Ahora puedes compartirlo con tu comunidad y amigos. Visita",
+        "para ver tu reporte y ver actualizaciones de otros  reportes en tiempo real."
+      ],
+      "subtitle": "Mau submit laporan lainnya?",
+      "acceptButton": "Ya",
+      "rejectButton": "Tidak",
+      "tips": "Klik di sini untuk tips dari BNPB",
+      "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih"
+    },
+    "swipeText": "ENVIAR",
+    "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
+    "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?"
+  },
+  "partner_mode_title": "Lapor sebagai Mitra Resmi?",
+  "partner_mode_body1": "Siapapun dapat melaporkan bencana ke PetaBencana.id.",
+  "partner_mode_body2": "Untuk mengirimkan laporan bencana secara anonim, lewati langkah ini.",
+  "partner_mode_body3": "Untuk mengirimkan laporan sebagai mitra, masukkan kode organisasi di bawah ini:",
+  "partner_mode_placeholder": "Kode Mitra",
+  "forgot_partner_code": "Lupa Kode Mitra",
+  "partner_mode_cta": "Masuk",
+  "partner_mode_loginHeader": "Selamat Datang!",
+  "partner_mode_loginSubHeader": "Anda akan melapor bencana sebagai:",
+  "partner_mode_partnerNotfound": "Kode mitra tidak ditemukan atau status tidak aktif, cek kembali kode Anda atau klik Lupa Kode Mitra untuk mengirim email ke info@petabencana.id",
+  "forgot_partner_email": " info@petabencana.id",
+  "forgot_partner_subject": "Lupa Kode Mitra PetaBencana.id",
+  "forgot_partner_body": "Halo PetaBencana.id, Saya [Nama] dari [Organisasi/Lembaga]. Saya lupa kode mitra dan/atau ingin mendapatkan akses Kode Mitra untuk dapat melaporkan bencana sebagai perwakilan organisasi mitra resmi di PetaBencana.id Terima kasih."
+}

@@ -126,6 +126,31 @@
                   "with": "src/environments/ph/environment.prod.ts"
                 }
               ]
+            },
+            "dev-pa": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/pa/environment.ts"
+                }
+              ]
+            },
+            "prod-pa": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/pa/environment.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -149,6 +174,12 @@
             },
             "prod-id": {
               "browserTarget": "Cards:build:prod-id"
+            },
+            "dev-pa": {
+              "browserTarget": "Cards:build:dev-pa"
+            },
+            "prod-pa": {
+              "browserTarget": "Cards:build:prod-pa"
             }
           }
         },

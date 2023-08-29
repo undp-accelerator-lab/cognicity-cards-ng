@@ -1,0 +1,28 @@
+{
+  "production": false,
+  "stage": "dev",
+  "deployment": "pa",
+  "country_code":"pa",
+  "supported_languages": ["es"],
+  "default_language": "es",
+  "mapbox_access_token": "pk.eyJ1IjoicGFuYW1hbGFiIiwiYSI6ImNsbHVsN3QwYzF2NXUzbW56ZjV4Z294eWYifQ.2CvQp6Z6WiiR_24F_LFyCA",
+  "data_server": "https://api.mapeatudesastre.org/",
+  "app": "https://mapeatudesastre.org/",
+  "default_location": {
+    "lat": 9.0970,
+    "lng": -79.420
+  },
+  "loc_search_suffix": ", Panama City",
+  "decks": [{
+      "name": "flood",
+      "cards": [
+        "location",
+        "depth",
+        "photo",
+        "description",
+        "review",
+        "thank"
+      ]
+    }
+  ]
+}
