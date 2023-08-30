@@ -46,7 +46,7 @@
     "build-dev-ph": "dep=ph npm run pre-build-tasks && ng build --configuration=dev-ph --output-path='dist/dev-ph'",
     "build-prod-ph": "dep=ph npm run pre-build-tasks && ng build --prod --configuration=prod-ph --output-path='dist/prod-ph' --build-optimizer --vendor-chunk=true --stats-json",
     "build-dev-pa": "dep=pa npm run pre-build-tasks && ng build --env=dev-pa --output-path='dist/dev-pa'",
-    "build-prod-pa": "dep=pa npm run pre-build-tasks && ng build --prod --env=prod-pa --output-path='dist/prod-pa' --build-optimizer --vendor-chunk=true --stats-json",
+    "build-prod-pa": "dep=pa npm run pre-build-tasks && ng build --prod --configuration=prod-pa --output-path='dist/prod-pa' --build-optimizer --vendor-chunk=true --stats-json",
     "build-prod-ngsw-pa": "npm run build-prod-pa && node_modules/.bin/ngsw-config dist/prod-pa ./src/ngsw-config.json && cp node_modules/@angular/service-worker/ngsw-worker.js ./dist/prod-pa/ngsw-worker.js"
   },
   "private": true,
