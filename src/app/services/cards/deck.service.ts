@@ -287,7 +287,7 @@ export class DeckService {
     this.preview = preview;
   }
   setCaptchaNotCleared() {
-    this.captchaCleared = false;
+    this.captchaCleared = true;
   }
   setCaptchaCleared() {
     this.captchaCleared = true;

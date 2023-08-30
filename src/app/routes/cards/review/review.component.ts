@@ -39,9 +39,9 @@ export class ReviewComponent implements OnInit {
     this.deckService.setCaptchaNotCleared()
     this.switchTab(this.termscontents[0].tab_key);
     this.isPermittedLocation = await this.deckService.isPermittedLocation();
-    this.captchaForm = this.formBuilder.group({
-      recaptcha: ['', Validators.required]
-    });
+    // this.captchaForm = this.formBuilder.group({
+    //   recaptcha: ['', Validators.required]
+    // });
   }
   async ngAfterContentInit() {
     this.deckService.userCanBack();
@@ -63,6 +63,7 @@ export class ReviewComponent implements OnInit {
   
   get canSubmit(): boolean {
     return (this.isDescriptionAndPhotoEmpty && this.deckService.isCaptchaCleared())
+
   }
 
   switchTab(key) {
