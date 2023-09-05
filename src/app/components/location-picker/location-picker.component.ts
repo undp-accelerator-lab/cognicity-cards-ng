@@ -66,7 +66,7 @@ export class LocationPickerComponent implements OnInit {
       showUserLocation: false,
     });
 
-    this.map.addControl(geolocate);
+    document.getElementById('geocoder').appendChild(geolocate.onAdd(this.map));
 
     // If user not approve permission
     if (this.currentMarker) this.currentMarker.remove(this.map);
@@ -155,9 +155,6 @@ export class LocationPickerComponent implements OnInit {
   
   private addMarker() {
     const { lat, lng } = this.map.getCenter();
-    console.log("🚀 ~ file: location-picker.component.ts:158 ~ LocationPickerComponent ~ addMarker ~ lat:", lat , lng)
-   
-
     const imageElement = document.createElement('div');
 
     imageElement.className = 'marker';
