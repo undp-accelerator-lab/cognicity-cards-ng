@@ -89,11 +89,8 @@ export class LocationPickerComponent implements OnInit {
       ) {
         this.deckService.userCannotContinue();
       }
-    });
-
-    geolocate.on('trackuserlocationend', () => {
-      if (this.currentMarker) this.currentMarker.remove(this.map);
-      this.addMarker();
+        if (this.currentMarker) this.currentMarker.remove(this.map);
+        this.onGeoLocate(event.coords.longitude , event.coords.latitude);
     });
   }
 
@@ -151,6 +148,35 @@ export class LocationPickerComponent implements OnInit {
             this.deckService.setLocation({ lat : lngLat.lat, lng: lngLat.lng })
       }
     });
+  }
+
+  private onGeoLocate(longitude , latitude) {
+    const imageElement = document.createElement('div');
+    imageElement.className = 'marker';
+    imageElement.style.backgroundImage = `url(${this.icon})`;
+    imageElement.style.width = `30px`;
+    imageElement.style.position = 'relative';
+    imageElement.style.height = `60px`;
+    imageElement.style['background-repeat'] = 'no-repeat';
+    imageElement.style.backgroundSize = '100%';
+
+    // Add markers to the map.
+    const marker = new mapboxgl.Marker({
+        element : imageElement,
+        draggable:true
+    })
+      .setLngLat([ longitude ,latitude])
+      .addTo(this.map);
+
+      marker.on('dragend' , () => {
+      const lngLat = marker.getLngLat();
+         if (!isEqual(this.map.getCenter(), {lng : lngLat.lng , lat: lngLat.lat})) {
+             this.deckService.userCanContinue()
+             this.deckService.setLocation({ lat : lngLat.lat, lng: lngLat.lng })
+      }
+      })
+    if (this.currentMarker) this.currentMarker.remove()
+    this.currentMarker = marker
   }
   
   private addMarker() {
