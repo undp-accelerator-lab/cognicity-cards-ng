@@ -8,19 +8,21 @@ import { Component, Output, EventEmitter, Input, SimpleChanges, OnChanges, Rende
 export class SearchLocationComponent {
 
   query: string
-
   @Output() confirmSearch: EventEmitter<string> = new EventEmitter()
   @Output() search: EventEmitter<string> = new EventEmitter()
 
   @Input() searchResults: any
   @Input() searchText: string
   searchResultsData: any
-  dynamicResultsDisplay: string = 'block';
-
+  dynamicResultsDisplay: string = 'none';
+  popupDisplay: string = 'none';
+  searchResult: any
+  newObj: string[] = [];
   @ViewChild('searchBar') searchBar: ElementRef;
-  @ViewChild('searchResult') searchResult: ElementRef;
+  // @ViewChild('searchResult') searchResult: ElementRef;
   @ViewChild('searchResultText') searchResultText: ElementRef;
 
+  config = [  "Panama", "San Miguelito"]
 
   constructor(private renderer: Renderer2) {
 
@@ -51,6 +53,18 @@ export class SearchLocationComponent {
   onInputChange(value) {
     // console.log(value)
     this.search.emit(this.query);
+    let map = Object.values(this.config);
+    this.newObj = map.filter((value) => {
+      return value.toLowerCase().indexOf(this.query.toLowerCase()) !== -1 ? value : null;
+    });
+    this.searchResult = this.newObj;
+    if(this.searchResult.length > 0){
+      this.popupDisplay = 'block';
+      this.dynamicResultsDisplay = 'block';
+    } else {
+      this.popupDisplay = 'none';
+      this.dynamicResultsDisplay = 'none';
+    }
   }
 
   onOptionClick(option) {
