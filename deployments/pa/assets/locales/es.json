@@ -21,7 +21,7 @@
     "titles": {
       "type": "Jenis Laporan",
       "location": "Selecciona la ubicación del reporte",
-      "depth": "Mide la altura de la inundación",
+      "depth": "Nivel del agua",
       "firetype": "Jenis Laporan",
       "fireestimate": "Perkiraan Kebakaran",
       "firedistance": "Lokasi Anda dan Kebakaran",
