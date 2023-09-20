@@ -73,7 +73,12 @@ export class LocationPickerComponent implements OnInit {
 
     this.addMarker();
 
-    this.provider = new OpenStreetMapProvider();
+    this.provider = new OpenStreetMapProvider({
+      params : {
+        viewbox :[-79.70, 8.18 , -78.06, 9.50], 
+        bounded:1
+      }
+    });
 
     this.map.on('load', () => {
       geolocate.trigger();
@@ -110,8 +115,8 @@ export class LocationPickerComponent implements OnInit {
 
   async onSearch(query: string) {
     query = query + env.loc_search_suffix;
-    const minimumCharCount = 3
-    const results = query.split(',')[0].length > minimumCharCount && await this.provider.search({ query }) // Optimising the calls made to search api
+    const results = await this.provider.search({ query }) // Optimising the calls made to search api
+    console.log("🚀 ~ file: location-picker.component.ts:119 ~ LocationPickerComponent ~ onSearch ~ results:", results)
     this.searchResults = results; //we send this to the child component search-location
   }
 
