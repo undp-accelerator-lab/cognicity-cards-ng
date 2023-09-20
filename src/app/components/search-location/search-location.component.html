@@ -6,16 +6,15 @@
       placeholder="{{ searchText }}"
       [(ngModel)]="query" name="search"
       (ngModelChange)="onInputChange($event)"
-      model.bind = "city"
       #searchBar
     >
     <button type="submit" class="search-location-form__btn"><span class="material-icons">search</span></button>
   </div>
 
-  <div  class='dynamic-search-results-container' [ngStyle]="{'display': dynamicResultsDisplay }" style="display: none;">
-    <div class='dynamic-search-results-wrapper' >
-      <div #searchResult (click)= 'onOptionClick(city)' class='dynamic-search-results__result' *ngFor="let city of searchResult" [ngStyle]="{'display': popupDisplay}"  >
-        <h3 #searchResultText  click.delegate="switchRegion(city, true)" >{{city}}</h3>
+  <div  class='dynamic-search-results-container' [ngStyle]="{'display': dynamicResultsDisplay }">
+    <div class='dynamic-search-results-wrapper'>
+      <div #searchResult (click)= 'onOptionClick(data.label)' class='dynamic-search-results__result' *ngFor="let data of searchResultsData">
+        <h3 #searchResultText >{{ data.label }}</h3>
       </div>
     </div>
   </div>
