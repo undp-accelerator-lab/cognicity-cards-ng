@@ -4,6 +4,7 @@ import { environment as env } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import * as topojson from 'topojson-client';
+import * as turf from '@turf/turf';
 
 type deckType = 'fire' | 'earthquake' | 'wind' | 'haze' | 'volcano' | 'flood';
 type deckSubType =
@@ -96,7 +97,14 @@ export class DeckService {
 
     const geocodeData = await response.json();
 
-    return geocodeData.address.country_code === env.country_code;
+    const markerCoordinates = [geocodeData.lon, geocodeData.lat]
+
+    const panamaBounds = turf.bboxPolygon([-79.70,8.18, -78.06,9.50]);
+      // [-79.70, 8.18], 'ne': [-78.06, 9.50] 
+    console.log(geocodeData);
+    const isInsidePanama = turf.booleanPointInPolygon(turf.point(markerCoordinates), panamaBounds);
+
+    return isInsidePanama;
   }
 
   // Getter
