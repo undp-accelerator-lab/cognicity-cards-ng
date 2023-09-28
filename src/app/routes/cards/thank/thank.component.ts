@@ -18,7 +18,7 @@ export class ThankComponent {
     public translate: TranslateService
   ) {
     const deckType = this.deckService.getDeckType()
-    if (deckType === 'earthquake' && this.deckService.finishedSubType.length === 0) {
+    if (deckType === 'earthquake' || 'flood' && this.deckService.finishedSubType.length === 0) {
       this.isShowReportAgain = true
 
       switch(this.deckService.getDeckSubType()) {
@@ -27,6 +27,9 @@ export class ThankComponent {
           break;
         case 'structure':
           this.reportAgainText = 'card.reportAgainAccess'
+          break;
+        case 'flood':
+          this.reportAgainText = 'card.reportAgainFlood'
           break;
       }
     }
@@ -51,8 +54,13 @@ export class ThankComponent {
 
   reportAnotherCard() {
     this.deckService.setSubSubmission();
-    if(this.deckService.getDeckType() === 'earthquake' ){
-      let newDeckSubType:any = this.deckService.getDeckSubType() === 'road' ? 'structure' : 'road';
+    let newDeckSubType: any
+    if(this.deckService.getDeckType() === 'earthquake' || 'flood' ){
+      if(this.deckService.getDeckType() === 'flood'){
+        newDeckSubType = 'flood'
+      } else{
+        newDeckSubType = this.deckService.getDeckSubType() === 'road' ? 'structure' : 'road';
+      }
       this.deckService.setDeckSubType(newDeckSubType);
       this.navController.filterRoutes(newDeckSubType);
       this.navController.resetEqDeckToLocation(this.deckService.getRoute());
