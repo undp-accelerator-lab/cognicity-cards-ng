@@ -9,6 +9,7 @@ export class NavigationService {
   deck: string;
   cardRoutes: string[] = [];
   cardCounter: number;
+  deckType: string;
 
   constructor(
     private router: Router,
@@ -46,13 +47,16 @@ export class NavigationService {
 
   filterRoutes(subtype: string) {
     const mustHaveCard = ["photo", "description", "review", "thank"]
-
+    this.deckType = subtype;
     switch (subtype) {
       case 'road':
         this.cardRoutes = ['type', 'location', 'accessibility', 'condition', ...mustHaveCard];
         break;
       case 'structure':
         this.cardRoutes = ['type', 'location', 'structure', ...mustHaveCard];
+        break;
+      case 'flood':
+        this.cardRoutes = ['location', 'depth', ...mustHaveCard];
         break;
     }
   }
@@ -87,8 +91,8 @@ export class NavigationService {
   }
 
   resetEqDeckToLocation(route) {
-    this.router.navigate([this.cardRoutes[1]], {relativeTo: route});
-    this.cardCounter = 1;
+    this.deckType === 'flood' ? this.router.navigate([this.cardRoutes[0]], {relativeTo: route}) : this.router.navigate([this.cardRoutes[1]], {relativeTo: route});
+    this.cardCounter = 0;
   }
 
   next(route) {

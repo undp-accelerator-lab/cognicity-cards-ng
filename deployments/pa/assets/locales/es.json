@@ -168,14 +168,15 @@
         "para ver tu reporte y ver actualizaciones de otros  reportes en tiempo real."
       ],
       "subtitle": "Mau submit laporan lainnya?",
-      "acceptButton": "Ya",
-      "rejectButton": "Tidak",
+      "acceptButton": "Yes",
+      "rejectButton": "No",
       "tips": "Klik di sini untuk tips dari BNPB",
       "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih"
     },
     "swipeText": "ENVIAR",
     "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
-    "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?"
+    "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?",
+    "reportAgainFlood": "Would you like to report again?"
   },
   "partner_mode_title": "Lapor sebagai Mitra Resmi?",
   "partner_mode_body1": "Siapapun dapat melaporkan bencana ke PetaBencana.id.",

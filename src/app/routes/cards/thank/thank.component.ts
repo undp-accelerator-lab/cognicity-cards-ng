@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DeckService } from '../../../services/cards/deck.service'
 import { NavigationService } from '../../../services/navigation.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-thank',
@@ -15,10 +16,11 @@ export class ThankComponent {
   constructor(
     public deckService: DeckService,
     public navController: NavigationService,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private router: Router
   ) {
     const deckType = this.deckService.getDeckType()
-    if (deckType === 'earthquake' && this.deckService.finishedSubType.length === 0) {
+    if (deckType === 'earthquake' || 'flood') {
       this.isShowReportAgain = true
 
       switch(this.deckService.getDeckSubType()) {
@@ -27,6 +29,9 @@ export class ThankComponent {
           break;
         case 'structure':
           this.reportAgainText = 'card.reportAgainAccess'
+          break;
+        case 'flood':
+          this.reportAgainText = 'card.reportAgainFlood'
           break;
       }
     }
@@ -50,17 +55,11 @@ export class ThankComponent {
   }
 
   reportAnotherCard() {
-    this.deckService.setSubSubmission();
-    if(this.deckService.getDeckType() === 'earthquake' ){
-      let newDeckSubType:any = this.deckService.getDeckSubType() === 'road' ? 'structure' : 'road';
-      this.deckService.setDeckSubType(newDeckSubType);
-      this.navController.filterRoutes(newDeckSubType);
-      this.navController.resetEqDeckToLocation(this.deckService.getRoute());
-    }else{
-      this.navController.reset(this.deckService.getRoute());
-    }
+    this.deckService.initiateAnotherReport().then((response)=>{
+      window.location.href = "/" + response + "/flood"
+    }).catch((error)=>{
+      this.router.navigate(['/error']);
+    });
 
-    // console.log('deckType',this.deckService.getDeckType());
-    // console.log('deckSubType',this.deckService.getDeckSubType());
   }
 }
