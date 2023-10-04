@@ -357,13 +357,12 @@ export class DeckService {
     const selectedRegion = this.getSelectedRegionCode();
     const languageCode = this.getCardLanguage();
     const notifyMedium = this.waNumber;
-    const data  = {
-      region_code : selectedRegion,
+    const data = {
+      region_code: selectedRegion,
       whatsapp: notifyMedium,
-      language_code : languageCode
-    }
-    console.log("Language code" , languageCode );
-    return new Promise(async(resolve, reject) => {
+      language_code: languageCode,
+    };
+    return new Promise(async (resolve, reject) => {
       return await this.http
         .post(`${env.data_server}subscriptions/add-subscriber`, data)
         .toPromise()
@@ -372,7 +371,7 @@ export class DeckService {
           resolve(success);
         })
         .catch((error) => {
-          reject(error)
+          reject(error);
           console.log('Error', error);
           // PUT report & notify user about upload error
         });
@@ -565,6 +564,25 @@ export class DeckService {
         }
       );
     });
+  }
+
+  initiateAnotherReport(): Promise<Boolean> { 
+    return new Promise((resolve, reject) => {
+        const url = env.data_server + "cards/";
+        const body = {
+          username: "web_guest",
+          language: 'pa',
+          network: "website",
+        };
+        this.http.post(url, body)
+        .subscribe((result: any) => {
+         resolve(result.cardId)
+        },
+        (error) => {
+          reject(error);
+        }
+        )
+    })
   }
 
   _verifyPartnerCode(partnerCode: string): Observable<any> {

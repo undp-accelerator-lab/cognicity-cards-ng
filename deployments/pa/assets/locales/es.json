@@ -168,8 +168,8 @@
         "para ver tu reporte y ver actualizaciones de otros  reportes en tiempo real."
       ],
       "subtitle": "Mau submit laporan lainnya?",
-      "acceptButton": "Ya",
-      "rejectButton": "Tidak",
+      "acceptButton": "Yes",
+      "rejectButton": "No",
       "tips": "Klik di sini untuk tips dari BNPB",
       "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih"
     },
