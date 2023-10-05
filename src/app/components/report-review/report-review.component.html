@@ -24,6 +24,15 @@
       </div>
     </ng-template>
 
+    <ng-template [ngIf]="deckType === 'flood'">
+      <div class="report-review__flood">
+        {{ floodCondition }}
+        <span class="report-review__flood-dist">
+           {{ floodConditionText }}
+        </span>
+      </div>
+    </ng-template>
+
     <ng-template [ngIf]="deckType === 'haze'">
       <div class="row" *ngIf="airQuality !== ''">
         <img id="airquality" src="" alt="Air Quality Indicator">

@@ -8,8 +8,8 @@
     "unsupportedLocation": "Ubicación no admitida; el reporte no se puede mostrar en el mapa"
   },
   "deck": {
-    "prev": "PREV",
-    "next": "PROX"
+    "prev": "ATRÁS",
+    "next": "SIGUIENTE"
   },
   "search": {
     "placeholder": "Haz clic y arrastra para mover el pin o busca aquí",
@@ -116,13 +116,13 @@
       "unit": "hektar"
     },
     "sign": {
-      "description": "Hasil Pengamatan:",
+      "description": "Cuál es tu situación ahora mismo?",
       "symptoms": [
-        "Kenaikan Suhu Signifikan",
-        "Kekeringan/Kematian Tumbuh-tumbuhan",
-        "Perilaku Hewan yang Tidak Biasa",
-        "Getaran Gempabumi yang Sering",
-        "Suara Gemuruh yang Sering"
+        "Seco y todo seguro por ahora",
+        "Riesgo de inundación observado (basura en el río, alcantarilla tapada, árbol caído etc.)",
+        "Inundación leve",
+        "Inundación peligrosa",
+        "Inundación severa"
       ]
     },
     "impact": {
@@ -145,14 +145,15 @@
     "windstructure": ["Retak", "Roboh Sebagian", "Roboh Total"],
     "description": "Agrega una descripción aquí ...",
     "review": {
-      "text": "Al enviar este reporte usted acepta el",
-      "terms": "Acuerdo de usuario y política de privacidad",
+      "text": "MapeaTuDesastre no guarda tus datos personales.", 
+      "terms": "Al enviar este informe, aceptas el acuerdo de usuario y la política de privacidad",
       "link": "Mapeatudesastre.org",
       "disturbanceKey": "Rusak:",
       "accessKey": "Akses Jalan:",
       "structureKey": "Kerusakan Bangunan:",
       "floodKey": "Altura de la inundación:",
       "fireKey": "Perkiraan Kebakaran:",
+      "floodCondition": "Situación",
       "impactKey": "Dampak:",
       "airQualityKey": "Kualitas Udara:",
       "visibilityKey": "Jarak Pandang:",
@@ -162,10 +163,10 @@
       "people": "orang"
     },
     "thank": {
-      "result": "¡LISTO!",
+      "result": "¡Tu reporte cuenta!",
       "title": [
-        "Gracias por tu reporte. Ahora puedes compartirlo con tu comunidad y amigos. Visita",
-        "para ver tu reporte y ver actualizaciones de otros  reportes en tiempo real."
+        "Gracias por tu reporte. Ahora puedes compartirlo con tu comunidad y amigos.",
+        "para ver más reportes y tomar decisiones a tiempo. Cuéntale a tus amigos y protege a tu comunidad."
       ],
       "subtitle": "Mau submit laporan lainnya?",
       "acceptButton": "Yes",
@@ -176,7 +177,7 @@
     "swipeText": "ENVIAR",
     "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
     "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?",
-    "reportAgainFlood": "Would you like to report again?"
+    "reportAgainFlood": "Quieres hacer otro reporte?"
   },
   "partner_mode_title": "Lapor sebagai Mitra Resmi?",
   "partner_mode_body1": "Siapapun dapat melaporkan bencana ke PetaBencana.id.",

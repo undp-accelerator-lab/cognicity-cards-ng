@@ -51,6 +51,8 @@ export class DeckService {
   fireDistance: number;
   selectedRegion: Object;
   selectedRegionCode: Object;
+  FloodSigns: number;
+  FloodSignText : string;
   volcanicSigns: number[] = [];
   evacuationNumber: null | number = null;
   evacuationArea: null | boolean = null;
@@ -152,9 +154,18 @@ export class DeckService {
   getFireDistance(): number {
     return this.fireDistance;
   }
+  getFloodSigns(): number {
+    return this.FloodSigns;
+  }
+
+  getFloodSignText(): string {
+    return this.FloodSignText;
+  }
+
   getVolcanicSigns(): number[] {
     return this.volcanicSigns;
   }
+
   getEvacuationNumber(): null | number {
     return this.evacuationNumber;
   }
@@ -241,9 +252,14 @@ export class DeckService {
   setFireDistance(fireDistance: number) {
     this.fireDistance = fireDistance;
   }
-  setVolcanicSigns(volcanicSigns: number[]) {
-    this.volcanicSigns = volcanicSigns;
+  setFloodSignText(sign: string) {
+    this.FloodSignText = sign;
   }
+
+  setFloodSigns(FloodSigns: number) {
+    this.FloodSigns = FloodSigns;
+  }
+
   setTwitterID(tweetID: string) {
     if (tweetID) {
       this.tweetID = tweetID;
@@ -314,7 +330,7 @@ export class DeckService {
     this.fireLocation = undefined;
     this.fireRadius = undefined;
     this.fireDistance = undefined;
-    this.volcanicSigns = [];
+    this.FloodSigns= undefined;
     this.evacuationNumber = null;
     this.evacuationArea = null;
     this.description = '';
@@ -384,7 +400,6 @@ export class DeckService {
     const report = this._get_report_summary();
     // conditionally add properties to the report depending on the current deck type
 
-    console.log('Report image', report, signedURL, cardId);
     if (this.preview && signedURL) {
       const photo = this.preview;
       if (signedURL === 'url_error') {
@@ -416,7 +431,7 @@ export class DeckService {
         report_type: this.subType,
       },
       sub_submission: this.sub_submission,
-      text: this.description,
+      text: this.description +  " " + this.FloodSignText,
       created_at: new Date().toISOString(),
       image_url: '',
       location: this.location,

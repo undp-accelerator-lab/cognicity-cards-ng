@@ -5,40 +5,50 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-sign',
   templateUrl: './sign.component.html',
-  styleUrls: ['./sign.component.scss']
+  styleUrls: ['./sign.component.scss'],
 })
 export class SignComponent implements OnInit {
+  floodSigns: {
+    [key: number]: string;
+  };
   constructor(
     public deckService: DeckService,
     public translate: TranslateService
   ) {}
 
   ngOnInit() {
-    this.deckService.userCanBack()
-    
-    this.checkIsUserAbleToContinue()
+    this.deckService.userCanBack();
+
+    this.checkIsUserAbleToContinue(9);
+    this.floodSigns = [
+      'Seco y todo seguro por ahora',
+      'Riesgo de inundación observado (basura en el río, alcantarilla tapada, árbol caído etc.)',
+      'Inundación leve',
+      'Inundación peligrosa',
+      'Inundación severa',
+    ];
   }
 
-  get selectedOption(): number[] {
-    return this.deckService.getVolcanicSigns()
+  selectedOption(option: number) {
+    return this.deckService.getFloodSigns() === option;
   }
 
-  checkIsUserAbleToContinue() {
+  checkIsUserAbleToContinue(option: number) {
     // If user already select atleast one option, next button is enabled
-    if (this.deckService.getVolcanicSigns().length > 0) {
-      this.deckService.userCanContinue()
+    if (this.deckService.getFloodSigns() === option) {
+      this.deckService.userCanContinue();
     } else {
-      this.deckService.userCannotContinue()
+      this.deckService.userCannotContinue();
     }
+  }
+
+  setFloodCondtionText(option: number) {
+    this.deckService.setFloodSignText(this.floodSigns[option]);
   }
 
   onOptionClick(option: number) {
-    if (this.deckService.getVolcanicSigns().includes(option)) {
-      this.deckService.setVolcanicSigns(this.deckService.getVolcanicSigns().filter(o => o !== option))
-    } else {
-      this.deckService.setVolcanicSigns(this.deckService.getVolcanicSigns().concat(option))
-    }
-
-    this.checkIsUserAbleToContinue()
+    this.deckService.setFloodSigns(option);
+    this.setFloodCondtionText(option);
+    this.checkIsUserAbleToContinue(option);
   }
 }
