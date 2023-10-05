@@ -18,6 +18,7 @@
   "decks": [{
       "name": "flood",
       "cards": [
+        "sign",
         "location",
         "depth",
         "photo",

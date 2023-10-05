@@ -116,13 +116,13 @@
       "unit": "hektar"
     },
     "sign": {
-      "description": "Hasil Pengamatan:",
+      "description": "Cuál es tu situación ahora mismo?",
       "symptoms": [
-        "Kenaikan Suhu Signifikan",
-        "Kekeringan/Kematian Tumbuh-tumbuhan",
-        "Perilaku Hewan yang Tidak Biasa",
-        "Getaran Gempabumi yang Sering",
-        "Suara Gemuruh yang Sering"
+        "Seco y todo seguro por ahora",
+        "Riesgo de inundación observado (basura en el río, alcantarilla tapada, árbol caído etc.)",
+        "Inundación leve",
+        "Inundación peligrosa",
+        "Inundación severa"
       ]
     },
     "impact": {
@@ -153,6 +153,7 @@
       "structureKey": "Kerusakan Bangunan:",
       "floodKey": "Altura de la inundación:",
       "fireKey": "Perkiraan Kebakaran:",
+      "floodCondition": "Situación",
       "impactKey": "Dampak:",
       "airQualityKey": "Kualitas Udara:",
       "visibilityKey": "Jarak Pandang:",

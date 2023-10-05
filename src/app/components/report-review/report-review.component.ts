@@ -134,6 +134,10 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
     return this.deckService.getFloodDepth();
   }
 
+  get floodConditionText() {
+    return this.deckService.getFloodSignText();
+  }
+
   get floodColor() {
     const depth = this.deckService.getFloodDepth()
 
@@ -192,6 +196,10 @@ export class ReportReviewComponent implements OnInit, AfterViewChecked {
 
   get fireKey() {
     return this.translate.instant("card.review.fireKey");
+  }
+
+  get floodCondition() {
+    return this.translate.instant("card.review.floodCondition");
   }
 
   get airQualityKey() {

@@ -54,6 +54,16 @@
     }
   }
 
+  &__flood {
+    margin: 5px 0;
+
+    &-dist {
+      margin: 2.5px 0;
+      display: block;
+      color: white;
+    }
+  }
+
   &__road {
     &-acc {
       p:first-child {
