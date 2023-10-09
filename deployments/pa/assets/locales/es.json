@@ -35,7 +35,7 @@
       "impact": "Laporkan Dampak Angin Kencang",
       "windstructure": "Laporan Kerusakan Bangunan",
 
-      "sign": "Laporkan Tanda-Tanda Gunungapi",
+      "sign": "Situación",
       "evacuationnumber": "Laporkan Evakuasi",
       "evacuationarea": "Laporkan Evakuasi",
 
@@ -116,10 +116,11 @@
       "unit": "hektar"
     },
     "sign": {
-      "description": "Cuál es tu situación ahora mismo?",
+      "description": "¿Cuál es tu situación ahora mismo?",
       "symptoms": [
         "Seco y todo seguro por ahora",
-        "Riesgo de inundación observado (basura en el río, alcantarilla tapada, árbol caído etc.)",
+        "Riesgo de inundación observado",
+        "(basura en el río, alcantarilla tapada, árbol caído etc.)",
         "Inundación leve",
         "Inundación peligrosa",
         "Inundación severa"
@@ -169,15 +170,15 @@
         "para ver más reportes y tomar decisiones a tiempo. Cuéntale a tus amigos y protege a tu comunidad."
       ],
       "subtitle": "Mau submit laporan lainnya?",
-      "acceptButton": "Yes",
-      "rejectButton": "No",
+      "acceptButton": "SI",
+      "rejectButton": "NO",
       "tips": "Klik di sini untuk tips dari BNPB",
       "subscribeText": "Terima kasih! Kami akan mengirimkan notifikasi ketika ada bencana aktif di wilayah yang anda pilih"
     },
     "swipeText": "ENVIAR",
     "reportAgainStructure": "Apakah anda ingin lanjut untuk laporkan Kerusakan Bangunan?",
     "reportAgainAccess": "Apakah anda ingin lanjut untuk laporkan akses jalan?",
-    "reportAgainFlood": "Quieres hacer otro reporte?"
+    "reportAgainFlood": "¿Quieres hacer otro reporte?"
   },
   "partner_mode_title": "Lapor sebagai Mitra Resmi?",
   "partner_mode_body1": "Siapapun dapat melaporkan bencana ke PetaBencana.id.",

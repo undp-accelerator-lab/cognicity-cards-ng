@@ -16,13 +16,18 @@ button {
   cursor: pointer;
   transition: background-color .5s;
   background-color: rgba(66, 66, 66, 0.3);
-  color: white;
   outline: none;
   -webkit-tap-highlight-color: transparent;
 
   &.button-right {
     flex-direction: row-reverse;
+    color: rgb(6, 173, 6);
   }
+
+  &.button-left {
+    color: white
+  }
+
 
   &:disabled {
     color: #888;
@@ -33,14 +38,13 @@ button {
       outline: none;
       background-color: rgb(37, 150, 190);
       border: none;
-      color: white;
     }
   }
 
   &:focus {
     outline: none;
     background-color: rgba(66, 66, 66, 0.3);
-    color: white;
+    color: rgb(6, 173, 6);
   }
 
   &::-moz-focus-inner {
