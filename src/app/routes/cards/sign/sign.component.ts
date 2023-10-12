@@ -17,7 +17,7 @@ export class SignComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.deckService.userCanBack();
+    this.deckService.userCannotBack();
 
     this.checkIsUserAbleToContinue(9);
     this.floodSigns = [
