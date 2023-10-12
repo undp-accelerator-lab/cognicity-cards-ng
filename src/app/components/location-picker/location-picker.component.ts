@@ -34,7 +34,7 @@ export class LocationPickerComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.deckService.userCannotBack()
+    this.deckService.userCanBack()
 
     this.checkIsUserAbleToContinue()
 
